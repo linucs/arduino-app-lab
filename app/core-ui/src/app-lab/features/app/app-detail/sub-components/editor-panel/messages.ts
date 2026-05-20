@@ -12,4 +12,9 @@ export const messages = defineMessages({
     defaultMessage: 'This file is view-only and can’t be edited.',
     description: 'Message shown when user tries to edit a read-only file',
   },
+  blocksSaveFailed: {
+    id: 'editor.blocks-save-failed',
+    defaultMessage: 'Failed to save blocks. Your changes were not persisted.',
+    description: 'Error toast shown when saving the Blockly sidecar fails',
+  },
 });

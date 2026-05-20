@@ -805,14 +805,26 @@ export const useAppDetailLogic: AppLabAppDetailLogic = function (
     [appId, refetchAppBricks, refetchAppYaml],
   );
 
+  // If the user clicks a `.blocks` sidecar, open its source file instead
+  // — the source's tab mode will auto-default to "blocks" because the sidecar
+  // exists. This avoids showing the user the raw JSON envelope.
+  const resolveBlocksSidecarToSource = useCallback(
+    (fileId?: string): string | undefined => {
+      if (!fileId || !fileId.endsWith('.blocks')) return fileId;
+      return fileId.slice(0, -'.blocks'.length);
+    },
+    [],
+  );
+
   const selectFileFromEditor = useCallback(
     (fileId?: string): void => {
-      if (fileId) {
-        removeFileFromPending(fileId);
+      const resolved = resolveBlocksSidecarToSource(fileId);
+      if (resolved) {
+        removeFileFromPending(resolved);
       }
-      selectFile(fileId);
+      selectFile(resolved);
     },
-    [removeFileFromPending, selectFile],
+    [removeFileFromPending, selectFile, resolveBlocksSidecarToSource],
   );
 
   const renameFileFromEditor = useCallback(
@@ -841,6 +853,7 @@ export const useAppDetailLogic: AppLabAppDetailLogic = function (
       sketchDataIsLoading,
       openFiles,
       readOnly: section === 'examples',
+      filesList,
     };
   }, [
     app?.id,
@@ -861,6 +874,7 @@ export const useAppDetailLogic: AppLabAppDetailLogic = function (
     sketchDataIsLoading,
     openFiles,
     section,
+    filesList,
   ]);
 
   useEffect(() => {
@@ -935,14 +949,15 @@ export const useAppDetailLogic: AppLabAppDetailLogic = function (
     (node: string | TreeNode | undefined) => {
       if (!node) return;
       setInitialAppBrickTab(undefined);
-      const path = typeof node === 'string' ? node : node.path;
+      const rawPath = typeof node === 'string' ? node : node.path;
+      const path = resolveBlocksSidecarToSource(rawPath) ?? rawPath;
       selectFile(path);
       removeFileFromPending(path);
 
       // Reset selectedFolder when a file is selected
       setSelectedFolderState(undefined);
     },
-    [removeFileFromPending, selectFile],
+    [removeFileFromPending, selectFile, resolveBlocksSidecarToSource],
   );
 
   const setSelectedFolder = useCallback((node: TreeNode | undefined) => {
@@ -1006,9 +1021,11 @@ export const useAppDetailLogic: AppLabAppDetailLogic = function (
 
   const useAppLabEditorPanelLogic: AppLabEditorPanelLogic =
     (): ReturnType<AppLabEditorPanelLogic> => {
-      const { editorPanelLogic } = useCreateEditorPanelLogic(
-        editorPanelLogicParams,
-      );
+      const {
+        editorPanelLogic,
+        blocksOverwriteDialogLogic,
+        blocklyPromptDialogLogic,
+      } = useCreateEditorPanelLogic(editorPanelLogicParams);
 
       const onCopyCode = useCallback(() => {
         (): void =>
@@ -1017,12 +1034,25 @@ export const useAppDetailLogic: AppLabAppDetailLogic = function (
             variant: 'success',
           });
       }, []);
+
+      const sidecarOwnedPath = selectedFile?.fileId
+        ? `${selectedFile.fileId}.blocks`
+        : undefined;
+      const sidecarOwned = !!(
+        sidecarOwnedPath &&
+        filesList?.some((file) => file.path === sidecarOwnedPath)
+      );
+
       return {
         editorPanelLogic,
         getKeywords: useKeywords,
         onCopyCode,
         openFiles: editorPanelLogicParams.openFiles,
         readOnly: editorPanelLogicParams.readOnly,
+        blocksOverwriteDialogLogic,
+        blocklyPromptDialogLogic,
+        selectedFileFullName: selectedFile?.fileFullName,
+        hasSidecar: sidecarOwned,
       };
     };
 

@@ -12,4 +12,11 @@ export const messages = defineMessages({
       ' Read-only code. Create your own app from this example to edit.',
     description: 'Label for the read only banner in the editor panel',
   },
+  readOnlyBannerBlocksOwned: {
+    id: 'app-lab-editor.read-only-banner-blocks-owned',
+    defaultMessage:
+      'Generated from blocks. Delete {sidecarFullName} to edit manually.',
+    description:
+      'Label for the read only banner shown on a source file owned by a Blockly sidecar',
+  },
 });

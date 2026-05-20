@@ -80,6 +80,8 @@ export function getAppLabFileIcon(
   extension: string,
 ): FunctionComponent<SVGProps<SVGSVGElement> & { title?: string | undefined }> {
   switch (extension) {
+    case 'blocks':
+      return Bricks;
     case 'ino':
     case 'cpp':
     case 'c':

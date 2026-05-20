@@ -1,6 +1,8 @@
 export { Themes } from '../../../themes/theme.type';
+export * from '../../blockly-editor';
 export * from '../../code-editor';
 export * from '../../code-mirror';
+export type { CodeBlocksTabMode } from '../../editor-toolbar/editor-toolbars/CodeBlocksEditorToolbar';
 export * from '../../dialogs/app-lab';
 export * from '../../editor-panel';
 export * from '../../editor-tabs-bar';
@@ -26,6 +28,8 @@ export * from './board-section';
 export * from './brick-detail';
 export * from './brick-icon';
 export * from './brick-item';
+export * from './blockly-prompt-dialog';
+export * from './blocks-overwrite-dialog';
 export * from './bricks-list';
 export * from './code-block';
 export * from './edit-section';

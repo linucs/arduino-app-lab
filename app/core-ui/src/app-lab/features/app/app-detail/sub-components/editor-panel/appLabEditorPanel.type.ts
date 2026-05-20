@@ -2,7 +2,10 @@ import {
   BrickCreateUpdateRequest,
   BrickInstance,
 } from '@cloud-editor-mono/infrastructure';
-import { SelectableFileData } from '@cloud-editor-mono/ui-components/lib/components-by-app/app-lab';
+import {
+  FileNode,
+  SelectableFileData,
+} from '@cloud-editor-mono/ui-components/lib/components-by-app/app-lab';
 
 export interface EditorPanelLogicParams {
   appId?: string;
@@ -33,4 +36,7 @@ export interface EditorPanelLogicParams {
   sketchDataIsLoading: boolean;
   openFiles: SelectableFileData[];
   readOnly: boolean;
+  // Used to detect Blockly sidecars (`<x>.<ext>.blocks`) that mark their
+  // sibling source file as blocks-owned (read-only Code tab, default Blocks tab).
+  filesList?: FileNode[];
 }

@@ -166,3 +166,29 @@ export const selectResourcePathToImport: ArduinoAppFilesService['selectResourceP
       return null;
     }
   };
+
+export const saveBlocksAndCode: ArduinoAppFilesService['saveBlocksAndCode'] =
+  async function (
+    sidecarPath: string,
+    blocksJson: string,
+    sourcePath: string,
+    generatedCode: string,
+  ) {
+    // Two sequential writes. If the second fails after the first succeeded,
+    // attempt to remove the sidecar so the source file is not left with a
+    // dangling read-only override on subsequent loads.
+    await WriteFileContent(sidecarPath, blocksJson);
+    try {
+      await WriteFileContent(sourcePath, generatedCode);
+    } catch (error) {
+      try {
+        await RemoveFile(sidecarPath);
+      } catch (rollbackError) {
+        console.error(
+          'saveBlocksAndCode: rollback of sidecar failed',
+          rollbackError,
+        );
+      }
+      throw error;
+    }
+  };

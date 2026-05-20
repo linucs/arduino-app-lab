@@ -1,7 +1,9 @@
 import { CodeEditorLogic } from '../code-editor';
+import { BlocklyEditorLogic } from '../blockly-editor';
 import { BrickDetailLogic } from '../components-by-app/app-lab';
 import { EditorControlsHandlers } from '../editor-controls/editorControls.type';
 import { TabsBarLogic } from '../editor-tabs-bar';
+import { CodeBlocksTabMode } from '../editor-toolbar/editor-toolbars/CodeBlocksEditorToolbar';
 import { SecretsEditorLogic } from '../secrets-editor';
 
 interface EditorPanelFile {
@@ -28,6 +30,15 @@ export type EditorPanelLogic = () => {
   shouldRenderMarkdown?: boolean;
   setShouldRenderMarkdown?: (value: boolean) => void;
   canSwitchMarkdownMode?: boolean;
+  // Code↔Blocks toggle (for `.ino` / `.cpp` / `.py`).
+  blocklyEditorLogic?: BlocklyEditorLogic;
+  codeBlocksTabMode?: CodeBlocksTabMode;
+  setCodeBlocksTabMode?: (mode: CodeBlocksTabMode) => void;
+  // True when the open file has a sibling `.blocks` sidecar — when true,
+  // the Code view is read-only and the file lands on Blocks by default.
+  hasSidecar?: boolean;
+  // False when the toggle should be disabled (e.g. unsaved code changes).
+  codeBlocksCanBeToggled?: boolean;
   openExternalLink?: (url: string) => void;
   readOnly?: boolean;
 } & EditorControlsProps;

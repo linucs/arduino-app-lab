@@ -1,6 +1,7 @@
 import clsx from 'clsx';
-import { memo } from 'react';
+import { memo, Suspense } from 'react';
 
+import { LazyBlocklyEditor } from '../blockly-editor';
 import { CodeEditor } from '../code-editor';
 import { KeywordMap } from '../code-mirror';
 import { BrickDetail, MarkdownReader } from '../components-by-app/app-lab';
@@ -10,9 +11,14 @@ import { EditorStatus } from '../editor-status';
 import { EditorTabsBar, SUPPORTED_IMAGE_TYPES } from '../editor-tabs-bar';
 import EditorToolbar from '../editor-toolbar/EditorToolbar';
 import { SecretsEditor } from '../secrets-editor';
+import { Skeleton } from '../skeleton';
 import styles from './editor-panel.module.scss';
 import { EditorPanelLogic } from './editorPanel.type';
 import { editorsNotification } from './EditorPanelSpec';
+
+const CODE_BLOCKS_TOGGLEABLE_EXTS = new Set(['ino', 'cpp', 'py']);
+const isCodeBlocksToggleableExt = (ext?: string): boolean =>
+  ext ? CODE_BLOCKS_TOGGLEABLE_EXTS.has(ext) : false;
 
 interface EditorPanelProps {
   editorPanelLogic: EditorPanelLogic;
@@ -47,9 +53,19 @@ const EditorPanel: React.FC<EditorPanelProps> = (props: EditorPanelProps) => {
     setShouldRenderMarkdown,
     markdownCanBeRendered,
     canSwitchMarkdownMode,
+    blocklyEditorLogic,
+    codeBlocksTabMode,
+    setCodeBlocksTabMode,
+    codeBlocksCanBeToggled,
     readOnly,
     ...rest
   } = editorPanelLogic();
+
+  const codeBlocksToggleable = isCodeBlocksToggleableExt(selectedFile?.ext);
+  const showBlocksEditor =
+    codeBlocksToggleable &&
+    codeBlocksTabMode === 'blocks' &&
+    blocklyEditorLogic !== undefined;
 
   const renderContent = (): JSX.Element => {
     if (selectedFile && selectedFile.ext === 'md' && shouldRenderMarkdown) {
@@ -100,6 +116,23 @@ const EditorPanel: React.FC<EditorPanelProps> = (props: EditorPanelProps) => {
       );
     }
 
+    if (showBlocksEditor && blocklyEditorLogic) {
+      return (
+        <Suspense
+          fallback={
+            <div className={clsx(classes?.editorCode)}>
+              <Skeleton variant="rounded" count={6} />
+            </div>
+          }
+        >
+          <LazyBlocklyEditor
+            blocklyEditorLogic={blocklyEditorLogic}
+            classes={{ container: classes?.editorCode }}
+          />
+        </Suspense>
+      );
+    }
+
     return (
       <CodeEditor
         classes={{ container: classes?.editorCode }}
@@ -140,6 +173,23 @@ const EditorPanel: React.FC<EditorPanelProps> = (props: EditorPanelProps) => {
             onToggleRender={
               canSwitchMarkdownMode ? setShouldRenderMarkdown : undefined
             }
+          />
+        )}
+        {codeBlocksToggleable && codeBlocksTabMode && (
+          <EditorToolbar
+            type="codeBlocks"
+            activeMode={codeBlocksTabMode}
+            onChangeMode={
+              codeBlocksCanBeToggled ? setCodeBlocksTabMode : undefined
+            }
+            readOnly={readOnly}
+            classes={{
+              container: styles['editor-toolbar-container'],
+              disabled:
+                codeBlocksCanBeToggled === false
+                  ? styles['editor-toolbar-disabled']
+                  : undefined,
+            }}
           />
         )}
         {renderContent()}

@@ -21,6 +21,14 @@ export interface ArduinoAppFilesService {
   moveAppFile: (fromPath: string, toPath: string) => Promise<void>;
   removeAppFile: (path: string) => Promise<void>;
   createAppFolder: (path: string) => Promise<void>;
+  // Writes a Blockly sidecar JSON and the generated source file together.
+  // On second-write failure, attempts to remove the sidecar to avoid an orphan.
+  saveBlocksAndCode: (
+    sidecarPath: string,
+    blocksJson: string,
+    sourcePath: string,
+    generatedCode: string,
+  ) => Promise<void>;
 
   getAppFileTree(path: string): Promise<TreeNode[]>;
 

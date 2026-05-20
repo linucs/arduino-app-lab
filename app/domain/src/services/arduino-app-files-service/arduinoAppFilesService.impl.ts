@@ -491,6 +491,11 @@ export let importDroppedResourceToApp: ArduinoAppFilesService['importDroppedReso
     };
   };
 
+export let saveBlocksAndCode: ArduinoAppFilesService['saveBlocksAndCode'] =
+  async function () {
+    throw new Error('saveBlocksAndCode method not implemented');
+  };
+
 export const setArduinoAppFilesService = (
   service: ArduinoAppFilesService,
 ): void => {
@@ -506,4 +511,5 @@ export const setArduinoAppFilesService = (
   selectResourcePathToImport = service.selectResourcePathToImport;
   importResourceToAppFromPath = service.importResourceToAppFromPath;
   importDroppedResourceToApp = service.importDroppedResourceToApp;
+  saveBlocksAndCode = service.saveBlocksAndCode;
 };

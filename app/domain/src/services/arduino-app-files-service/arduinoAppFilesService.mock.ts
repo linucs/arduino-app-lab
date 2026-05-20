@@ -404,6 +404,36 @@ export const MockArduinoAppFilesService: ArduinoAppFilesService = {
     fileContents.delete(path);
   },
 
+  async saveBlocksAndCode(
+    sidecarPath: string,
+    blocksJson: string,
+    sourcePath: string,
+    generatedCode: string,
+  ): Promise<void> {
+    const sidecarRelative = stripAppRoot(sidecarPath);
+    const sidecarExisted = findNodeByPath(mockRoot, sidecarRelative) !== null;
+    if (sidecarExisted) {
+      fileContents.set(sidecarPath, blocksJson);
+    } else {
+      await this.createAppFile(sidecarPath, blocksJson);
+    }
+    try {
+      fileContents.set(sourcePath, generatedCode);
+    } catch (error) {
+      try {
+        if (!sidecarExisted) {
+          await this.removeAppFile(sidecarPath);
+        }
+      } catch (rollbackError) {
+        console.error(
+          '[MockArduinoAppFilesService] sidecar rollback failed',
+          rollbackError,
+        );
+      }
+      throw error;
+    }
+  },
+
   async createAppFolder(path: string): Promise<void> {
     // path is /myapp/<relativeFolder>
     const relative = stripAppRoot(path);

@@ -1,6 +1,7 @@
 import {
   codeInjectionsSubjectNext,
   codeSubjectNext,
+  getAppFileContent,
   getBrowser,
   getCodeInjectionsSubject,
   getCodeSubjectById,
@@ -8,8 +9,15 @@ import {
   openLinkExternal,
   replaceFileNameInvalidCharacters,
   saveAppFile,
+  saveBlocksAndCode,
 } from '@cloud-editor-mono/domain/src/services/services-by-app/app-lab';
 import {
+  BlocklyDialogKind,
+  BlocklyEditorLogic,
+  BlocklyLanguage,
+  BlocklyPromptDialogLogic,
+  BlocksOverwriteDialogLogic,
+  CodeBlocksTabMode,
   CodeEditorLogic,
   EditorControlsProps,
   EditorPanelLogic,
@@ -21,7 +29,7 @@ import {
 } from '@cloud-editor-mono/ui-components/lib/components-by-app/app-lab';
 import { SecretsEditorLogic } from '@cloud-editor-mono/ui-components/lib/components-by-app/shared';
 import { EditorView } from '@codemirror/view';
-import { useMutation } from '@tanstack/react-query';
+import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { toast } from 'sonner';
 
@@ -40,6 +48,9 @@ import { getAppLabFileIcon } from '../../../../../../common/utils';
 import { makeAppBrickDetailLogic } from '../../../../../hooks/useBrickDetail';
 import { EditorPanelLogicParams } from './appLabEditorPanel.type';
 import { messages } from './messages';
+
+const BLOCKS_SIDECAR_SUFFIX = '.blocks';
+const CODE_BLOCKS_TOGGLEABLE_EXTS = new Set(['ino', 'cpp', 'py']);
 
 let hasExecutedForFile: string | undefined;
 
@@ -63,8 +74,24 @@ function getDataFromFile(
   return () => selectedFileValue;
 }
 
+const isBlocksToggleableExt = (ext?: string): boolean =>
+  ext ? CODE_BLOCKS_TOGGLEABLE_EXTS.has(ext) : false;
+
+const sidecarPathForSource = (sourceFileId: string): string =>
+  `${sourceFileId}${BLOCKS_SIDECAR_SUFFIX}`;
+
+const sourceFromSidecarPath = (sidecarPath: string): string | undefined => {
+  if (!sidecarPath.endsWith(BLOCKS_SIDECAR_SUFFIX)) return undefined;
+  return sidecarPath.slice(0, -BLOCKS_SIDECAR_SUFFIX.length);
+};
+
+const blocklyLanguageForExt = (ext?: string): BlocklyLanguage =>
+  ext === 'py' ? 'python' : 'cpp';
+
 type UseCreateEditorPanelLogic = (params: EditorPanelLogicParams) => {
   editorPanelLogic: EditorPanelLogic;
+  blocksOverwriteDialogLogic: BlocksOverwriteDialogLogic;
+  blocklyPromptDialogLogic: BlocklyPromptDialogLogic;
 };
 
 export const useCreateEditorPanelLogic: UseCreateEditorPanelLogic = function (
@@ -85,11 +112,36 @@ export const useCreateEditorPanelLogic: UseCreateEditorPanelLogic = function (
     unsavedFileIds,
     openFiles: tabs,
     readOnly,
+    filesList,
   } = params;
 
   const [shouldRenderMarkdown, setShouldRenderMarkdown] = useState(true);
+  const [codeBlocksTabOverrides, setCodeBlocksTabOverrides] = useState<
+    Map<string, CodeBlocksTabMode>
+  >(new Map());
+  const [sidecarContents, setSidecarContents] = useState<Map<string, string>>(
+    new Map(),
+  );
+
+  const queryClient = useQueryClient();
   const { formatMessage } = useI18n();
   const filesWithToastShown = useRef<Set<string>>(new Set());
+
+  // Set of source-file paths that have a sibling `<x>.blocks` sidecar.
+  const sidecarSourceSet = useMemo<Set<string>>(() => {
+    const set = new Set<string>();
+    filesList?.forEach((f) => {
+      const source = sourceFromSidecarPath(f.path);
+      if (source) set.add(source);
+    });
+    return set;
+  }, [filesList]);
+
+  const hasSidecar = useCallback(
+    (fileId?: string): boolean =>
+      fileId ? sidecarSourceSet.has(fileId) : false,
+    [sidecarSourceSet],
+  );
 
   const isReadonlyFile = (selectedFile?: SelectableFileData): boolean => {
     const readonlyFiles = ['app.yaml', 'sketch/sketch.yaml'];
@@ -144,6 +196,285 @@ export const useCreateEditorPanelLogic: UseCreateEditorPanelLogic = function (
       filesWithToastShown.current.add(fileId);
     }
   }, [selectedFile, readOnly, formatMessage, tabs]);
+
+  // Lazily fetch the sidecar content for the currently selected file if it
+  // is blocks-owned and we haven't already cached its content.
+  useEffect(() => {
+    const fileId = selectedFile?.fileId;
+    if (!fileId || !appPath) return;
+    if (!hasSidecar(fileId)) return;
+    if (sidecarContents.has(fileId)) return;
+    let cancelled = false;
+    (async () => {
+      try {
+        const sidecarFullPath = `${appPath}/${sidecarPathForSource(fileId)}`;
+        const raw = await getAppFileContent(sidecarFullPath);
+        if (cancelled) return;
+        setSidecarContents((prev) => {
+          const next = new Map(prev);
+          next.set(fileId, raw);
+          return next;
+        });
+      } catch (error) {
+        console.error('Failed to load Blockly sidecar', error);
+      }
+    })();
+    return () => {
+      cancelled = true;
+    };
+  }, [selectedFile?.fileId, appPath, hasSidecar, sidecarContents]);
+
+  // Drop cached sidecar content if its source file no longer has a sidecar
+  // (e.g. user deleted the `.blocks` from the file tree). Gated on
+  // `sidecarSourceSet` only — gating on `sidecarContents` too would race with
+  // `saveBlocks`, which adds the cache entry before `invalidateQueries`
+  // refetches the file tree. In that window `sidecarSourceSet` is stale and
+  // would cause the just-saved entry to be evicted, forcing an IPC re-fetch
+  // and a visible workspace clear → reload after the first block drop.
+  useEffect(() => {
+    setSidecarContents((prev) => {
+      if (prev.size === 0) return prev;
+      let changed = false;
+      const next = new Map(prev);
+      prev.forEach((_, fileId) => {
+        if (!sidecarSourceSet.has(fileId)) {
+          next.delete(fileId);
+          changed = true;
+        }
+      });
+      return changed ? next : prev;
+    });
+  }, [sidecarSourceSet]);
+
+  // Derived: effective tab mode for the open file (override > sidecar-driven default).
+  const effectiveTabMode: CodeBlocksTabMode | undefined = useMemo(() => {
+    const ext = selectedFile?.fileExtension;
+    if (!selectedFile || !isBlocksToggleableExt(ext)) return undefined;
+    const override = codeBlocksTabOverrides.get(selectedFile.fileId);
+    if (override) return override;
+    return hasSidecar(selectedFile.fileId) ? 'blocks' : 'code';
+  }, [selectedFile, codeBlocksTabOverrides, hasSidecar]);
+
+  const setCodeBlocksTabMode = useCallback(
+    (mode: CodeBlocksTabMode) => {
+      if (!selectedFile) return;
+      setCodeBlocksTabOverrides((prev) => {
+        const next = new Map(prev);
+        next.set(selectedFile.fileId, mode);
+        return next;
+      });
+    },
+    [selectedFile],
+  );
+
+  // BlocksOverwriteDialog state. The dialog resolves a Promise we hold here so
+  // the BlocklyEditor's `onFirstBlockDrop` can await user confirmation.
+  const [blocksDialogOpen, setBlocksDialogOpen] = useState(false);
+  const dialogResolverRef = useRef<((approved: boolean) => void) | null>(null);
+  const dialogTargetRef = useRef<{
+    sourceFullName: string;
+    sidecarFullName: string;
+  } | null>(null);
+
+  const openOverwriteDialog = useCallback((): Promise<boolean> => {
+    if (!selectedFile) return Promise.resolve(false);
+    dialogTargetRef.current = {
+      sourceFullName: selectedFile.fileFullName,
+      sidecarFullName: `${selectedFile.fileFullName}${BLOCKS_SIDECAR_SUFFIX}`,
+    };
+    setBlocksDialogOpen(true);
+    return new Promise<boolean>((resolve) => {
+      dialogResolverRef.current = resolve;
+    });
+  }, [selectedFile]);
+
+  const resolveDialog = useCallback((approved: boolean) => {
+    const resolver = dialogResolverRef.current;
+    dialogResolverRef.current = null;
+    setBlocksDialogOpen(false);
+    if (resolver) resolver(approved);
+  }, []);
+
+  const blocksOverwriteDialogLogic: BlocksOverwriteDialogLogic = useCallback(
+    () => ({
+      sourceFullName: dialogTargetRef.current?.sourceFullName ?? '',
+      sidecarFullName: dialogTargetRef.current?.sidecarFullName ?? '',
+      reactModalProps: {
+        isOpen: blocksDialogOpen,
+        onRequestClose: () => resolveDialog(false),
+        ariaHideApp: false,
+      },
+      setIsOpen: setBlocksDialogOpen,
+      confirmAction: () => resolveDialog(true),
+      cancelAction: () => resolveDialog(false),
+      isLoading: false,
+    }),
+    [blocksDialogOpen, resolveDialog],
+  );
+
+  // BlocklyPromptDialog state. Replaces Blockly's default `window.prompt`/
+  // `alert`/`confirm` calls (no-ops in Wails webviews) with a React modal that
+  // resolves a Promise consumed by the wrappers we hand to
+  // `Blockly.dialog.set*` inside `BlocklyEditor`.
+  const [blocklyDialogOpen, setBlocklyDialogOpen] = useState(false);
+  const [blocklyDialogKind, setBlocklyDialogKind] =
+    useState<BlocklyDialogKind>('alert');
+  const [blocklyDialogMessage, setBlocklyDialogMessage] = useState('');
+  const [blocklyDialogInput, setBlocklyDialogInput] = useState('');
+  const blocklyDialogResolverRef = useRef<((approved: boolean) => void) | null>(
+    null,
+  );
+  // Mirrors `blocklyDialogInput` so the resolver — captured at open() time —
+  // can read the latest input on confirm without going through a re-render.
+  const blocklyDialogInputRef = useRef('');
+  useEffect(() => {
+    blocklyDialogInputRef.current = blocklyDialogInput;
+  }, [blocklyDialogInput]);
+
+  const resolveBlocklyDialog = useCallback(
+    (approved: boolean): void => {
+      const resolver = blocklyDialogResolverRef.current;
+      blocklyDialogResolverRef.current = null;
+      setBlocklyDialogOpen(false);
+      if (resolver) resolver(approved);
+    },
+    [],
+  );
+
+  const blocklyPrompt = useCallback(
+    (message: string, defaultValue: string): Promise<string | null> => {
+      setBlocklyDialogKind('prompt');
+      setBlocklyDialogMessage(message);
+      setBlocklyDialogInput(defaultValue ?? '');
+      blocklyDialogInputRef.current = defaultValue ?? '';
+      setBlocklyDialogOpen(true);
+      return new Promise<string | null>((resolve) => {
+        blocklyDialogResolverRef.current = (approved: boolean): void => {
+          resolve(approved ? blocklyDialogInputRef.current : null);
+        };
+      });
+    },
+    [],
+  );
+
+  const blocklyAlert = useCallback((message: string): Promise<void> => {
+    setBlocklyDialogKind('alert');
+    setBlocklyDialogMessage(message);
+    setBlocklyDialogOpen(true);
+    return new Promise<void>((resolve) => {
+      blocklyDialogResolverRef.current = (): void => resolve();
+    });
+  }, []);
+
+  const blocklyConfirm = useCallback((message: string): Promise<boolean> => {
+    setBlocklyDialogKind('confirm');
+    setBlocklyDialogMessage(message);
+    setBlocklyDialogOpen(true);
+    return new Promise<boolean>((resolve) => {
+      blocklyDialogResolverRef.current = (approved: boolean): void =>
+        resolve(approved);
+    });
+  }, []);
+
+  const blocklyPromptDialogLogic: BlocklyPromptDialogLogic = useCallback(
+    () => ({
+      kind: blocklyDialogKind,
+      message: blocklyDialogMessage,
+      inputValue: blocklyDialogInput,
+      setInputValue: setBlocklyDialogInput,
+      reactModalProps: {
+        isOpen: blocklyDialogOpen,
+        onRequestClose: () => resolveBlocklyDialog(false),
+        ariaHideApp: false,
+      },
+      setIsOpen: setBlocklyDialogOpen,
+      confirmAction: () => resolveBlocklyDialog(true),
+      cancelAction: () => resolveBlocklyDialog(false),
+    }),
+    [
+      blocklyDialogKind,
+      blocklyDialogMessage,
+      blocklyDialogInput,
+      blocklyDialogOpen,
+      resolveBlocklyDialog,
+    ],
+  );
+
+  // Save handler: writes both sidecar and regenerated source atomically, then
+  // invalidates the file tree so React Query re-evaluates the sidecar set.
+  const saveBlocks = useCallback(
+    async (fileId: string, blocksJson: string, generatedCode: string) => {
+      if (!appPath) return;
+      const sidecarFullPath = `${appPath}/${sidecarPathForSource(fileId)}`;
+      const sourceFullPath = `${appPath}/${fileId}`;
+      try {
+        await saveBlocksAndCode(
+          sidecarFullPath,
+          blocksJson,
+          sourceFullPath,
+          generatedCode,
+        );
+        setSidecarContents((prev) => {
+          const next = new Map(prev);
+          next.set(fileId, blocksJson);
+          return next;
+        });
+        await queryClient.invalidateQueries(['app-files', appId]);
+      } catch (error) {
+        console.error('saveBlocksAndCode failed', error);
+        snackbar({
+          message: formatMessage(messages.blocksSaveFailed),
+          variant: 'error',
+          opts: { duration: 3000 },
+        });
+      }
+    },
+    [appPath, appId, queryClient, formatMessage],
+  );
+
+  // BlocklyEditor logic factory. Returns undefined when we know we're waiting
+  // for an in-flight sidecar fetch — the EditorPanel will keep the editor
+  // un-mounted until the content is ready, avoiding an "empty workspace" flash
+  // for a file that actually has saved blocks.
+  const blocklyEditorLogic: BlocklyEditorLogic | undefined = useMemo(() => {
+    if (!selectedFile) return undefined;
+    const ext = selectedFile.fileExtension;
+    if (!isBlocksToggleableExt(ext)) return undefined;
+    const fileId = selectedFile.fileId;
+    const sidecarExists = hasSidecar(fileId);
+    const cachedContent = sidecarContents.get(fileId);
+    if (sidecarExists && cachedContent === undefined) {
+      // Still loading the sidecar content.
+      return undefined;
+    }
+    const language = blocklyLanguageForExt(ext);
+    return () => ({
+      language,
+      fileId,
+      initialBlocks: cachedContent,
+      readOnly: readOnly,
+      onBlocksChange: (blocksJson: string, generatedCode: string) =>
+        saveBlocks(fileId, blocksJson, generatedCode),
+      onFirstBlockDrop: openOverwriteDialog,
+      onPrompt: blocklyPrompt,
+      onAlert: blocklyAlert,
+      onConfirm: blocklyConfirm,
+    });
+  }, [
+    selectedFile,
+    hasSidecar,
+    sidecarContents,
+    readOnly,
+    saveBlocks,
+    openOverwriteDialog,
+    blocklyPrompt,
+    blocklyAlert,
+    blocklyConfirm,
+  ]);
+
+  const codeBlocksCanBeToggled = !(
+    selectedFile?.fileId && unsavedFileIds?.has(selectedFile.fileId)
+  );
 
   const useTabsBarLogic = (): ReturnType<TabsBarLogic> => {
     const browser = getBrowser();
@@ -271,6 +602,10 @@ export const useCreateEditorPanelLogic: UseCreateEditorPanelLogic = function (
   const useCodeEditorLogic = (): ReturnType<CodeEditorLogic> => {
     useCodeInjectionsObservable(getCodeInjectionsSubject);
 
+    const blocksOwned = hasSidecar(selectedFile?.fileId);
+    const codeReadOnly =
+      readOnly || isReadonlyFile(selectedFile) || blocksOwned;
+
     return {
       setCode,
       sketchDataIsLoading,
@@ -310,12 +645,12 @@ export const useCreateEditorPanelLogic: UseCreateEditorPanelLogic = function (
         .filter((id): id is string => Boolean(id)),
       onReceiveViewInstance,
       fontSize: 12,
-      readOnly: readOnly || isReadonlyFile(selectedFile),
-      showReadOnlyBanner: readOnly,
+      readOnly: codeReadOnly,
+      showReadOnlyBanner: readOnly || blocksOwned,
       hasHeader: false,
       hasTabs: true,
       useScrollPastEnd: true,
-      gutter: readOnly ? undefined : { lineNumberStartOffset: 0 },
+      gutter: { lineNumberStartOffset: 0 },
     };
   };
 
@@ -327,6 +662,7 @@ export const useCreateEditorPanelLogic: UseCreateEditorPanelLogic = function (
     setCode,
     sketchDataIsLoading,
     tabs,
+    hasSidecar,
   ]);
 
   const useSecretsEditorLogic = (): ReturnType<SecretsEditorLogic> => {
@@ -393,6 +729,11 @@ export const useCreateEditorPanelLogic: UseCreateEditorPanelLogic = function (
       canSwitchMarkdownMode: !(
         selectedFile?.fileId && unsavedFileIds?.has(selectedFile?.fileId)
       ),
+      blocklyEditorLogic,
+      codeBlocksTabMode: effectiveTabMode,
+      setCodeBlocksTabMode,
+      codeBlocksCanBeToggled,
+      hasSidecar: hasSidecar(selectedFile?.fileId),
       readOnly,
     };
   };
@@ -408,9 +749,16 @@ export const useCreateEditorPanelLogic: UseCreateEditorPanelLogic = function (
     openExternalLink,
     unsavedFileIds,
     readOnly,
+    blocklyEditorLogic,
+    effectiveTabMode,
+    setCodeBlocksTabMode,
+    codeBlocksCanBeToggled,
+    hasSidecar,
   ]);
 
   return {
     editorPanelLogic,
+    blocksOverwriteDialogLogic,
+    blocklyPromptDialogLogic,
   };
 };
