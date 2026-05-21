@@ -1,0 +1,3349 @@
+{
+  "addAppBrick.cancelButton": {
+    "defaultMessage": "Cancel",
+    "description": "Text for cancel button in add app brick dialog"
+  },
+  "addAppBrick.checkButton": {
+    "defaultMessage": "Check usage examples",
+    "description": "Text for check usage examples button in add app brick dialog"
+  },
+  "addAppBrick.confirmButton": {
+    "defaultMessage": "Add brick",
+    "description": "Text for confirm button in add app brick dialog"
+  },
+  "addAppBrick.successDescription": {
+    "defaultMessage": "Next steps:",
+    "description": "Description shown when an app brick is successfully added"
+  },
+  "addAppBrick.successStep1": {
+    "defaultMessage": "Check <bold>usage examples</bold>",
+    "description": "First step shown when an app brick is successfully added"
+  },
+  "addAppBrick.successStep2": {
+    "defaultMessage": "<bold>Copy</bold> the code you need in <bold>main.py</bold>",
+    "description": "Second step shown when an app brick is successfully added"
+  },
+  "addAppBrick.successTitle": {
+    "defaultMessage": "Success",
+    "description": "Title shown when an app brick is successfully added"
+  },
+  "addAppBrick.title": {
+    "defaultMessage": "Add App Brick",
+    "description": "Title of add app brick dialog"
+  },
+  "addSketchLibrary.search": {
+    "defaultMessage": "Search library",
+    "description": "Placeholder for the text input in the library search dialog"
+  },
+  "addSketchLibrary.title": {
+    "defaultMessage": "Add sketch library",
+    "description": "Title of the library search dialog"
+  },
+  "aiModel.eiProjectID": {
+    "defaultMessage": "EI Project ID: {id}",
+    "description": "Label for the EI Project ID"
+  },
+  "aiModel.lessInfo": {
+    "defaultMessage": "- Less info",
+    "description": "Label for the button to show less info"
+  },
+  "aiModel.modelCard": {
+    "defaultMessage": "Model card",
+    "description": "Label for the model card"
+  },
+  "aiModel.moreInfo": {
+    "defaultMessage": "+ More info",
+    "description": "Label for the button to show more info"
+  },
+  "aiModel.source": {
+    "defaultMessage": "Source: {source}",
+    "description": "Label for the source"
+  },
+  "app-detail.app-is-running": {
+    "defaultMessage": "App is now running",
+    "description": "Notification message shown when the app starts running"
+  },
+  "app-detail.app-is-stopped": {
+    "defaultMessage": "App is now stopped",
+    "description": "Notification message shown when the app stops running"
+  },
+  "app-detail.code-copied": {
+    "defaultMessage": "Code copied to clipboard",
+    "description": "Notification message shown when code is copied to clipboard"
+  },
+  "app-detail.copy-and-edit-button": {
+    "defaultMessage": "Copy and edit app",
+    "description": "Button text to copy and edit an example app"
+  },
+  "app-detail.failed-add-brick": {
+    "defaultMessage": "Failed to add brick",
+    "description": "Notification message shown when brick addition fails"
+  },
+  "app-detail.failed-add-library": {
+    "defaultMessage": "Failed to add library",
+    "description": "Notification message shown when library addition fails"
+  },
+  "app-detail.failed-create-file": {
+    "defaultMessage": "Failed to create file",
+    "description": "Notification message shown when file creation fails"
+  },
+  "app-detail.failed-delete-app": {
+    "defaultMessage": "Failed to delete app",
+    "description": "Notification message shown when app deletion fails"
+  },
+  "app-detail.failed-delete-brick": {
+    "defaultMessage": "Failed to delete brick",
+    "description": "Notification message shown when brick deletion fails"
+  },
+  "app-detail.failed-delete-file": {
+    "defaultMessage": "Failed to delete file",
+    "description": "Notification message shown when file deletion fails"
+  },
+  "app-detail.failed-delete-library": {
+    "defaultMessage": "Failed to delete library",
+    "description": "Notification message shown when library deletion fails"
+  },
+  "app-detail.failed-duplicate-app": {
+    "defaultMessage": "Failed to duplicate app",
+    "description": "Notification message shown when app duplication fails"
+  },
+  "app-detail.successfully-added-brick": {
+    "defaultMessage": "Brick added successfully",
+    "description": "Notification message shown when a brick is added"
+  },
+  "app-detail.successfully-added-library": {
+    "defaultMessage": "Library added successfully",
+    "description": "Notification message shown when a library is added"
+  },
+  "app-detail.successfully-created-file": {
+    "defaultMessage": "File created successfully",
+    "description": "Notification message shown when a file is created"
+  },
+  "app-detail.successfully-deleted-app": {
+    "defaultMessage": "App deleted successfully",
+    "description": "Notification message shown when an app is deleted"
+  },
+  "app-detail.successfully-deleted-brick": {
+    "defaultMessage": "Brick deleted successfully",
+    "description": "Notification message shown when a brick is deleted"
+  },
+  "app-detail.successfully-deleted-file": {
+    "defaultMessage": "File deleted successfully",
+    "description": "Notification message shown when a file is deleted"
+  },
+  "app-detail.successfully-deleted-library": {
+    "defaultMessage": "Library deleted successfully",
+    "description": "Notification message shown when a library is deleted"
+  },
+  "app-detail.successfully-duplicated-app": {
+    "defaultMessage": "App duplicated successfully",
+    "description": "Notification message shown when an app is duplicated"
+  },
+  "app-files-section.add-brick-button": {
+    "defaultMessage": "Add Brick",
+    "description": "Button text to add a new brick to the app"
+  },
+  "app-files-section.add-file-button": {
+    "defaultMessage": "Add File",
+    "description": "Button text to add a new file to the app"
+  },
+  "app-files-section.add-sketch-library-button": {
+    "defaultMessage": "Add Sketch Library",
+    "description": "Button text to add a new sketch library to the app"
+  },
+  "app-files-section.bricks-label": {
+    "defaultMessage": "Bricks",
+    "description": "Label for the Bricks section in the App Files Section"
+  },
+  "app-files-section.example-readonly": {
+    "defaultMessage": "Items can't be added in examples",
+    "description": "Message shown on disabled action buttons for examples"
+  },
+  "app-files-section.files-label": {
+    "defaultMessage": "Files",
+    "description": "Label for the Files section in the App Files Section"
+  },
+  "app-files-section.no-bricks-added-yet": {
+    "defaultMessage": "No bricks added yet",
+    "description": "Message shown when there are no bricks added to the app"
+  },
+  "app-files-section.no-sketch-libraries-added-yet": {
+    "defaultMessage": "No sketch libraries added yet",
+    "description": "Message shown when there are no sketch libraries added to the app"
+  },
+  "app-files-section.sidebar-collapse": {
+    "defaultMessage": "Collapse",
+    "description": "Label sidebar toggle button"
+  },
+  "app-files-section.sidebar-expand": {
+    "defaultMessage": "Expand",
+    "description": "Label sidebar toggle button"
+  },
+  "app-files-section.sketch-libraries-label": {
+    "defaultMessage": "Sketch Libraries",
+    "description": "Label for the Sketch Libraries section in the App Files Section"
+  },
+  "app-lab-editor.code-copied": {
+    "defaultMessage": "Code copied to clipboard",
+    "description": "Notification message shown when code is copied to clipboard"
+  },
+  "app-lab-editor.read-only-banner": {
+    "defaultMessage": "Read-only code. Create your own app from this example to edit.",
+    "description": "Label for the read only banner in the editor panel"
+  },
+  "app-lab-editor.read-only-banner-blocks-owned": {
+    "defaultMessage": "Generated from blocks. Delete {sidecarFullName} to edit manually.",
+    "description": "Label for the read only banner shown on a source file owned by a Blockly sidecar"
+  },
+  "app-lab.app-welcome-dialog.confirm-button": {
+    "defaultMessage": "Ok, got it",
+    "description": "Text for the confirmation button"
+  },
+  "app-lab.app-welcome-dialog.content-title": {
+    "defaultMessage": "Ready to Build? Explore App Lab's Core Concepts",
+    "description": "Main content title in the welcome dialog"
+  },
+  "app-lab.app-welcome-dialog.features.apps.description": {
+    "defaultMessage": "Now you can build apps that seamlessly blend Python on Linux with C as a Sketch.",
+    "description": "Feature description for Apps section"
+  },
+  "app-lab.app-welcome-dialog.features.apps.title": {
+    "defaultMessage": "Apps",
+    "description": "Feature title for Apps section"
+  },
+  "app-lab.app-welcome-dialog.features.brick.description": {
+    "defaultMessage": "Ready-to-use components that handle everything from AI-powered computer vision, audio and data storage. Just add them into your project to unlock powerful functionalities.",
+    "description": "Feature description for Bricks section"
+  },
+  "app-lab.app-welcome-dialog.features.brick.title": {
+    "defaultMessage": "Bricks",
+    "description": "Feature title for Bricks section"
+  },
+  "app-lab.app-welcome-dialog.features.examples.description": {
+    "defaultMessage": "The perfect starting point for beginners. Each example is a simple app that shows you how to combine Bricks to get powerful results with just a few lines of code.",
+    "description": "Feature description for Examples section"
+  },
+  "app-lab.app-welcome-dialog.features.examples.title": {
+    "defaultMessage": "Examples",
+    "description": "Feature title for Examples section"
+  },
+  "app-lab.app-welcome-dialog.title": {
+    "defaultMessage": "Welcome to Arduino App Lab",
+    "description": "Title shown on the app welcome dialog"
+  },
+  "app-lab.board-update-dialog.arduino-app-lab": {
+    "defaultMessage": "Arduino App Lab (on PC)",
+    "description": "Label for Arduino App Lab update section"
+  },
+  "app-lab.board-update-dialog.arduino-flasher-tool": {
+    "defaultMessage": "Arduino Flasher Tool",
+    "description": "Link text for Arduino Flasher Tool"
+  },
+  "app-lab.board-update-dialog.arduino-support": {
+    "defaultMessage": "Arduino Support.",
+    "description": "Link text for Arduino Support"
+  },
+  "app-lab.board-update-dialog.change-network": {
+    "defaultMessage": "Change Network",
+    "description": "Button text to change network settings to allow update check"
+  },
+  "app-lab.board-update-dialog.checking-failed": {
+    "defaultMessage": "Update failed",
+    "description": "Status text shown when the update has failed"
+  },
+  "app-lab.board-update-dialog.checking-failed-description": {
+    "defaultMessage": "If problem persists try flashing the latest OS image using",
+    "description": "Description text for update failure"
+  },
+  "app-lab.board-update-dialog.checking-for-updates": {
+    "defaultMessage": "Looking for updates...",
+    "description": "Status text shown when the updater is checking for updates"
+  },
+  "app-lab.board-update-dialog.checking-for-updates-description": {
+    "defaultMessage": "Gathering fresh system bits. Almost there!",
+    "description": "Additional info text shown when checking for updates"
+  },
+  "app-lab.board-update-dialog.hide-details": {
+    "defaultMessage": "Hide update details",
+    "description": "Button text to hide update details"
+  },
+  "app-lab.board-update-dialog.install-update": {
+    "defaultMessage": "Install updates",
+    "description": "Button text to install the available update"
+  },
+  "app-lab.board-update-dialog.installed": {
+    "defaultMessage": "Installed",
+    "description": "Status text shown when installation is complete"
+  },
+  "app-lab.board-update-dialog.installing": {
+    "defaultMessage": "Installing",
+    "description": "Status text shown when installing"
+  },
+  "app-lab.board-update-dialog.or-contact": {
+    "defaultMessage": "or contact",
+    "description": "Text between flasher tool and support links"
+  },
+  "app-lab.board-update-dialog.restart": {
+    "defaultMessage": "Restart App Lab",
+    "description": "Button text to restart the app lab after update"
+  },
+  "app-lab.board-update-dialog.retry": {
+    "defaultMessage": "Retry",
+    "description": "Button text to retry checking for updates"
+  },
+  "app-lab.board-update-dialog.show-details": {
+    "defaultMessage": "Show update details",
+    "description": "Button text to show update details"
+  },
+  "app-lab.board-update-dialog.skip-update": {
+    "defaultMessage": "Skip",
+    "description": "Button text to skip the update and close the dialog"
+  },
+  "app-lab.board-update-dialog.software-update": {
+    "defaultMessage": "{boardModel} Software update",
+    "description": "Label for software update section"
+  },
+  "app-lab.board-update-dialog.title": {
+    "defaultMessage": "Updates Available",
+    "description": "Title shown on the board update dialog for updates"
+  },
+  "app-lab.board-update-dialog.update-completed": {
+    "defaultMessage": "Update complete",
+    "description": "Status text shown when the update has been installed successfully"
+  },
+  "app-lab.board-update-dialog.update-failed": {
+    "defaultMessage": "Update failed, try again or check out error details",
+    "description": "Status text shown when the update has failed"
+  },
+  "app-lab.board-update-dialog.update-installing": {
+    "defaultMessage": "Installing updates...",
+    "description": "Status text shown when the update is being installed"
+  },
+  "app-lab.board-update-dialog.version": {
+    "defaultMessage": "Version",
+    "description": "Version label prefix"
+  },
+  "app-lab.export-app-dialog.body-description": {
+    "defaultMessage": "Download a package with your <strong>app code</strong>, <strong>assets</strong>, <strong>configuration</strong>, and <strong>dependencies</strong>. Share it, move it to another board, or upload it to Project Hub.",
+    "description": "Description of what will be exported"
+  },
+  "app-lab.export-app-dialog.body-title": {
+    "defaultMessage": "Export your {appName} App",
+    "description": "Title in the body of the export dialog"
+  },
+  "app-lab.export-app-dialog.cancel-button": {
+    "defaultMessage": "Cancel",
+    "description": "Cancel button text"
+  },
+  "app-lab.export-app-dialog.confirm-button": {
+    "defaultMessage": "Export .zip",
+    "description": "Confirm button text to export the app as zip"
+  },
+  "app-lab.export-app-dialog.error-label": {
+    "defaultMessage": "Error:",
+    "description": "Label for error details"
+  },
+  "app-lab.export-app-dialog.export-failed": {
+    "defaultMessage": "This App is invalid",
+    "description": "Title shown when export fails"
+  },
+  "app-lab.export-app-dialog.export-failed-description": {
+    "defaultMessage": "This app is broken or misconfigured.",
+    "description": "Description shown when export fails"
+  },
+  "app-lab.export-app-dialog.go-back-button": {
+    "defaultMessage": "Go back to App",
+    "description": "Button text to close the error dialog"
+  },
+  "app-lab.export-app-dialog.include-data-label": {
+    "defaultMessage": "Include data associated with the App",
+    "description": "Label for the checkbox to include app data"
+  },
+  "app-lab.export-app-dialog.include-data-tooltip-content": {
+    "defaultMessage": "When enabled, any data stored by your app will be included in the export package.",
+    "description": "Content for the tooltip explaining app data inclusion"
+  },
+  "app-lab.export-app-dialog.include-data-tooltip-title": {
+    "defaultMessage": "App Data",
+    "description": "Title for the tooltip explaining app data inclusion"
+  },
+  "app-lab.export-app-dialog.title": {
+    "defaultMessage": "Export app",
+    "description": "Title of the export app dialog"
+  },
+  "app-lab.flash-board-dialog.description": {
+    "defaultMessage": "Your board needs an update to support the latest App Lab features. Make sure you have at least <bold>10 GB of free space</bold> on your computer. Check our <link>tutorial.</link>",
+    "description": "Description shown on the software updates dialog"
+  },
+  "app-lab.flash-board-dialog.skip-button": {
+    "defaultMessage": "Remind me later",
+    "description": "Label for the skip button on the intro dialog"
+  },
+  "app-lab.flash-board-dialog.subtitle": {
+    "defaultMessage": "Your board software is a bit behind",
+    "description": "Subtitle shown on the software updates dialog"
+  },
+  "app-lab.flash-board-dialog.title": {
+    "defaultMessage": "Software updates",
+    "description": "Title shown on the software updates dialog"
+  },
+  "app-lab.flash-board-dialog.update-button": {
+    "defaultMessage": "Update",
+    "description": "Label for the update button on the intro dialog"
+  },
+  "app-lab.import-app-dialog.drag-drop": {
+    "defaultMessage": "Drag & drop your file here",
+    "description": "Text for drag and drop area"
+  },
+  "app-lab.import-app-dialog.error-label": {
+    "defaultMessage": "Error:",
+    "description": "Label for error details"
+  },
+  "app-lab.import-app-dialog.go-to-my-app": {
+    "defaultMessage": "Go back to Apps",
+    "description": "Button text to close error dialog"
+  },
+  "app-lab.import-app-dialog.import-from-computer": {
+    "defaultMessage": "Import from computer",
+    "description": "Button text to open file picker"
+  },
+  "app-lab.import-app-dialog.or": {
+    "defaultMessage": "or",
+    "description": "Text between drag drop and button"
+  },
+  "app-lab.import-app-dialog.process-takes-time": {
+    "defaultMessage": "just few seconds...",
+    "description": "Text shown during upload process"
+  },
+  "app-lab.import-app-dialog.support-zip": {
+    "defaultMessage": "Only .zip files supported",
+    "description": "Text indicating supported file types"
+  },
+  "app-lab.import-app-dialog.title": {
+    "defaultMessage": "Import an App",
+    "description": "Title of the import app dialog"
+  },
+  "app-lab.import-app-dialog.upload-description-line1": {
+    "defaultMessage": "Import an App Lab project.",
+    "description": "First line of import description"
+  },
+  "app-lab.import-app-dialog.upload-description-line2": {
+    "defaultMessage": "The app will be added to your workspace with its files, Bricks, and libraries.",
+    "description": "Second line of import description"
+  },
+  "app-lab.import-app-dialog.upload-failed": {
+    "defaultMessage": "This App is invalid",
+    "description": "Title shown when upload fails"
+  },
+  "app-lab.import-app-dialog.upload-failed-description": {
+    "defaultMessage": "This app is broken or misconfigured.",
+    "description": "Description shown when upload fails"
+  },
+  "app-lab.import-app-dialog.upload-title": {
+    "defaultMessage": "Upload local App files",
+    "description": "Title for the upload section"
+  },
+  "app-lab.import-app-dialog.uploading-file": {
+    "defaultMessage": "Uploading file",
+    "description": "Text shown during upload"
+  },
+  "app-lab.whats-new-ad-hoc.close": {
+    "defaultMessage": "Close",
+    "description": "Close CTA"
+  },
+  "app-lab.whats-new-ad-hoc.title": {
+    "defaultMessage": "What's new",
+    "description": "Title shown on the ad hoc what's new dialog"
+  },
+  "app.account.arduinoCloud": {
+    "defaultMessage": "Arduino Cloud integration",
+    "description": "Description for the Arduino Cloud integration feature on the login form"
+  },
+  "app.account.connectedBoards": {
+    "defaultMessage": "Publish your project to Project Hub in one click",
+    "description": "Description for the connected boards feature on the login form"
+  },
+  "app.account.customAiModels": {
+    "defaultMessage": "AI Models training with Edge Impulse",
+    "description": "Description for the custom AI models feature on the login form"
+  },
+  "app.account.emailLabel": {
+    "defaultMessage": "Email",
+    "description": "Label for the email field"
+  },
+  "app.account.fullNameLabel": {
+    "defaultMessage": "Full Name",
+    "description": "Label for the full name field"
+  },
+  "app.account.logoutLabel": {
+    "defaultMessage": "Log Out",
+    "description": "Text for the log out button on the login form"
+  },
+  "app.account.personalInfo": {
+    "defaultMessage": "Personal Information",
+    "description": "Title for the personal information section"
+  },
+  "app.account.setupSubtitle": {
+    "defaultMessage": "Create or sign in with your Arduino account to unlock the full App Lab experience.",
+    "description": "Subtitle for the login form"
+  },
+  "app.account.setupTitle": {
+    "defaultMessage": "Sign in with Arduino to access all App Lab features.",
+    "description": "Title for the login form"
+  },
+  "app.account.signInButton": {
+    "defaultMessage": "Sign In with Arduino",
+    "description": "Text for the sign in button on the login form"
+  },
+  "app.account.subtitle": {
+    "defaultMessage": "By signing in with your Arduino account, you'll be able to unlock the full potential of App Lab:",
+    "description": "Subtitle for the login form"
+  },
+  "app.account.title": {
+    "defaultMessage": "Arduino Account",
+    "description": "Title for the login form"
+  },
+  "app.account.usernameLabel": {
+    "defaultMessage": "Username",
+    "description": "Label for the username field"
+  },
+  "appItem.actionDelete": {
+    "defaultMessage": "Delete",
+    "description": "Action to delete the app"
+  },
+  "appItem.actionDuplicate": {
+    "defaultMessage": "Duplicate",
+    "description": "Action to duplicate the app"
+  },
+  "appItem.actionExport": {
+    "defaultMessage": "Export App",
+    "description": "Action to export the app"
+  },
+  "appItem.actionRename": {
+    "defaultMessage": "Rename",
+    "description": "Action to rename the app"
+  },
+  "appItem.actionRunAsStartup": {
+    "defaultMessage": "Run As Startup",
+    "description": "Action to set the app to run at startup"
+  },
+  "appItem.appDefault": {
+    "defaultMessage": "Default",
+    "description": "Indicates that the app is the default one"
+  },
+  "appItem.appRunning": {
+    "defaultMessage": "Running",
+    "description": "Indicates that the app is currently running"
+  },
+  "appItem.appSize": {
+    "defaultMessage": "Size: {size} MB",
+    "description": "Indicates the size of the app"
+  },
+  "appLab.changePasswordDialog.changePassword": {
+    "defaultMessage": "Change Linux Password",
+    "description": "Title for the change password dialog in the settings page"
+  },
+  "appLab.changePasswordDialog.confirmPassword": {
+    "defaultMessage": "Confirm Password",
+    "description": "Label for the confirm password input"
+  },
+  "appLab.changePasswordDialog.description": {
+    "defaultMessage": "This change will affect your <bold>Linux system</bold>.<br></br> Please be sure to save your new password in a safe place.",
+    "description": "Description for the change password dialog in the settings page"
+  },
+  "appLab.changePasswordDialog.genericError": {
+    "defaultMessage": "An error occurred while changing the password",
+    "description": "Generic error message when changing password fails"
+  },
+  "appLab.changePasswordDialog.helperText": {
+    "defaultMessage": "Password must be at least 8 characters long.",
+    "description": "Helper text for password validation"
+  },
+  "appLab.changePasswordDialog.newPassword": {
+    "defaultMessage": "New Password",
+    "description": "Label for the new password input"
+  },
+  "appLab.changePasswordDialog.passwordMismatch": {
+    "defaultMessage": "Passwords do not match",
+    "description": "Error message when passwords do not match"
+  },
+  "appLab.changePasswordDialog.save": {
+    "defaultMessage": "Save",
+    "description": "Label for the save button in the change password dialog"
+  },
+  "appLab.changePasswordDialog.subtitle": {
+    "defaultMessage": "Set a New Password",
+    "description": "Subtitle for the change password dialog in the settings page"
+  },
+  "appLab.passwordDialog.description": {
+    "defaultMessage": "Type your password to apply these changes",
+    "description": "Description for the password dialog"
+  },
+  "appLab.passwordDialog.genericError": {
+    "defaultMessage": "Something went wrong. Please try again.",
+    "description": "Generic error message when applying changes"
+  },
+  "appLab.passwordDialog.password": {
+    "defaultMessage": "Password",
+    "description": "Label for the password input"
+  },
+  "appLab.passwordDialog.passwordWrong": {
+    "defaultMessage": "Wrong password",
+    "description": "Error message when password does not match"
+  },
+  "appLab.passwordDialog.save": {
+    "defaultMessage": "Confirm",
+    "description": "Label for the save button in the password dialog"
+  },
+  "appLab.passwordDialog.subtitle": {
+    "defaultMessage": "Linux Password",
+    "description": "Subtitle for the password dialog"
+  },
+  "appLab.passwordDialog.title": {
+    "defaultMessage": "Password required",
+    "description": "Title for the password dialog"
+  },
+  "appLabBrickDetail.trainNewModel.accountConnectedTitle": {
+    "defaultMessage": "Your Arduino Account is now connected to Edge Impulse 🎉",
+    "description": "Title shown when the account is successfully connected"
+  },
+  "appLabBrickDetail.trainNewModel.arduinoAiBrick": {
+    "defaultMessage": "Arduino AI Brick",
+    "description": "Name of the section where the new model will be available"
+  },
+  "appLabBrickDetail.trainNewModel.arduinoSignIn": {
+    "defaultMessage": "Arduino Sign in",
+    "description": "Button text to sign in with Arduino account"
+  },
+  "appLabBrickDetail.trainNewModel.chooseModelType": {
+    "defaultMessage": "Choose to train a model using a tutorial or start from scratch",
+    "description": "Instruction shown when the account is successfully connected"
+  },
+  "appLabBrickDetail.trainNewModel.connectToEdgeImpulse": {
+    "defaultMessage": "Connect to Edge Impulse Studio",
+    "description": "Button text to connect to Edge Impulse"
+  },
+  "appLabBrickDetail.trainNewModel.description": {
+    "defaultMessage": "Follow these steps to get started:",
+    "description": "Description for the train new model section"
+  },
+  "appLabBrickDetail.trainNewModel.dontShowAgain": {
+    "defaultMessage": "Don’t show it anymore",
+    "description": "Checkbox label to not show the welcome message again"
+  },
+  "appLabBrickDetail.trainNewModel.edgeImpulseStudio": {
+    "defaultMessage": "Edge Impulse Studio",
+    "description": "Name of the platform used to train new models"
+  },
+  "appLabBrickDetail.trainNewModel.exitDialog": {
+    "defaultMessage": "Exit",
+    "description": "Button text to exit the train new model dialog"
+  },
+  "appLabBrickDetail.trainNewModel.learnMore": {
+    "defaultMessage": "Learn More",
+    "description": "Button to learn more"
+  },
+  "appLabBrickDetail.trainNewModel.letsStart": {
+    "defaultMessage": "Ok, let's start",
+    "description": "Button to start train new model"
+  },
+  "appLabBrickDetail.trainNewModel.modelInAppLab": {
+    "defaultMessage": "The new AI model will automatically appear in App Lab, ready to install from its corresponding bricks.",
+    "description": "Instruction shown when the account is successfully connected"
+  },
+  "appLabBrickDetail.trainNewModel.redirectToEdgeImpulse": {
+    "defaultMessage": "You will be redirected to Edge Impulse Studio",
+    "description": "Instruction shown when the account is successfully connected"
+  },
+  "appLabBrickDetail.trainNewModel.startToTrainButton": {
+    "defaultMessage": "Start to Train your AI model",
+    "description": "Button text to start training the new model"
+  },
+  "appLabBrickDetail.trainNewModel.stepOne": {
+    "defaultMessage": "Sign in or create your Arduino account",
+    "description": "Step one instruction for training new model"
+  },
+  "appLabBrickDetail.trainNewModel.stepTwo": {
+    "defaultMessage": "Continue in Edge Impulse using your Arduino Account",
+    "description": "Step two instruction for training new model"
+  },
+  "appLabBrickDetail.trainNewModel.title": {
+    "defaultMessage": "Train your AI Model with Edge Impulse Studio",
+    "description": "Title for the train new model section"
+  },
+  "appLabBrickDetail.trainNewModel.welcomeDescriptionOne": {
+    "defaultMessage": "You’ll be redirected to the {bold} platform in your browser.",
+    "description": "Welcome description for the train new model section"
+  },
+  "appLabBrickDetail.trainNewModel.welcomeDescriptionThree": {
+    "defaultMessage": "Back in App Lab, you’ll find your new model inside the suitable {bold} — ready to install and use.",
+    "description": "Welcome description for the train new model section"
+  },
+  "appLabBrickDetail.trainNewModel.welcomeDescriptionTwo": {
+    "defaultMessage": "Train and finalise your model there.",
+    "description": "Welcome description for the train new model section"
+  },
+  "appLabBrickDetail.trainNewModel.welcomeTitle": {
+    "defaultMessage": "Train your own custom AI models",
+    "description": "Welcome title for the train new model section"
+  },
+  "appLabFooterBar.boardSelection.notConnected": {
+    "defaultMessage": "Board not Connected",
+    "description": "Label shown when no board is connected"
+  },
+  "appLabFooterBar.boardSelection.switchBoardDropdownButton": {
+    "defaultMessage": "Switch board",
+    "description": "Title for the dropdown button used to switch boards"
+  },
+  "appLabFooterBar.boardSelection.switchBoardDropdownMenuItemNoBoards": {
+    "defaultMessage": "No boards available",
+    "description": "Label shown when no boards are available for selection"
+  },
+  "appLabFooterBar.storage": {
+    "defaultMessage": "STORAGE:",
+    "description": "Label for storage stats"
+  },
+  "appLabFooterBar.systemInfo": {
+    "defaultMessage": "System Info",
+    "description": "Header for the system info overlay"
+  },
+  "appLabFooterBar.systemStats": {
+    "defaultMessage": "System stats",
+    "description": "Label for the system stats button and title"
+  },
+  "appLabFooterBar.version": {
+    "defaultMessage": "v. {version}",
+    "description": "Version display label"
+  },
+  "appLabMultipleConsolePanel.clearLog": {
+    "defaultMessage": "Clear log",
+    "description": "Label for the button to clear the console log"
+  },
+  "appLabMultipleConsolePanel.close": {
+    "defaultMessage": "Close",
+    "description": "Label for the button to close the console"
+  },
+  "appLabMultipleConsolePanel.description": {
+    "defaultMessage": "Run the app to start generating logs",
+    "description": "Description for the multiple console panel"
+  },
+  "appLabMultipleConsolePanel.disableAutoscroll": {
+    "defaultMessage": "Disable autoscroll",
+    "description": "Label for the button to disable autoscroll in the console"
+  },
+  "appLabMultipleConsolePanel.enableAutoscroll": {
+    "defaultMessage": "Enable autoscroll",
+    "description": "Label for the button to enable autoscroll in the console"
+  },
+  "appLabMultipleConsolePanel.hideTimestamp": {
+    "defaultMessage": "Hide timestamp",
+    "description": "Label for the button to hide timestamps in the console"
+  },
+  "appLabMultipleConsolePanel.maximize": {
+    "defaultMessage": "Maximize",
+    "description": "Label for the button to maximize the console"
+  },
+  "appLabMultipleConsolePanel.minimize": {
+    "defaultMessage": "Minimize",
+    "description": "Label for the button to minimize the console"
+  },
+  "appLabMultipleConsolePanel.openConsole": {
+    "defaultMessage": "Open console",
+    "description": "Message shown to open console"
+  },
+  "appLabMultipleConsolePanel.runAppToGenerate": {
+    "defaultMessage": "Run the app to start generating logs",
+    "description": "Message shown to run the app to generate logs in the console"
+  },
+  "appLabMultipleConsolePanel.sendMessageNoBoardPlaceholder": {
+    "defaultMessage": "Message (Enter to send a message to your board)",
+    "description": "Placeholder text for the send message input when no boards are available yet"
+  },
+  "appLabMultipleConsolePanel.sendMessagePlaceholder": {
+    "defaultMessage": "Message (Enter to send a message to “{name}” on {address})",
+    "description": "Placeholder text for the send message input"
+  },
+  "appLabMultipleConsolePanel.showTimestamp": {
+    "defaultMessage": "Show timestamp",
+    "description": "Label for the button to show timestamps in the console"
+  },
+  "appLabSettings.app.documentation": {
+    "defaultMessage": "Documentation",
+    "description": "Label for the documentation link in the settings page"
+  },
+  "appLabSettings.app.title": {
+    "defaultMessage": "Arduino App Lab",
+    "description": "Title for the App Lab settings page"
+  },
+  "appLabSettings.app.upToDate": {
+    "defaultMessage": "Up to date",
+    "description": "Message indicating that the App Lab is up to date in the settings page"
+  },
+  "appLabSettings.app.updateAvailable": {
+    "defaultMessage": "Update to App Lab {newAppVersion}",
+    "description": "Message indicating that a new version of App Lab is available in the settings page"
+  },
+  "appLabSettings.app.version": {
+    "defaultMessage": "App Lab Version",
+    "description": "Label for the App Lab version in the settings page"
+  },
+  "appLabSettings.app.viewDocumentation": {
+    "defaultMessage": "View documentation",
+    "description": "Link to view the documentation for App Lab"
+  },
+  "appLabSettings.copyright": {
+    "defaultMessage": "Copyright (C) Arduino s.r.l. and/or its affiliated companies.",
+    "description": "Copyright message in the settings page footer"
+  },
+  "appLabSettings.device.diskStorage": {
+    "defaultMessage": "Disk Storage",
+    "description": "Label for the device disk storage usage in the settings page"
+  },
+  "appLabSettings.device.diskStorageUsage": {
+    "defaultMessage": "Used: {used} GB of {total} GB",
+    "description": "Label for the device disk storage usage in the settings page"
+  },
+  "appLabSettings.device.diskStorageUsageError": {
+    "defaultMessage": "Storage is full. Free space to keep things running smoothly",
+    "description": "Error message when the device is out of disk storage in the settings page"
+  },
+  "appLabSettings.device.diskStorageUsageInfo": {
+    "defaultMessage": "Storage",
+    "description": "Message providing information about the device disk storage usage in the settings page"
+  },
+  "appLabSettings.device.diskStorageUsageWarning": {
+    "defaultMessage": "Storage is getting full. Free space to keep things running smoothly",
+    "description": "Warning message when the device is running low on disk storage in the settings page"
+  },
+  "appLabSettings.device.serialNumber": {
+    "defaultMessage": "Serial Number",
+    "description": "Label for the device serial number in the settings page"
+  },
+  "appLabSettings.device.title": {
+    "defaultMessage": "Device Details",
+    "description": "Title for the device details section in the settings page"
+  },
+  "appLabSettings.network.addNetworkManually": {
+    "defaultMessage": "Add network manually",
+    "description": "Button label to add a Wi-Fi network manually"
+  },
+  "appLabSettings.network.changeNetwork": {
+    "defaultMessage": "Change network",
+    "description": "Button text to change the network"
+  },
+  "appLabSettings.network.chooseNetwork": {
+    "defaultMessage": "Choose a network to access",
+    "description": "Label for the network selection dropdown"
+  },
+  "appLabSettings.network.connect": {
+    "defaultMessage": "Connect Wi-Fi",
+    "description": "Button label to go back to Wi-Fi network setup"
+  },
+  "appLabSettings.network.connectToNetwork": {
+    "defaultMessage": "Connect",
+    "description": "Button label to connect to a selected Wi-Fi network"
+  },
+  "appLabSettings.network.connected": {
+    "defaultMessage": "Connected",
+    "description": "Message indicating that the device is connected to a network"
+  },
+  "appLabSettings.network.connectingToNetwork": {
+    "defaultMessage": "Connecting...",
+    "description": "Message displayed while connecting to a Wi-Fi network"
+  },
+  "appLabSettings.network.ip": {
+    "defaultMessage": "IP",
+    "description": "Label for the IP address row"
+  },
+  "appLabSettings.network.networkConnected": {
+    "defaultMessage": "Connected",
+    "description": "Message displayed when the Wi-Fi network is connected"
+  },
+  "appLabSettings.network.networkError": {
+    "defaultMessage": "No networks found. Ensure your router is on, the credentials are right and the board is within range, then try again.",
+    "description": "Message displayed when there is an error connecting to the Wi-Fi network"
+  },
+  "appLabSettings.network.networkName": {
+    "defaultMessage": "Network Name",
+    "description": "Label for the Wi-Fi network name input field"
+  },
+  "appLabSettings.network.networkPassword": {
+    "defaultMessage": "Password",
+    "description": "Label for the Wi-Fi network password input field"
+  },
+  "appLabSettings.network.networkSecurity": {
+    "defaultMessage": "Security",
+    "description": "Label for the Wi-Fi network security type dropdown"
+  },
+  "appLabSettings.network.noAvailableNetworks": {
+    "defaultMessage": "No available networks found",
+    "description": "Message displayed when no Wi-Fi networks are available"
+  },
+  "appLabSettings.network.noNetworkConnected": {
+    "defaultMessage": "No network connected",
+    "description": "Message indicating that there is no network connected"
+  },
+  "appLabSettings.network.noNetworksWarning": {
+    "defaultMessage": "No networks found. Ensure your router is on, the credentials are right and the board is within range, then try again.",
+    "description": "Warning message when no Wi-Fi networks are found"
+  },
+  "appLabSettings.network.none": {
+    "defaultMessage": "None",
+    "description": "Label for no security type in Wi-Fi settings"
+  },
+  "appLabSettings.network.scanAgain": {
+    "defaultMessage": "Scan again",
+    "description": "Button label to scan for Wi-Fi networks again"
+  },
+  "appLabSettings.network.scanningForNetworks": {
+    "defaultMessage": "Scanning Networks...",
+    "description": "Message displayed while scanning for Wi-Fi networks"
+  },
+  "appLabSettings.network.setupManualNetwork": {
+    "defaultMessage": "Setup manually",
+    "description": "Title for the manual network setup section"
+  },
+  "appLabSettings.network.skip": {
+    "defaultMessage": "Skip Wi-Fi connection",
+    "description": "Button label to skip Wi-Fi network setup"
+  },
+  "appLabSettings.network.skipDescription": {
+    "defaultMessage": "Without a Wi-Fi connection, you'll miss out on key features like:",
+    "description": "Description for the skip Wi-Fi connection confirmation dialog, explaining the benefits of connecting to Wi-Fi and that it can be done later in settings"
+  },
+  "appLabSettings.network.skipDescriptionListItem1": {
+    "defaultMessage": "Latest updates for Linux packages and Bricks",
+    "description": "First item in the list of benefits for connecting to Wi-Fi in the skip Wi-Fi connection confirmation dialog"
+  },
+  "appLabSettings.network.skipDescriptionListItem2": {
+    "defaultMessage": "Automatic updates for Arduino App Lab",
+    "description": "Second item in the list of benefits for connecting to Wi-Fi in the skip Wi-Fi connection confirmation dialog"
+  },
+  "appLabSettings.network.skipDescriptionListItem3": {
+    "defaultMessage": "Seamless connection to your Arduino Account",
+    "description": "Third item in the list of benefits for connecting to Wi-Fi in the skip Wi-Fi connection confirmation dialog"
+  },
+  "appLabSettings.network.skipDescriptionListItem4": {
+    "defaultMessage": "Enabling Remote Development capabilities",
+    "description": "Fourth item in the list of benefits for connecting to Wi-Fi in the skip Wi-Fi connection confirmation dialog"
+  },
+  "appLabSettings.network.skipSubtitle": {
+    "defaultMessage": "Are you sure you don't want to connect your board to a Wi-Fi?",
+    "description": "Subtitle for the skip Wi-Fi connection confirmation dialog, asking the user if they are sure about skipping Wi-Fi setup"
+  },
+  "appLabSettings.network.skipTitle": {
+    "defaultMessage": "Wi-Fi connection",
+    "description": "Title for the skip Wi-Fi connection confirmation dialog"
+  },
+  "appLabSettings.network.ssid": {
+    "defaultMessage": "SSID",
+    "description": "Label for the SSID row"
+  },
+  "appLabSettings.network.title": {
+    "defaultMessage": "Network Connections",
+    "description": "Title for the network connections section"
+  },
+  "appLabSettings.network.wep": {
+    "defaultMessage": "WEP",
+    "description": "Label for WEP security type in Wi-Fi settings"
+  },
+  "appLabSettings.network.wpa2": {
+    "defaultMessage": "WPA2",
+    "description": "Label for WPA2 security type in Wi-Fi settings"
+  },
+  "appLabSettings.os.buildVersion": {
+    "defaultMessage": "Build Version",
+    "description": "Label for the build version row"
+  },
+  "appLabSettings.os.flashBoard": {
+    "defaultMessage": "Flash Board",
+    "description": "Button text to flash the board with a new OS image"
+  },
+  "appLabSettings.os.installOsImage": {
+    "defaultMessage": "Install another OS version (Flash)",
+    "description": "Label to install a different OS image or reset the board"
+  },
+  "appLabSettings.os.installOsImageInfo": {
+    "defaultMessage": "Reinstall your current OS or roll back to a previous build. You can choose to keep your personal data or perform a complete wipe.",
+    "description": "Message providing information about installing a different OS image"
+  },
+  "appLabSettings.os.kernelVersion": {
+    "defaultMessage": "Kernel Version",
+    "description": "Label for the kernel version row"
+  },
+  "appLabSettings.os.linuxDistribution": {
+    "defaultMessage": "Linux Distribution",
+    "description": "Label for the Linux distribution row"
+  },
+  "appLabSettings.os.osBoardSoftwareBehind": {
+    "defaultMessage": "Your board software is a bit behind",
+    "description": "Warning message when the board software is outdated"
+  },
+  "appLabSettings.os.releaseDate": {
+    "defaultMessage": "Release date",
+    "description": "Label for the release date row"
+  },
+  "appLabSettings.os.title": {
+    "defaultMessage": "Operating system",
+    "description": "Title for the OS image section"
+  },
+  "appLabSettings.os.updateNow": {
+    "defaultMessage": "Update now",
+    "description": "Button text to update the board software"
+  },
+  "appLabSettings.section.fqbn": {
+    "defaultMessage": "FQBN",
+    "description": "Label for the device FQBN in the settings page"
+  },
+  "appLabSettings.system.changePassword": {
+    "defaultMessage": "Change password",
+    "description": "Button text to change the OS password"
+  },
+  "appLabSettings.system.keyboardLanguage": {
+    "defaultMessage": "Keyboard language",
+    "description": "Label for the keyboard language row"
+  },
+  "appLabSettings.system.osPassword": {
+    "defaultMessage": "OS password",
+    "description": "Label for the OS password row"
+  },
+  "appLabSettings.system.releaseNotes": {
+    "defaultMessage": "Release notes",
+    "description": "Label for the release notes row"
+  },
+  "appLabSettings.system.remoteAccess": {
+    "defaultMessage": "Remote access (SSH)",
+    "description": "Label for the remote access row"
+  },
+  "appLabSettings.system.remoteAccessInfo": {
+    "defaultMessage": "Secure remote access to your board’s Linux system. Required to connect to App Lab over the network.",
+    "description": "Message providing information about remote access"
+  },
+  "appLabSettings.system.systemVersion": {
+    "defaultMessage": "System version",
+    "description": "Label for the system version row"
+  },
+  "appLabSettings.system.systemVersionInfo": {
+    "defaultMessage": "The system version includes App Lab, Arduino CLI, and other core software running on the board.",
+    "description": "Message showing the current system version"
+  },
+  "appLabSettings.system.systemVersionUpToDate": {
+    "defaultMessage": "System is up to date",
+    "description": "Message indicating that the system is up to date"
+  },
+  "appLabSettings.system.systemVersionUpdateAvailable": {
+    "defaultMessage": "Update",
+    "description": "Message indicating that a system update is available"
+  },
+  "appLabSettings.system.title": {
+    "defaultMessage": "System Info",
+    "description": "Title for the system info section"
+  },
+  "appLabSettings.system.viewReleaseNotes": {
+    "defaultMessage": "View release notes",
+    "description": "Link text to view release notes"
+  },
+  "appLabSetup.account.tooltip.content": {
+    "defaultMessage": "App Lab works out of the box without an Arduino account, but signing in lets you unlock the full experience and enjoy every feature.",
+    "description": "Content for the account tooltip explaining Arduino account requirements"
+  },
+  "appLabSetup.account.tooltip.title": {
+    "defaultMessage": "Why do we ask for this?",
+    "description": "Title for the account tooltip explaining Arduino account requirements"
+  },
+  "appLabSetup.arduinoAccount": {
+    "defaultMessage": "Arduino Account",
+    "description": "Arduino Account"
+  },
+  "appLabSetup.arduinoAccount.action": {
+    "defaultMessage": "Confirm",
+    "description": "Action for the Arduino account setup section"
+  },
+  "appLabSetup.arduinoAccount.title": {
+    "defaultMessage": "Arduino Account",
+    "description": "Title for the Arduino account setup section"
+  },
+  "appLabSetup.boardConfiguration": {
+    "defaultMessage": "Board Configuration",
+    "description": "Board Configuration"
+  },
+  "appLabSetup.boardConfiguration.boardConfigurationError": {
+    "defaultMessage": "Error setting board configuration",
+    "description": "Message displayed when there is an error setting the board configuration"
+  },
+  "appLabSetup.boardConfiguration.boardConfigurationSuccess": {
+    "defaultMessage": "Board configuration set successfully",
+    "description": "Message displayed when the board configuration is set successfully"
+  },
+  "appLabSetup.boardConfiguration.keyboardLabel": {
+    "defaultMessage": "Keyboard Layout",
+    "description": "Label for the keyboard layout input field"
+  },
+  "appLabSetup.boardConfiguration.nameLabel": {
+    "defaultMessage": "Board Name",
+    "description": "Label for the board name input field"
+  },
+  "appLabSetup.boardName.action": {
+    "defaultMessage": "Next",
+    "description": "Action for the board configuration setup section"
+  },
+  "appLabSetup.boardName.title": {
+    "defaultMessage": "Board configuration",
+    "description": "Title for the board name setup section"
+  },
+  "appLabSetup.chip.connection.tooltip": {
+    "defaultMessage": "Connected via {chip}",
+    "description": "Tooltip content showing the connection method for the board chip"
+  },
+  "appLabSetup.linuxCredentials": {
+    "defaultMessage": "Linux Credentials",
+    "description": "Linux Credentials"
+  },
+  "appLabSetup.linuxCredentials.action": {
+    "defaultMessage": "Confirm",
+    "description": "Action for the linux credentials setup section"
+  },
+  "appLabSetup.linuxCredentials.descriptionLabel": {
+    "defaultMessage": "Select a password for your Linux account",
+    "description": "Description for the linux credentials setup section"
+  },
+  "appLabSetup.linuxCredentials.linuxCredentialsError": {
+    "defaultMessage": "Error setting user credentials",
+    "description": "Message displayed when there is an error setting the user credentials"
+  },
+  "appLabSetup.linuxCredentials.linuxCredentialsSuccess": {
+    "defaultMessage": "User credentials set successfully",
+    "description": "Message displayed when the user credentials are set successfully"
+  },
+  "appLabSetup.linuxCredentials.passwordConfirmationLabel": {
+    "defaultMessage": "Confirm Password",
+    "description": "Label for the password confirmation input field"
+  },
+  "appLabSetup.linuxCredentials.passwordLabel": {
+    "defaultMessage": "Password",
+    "description": "Label for the password input field"
+  },
+  "appLabSetup.linuxCredentials.title": {
+    "defaultMessage": "Linux Credentials",
+    "description": "Title for the linux credentials setup section"
+  },
+  "appLabSetup.linuxCredentials.usernameLabel": {
+    "defaultMessage": "Username",
+    "description": "Label for the username input field"
+  },
+  "appLabSetup.networkSetup": {
+    "defaultMessage": "Network Setup",
+    "description": "Network Setup"
+  },
+  "appLabSetup.networkSetup.action": {
+    "defaultMessage": "Confirm",
+    "description": "Action for the network setup section"
+  },
+  "appLabSetup.networkSetup.title": {
+    "defaultMessage": "Network Setup",
+    "description": "Title for the network setup section"
+  },
+  "appLabSetup.welcome.availableOnNetwork": {
+    "defaultMessage": "Available on your network",
+    "description": "Group header for network-connected boards"
+  },
+  "appLabSetup.welcome.availableViaUsb": {
+    "defaultMessage": "Available via USB",
+    "description": "Group header for USB-connected boards"
+  },
+  "appLabSetup.welcome.cancelButton": {
+    "defaultMessage": "Cancel",
+    "description": "Cancel button text"
+  },
+  "appLabSetup.welcome.chooseBoard": {
+    "defaultMessage": "Choose a board to get started.",
+    "description": "Subtitle when multiple boards are available"
+  },
+  "appLabSetup.welcome.chooseBoardDescription": {
+    "defaultMessage": "Connect one via USB or access a board on your network.",
+    "description": "Description when multiple boards are available"
+  },
+  "appLabSetup.welcome.confirmButton": {
+    "defaultMessage": "Confirm",
+    "description": "Confirm button text"
+  },
+  "appLabSetup.welcome.connectYourBoard": {
+    "defaultMessage": "Connect board",
+    "description": "Message prompting the user to connect their board"
+  },
+  "appLabSetup.welcome.connectYourBoardDescription": {
+    "defaultMessage": "Waiting for a board to be connected",
+    "description": "Description for the connect your board message"
+  },
+  "appLabSetup.welcome.connected": {
+    "defaultMessage": "Connected",
+    "description": "Message indicating that the board is connected"
+  },
+  "appLabSetup.welcome.descriptionMultipleBoards": {
+    "defaultMessage": "Multiple boards are connected, please select one to start",
+    "description": "Description for the welcome section of the App Lab setup when multiple boards are connected"
+  },
+  "appLabSetup.welcome.lastConnectionPrefix": {
+    "defaultMessage": "Last connection:",
+    "description": "Prefix for the last connection timestamp"
+  },
+  "appLabSetup.welcome.linuxPasswordTitle": {
+    "defaultMessage": "Linux password",
+    "description": "Title for the Linux password dialog"
+  },
+  "appLabSetup.welcome.newBoardBadge": {
+    "defaultMessage": "NEW BOARD",
+    "description": "Text for the new board badge"
+  },
+  "appLabSetup.welcome.noBoardsFound": {
+    "defaultMessage": "No boards found",
+    "description": "Message when no boards are found"
+  },
+  "appLabSetup.welcome.noDevice": {
+    "defaultMessage": "No device",
+    "description": "Message indicating that no device is connected"
+  },
+  "appLabSetup.welcome.passwordLabel": {
+    "defaultMessage": "Password",
+    "description": "Label for the password input field"
+  },
+  "appLabSetup.welcome.title": {
+    "defaultMessage": "Welcome to Arduino App Lab",
+    "description": "Title for the welcome section of the App Lab setup"
+  },
+  "appLabSetup.welcome.usernameLabel": {
+    "defaultMessage": "Username",
+    "description": "Label for the username input field"
+  },
+  "appLabSetup.wifi.tooltip.content": {
+    "defaultMessage": "App Lab requires a network connection only during the initial configuration to ensure the most up-to-date experience.",
+    "description": "Content for the wifi tooltip explaining network connection requirements"
+  },
+  "appLabSetup.wifi.tooltip.title": {
+    "defaultMessage": "Why we ask for this",
+    "description": "Title for the wifi tooltip explaining network connection requirements"
+  },
+  "appTitle.actionDelete": {
+    "defaultMessage": "Delete",
+    "description": "Delete the app"
+  },
+  "appTitle.actionDuplicate": {
+    "defaultMessage": "Duplicate",
+    "description": "Duplicate the app"
+  },
+  "appTitle.actionExport": {
+    "defaultMessage": "Export App",
+    "description": "Export the app"
+  },
+  "appTitle.actionRename": {
+    "defaultMessage": "Rename",
+    "description": "Rename the app"
+  },
+  "appTitle.appDefault": {
+    "defaultMessage": "Default",
+    "description": "Indicates that the app is the default one"
+  },
+  "appTitle.appNameInUse": {
+    "defaultMessage": "Name already in use, please choose another one.",
+    "description": "Error message when trying to set an app name that is already used"
+  },
+  "appTitle.overrideAsDefault": {
+    "defaultMessage": "Only one app can be set to launch at startup. Enabling this feature for the current app will <bold>override the {appName} app</bold>.",
+    "description": "Label for the override default app"
+  },
+  "appTitle.runAtStartup": {
+    "defaultMessage": "Run at startup",
+    "description": "Label for the run at startup action"
+  },
+  "appTitle.setAsDefault": {
+    "defaultMessage": "This app is set as the startup app. This means it will automatically run every time you plug your board into <bold>any power source</bold>",
+    "description": "Label for the set as default app"
+  },
+  "blockly-editor.sidecar-malformed": {
+    "defaultMessage": "Blocks file is corrupted. Delete it to edit the source manually.",
+    "description": "Warning toast shown when the Blockly sidecar JSON cannot be parsed"
+  },
+  "blockly-editor.sidecar-unsupported-version": {
+    "defaultMessage": "Blocks file from a newer App Lab. Read-only — update App Lab or delete it.",
+    "description": "Warning toast shown when the Blockly sidecar version is higher than SIDECAR_FORMAT_VERSION"
+  },
+  "blocklyPromptDialog.cancelButton": {
+    "defaultMessage": "Cancel",
+    "description": "Label for the cancel button in the Blockly prompt and confirm dialogs"
+  },
+  "blocklyPromptDialog.okButton": {
+    "defaultMessage": "OK",
+    "description": "Label for the confirm button in the Blockly prompt / alert / confirm dialog"
+  },
+  "blocklyPromptDialog.title.alert": {
+    "defaultMessage": "Notice",
+    "description": "Header title for the Blockly alert dialog"
+  },
+  "blocklyPromptDialog.title.confirm": {
+    "defaultMessage": "Confirm",
+    "description": "Header title for the Blockly confirm dialog (e.g. delete variable confirmation)"
+  },
+  "blocklyPromptDialog.title.prompt": {
+    "defaultMessage": "Enter a value",
+    "description": "Header title for the Blockly prompt dialog when an input is required (e.g. creating a variable)"
+  },
+  "blocksOverwriteDialog.cancelButton": {
+    "defaultMessage": "Cancel",
+    "description": "Label for the cancel button in the blocks overwrite dialog"
+  },
+  "blocksOverwriteDialog.confirmButton": {
+    "defaultMessage": "Yes, switch to blocks",
+    "description": "Label for the confirm button in the blocks overwrite dialog"
+  },
+  "blocksOverwriteDialog.header": {
+    "defaultMessage": "Switch {sourceFullName} to blocks",
+    "description": "Header text in the blocks overwrite dialog"
+  },
+  "blocksOverwriteDialog.message": {
+    "defaultMessage": "A new file {sidecarFullName} will be created and {sourceFullName} will be overwritten with code generated from the blocks. Until you delete {sidecarFullName}, {sourceFullName} can only be edited through the Blocks view.",
+    "description": "Body text of the blocks overwrite confirmation dialog explaining the side effects"
+  },
+  "blocksOverwriteDialog.title": {
+    "defaultMessage": "Switch to blocks?",
+    "description": "Title of the dialog shown before creating a blocks sidecar over an existing source file"
+  },
+  "brickDetail.aiModelBadge": {
+    "defaultMessage": "AI",
+    "description": "Badge label indicating the brick uses an AI model"
+  },
+  "brickDetail.aiModelInUse": {
+    "defaultMessage": "IN USE",
+    "description": "Label indicating the AI model currently in use"
+  },
+  "brickDetail.aiModels": {
+    "defaultMessage": "AI models",
+    "description": "Label for the AI models tab"
+  },
+  "brickDetail.configureButton": {
+    "defaultMessage": "Brick configuration",
+    "description": "Label for the configure button"
+  },
+  "brickDetail.documentation": {
+    "defaultMessage": "API documentation",
+    "description": "Label for the documentation tab"
+  },
+  "brickDetail.examples": {
+    "defaultMessage": "Usage examples",
+    "description": "Label for the examples tab"
+  },
+  "brickDetail.fileNotFound": {
+    "defaultMessage": "File not found",
+    "description": "Message displayed when a file is not found"
+  },
+  "brickDetail.missingModel": {
+    "defaultMessage": "Don't see your model here? You may need to select <bold>{boardModel}</bold> as the target in Edge Impulse Studio.",
+    "description": "Alert message for missing board model filter for custom models"
+  },
+  "brickDetail.overview": {
+    "defaultMessage": "Overview",
+    "description": "Label for the overview tab"
+  },
+  "brickDetail.trainNewModel": {
+    "defaultMessage": "Train new AI model",
+    "description": "Label for the button and title to train a new AI model"
+  },
+  "brickDetail.trainNewModelButton": {
+    "defaultMessage": "Train new AI model",
+    "description": "Label for the button to train a new AI model"
+  },
+  "brickDetail.trainNewModelDescription": {
+    "defaultMessage": "Create and train your own AI model using Edge Impulse Studio. An Arduino account login is required.",
+    "description": "Description for the action to train a new AI model"
+  },
+  "brickDetail.usedInTitle": {
+    "defaultMessage": "Used in",
+    "description": "Title for the section listing apps that use the brick"
+  },
+  "brickItem.addBrickLabel": {
+    "defaultMessage": "Add Brick",
+    "description": "Label for the context menu item to add a new brick"
+  },
+  "brickItem.missingConfigTooltip": {
+    "defaultMessage": "Missing configuration files",
+    "description": "Tooltip message shown when a brick is missing its configuration (e.g. not found in the project)"
+  },
+  "brickItem.removeBrickLabel": {
+    "defaultMessage": "Remove",
+    "description": "Label for the context menu item to remove a brick from the app"
+  },
+  "brickItem.renameBrickLabel": {
+    "defaultMessage": "Rename",
+    "description": "Label for the context menu item to rename a brick"
+  },
+  "configureAppBrick.bodySubtitle": {
+    "defaultMessage": "Compatible AI Models",
+    "description": "Subtitle message shown in the configure app brick dialog"
+  },
+  "configureAppBrick.cancelButton": {
+    "defaultMessage": "Cancel",
+    "description": "Text for cancel button in configure app brick dialog"
+  },
+  "configureAppBrick.confirmButton": {
+    "defaultMessage": "Save",
+    "description": "Text for confirm button in configure app brick dialog"
+  },
+  "configureAppBrick.title": {
+    "defaultMessage": "Configure",
+    "description": "Title of configure app brick dialog"
+  },
+  "configureAppBricks.bodyDescription": {
+    "defaultMessage": "You can always change these parameters later from Brick Configuration.",
+    "description": "Message to confirm the deletion of a brick"
+  },
+  "configureAppBricks.bodySubtitle": {
+    "defaultMessage": "Compatible AI Models",
+    "description": "Subtitle message shown in the configure app brick dialog"
+  },
+  "configureAppBricks.bodyTitle": {
+    "defaultMessage": "{brickName} requires mandatory configuration to RUN",
+    "description": "Message shown in the delete brick dialog"
+  },
+  "configureAppBricks.cancelButton": {
+    "defaultMessage": "Cancel",
+    "description": "Text for cancel button in configure app bricks dialog"
+  },
+  "configureAppBricks.confirmButton": {
+    "defaultMessage": "Save and run",
+    "description": "Text for confirm button in configure app bricks dialog"
+  },
+  "configureAppBricks.title": {
+    "defaultMessage": "Action required",
+    "description": "Title of configure app bricks dialog"
+  },
+  "consolePanel.copyTooltip.copied": {
+    "defaultMessage": "Copied",
+    "description": "Tooltip text for copy console output button when pressed"
+  },
+  "consolePanel.copyTooltip.error": {
+    "defaultMessage": "Error",
+    "description": "Tooltip text for copy console output button when error"
+  },
+  "consolePanel.copyTooltip.initial": {
+    "defaultMessage": "Copy Console Output",
+    "description": "Tooltip text for copy console output button"
+  },
+  "consolePanel.status.available": {
+    "defaultMessage": "- Initializing Over-The-Air update...",
+    "description": "Status text of the console panel when Over-The-Air is"
+  },
+  "consolePanel.status.fail": {
+    "defaultMessage": "Over-The-Air update failed",
+    "description": "Status text of the console panel when Over-The-Air has failed"
+  },
+  "consolePanel.status.fixErrors": {
+    "defaultMessage": "Fix Errors",
+    "description": "Button text to fix error"
+  },
+  "consolePanel.status.fixThisError": {
+    "defaultMessage": "Fix this error: {compileResultMessages}",
+    "description": "Button text to fix this error with AI"
+  },
+  "consolePanel.status.hide": {
+    "defaultMessage": "Hide console panel",
+    "description": "Button text to hide the console panel"
+  },
+  "consolePanel.status.limit1500messages": {
+    "defaultMessage": "1500 AI monthly messages.",
+    "description": "Content for the plan limit reached message"
+  },
+  "consolePanel.status.limit50messages": {
+    "defaultMessage": "50 monthly AI messages.",
+    "description": "Content for the plan limit reached message"
+  },
+  "consolePanel.status.pendingOta": {
+    "defaultMessage": "- Scheduled upload, waiting for the device to reconnect...",
+    "description": "Status text of the console panel to inform an OTA is pending"
+  },
+  "consolePanel.status.plan1500LimitsReachedContent": {
+    "defaultMessage": "You’ve reached your daily limit of {limit1500messages} Wait until next month to reset your usage, or you can upgrade your plan to {unlockUnlimitedAccess}",
+    "description": "Content for the plan limit reached message"
+  },
+  "consolePanel.status.plan50LimitsReachedContent": {
+    "defaultMessage": "You’ve reached your daily limit of {limit50Messages} Upgrade your plan to unlock 1500 messages per month.",
+    "description": "Content for the plan limit reached message"
+  },
+  "consolePanel.status.planLimitsReachedLink": {
+    "defaultMessage": "Upgrade plan",
+    "description": "Link to upgrade the plan"
+  },
+  "consolePanel.status.planLimitsReachedTitle": {
+    "defaultMessage": "Plan limits reached",
+    "description": "Title for the plan limits reached message"
+  },
+  "consolePanel.status.show": {
+    "defaultMessage": "Show console panel",
+    "description": "Button text to show the console panel"
+  },
+  "consolePanel.status.title": {
+    "defaultMessage": "Console",
+    "description": "Title of the console panel"
+  },
+  "consolePanel.status.unlockUnlimitedAccess": {
+    "defaultMessage": "unlock unlimited access.",
+    "description": "Link to upgrade the plan"
+  },
+  "consolePanel.status.uploadError": {
+    "defaultMessage": "Error Uploading {sketchName}",
+    "description": "Status text of the console panel when uploads unsuccessfully"
+  },
+  "consolePanel.status.uploadSuccess": {
+    "defaultMessage": "Done Uploading {sketchName}",
+    "description": "Status text of the console panel when uploads successfully"
+  },
+  "consolePanel.status.uploading": {
+    "defaultMessage": "- Rebooting the device...",
+    "description": "Status text of the console panel when Over-The-Air is"
+  },
+  "consolePanel.status.verifyError": {
+    "defaultMessage": "Error Verifying {sketchName}",
+    "description": "Status text of the console panel when verifies unsuccessfully"
+  },
+  "consolePanel.status.verifySuccess": {
+    "defaultMessage": "Done Verifying {sketchName}",
+    "description": "Status text of the console panel when verifies successfully"
+  },
+  "consolePanel.status.verifying": {
+    "defaultMessage": "Verifying",
+    "description": "Status text of the console panel when verifying"
+  },
+  "contextMenu.commentUncomment": {
+    "defaultMessage": "Comment / Uncomment",
+    "description": "Comment / Uncomment"
+  },
+  "contextMenu.copy": {
+    "defaultMessage": "Copy",
+    "description": "Copy"
+  },
+  "contextMenu.cut": {
+    "defaultMessage": "Cut",
+    "description": "Cut"
+  },
+  "contextMenu.decreaseIndent": {
+    "defaultMessage": "Decrease Indent",
+    "description": "Decrease Indent"
+  },
+  "contextMenu.find": {
+    "defaultMessage": "Find",
+    "description": "Find"
+  },
+  "contextMenu.increaseIndent": {
+    "defaultMessage": "Increase Indent",
+    "description": "Increase Indent"
+  },
+  "contextMenu.paste": {
+    "defaultMessage": "Paste",
+    "description": "Paste"
+  },
+  "contextMenu.redo": {
+    "defaultMessage": "Redo",
+    "description": "Redo"
+  },
+  "contextMenu.selectAll": {
+    "defaultMessage": "Select All",
+    "description": "Select All"
+  },
+  "contextMenu.undo": {
+    "defaultMessage": "Undo",
+    "description": "Undo"
+  },
+  "createAppDialog.appNameInUse": {
+    "defaultMessage": "Name already in use, please choose another one.",
+    "description": "Error message when trying to set an app name that is already used"
+  },
+  "createAppDialog.appNameRequired": {
+    "defaultMessage": "App name is required",
+    "description": "Error message when app name is empty"
+  },
+  "createAppDialog.cancelButton": {
+    "defaultMessage": "Cancel",
+    "description": "Label for the cancel button"
+  },
+  "createAppDialog.confirmButton": {
+    "defaultMessage": "Create new",
+    "description": "Label for the confirm button"
+  },
+  "createAppDialog.failedCreate": {
+    "defaultMessage": "Failed to create app. Please try again.",
+    "description": "Notification message shown when app creation fails"
+  },
+  "createAppDialog.failedDuplicate": {
+    "defaultMessage": "Failed to duplicate app. Please try again.",
+    "description": "Notification message shown when app duplication fails"
+  },
+  "createAppDialog.inputPlaceholder": {
+    "defaultMessage": "Insert title",
+    "description": "Placeholder text for the app name input field"
+  },
+  "createAppDialog.successCreate": {
+    "defaultMessage": "App created successfully",
+    "description": "Notification message shown when an app is created successfully"
+  },
+  "createAppDialog.successDuplicate": {
+    "defaultMessage": "App duplicated successfully",
+    "description": "Notification message shown when an app is duplicated successfully"
+  },
+  "createAppDialog.title": {
+    "defaultMessage": "Create new app",
+    "description": "Title shown in the create app dialog"
+  },
+  "customBrickDialog.brickFolder": {
+    "defaultMessage": "brick folder",
+    "description": "Text to refer to the folder that will be created for the new brick"
+  },
+  "customBrickDialog.createBrickBodyDescription": {
+    "defaultMessage": "A {brickFolder} will be created with a subfolder named after your Brick. It will include the default files README.txt and config.yaml.",
+    "description": "Text for the description in the body of create brick dialog"
+  },
+  "customBrickDialog.createBrickBodyTitle": {
+    "defaultMessage": "Give a name",
+    "description": "Text for the title in the body of create brick dialog"
+  },
+  "customBrickDialog.createBrickDialogTitle": {
+    "defaultMessage": "Create Brick",
+    "description": "Text for the title of create brick dialog"
+  },
+  "customBrickDialog.createButton": {
+    "defaultMessage": "Create",
+    "description": "Text for the create button in the create brick dialog"
+  },
+  "customBrickDialog.createCustomBrickSubtitle": {
+    "defaultMessage": "Create your modular software component for your project",
+    "description": "Text for the subtitle of the button for creating custom brick in add app brick dialog"
+  },
+  "customBrickDialog.createCustomBrickTitle": {
+    "defaultMessage": "Create custom brick",
+    "description": "Text for the title of the button for creating custom brick in add app brick dialog"
+  },
+  "customBrickDialog.customBrickId": {
+    "defaultMessage": "New ID: {brickId} (lowercase, no spaces)",
+    "description": "Helper text for the input to set the name of the new brick"
+  },
+  "customBrickDialog.customBrickInputLabel": {
+    "defaultMessage": "Brick name",
+    "description": "Label for the input to set the name of the new brick"
+  },
+  "customBrickDialog.customBrickRenameInputLabel": {
+    "defaultMessage": "Rename Brick",
+    "description": "Label for the input to set the new name of the brick"
+  },
+  "customBrickDialog.mainPy": {
+    "defaultMessage": "main.py",
+    "description": "Text to refer to the main.py file of the brick"
+  },
+  "customBrickDialog.renameBrickBodyDescription": {
+    "defaultMessage": "Renaming will update the Brick folder name and ID. Make sure to update {mainPy} to match the new name, or imports may stop working.",
+    "description": "Text for the description in the body of rename brick dialog"
+  },
+  "customBrickDialog.renameBrickBodyTitle": {
+    "defaultMessage": "Rename {brickName}",
+    "description": "Text for the title in the body of rename brick dialog"
+  },
+  "customBrickDialog.renameBrickDialogTitle": {
+    "defaultMessage": "Rename Brick",
+    "description": "Text for the title of rename brick dialog"
+  },
+  "customBrickDialog.renameButton": {
+    "defaultMessage": "Rename",
+    "description": "Text for the rename button in the rename brick dialog"
+  },
+  "deleteAppBrickDialog.bodyDescription": {
+    "defaultMessage": "All the configurations will be lost",
+    "description": "Message to confirm the deletion of a brick"
+  },
+  "deleteAppBrickDialog.bodyTitle": {
+    "defaultMessage": "Are you sure you want to remove this Brick?",
+    "description": "Message shown in the delete brick dialog"
+  },
+  "deleteAppBrickDialog.cancelButton": {
+    "defaultMessage": "Cancel",
+    "description": "Label for the cancel button"
+  },
+  "deleteAppBrickDialog.confirmButton": {
+    "defaultMessage": "Delete",
+    "description": "Label for the confirm button"
+  },
+  "deleteAppBrickDialog.customBrickBodyDescription": {
+    "defaultMessage": "The {brickName} folder will remain, but the Brick will no longer work. You can recreate it using the same name to restore it.",
+    "description": "Message to confirm the deletion of a custom brick"
+  },
+  "deleteAppBrickDialog.customBrickBodyTitle": {
+    "defaultMessage": "Delete {brickName}?",
+    "description": "Message shown in the delete custom brick dialog"
+  },
+  "deleteAppBrickDialog.title": {
+    "defaultMessage": "Delete brick",
+    "description": "Title shown in the delete brick dialog"
+  },
+  "deleteAppDialog.bodyDescription": {
+    "defaultMessage": "This action cannot be undone",
+    "description": "Message to confirm the deletion of an app"
+  },
+  "deleteAppDialog.bodyTitle": {
+    "defaultMessage": "Are you sure you want to delete {appName}?",
+    "description": "Message shown in the delete app dialog"
+  },
+  "deleteAppDialog.cancelButton": {
+    "defaultMessage": "Cancel",
+    "description": "Label for the cancel button"
+  },
+  "deleteAppDialog.confirmButton": {
+    "defaultMessage": "Delete",
+    "description": "Label for the confirm button"
+  },
+  "deleteAppDialog.title": {
+    "defaultMessage": "Delete app",
+    "description": "Title shown in the delete app dialog"
+  },
+  "deleteFileDialog.cancelButton": {
+    "defaultMessage": "Cancel",
+    "description": "Label for the cancel button"
+  },
+  "deleteFileDialog.confirmButton": {
+    "defaultMessage": "Yes, Delete",
+    "description": "Label for the confirm button"
+  },
+  "deleteFileDialog.confirmMessage": {
+    "defaultMessage": "This action is irreversible. Are you sure you want to delete this file?",
+    "description": "Message to confirm the deletion of a file"
+  },
+  "deleteFileDialog.message": {
+    "defaultMessage": "Delete",
+    "description": "Message shown in the delete file dialog"
+  },
+  "deleteFileDialog.messageName": {
+    "defaultMessage": "{fileFullName}",
+    "description": "Name of the file to be deleted"
+  },
+  "deleteFileDialog.title": {
+    "defaultMessage": "Delete File",
+    "description": "Title shown in the delete file dialog"
+  },
+  "deleteLibraryDialog.cancelButton": {
+    "defaultMessage": "Cancel",
+    "description": "Label for the cancel button"
+  },
+  "deleteLibraryDialog.confirmButton": {
+    "defaultMessage": "Yes, Delete",
+    "description": "Label for the confirm button"
+  },
+  "deleteLibraryDialog.confirmMessage": {
+    "defaultMessage": "This action is irreversible. Are you sure you want to delete this custom library?",
+    "description": "Message to confirm the deletion of a custom library"
+  },
+  "deleteLibraryDialog.message": {
+    "defaultMessage": "Delete",
+    "description": "Message shown in the delete library dialog"
+  },
+  "deleteLibraryDialog.title": {
+    "defaultMessage": "Delete custom library",
+    "description": "Title shown in the delete library dialog"
+  },
+  "deleteSecretDialog.actionDescription": {
+    "defaultMessage": "This action is irreversible. Are you sure you want to delete this secret?"
+  },
+  "deleteSecretDialog.actionTitle": {
+    "defaultMessage": "Delete"
+  },
+  "deleteSecretDialog.cancelButton": {
+    "defaultMessage": "Cancel"
+  },
+  "deleteSecretDialog.deleteButton": {
+    "defaultMessage": "Yes, delete"
+  },
+  "deleteSecretDialog.title": {
+    "defaultMessage": "Delete secret"
+  },
+  "deleteSecretDialog.warningDescription": {
+    "defaultMessage": "Please note that deleting the secret will render the associated keys in the sketch files non-functional. You will need to manually remove them from the code."
+  },
+  "deleteSketchDialog.cancelButton": {
+    "defaultMessage": "Cancel",
+    "description": "Label for the cancel button"
+  },
+  "deleteSketchDialog.confirmButton": {
+    "defaultMessage": "Yes, Delete",
+    "description": "Label for the confirm button"
+  },
+  "deleteSketchDialog.confirmMessage": {
+    "defaultMessage": "This action is irreversible. Are you sure you want to delete this sketch?",
+    "description": "Message to confirm the deletion of a sketch"
+  },
+  "deleteSketchDialog.message": {
+    "defaultMessage": "Delete",
+    "description": "Message shown in the delete sketch dialog"
+  },
+  "deleteSketchDialog.title": {
+    "defaultMessage": "Delete sketch",
+    "description": "Title shown in the delete sketch dialog"
+  },
+  "deleteTreeItemDialog.cancelButton": {
+    "defaultMessage": "Cancel",
+    "description": "Label for the cancel button"
+  },
+  "deleteTreeItemDialog.confirmButton": {
+    "defaultMessage": "Yes, Delete",
+    "description": "Label for the confirm button"
+  },
+  "deleteTreeItemDialog.deleteFileTitle": {
+    "defaultMessage": "Delete File",
+    "description": "Title shown in the delete file dialog"
+  },
+  "deleteTreeItemDialog.deleteFolderTitle": {
+    "defaultMessage": "Delete Folder",
+    "description": "Title shown in the delete folder dialog"
+  },
+  "deleteTreeItemDialog.directoryBodyDescription": {
+    "defaultMessage": "This will permanently delete the folder and all its files",
+    "description": "Message to confirm the deletion of a directory"
+  },
+  "deleteTreeItemDialog.directoryBodyTitle": {
+    "defaultMessage": "Delete {fileName}?",
+    "description": "Message shown in the delete directory dialog"
+  },
+  "deleteTreeItemDialog.fileBodyDescription": {
+    "defaultMessage": "This will permanently delete the file",
+    "description": "Message to confirm the deletion of a file"
+  },
+  "deleteTreeItemDialog.fileBodyTitle": {
+    "defaultMessage": "Delete {fileName}?",
+    "description": "Message shown in the delete file dialog"
+  },
+  "deleteTreeItemDialog.title": {
+    "defaultMessage": "Delete",
+    "description": "Title shown in the delete tree item dialog"
+  },
+  "devicesDialog.agentNotFoundDownload": {
+    "defaultMessage": "Download",
+    "description": "Label for agent download button"
+  },
+  "devicesDialog.agentNotFoundMessage": {
+    "defaultMessage": "You need to download and install the plugin in order to upload sketches from Arduino Cloud platform to your board or device.",
+    "description": "Message to direct users to agent download"
+  },
+  "devicesDialog.agentNotFoundTitle": {
+    "defaultMessage": "Arduino Cloud Agent not found",
+    "description": "Label for devices dialog when Cloud Agent is not working properly"
+  },
+  "devicesDialog.agentNotFoundTroubleMessage": {
+    "defaultMessage": "If you have already installed the plugin but it’s not running, try restarting it. If the problem persists, check the {troubleshootingLink}",
+    "description": "Message to direct users to troubleshooting"
+  },
+  "devicesDialog.associateButton": {
+    "defaultMessage": "Associate",
+    "description": "Label for the associate button"
+  },
+  "devicesDialog.associateToSketchHelper": {
+    "defaultMessage": "Select the type of the device you are associating to the sketch.",
+    "description": "Helper text shown when selecting a device type to associate it to the sketch"
+  },
+  "devicesDialog.associatedToSketch": {
+    "defaultMessage": "This device is currently associated with the sketch",
+    "description": "Text shown when a specific device is associated to the current sketch"
+  },
+  "devicesDialog.backButton": {
+    "defaultMessage": "Back",
+    "description": "Label for the back button"
+  },
+  "devicesDialog.closeButton": {
+    "defaultMessage": "Close",
+    "description": "Label for the close button"
+  },
+  "devicesDialog.detachButton": {
+    "defaultMessage": "Detach",
+    "description": "Label for the detach button"
+  },
+  "devicesDialog.detected-devices-tab-label": {
+    "defaultMessage": "Detected devices",
+    "description": "Label for detected devices tab"
+  },
+  "devicesDialog.detectedDeviceListHelper": {
+    "defaultMessage": "Select the device you want to associate to the sketch to start coding and uploading.",
+    "description": "Helper text shown when detected devices are found"
+  },
+  "devicesDialog.dividerLabel": {
+    "defaultMessage": "or",
+    "description": "Divider label to separate manual select from detected devices"
+  },
+  "devicesDialog.identifyDeviceHelper": {
+    "defaultMessage": "Specify the type of the device you are associating to the sketch.",
+    "description": "Helper text shown when unrecognized devices are found"
+  },
+  "devicesDialog.identifyDeviceTitle": {
+    "defaultMessage": "Unknown device, identify its type",
+    "description": "Title shown when unrecognized devices are found"
+  },
+  "devicesDialog.manualSelectionButton": {
+    "defaultMessage": "Select device type",
+    "description": "Label for the manual selection button"
+  },
+  "devicesDialog.manualSelectionMessage": {
+    "defaultMessage": "Do you want to verify your sketch for a specific device type you don’t have at hand?",
+    "description": "Message to direct users to manual selection"
+  },
+  "devicesDialog.noDevicesTitle": {
+    "defaultMessage": "Plug your device into your computer",
+    "description": "Title shown when no connected device is found"
+  },
+  "devicesDialog.noResults": {
+    "defaultMessage": "No results found",
+    "description": "Text shown when no results are found"
+  },
+  "devicesDialog.noResultsSubtitle": {
+    "defaultMessage": "We couldn't find any device with this name.",
+    "description": "Helper text shown when no results are found"
+  },
+  "devicesDialog.offline-devices-tab-label": {
+    "defaultMessage": "Offline devices",
+    "description": "Label for offline devices tab"
+  },
+  "devicesDialog.over-the-air-device-label": {
+    "defaultMessage": "Over-The-Air",
+    "description": "Label for over the air device"
+  },
+  "devicesDialog.plugin-board-prompt": {
+    "defaultMessage": "If you have your device, plug it in and it'll be recognized.",
+    "description": "Prompt to user to plugin a board"
+  },
+  "devicesDialog.readyToBeAssociated": {
+    "defaultMessage": "Your device {name} is ready to be associated.",
+    "description": "Text shown when a device is ready to be associated to the current sketch"
+  },
+  "devicesDialog.searchBarPlaceholder": {
+    "defaultMessage": "Search device type",
+    "description": "Placeholder for the device type search bar"
+  },
+  "devicesDialog.selectForUploadHelper": {
+    "defaultMessage": "Choose the device type you want to verify your sketch for.",
+    "description": "Helper text shown when selecting a device type to associate it to the sketch"
+  },
+  "devicesDialog.selectedTypeTitle": {
+    "defaultMessage": "Select a device type",
+    "description": "Title shown when selecting a device type"
+  },
+  "devicesDialog.title": {
+    "defaultMessage": "Select device",
+    "description": "Title shown in the device association dialog"
+  },
+  "devicesDialog.titleIdUnknow": {
+    "defaultMessage": "Unknown Device Found",
+    "description": "Title shown in the Identify Unknown device association dialog"
+  },
+  "devicesDialog.troubleshootingLink": {
+    "defaultMessage": "troubleshooting",
+    "description": "Label for the troubleshooting link"
+  },
+  "devicesDialog.troubleshootingMessage": {
+    "defaultMessage": "If your device is plugged in but it’s not getting detected, check the {troubleshootingLink}",
+    "description": "Message to direct users to troubleshooting"
+  },
+  "devicesDialog.upload-not-supported": {
+    "defaultMessage": "Upload not supported yet",
+    "description": "Topltip label for upload not supported devices"
+  },
+  "devicesDialog.upload-prompt-title": {
+    "defaultMessage": "Choose a device to upload to",
+    "description": "Prompt user to choose a device to upload to"
+  },
+  "devicesDialog.verify-only": {
+    "defaultMessage": "Verify Only",
+    "description": "Label for verify only devices"
+  },
+  "disableNetworkModeDialog.bodyDescription": {
+    "defaultMessage": "Turning off Remote Access (SSH) will prevent App Lab from connecting to your board over the network.",
+    "description": "Description shown in the disable network mode dialog to explain the consequences of disabling network mode"
+  },
+  "disableNetworkModeDialog.bodyTitle": {
+    "defaultMessage": "Disable remote access?",
+    "description": "Message shown in the disable network mode dialog"
+  },
+  "disableNetworkModeDialog.cancelButton": {
+    "defaultMessage": "Cancel",
+    "description": "Label for the cancel button in the disable network mode dialog"
+  },
+  "disableNetworkModeDialog.confirmButton": {
+    "defaultMessage": "Disable",
+    "description": "Label for the confirm button in the disable network mode dialog"
+  },
+  "disableNetworkModeDialog.title": {
+    "defaultMessage": "Remote access (SSH)",
+    "description": "Title of the disable network mode dialog"
+  },
+  "duplicateFileDialog.cancelButton": {
+    "defaultMessage": "Cancel",
+    "description": "Label for the cancel button"
+  },
+  "duplicateFileDialog.fileBodyDescription": {
+    "defaultMessage": "Do you want to overwrite the existing file or keep both?",
+    "description": "Description shown when a file conflict is detected"
+  },
+  "duplicateFileDialog.fileBodyTitle": {
+    "defaultMessage": "{fileName} already exists",
+    "description": "Title shown in the dialog body when a file already exists"
+  },
+  "duplicateFileDialog.fileConflictTitle": {
+    "defaultMessage": "File Conflict",
+    "description": "Title shown when a file conflict is detected"
+  },
+  "duplicateFileDialog.fileFolderConflictDescription": {
+    "defaultMessage": "Can't move this file. A folder with the same name already exists. Keep both to create a renamed copy.",
+    "description": "Description shown when trying to move a file to a location with a folder of the same name"
+  },
+  "duplicateFileDialog.folderBodyDescription": {
+    "defaultMessage": "A folder with this name already exists. Merge the folders or keep both as separate folders.",
+    "description": "Description shown when a folder conflict is detected"
+  },
+  "duplicateFileDialog.folderBodyTitle": {
+    "defaultMessage": "{fileName} already exists",
+    "description": "Title shown in the dialog body when a folder already exists"
+  },
+  "duplicateFileDialog.folderConflictTitle": {
+    "defaultMessage": "Folder Conflict",
+    "description": "Title shown when a folder conflict is detected"
+  },
+  "duplicateFileDialog.folderFileConflictDescription": {
+    "defaultMessage": "Can't move this folder. A file with the same name already exists. Keep both to create a renamed copy.",
+    "description": "Description shown when trying to move a folder to a location with a file of the same name"
+  },
+  "duplicateFileDialog.keepBothButton": {
+    "defaultMessage": "Keep both",
+    "description": "Label for the keep both button"
+  },
+  "duplicateFileDialog.mergeButton": {
+    "defaultMessage": "Merge",
+    "description": "Label for the merge button in folder conflict"
+  },
+  "duplicateFileDialog.nameConflictBodyTitle": {
+    "defaultMessage": "{fileName} already exists",
+    "description": "Title shown in the dialog body when a name conflict is detected between file and folder"
+  },
+  "duplicateFileDialog.nameConflictTitle": {
+    "defaultMessage": "Name Conflict",
+    "description": "Title shown when a name conflict is detected between file and folder"
+  },
+  "duplicateFileDialog.overwriteButton": {
+    "defaultMessage": "Overwrite",
+    "description": "Label for the overwrite button"
+  },
+  "duplicateFileDialog.skipButton": {
+    "defaultMessage": "Skip",
+    "description": "Label for the skip button"
+  },
+  "duplicateFileDialog.sourceLabel": {
+    "defaultMessage": "Source",
+    "description": "Label for the source file path"
+  },
+  "duplicateFileDialog.targetLabel": {
+    "defaultMessage": "Target",
+    "description": "Label for the target file path"
+  },
+  "duplicateFileDialog.warningMessage": {
+    "defaultMessage": "Warning: Choosing \"Overwrite\" will permanently replace the existing {itemType}.",
+    "description": "Warning message about overwriting files"
+  },
+  "examples.allDevices": {
+    "defaultMessage": "ALL DEVICES",
+    "description": "Filter examples by device"
+  },
+  "examples.searchExamples": {
+    "defaultMessage": "Search examples",
+    "description": "Search examples"
+  },
+  "examples.showExamples": {
+    "defaultMessage": "Showing examples for:",
+    "description": "Filter examples by device message"
+  },
+  "examplesMenu.copyInYourSketches": {
+    "defaultMessage": "Copy in your sketches",
+    "description": "Copy in your sketches"
+  },
+  "examplesMenu.download": {
+    "defaultMessage": "Download",
+    "description": "Download"
+  },
+  "fileMenu.delete": {
+    "defaultMessage": "Delete",
+    "description": "Label for delete sketch file menu item"
+  },
+  "fileMenu.rename": {
+    "defaultMessage": "Rename",
+    "description": "Label for rename sketch file menu item"
+  },
+  "fileTree.modifiedAt": {
+    "defaultMessage": "Date Modified",
+    "description": "Label for the date column of the file tree"
+  },
+  "fileTree.name": {
+    "defaultMessage": "Name",
+    "description": "Label for the name column of the file tree"
+  },
+  "fileTree.size": {
+    "defaultMessage": "Size",
+    "description": "Label for the size column of the file tree"
+  },
+  "files.addFile": {
+    "defaultMessage": "Add",
+    "description": "Dropdown menu button content for adding a new file"
+  },
+  "files.files": {
+    "defaultMessage": "Files",
+    "description": "Label for the files sidenav item"
+  },
+  "files.searchFiles": {
+    "defaultMessage": "Search files",
+    "description": "Search files"
+  },
+  "findAndReplace.next": {
+    "defaultMessage": "Next",
+    "description": "Next"
+  },
+  "findAndReplace.noResults": {
+    "defaultMessage": "No results",
+    "description": "No results"
+  },
+  "findAndReplace.occurrences": {
+    "defaultMessage": "{currentMatch} of {totalOccurrences}",
+    "description": "{currentMatch} of {totalOccurrences}"
+  },
+  "findAndReplace.prev": {
+    "defaultMessage": "Previous",
+    "description": "Previous"
+  },
+  "findAndReplace.replace": {
+    "defaultMessage": "Replace",
+    "description": "Replace"
+  },
+  "findAndReplace.replaceAll": {
+    "defaultMessage": "Replace All",
+    "description": "Replace All"
+  },
+  "findAndReplace.selectAll": {
+    "defaultMessage": "Select All",
+    "description": "Select All"
+  },
+  "flavourConfigDialog.header": {
+    "defaultMessage": "Flavours",
+    "description": "Header shown in the flavour config popover"
+  },
+  "genAIPolicyTermsDialog.fifthPart": {
+    "defaultMessage": "Moreover, the user undertakes not to upload to the Arduino AI Assistant content (text or graphic or any other type)/prompt/information which:",
+    "description": "Content shown in the GenAI Policy Terms dialog"
+  },
+  "genAIPolicyTermsDialog.fifthPartListItem1": {
+    "defaultMessage": "is offensive, vulgar, violent, false, harmful to Arduino’s image or contrary to law, or in breach of third parties’ rights, illegal, misleading, defamatory, slanderous, intimidating, offensive or in any other way contrary to law and public morality;",
+    "description": "Content shown in the GenAI Policy Terms dialog"
+  },
+  "genAIPolicyTermsDialog.fifthPartListItem2": {
+    "defaultMessage": "may constitute, encourage, promote or incite unlawful conduct;",
+    "description": "Content shown in the GenAI Policy Terms dialog"
+  },
+  "genAIPolicyTermsDialog.fifthPartListItem3": {
+    "defaultMessage": "is in breach of any patent, trademark, trade secret, copyright or any other intellectual or industrial property right, or of any other applicable law;",
+    "description": "Content shown in the GenAI Policy Terms dialog"
+  },
+  "genAIPolicyTermsDialog.fifthPartListItem4": {
+    "defaultMessage": "includes without lawful basis private or confidential information of third parties, such as addresses, phone numbers, email addresses or personal data.",
+    "description": "Content shown in the GenAI Policy Terms dialog"
+  },
+  "genAIPolicyTermsDialog.firstPart": {
+    "defaultMessage": "The Arduino AI Assistant is an experimental feature to assist the user in creating code for their sketch. It uses Generative AI to answer prompt-based questions from the user to understand the need and generate the code",
+    "description": "Content shown in the GenAI Policy Terms dialog"
+  },
+  "genAIPolicyTermsDialog.fourthPart": {
+    "defaultMessage": "It is a responsibility of the user to:",
+    "description": "Content shown in the GenAI Policy Terms dialog"
+  },
+  "genAIPolicyTermsDialog.fourthPartListItem1": {
+    "defaultMessage": "properly assess and verify the accuracy of the results provided",
+    "description": "Content shown in the GenAI Policy Terms dialog"
+  },
+  "genAIPolicyTermsDialog.fourthPartListItem2": {
+    "defaultMessage": "verify that the code provided does not infringe any third party rights",
+    "description": "Content shown in the GenAI Policy Terms dialog"
+  },
+  "genAIPolicyTermsDialog.fourthPartListItem3": {
+    "defaultMessage": "not to spread viruses, malware or any other technology designed to harm the Arduino AI Assistant, to breach Arduino’s rights or the rights of other users",
+    "description": "Content shown in the GenAI Policy Terms dialog"
+  },
+  "genAIPolicyTermsDialog.secondPart": {
+    "defaultMessage": "Arduino will not use the information uploaded/content/prompt into Arduino AI Assistant to enrich the algorithm of the AI Assistant; in order to provide this service, Arduino is sending the prompt and user sketch to third parties in order to provide user with the requested result, however no user personal information or identity is shared with third parties. The user undertakes not to upload any personal data and any information related to physical persons as part of the prompt or sketch.",
+    "description": "Content shown in the GenAI Policy Terms dialog"
+  },
+  "genAIPolicyTermsDialog.sixthPart": {
+    "defaultMessage": "By using Arduino AI Assistant, you understand and agree to these terms. For more information please contact Arduino at support@arduino.cc",
+    "description": "Content shown in the GenAI Policy Terms dialog"
+  },
+  "genAIPolicyTermsDialog.thirdPart": {
+    "defaultMessage": "The code generated by Arduino assistant is provided “as is” and we make no express or implied warranties whatsoever with respect to its functionality, operability, or use, fitness for a particular purpose, or infringement of third party rights.",
+    "description": "Content shown in the GenAI Policy Terms dialog"
+  },
+  "genAIPolicyTermsDialog.title": {
+    "defaultMessage": "Arduino Assistant Policy Terms",
+    "description": "Title shown in the GenAI Policy Terms dialog"
+  },
+  "genAiBanner.description": {
+    "defaultMessage": "The Arduino AI Assistant is here to help you code faster and smarter. Enjoy {limit} and share your feedback!",
+    "description": "Description of the Arduino AI Assistant banner"
+  },
+  "genAiBanner.freeLimit": {
+    "defaultMessage": "50 free messages per month",
+    "description": "Free limit for the Arduino AI Assistant banner"
+  },
+  "genAiBanner.makerDescription": {
+    "defaultMessage": "The Arduino AI Assistant is here to help you code faster and smarter. With your paid plan, you can send {limit} Give it a try and let us know what you think!",
+    "description": "Description of the Arduino AI Assistant banner for MKR users"
+  },
+  "genAiBanner.makerLimit": {
+    "defaultMessage": "1500 messages per month.",
+    "description": "Maker limit for the Arduino AI Assistant banner"
+  },
+  "genAiBanner.maybeLaterButton": {
+    "defaultMessage": "Maybe later",
+    "description": "Button to hide the AI Assistant banner"
+  },
+  "genAiBanner.proDescription": {
+    "defaultMessage": "The Arduino AI Assistant is here to help you code faster and smarter. With your paid plan, you can send {limit} Give it a try and let us know what you think!",
+    "description": "Description of the Arduino AI Assistant banner for PRO users"
+  },
+  "genAiBanner.proLimit": {
+    "defaultMessage": "unlimited messages per day.",
+    "description": "Pro limit for the Arduino AI Assistant banner"
+  },
+  "genAiBanner.title": {
+    "defaultMessage": "Welcome to the AI Assistant in Arduino Cloud Editor! 🤖✨",
+    "description": "Title of the Arduino AI Assistant banner"
+  },
+  "genAiBanner.tryItNowButton": {
+    "defaultMessage": "Try it now",
+    "description": "Button to try the AI Assistant banner"
+  },
+  "genai.apply-fix": {
+    "defaultMessage": "Apply fix",
+    "description": "Apply fix button"
+  },
+  "genai.apply-fix-message": {
+    "defaultMessage": "Apply recommended fix in code",
+    "description": "Apply fix message"
+  },
+  "genai.clear-chat-button": {
+    "defaultMessage": "Clear chat",
+    "description": "Clear chat button"
+  },
+  "genai.create-code-example": {
+    "defaultMessage": "Create code to blink an LED without using delays",
+    "description": "Create code example button"
+  },
+  "genai.disclaimer-arduino-assistant": {
+    "defaultMessage": "The Arduino AI Assistant can make mistakes. Consider checking important information.",
+    "description": "Disclaimer for the Arduino Sketch Assistant"
+  },
+  "genai.error-not-fixed-in-code": {
+    "defaultMessage": "Fix incompatible or already included",
+    "description": "Advisory given to user when error is not fixed in code"
+  },
+  "genai.explain-function-example": {
+    "defaultMessage": "Explain this function: map(input, 0, 255, 0, 10)",
+    "description": "Explain function example button"
+  },
+  "genai.explain-sketch": {
+    "defaultMessage": "/explain_sketch",
+    "description": "Explain sketch button"
+  },
+  "genai.fix-error": {
+    "defaultMessage": "Fix error",
+    "description": "Fix error button"
+  },
+  "genai.fix-error-message": {
+    "defaultMessage": "Fix the error",
+    "description": "Fix error message"
+  },
+  "genai.fix-errors": {
+    "defaultMessage": "/fix_errors",
+    "description": "Fix errors button"
+  },
+  "genai.generate-sketch-example": {
+    "defaultMessage": "Generate Sketch for...",
+    "description": "Generate sketch example button"
+  },
+  "genai.generating-requirements": {
+    "defaultMessage": "Generating requirements...",
+    "description": "Message for generating requirements"
+  },
+  "genai.go-to-error": {
+    "defaultMessage": "Go to error",
+    "description": "Go to error button"
+  },
+  "genai.legal-disclaimer-accept-terms": {
+    "defaultMessage": "Accept terms",
+    "description": "Content for the accept terms and conditions button"
+  },
+  "genai.legal-disclaimer-ask-content": {
+    "defaultMessage": "From basics to advanced projects, I’ll help with all your Arduino coding needs.",
+    "description": "Content for the ask a question section of the legal disclaimer"
+  },
+  "genai.legal-disclaimer-ask-title": {
+    "defaultMessage": "Ask me anything",
+    "description": "Title for the ask a question section of the legal disclaimer"
+  },
+  "genai.legal-disclaimer-be-responsible-content": {
+    "defaultMessage": "Arduino AI Assistant is built to provide you only with suggestions and examples. Always verify generated code for accuracy, safety and intellectual property. Avoid harmful or illegal content, and respect others’ privacy.",
+    "description": "Content for the be responsible section of the legal disclaimer"
+  },
+  "genai.legal-disclaimer-be-responsible-title": {
+    "defaultMessage": "Be responsible",
+    "description": "Title for the be responsible section of the legal disclaimer"
+  },
+  "genai.legal-disclaimer-main-content": {
+    "defaultMessage": "I’m ready to help with coding, troubleshooting, and project advice for all your Arduino boards.",
+    "description": "Main content for the legal disclaimer"
+  },
+  "genai.legal-disclaimer-policy-terms": {
+    "defaultMessage": "By using the Arduino AI Assistant you accept the {privacyPolicy}.",
+    "description": "Content for the policy and terms section of the legal disclaimer"
+  },
+  "genai.legal-disclaimer-privacy-policy": {
+    "defaultMessage": "full policy terms",
+    "description": "Content for the privacy policy link"
+  },
+  "genai.legal-disclaimer-private-data-content": {
+    "defaultMessage": "Your sketches and questions remain private and won’t be used to train or enhance the AI.",
+    "description": "Content for the private data section of the legal disclaimer"
+  },
+  "genai.legal-disclaimer-private-data-title": {
+    "defaultMessage": "Your data is private",
+    "description": "Title for the private data section of the legal disclaimer"
+  },
+  "genai.legal-disclaimer-title": {
+    "defaultMessage": "Hey there, I'm Arduino AI Assistant",
+    "description": "Title for the legal disclaimer"
+  },
+  "genai.loading-message": {
+    "defaultMessage": "Certainly! I will start searching for all need resources",
+    "description": "Loading message for the chat"
+  },
+  "genai.new-messages": {
+    "defaultMessage": "New messages",
+    "description": "New messages button"
+  },
+  "genai.notification-chat-deleted": {
+    "defaultMessage": "Chat deleted",
+    "description": "Message for chat deleted notification"
+  },
+  "genai.notification-close-button": {
+    "defaultMessage": "Close",
+    "description": "Close button for the clear notification"
+  },
+  "genai.notification-undo-button": {
+    "defaultMessage": "Undo",
+    "description": "Message for undo button in the clear notification"
+  },
+  "genai.placeholder-send-box": {
+    "defaultMessage": "Ask a question to the Arduino AI Assistant or type ‘/’",
+    "description": "Placeholder for the send box in the chat"
+  },
+  "genai.placeholder-send-box-no-sketch-generation": {
+    "defaultMessage": "Ask a question to the Arduino AI Assistant or type '/'",
+    "description": "Placeholder for the send box in the chat when sketch generation is disabled"
+  },
+  "genai.plan-limits-reached": {
+    "defaultMessage": "Plan limits reached.",
+    "description": "Plan limits reached message"
+  },
+  "genai.references": {
+    "defaultMessage": "References:",
+    "description": "References"
+  },
+  "genai.reload-error": {
+    "defaultMessage": "Reload error",
+    "description": "Reload error button"
+  },
+  "genai.remaining-messages": {
+    "defaultMessage": "{messagesLeft} messages remaining",
+    "description": "Remaining messages"
+  },
+  "genai.suggest-project-example": {
+    "defaultMessage": "Suggest a project idea using a strip LED",
+    "description": "Suggest project example button"
+  },
+  "genai.survey-button": {
+    "defaultMessage": "Let us know",
+    "description": "Content of the link for opening survey for AI chat"
+  },
+  "genai.survey-label": {
+    "defaultMessage": "How was your experience with this conversation?",
+    "description": "Message for generating requirements"
+  },
+  "genai.try-hints-message": {
+    "defaultMessage": "Try these hints",
+    "description": "Try hints message"
+  },
+  "genai.upgrade-plan": {
+    "defaultMessage": "Upgrade plan",
+    "description": "Upgrade plan button"
+  },
+  "genai.upgrade-to-unlock": {
+    "defaultMessage": "{planLimitsReached} Upgrade to unlock more.",
+    "description": "Upgrade to unlock more button"
+  },
+  "genai.upgrade-to-unlock-shorter": {
+    "defaultMessage": "{planLimitsReached}",
+    "description": "Upgrade to unlock more button"
+  },
+  "markdownReader.copy": {
+    "defaultMessage": "Copy",
+    "description": "Label for the copy button in the markdown reader"
+  },
+  "mobileWarningDialog.continueButton": {
+    "defaultMessage": "Continue",
+    "description": "Label for the continue button"
+  },
+  "mobileWarningDialog.description": {
+    "defaultMessage": "Currently, our mobile version is a work in progress, so <bold>you might encounter some limitations and something might not be working properly</bold>.",
+    "description": "Description of the mobile warning dialog"
+  },
+  "mobileWarningDialog.header": {
+    "defaultMessage": "Mobile Cloud Editor",
+    "description": "Header shown in the mobile warning dialog"
+  },
+  "mobileWarningDialog.otaDescription": {
+    "defaultMessage": "Keep in mind, uploading is only possible for IoT sketches already associated to an online <link>OTA (Over-the-Air) device</link>.",
+    "description": "Note regarding ota upload on mobile devices"
+  },
+  "mobileWarningDialog.title": {
+    "defaultMessage": "Discover the editor on the go!",
+    "description": "Title in the body of the mobile warning dialog"
+  },
+  "networkSettingsDialog.confirmButton": {
+    "defaultMessage": "Connect",
+    "description": "Label for the button to confirm network settings dialog"
+  },
+  "networkSettingsDialog.title": {
+    "defaultMessage": "Network Settings",
+    "description": "Title of the network settings dialog"
+  },
+  "newFileMenu.addHeaderFile": {
+    "defaultMessage": "Add Header File",
+    "description": "Add Header File"
+  },
+  "newFileMenu.addSecretsTab": {
+    "defaultMessage": "Add Secrets Tab",
+    "description": "Add Secrets Tab"
+  },
+  "newFileMenu.addSketchFile": {
+    "defaultMessage": "Add Sketch File",
+    "description": "Add Sketch File"
+  },
+  "newFileMenu.addTextFile": {
+    "defaultMessage": "Add Text File",
+    "description": "Add Text File"
+  },
+  "newFileMenu.importFile": {
+    "defaultMessage": "Import File",
+    "description": "Import File"
+  },
+  "newTabMenu.addHeaderFile": {
+    "defaultMessage": "Add Header File",
+    "description": "Add Header File"
+  },
+  "newTabMenu.addSecretsTab": {
+    "defaultMessage": "Add Secrets Tab",
+    "description": "Add Secrets Tab"
+  },
+  "newTabMenu.addSketchFile": {
+    "defaultMessage": "Add Sketch File",
+    "description": "Add Sketch File"
+  },
+  "newTabMenu.addTextFile": {
+    "defaultMessage": "Add Text File",
+    "description": "Add Text File"
+  },
+  "newTabMenu.importFile": {
+    "defaultMessage": "Import File",
+    "description": "Import File"
+  },
+  "onboardingSteps.connectDeviceContent": {
+    "defaultMessage": "Start connecting your device or choosing a device type to start coding.",
+    "description": "Content of the connect device step"
+  },
+  "onboardingSteps.connectDeviceTitle": {
+    "defaultMessage": "Connect your device",
+    "description": "Title of the connect device step"
+  },
+  "onboardingSteps.deviceInteractionContent": {
+    "defaultMessage": "Engage in direct communication with your hardware using real-time data exchange via the Serial Monitor.",
+    "description": "Content of the device interaction step"
+  },
+  "onboardingSteps.deviceInteractionTitle": {
+    "defaultMessage": "Device real-time interactions",
+    "description": "Title of the device interaction step"
+  },
+  "onboardingSteps.examplesContent": {
+    "defaultMessage": "Not sure where to start? Browse and select from a variety of examples that fit your project's needs or to get inspired.",
+    "description": "Content of the examples step"
+  },
+  "onboardingSteps.examplesTitle": {
+    "defaultMessage": "Get inspired with Examples",
+    "description": "Title of the examples step"
+  },
+  "onboardingSteps.finishTour": {
+    "defaultMessage": "Finish Tour",
+    "description": "Button to finish the onboarding"
+  },
+  "onboardingSteps.librariesAndLanguageContent": {
+    "defaultMessage": "Access a wealth of resources with Arduino libraries and get familiar with coding fundamentals using the Language Reference.",
+    "description": "Content of the libraries and languages step"
+  },
+  "onboardingSteps.librariesAndLanguageTitle": {
+    "defaultMessage": "Libraries and Language Reference",
+    "description": "Title of the libraries and languages step"
+  },
+  "onboardingSteps.sketchCollectionContent": {
+    "defaultMessage": "Use the navigation to switch between the Arduino Cloud features and to conveniently access the full collection of your sketches",
+    "description": "Content of the sketch collection step"
+  },
+  "onboardingSteps.sketchCollectionTitle": {
+    "defaultMessage": "Back to Your Sketch Collection",
+    "description": "Title of the sketch collection step"
+  },
+  "onboardingSteps.skipAll": {
+    "defaultMessage": "Skip All",
+    "description": "Button to skip all the steps"
+  },
+  "onboardingSteps.verifyAndUploadContent": {
+    "defaultMessage": "Make sure your code is error-free with 'Verify' or directly 'Upload' it to your board and watch the magic happen!",
+    "description": "Content of the verify and upload step"
+  },
+  "onboardingSteps.verifyAndUploadTitle": {
+    "defaultMessage": "Verify and upload With Ease",
+    "description": "Title of the verify and upload step"
+  },
+  "onboardingWindow.description": {
+    "defaultMessage": "You've just opened a sketch, named {sketchName}, awaiting your unique touch. This is where your Arduino ideas will take shape.",
+    "description": "Description of the onboarding window"
+  },
+  "onboardingWindow.hideButton": {
+    "defaultMessage": "Hide",
+    "description": "Button to hide the onboarding window"
+  },
+  "onboardingWindow.startButton": {
+    "defaultMessage": "Start Tour",
+    "description": "Button to start the onboarding"
+  },
+  "onboardingWindow.title": {
+    "defaultMessage": "Welcome to Your New Sketch Workspace",
+    "description": "Title of the onboarding window"
+  },
+  "readOnlyBar.byOwner": {
+    "defaultMessage": "by {owner}",
+    "description": "Owner name message"
+  },
+  "readOnlyBar.createdLabel": {
+    "defaultMessage": "Created",
+    "description": "Created label message"
+  },
+  "readOnlyBar.modifiedLabel": {
+    "defaultMessage": "Modified",
+    "description": "Modified label message"
+  },
+  "readOnlyBar.sizeLabel": {
+    "defaultMessage": "Size",
+    "description": "Size label message"
+  },
+  "referenceCategory.functions": {
+    "defaultMessage": "For controlling the Arduino board and performing computations.",
+    "description": "Description of Functions section in the reference"
+  },
+  "referenceCategory.structure": {
+    "defaultMessage": "The elements of Arduino (C++) code.",
+    "description": "Description of Structures section in the reference"
+  },
+  "referenceCategory.variables": {
+    "defaultMessage": "Arduino data types and constants.",
+    "description": "Description of Variables section in the reference"
+  },
+  "renameAppDialog.appNameInUse": {
+    "defaultMessage": "Name already in use, please choose another one.",
+    "description": "Error message when trying to set an app name that is already used"
+  },
+  "renameAppDialog.cancelButton": {
+    "defaultMessage": "Cancel",
+    "description": "Label for the cancel button"
+  },
+  "renameAppDialog.confirmButton": {
+    "defaultMessage": "Rename",
+    "description": "Label for the confirm button"
+  },
+  "renameAppDialog.failedRename": {
+    "defaultMessage": "Failed to rename app. Please try again.",
+    "description": "Notification message shown when app rename fails"
+  },
+  "renameAppDialog.inputPlaceholder": {
+    "defaultMessage": "Insert new name",
+    "description": "Placeholder text for the app name input field"
+  },
+  "renameAppDialog.successRename": {
+    "defaultMessage": "App renamed successfully",
+    "description": "Notification message shown when an app is renamed successfully"
+  },
+  "renameAppDialog.title": {
+    "defaultMessage": "Rename app",
+    "description": "Title shown in the rename app dialog"
+  },
+  "renameDialog.actionTitle": {
+    "defaultMessage": "Rename sketch",
+    "description": "Title of the form in rename dialog"
+  },
+  "renameDialog.cancelButton": {
+    "defaultMessage": "Cancel",
+    "description": "Label for cancel button in rename dialog"
+  },
+  "renameDialog.inputLabel": {
+    "defaultMessage": "Name",
+    "description": "Input label for sketch name in the rename dialog"
+  },
+  "renameDialog.renameButton": {
+    "defaultMessage": "Rename",
+    "description": "Label for rename button in rename dialog"
+  },
+  "renameDialog.sketchNameAlreadyExists": {
+    "defaultMessage": "Name already in use, please choose another one.",
+    "description": "Name already in use, please choose another one."
+  },
+  "renameDialog.sketchNameContainsInvalidCharacters": {
+    "defaultMessage": "Spaces, punctuations and special characters are not allowed.",
+    "description": "Spaces, punctuations and special characters are not allowed."
+  },
+  "renameDialog.sketchNameExceedsLimit": {
+    "defaultMessage": "Character limit reached.",
+    "description": "Character limit reached."
+  },
+  "renameDialog.title": {
+    "defaultMessage": "Rename sketch",
+    "description": "Title of rename sketch dialog"
+  },
+  "secretsEditor.addButton": {
+    "defaultMessage": "Add new"
+  },
+  "secretsEditor.description": {
+    "defaultMessage": "You can use Secrets to hide sensitive data (passwords, API keys, etc.) so that they are not publicly displayed when you share your Sketches. A secret consists of a Key, the part that remains visible when the Sketch is shared, and a Value, visible only to the user who created the Sketch."
+  },
+  "secretsEditor.duplicateError": {
+    "defaultMessage": "Duplicate key. Please choose a unique one."
+  },
+  "secretsEditor.header": {
+    "defaultMessage": "Hide your sensitive data"
+  },
+  "secretsEditor.keyLabel": {
+    "defaultMessage": "Key"
+  },
+  "secretsEditor.removeButton": {
+    "defaultMessage": "Delete"
+  },
+  "secretsEditor.valueLabel": {
+    "defaultMessage": "Value"
+  },
+  "serialMonitor.body.bothNLandCR": {
+    "defaultMessage": "Both NL & CR",
+    "description": "Line ending input button value: Both new line and carriage return"
+  },
+  "serialMonitor.body.carriageReturn": {
+    "defaultMessage": "Carriage Return",
+    "description": "Line ending input button value: Carriage Return"
+  },
+  "serialMonitor.body.clearLog": {
+    "defaultMessage": "Clear log",
+    "description": "Label for the button used to clear the serial monitor data log."
+  },
+  "serialMonitor.body.connecting": {
+    "defaultMessage": "Connecting...",
+    "description": "Label to indicate the serial monitor is connecting."
+  },
+  "serialMonitor.body.connectionLost": {
+    "defaultMessage": "We can’t find the device, please make sure it is connected via serial port. You can still see log history here, but data won’t be printed until new connection.",
+    "description": "Label to indicate the serial monitor connection is lost."
+  },
+  "serialMonitor.body.downloadLog": {
+    "defaultMessage": "Download Log",
+    "description": "Label for the button used to download the serial monitor log."
+  },
+  "serialMonitor.body.hideTimestamp": {
+    "defaultMessage": "Hide Timestamp",
+    "description": "Label for the button used to hide the serial monitor timestamps."
+  },
+  "serialMonitor.body.newLine": {
+    "defaultMessage": "New Line",
+    "description": "Line ending input button value: New line"
+  },
+  "serialMonitor.body.noLineEnding": {
+    "defaultMessage": "No Line Ending",
+    "description": "Line ending input button value: No line ending"
+  },
+  "serialMonitor.body.searchLog": {
+    "defaultMessage": "Search log",
+    "description": "Label for the button used to search the serial monitor data log."
+  },
+  "serialMonitor.body.searchLogDisabled": {
+    "defaultMessage": "To enable the Search, first put the serial monitor in pause.",
+    "description": "Label for the tooltip used to inform that the serial monitor search can't be enabled unless the serial monitor is in pause."
+  },
+  "serialMonitor.body.send": {
+    "defaultMessage": "Send",
+    "description": "Label for the button used to send data."
+  },
+  "serialMonitor.body.showTimestamp": {
+    "defaultMessage": "Show Timestamp",
+    "description": "Label for the button used to show the serial monitor timestamps."
+  },
+  "serialMonitor.body.unavailable": {
+    "defaultMessage": "Serial monitor unavailable.",
+    "description": "Label to indicate the serial monitor is unavailable."
+  },
+  "serialMonitor.body.viewNewData": {
+    "defaultMessage": "View new data",
+    "description": "Label for the button used to view the new data."
+  },
+  "serialMonitor.toolbar.pause": {
+    "defaultMessage": "Pause",
+    "description": "Label for the button used to pause the serial monitor."
+  },
+  "serialMonitor.toolbar.run": {
+    "defaultMessage": "Run",
+    "description": "Label for the button used to run the serial monitor."
+  },
+  "setAsDefaultAppDialog.bodyDescription": {
+    "defaultMessage": "It will automatically launch every time the board is powered on.",
+    "description": "Message to confirm the set as default of an app"
+  },
+  "setAsDefaultAppDialog.bodyTitle": {
+    "defaultMessage": "Do you want to set this app as the default?",
+    "description": "Message shown in the set as default app dialog"
+  },
+  "setAsDefaultAppDialog.cancelButton": {
+    "defaultMessage": "Cancel",
+    "description": "Label for the cancel button"
+  },
+  "setAsDefaultAppDialog.confirmButton": {
+    "defaultMessage": "Set as default",
+    "description": "Label for the confirm button"
+  },
+  "setAsDefaultAppDialog.title": {
+    "defaultMessage": "Set as default",
+    "description": "Title shown in the set as default app dialog"
+  },
+  "settings.appearance": {
+    "defaultMessage": "Appearance",
+    "description": "Label for the appearance settings item"
+  },
+  "settings.appearance.fontSizeSection": {
+    "defaultMessage": "Font size",
+    "description": "Label for the font size section"
+  },
+  "settings.appearance.themeSection": {
+    "defaultMessage": "Theme",
+    "description": "Label for the theme section"
+  },
+  "settings.appearance.themeSection.auto": {
+    "defaultMessage": "Auto",
+    "description": "Label for the auto theme"
+  },
+  "settings.appearance.themeSection.auto.description": {
+    "defaultMessage": "- based on OS setting",
+    "description": "Description for the auto theme"
+  },
+  "settings.appearance.themeSection.comingSoon": {
+    "defaultMessage": "Coming Soon",
+    "description": "Label for the coming soon theme"
+  },
+  "settings.appearance.themeSection.dark": {
+    "defaultMessage": "Dark",
+    "description": "Label for the dark theme"
+  },
+  "settings.appearance.themeSection.light": {
+    "defaultMessage": "Light",
+    "description": "Label for the light theme"
+  },
+  "settings.device": {
+    "defaultMessage": "Device",
+    "description": "Label for the device settings item"
+  },
+  "settings.device.consoleVerbositySection": {
+    "defaultMessage": "Console verbosity",
+    "description": "Label for the console verbosity setting"
+  },
+  "settings.device.consoleVerbositySection.concise": {
+    "defaultMessage": "Concise",
+    "description": "Label for the concise console verbosity setting"
+  },
+  "settings.device.consoleVerbositySection.conciseOutput": {
+    "defaultMessage": "Concise output",
+    "description": "Label for the concise output console verbosity setting"
+  },
+  "settings.device.consoleVerbositySection.info": {
+    "defaultMessage": "This change will be applied from the next compilation.",
+    "description": "Label for the info console verbosity setting"
+  },
+  "settings.device.consoleVerbositySection.verbose": {
+    "defaultMessage": "Verbose",
+    "description": "Label for the verbose console verbosity setting"
+  },
+  "settings.device.consoleVerbositySection.verboseOutput": {
+    "defaultMessage": "Verbose output",
+    "description": "Label for the verbose output console verbosity setting"
+  },
+  "settings.device.deviceSelectionSection": {
+    "defaultMessage": "Device selection",
+    "description": "Label for the device selection section"
+  },
+  "settings.device.deviceSelectionSection.autoSelectionInfo": {
+    "defaultMessage": "On new sketches, when you plug a device it will get automatically selected.",
+    "description": "Label for the info auto-selection setting"
+  },
+  "settings.device.deviceSelectionSection.enableAutoSelection": {
+    "defaultMessage": "Enable auto-selection",
+    "description": "Label for the enable auto-selection setting"
+  },
+  "settings.restoreSettings": {
+    "defaultMessage": "RESTORE Settings to Default",
+    "description": "Label for the restore settings button"
+  },
+  "settings.sketch": {
+    "defaultMessage": "Sketch",
+    "description": "Label for the sketch settings item"
+  },
+  "settings.sketch.savingSection": {
+    "defaultMessage": "Saving",
+    "description": "Label for the saving section"
+  },
+  "settings.sketch.savingSection.enableAutoSave": {
+    "defaultMessage": "Enable autosave",
+    "description": "Label for the enable autosave setting"
+  },
+  "settings.sketch.savingSection.saveOnVerifyAndUpload": {
+    "defaultMessage": "Save on verifying and uploading",
+    "description": "Label for the save on verifying and uploading setting"
+  },
+  "settings.verifyAndUpload": {
+    "defaultMessage": "Verify & upload",
+    "description": "Label for the verify and upload settings item"
+  },
+  "shareSketch.embed-label": {
+    "defaultMessage": "Embed in HTML code",
+    "description": "Label for the embed string"
+  },
+  "shareSketch.members-url-label": {
+    "defaultMessage": "Link to share it within space members",
+    "description": "Label for the members only link"
+  },
+  "shareSketch.organization-label": {
+    "defaultMessage": "Only users who have access to the shared space SHARED-SPACE-NAME can view and edit this sketch.",
+    "description": "Label for the organization visibility option"
+  },
+  "shareSketch.personal-label": {
+    "defaultMessage": "Only you can view and edit this sketch",
+    "description": "Label for the personal visibility option"
+  },
+  "shareSketch.public-disabled": {
+    "defaultMessage": "Disabled",
+    "description": "Label for the public visibility option"
+  },
+  "shareSketch.public-enabled": {
+    "defaultMessage": "Enabled",
+    "description": "Label for the public visibility option"
+  },
+  "shareSketch.public-label": {
+    "defaultMessage": "Anyone with the link can view this sketch, but they cannot edit the original.",
+    "description": "Label for the public visibility option"
+  },
+  "shareSketch.share-to-classroom": {
+    "defaultMessage": "Share to Google Classroom",
+    "description": "Label for the share to Google Classroom"
+  },
+  "shareSketch.title-organization": {
+    "defaultMessage": "Public sharing",
+    "description": "Title shown in the share sketch panel when the sketch is from an organization"
+  },
+  "shareSketch.title-personal": {
+    "defaultMessage": "Sketch sharing",
+    "description": "Title shown in the share sketch panel when the sketch is personal"
+  },
+  "shareSketch.url-label": {
+    "defaultMessage": "Link to share",
+    "description": "Label for the shareable link"
+  },
+  "shareSketchDialog.body-title": {
+    "defaultMessage": "Choose the visibility of your sketch",
+    "description": "Title shown in the body of the share sketch dialog"
+  },
+  "shareSketchDialog.embed-label": {
+    "defaultMessage": "Embed",
+    "description": "Label for the embed string"
+  },
+  "shareSketchDialog.private-label": {
+    "defaultMessage": "Private, only you can view the sketch",
+    "description": "Label for the private visibility option"
+  },
+  "shareSketchDialog.public-label": {
+    "defaultMessage": "Public, anyone with the link can view the sketch",
+    "description": "Label for the public visibility option"
+  },
+  "shareSketchDialog.title": {
+    "defaultMessage": "Share Sketch",
+    "description": "Title shown in the share sketch dialog header"
+  },
+  "shareSketchDialog.url-label": {
+    "defaultMessage": "Link",
+    "description": "Label for the shareable link"
+  },
+  "shareSketchToClassroomDialog.body": {
+    "defaultMessage": "By proceeding, the sketch visibility will be automatically set as Public, everyone with the link can view the sketch.",
+    "description": "Text shown in the body of the share sketch dialog"
+  },
+  "shareSketchToClassroomDialog.shareToClassroomButton": {
+    "defaultMessage": "Share to Google Classroom",
+    "description": "Label for the share to classroom button"
+  },
+  "shareSketchToClassroomDialog.title": {
+    "defaultMessage": "Share Sketch to Google Classroom",
+    "description": "Title shown in the share to classroom sketch dialog header"
+  },
+  "sidePanel.account": {
+    "defaultMessage": "Account",
+    "description": "Label for the account side panel item"
+  },
+  "sidePanel.aiModels": {
+    "defaultMessage": "AI Models",
+    "description": "Label for the models side panel item"
+  },
+  "sidePanel.bricks": {
+    "defaultMessage": "Bricks",
+    "description": "Label for the bricks side panel item"
+  },
+  "sidePanel.examples": {
+    "defaultMessage": "Examples",
+    "description": "Label for the examples side panel item"
+  },
+  "sidePanel.learn": {
+    "defaultMessage": "Learn",
+    "description": "Label for the learn side panel item"
+  },
+  "sidePanel.myApps": {
+    "defaultMessage": "My Apps",
+    "description": "Label for the My Apps side panel item"
+  },
+  "sidePanel.settings": {
+    "defaultMessage": "Settings",
+    "description": "Label for the settings side panel item"
+  },
+  "sidenav.examples": {
+    "defaultMessage": "Examples",
+    "description": "Label for the examples sidenav item"
+  },
+  "sidenav.genAI": {
+    "defaultMessage": "Arduino AI Assistant",
+    "description": "Label for the genAI sidenav item"
+  },
+  "sidenav.genAIExperimental": {
+    "defaultMessage": "Experimental",
+    "description": "Label for the genAI experimental sidenav item"
+  },
+  "sidenav.hideSidenavContent": {
+    "defaultMessage": "Hide sidenav content",
+    "description": "Button text to hide the sidenav content"
+  },
+  "sidenav.libraries": {
+    "defaultMessage": "Libraries",
+    "description": "Label for the libraries sidenav item"
+  },
+  "sidenav.libraries.addLibraryToFavorite": {
+    "defaultMessage": "Add library to favorites",
+    "description": "Label for the add library to favorite button"
+  },
+  "sidenav.libraries.copyAndModifyLibrary": {
+    "defaultMessage": "Copy & modify library",
+    "description": "Label for the \"copy and modify library\" button"
+  },
+  "sidenav.libraries.deleteLibrary": {
+    "defaultMessage": "Delete library",
+    "description": "Label for the \"delete library\" button"
+  },
+  "sidenav.libraries.downloadLibrary": {
+    "defaultMessage": "Download",
+    "description": "Label for the \"download library\" button"
+  },
+  "sidenav.libraries.examples": {
+    "defaultMessage": "Examples",
+    "description": "Label for the examples section in the libraries sidenav"
+  },
+  "sidenav.libraries.includeButton": {
+    "defaultMessage": "Include",
+    "description": "Button text to include a library"
+  },
+  "sidenav.libraries.modifyLibrary": {
+    "defaultMessage": "Modify library",
+    "description": "Label for the \"modify library\" button"
+  },
+  "sidenav.libraries.noCustomLibrariesMsg": {
+    "defaultMessage": "No custom libraries found",
+    "description": "Message shown when there are no custom libraries"
+  },
+  "sidenav.libraries.noCustomLibrariesTitle": {
+    "defaultMessage": "No custom libraries",
+    "description": "Title shown when there are no custom libraries"
+  },
+  "sidenav.libraries.noFavoriteLibrariesMsg": {
+    "defaultMessage": "No favorite libraries found",
+    "description": "Message shown when there are no favorite libraries"
+  },
+  "sidenav.libraries.noFavoriteLibrariesTitle": {
+    "defaultMessage": "No Favorites",
+    "description": "Title shown when there are no favorite libraries"
+  },
+  "sidenav.libraries.removeLibraryFromFavorite": {
+    "defaultMessage": "Remove library from favorites",
+    "description": "Label for the remove library from favorite button"
+  },
+  "sidenav.libraries.searchLibraries": {
+    "defaultMessage": "Search libraries",
+    "description": "Search libraries"
+  },
+  "sidenav.moreInfo": {
+    "defaultMessage": "More info",
+    "description": "Label for the more info button"
+  },
+  "sidenav.noResultsSubtitle": {
+    "defaultMessage": "We couldn't find any {resourceName} with this name",
+    "description": "Helper text shown when no results are found"
+  },
+  "sidenav.noResultsTitle": {
+    "defaultMessage": "No results found",
+    "description": "Title shown when no results are found"
+  },
+  "sidenav.reference": {
+    "defaultMessage": "Reference",
+    "description": "Label for the language reference sidenav item"
+  },
+  "sidenav.settings": {
+    "defaultMessage": "Settings",
+    "description": "Label for the settings sidenav item"
+  },
+  "sidenav.sidenavContentClose": {
+    "defaultMessage": "Close",
+    "description": "Button text to close the sidenav content"
+  },
+  "sidenavExamples.builtIn": {
+    "defaultMessage": "Built-in",
+    "description": "Built-in"
+  },
+  "sidenavExamples.device": {
+    "defaultMessage": "Device",
+    "description": "Device"
+  },
+  "sidenavExamples.fromLibraries": {
+    "defaultMessage": "From Libraries",
+    "description": "From Libraries"
+  },
+  "sidenavLibraries.allDevices": {
+    "defaultMessage": "All devices",
+    "description": "All devices filter option"
+  },
+  "sidenavLibraries.custom": {
+    "defaultMessage": "Custom",
+    "description": "Custom"
+  },
+  "sidenavLibraries.favorites": {
+    "defaultMessage": "Favorites",
+    "description": "Favorites"
+  },
+  "sidenavLibraries.includeDisabledContent": {
+    "defaultMessage": "Add an \"includes\" field to the library.properties file to enable this.",
+    "description": "content of include disabled button tooltip"
+  },
+  "sidenavLibraries.includeDisabledTitle": {
+    "defaultMessage": "Inclusion must be done manually",
+    "description": "title of include disabled button tooltip"
+  },
+  "sidenavLibraries.included": {
+    "defaultMessage": "Included version",
+    "description": "prefix of included version"
+  },
+  "sidenavLibraries.latest": {
+    "defaultMessage": "Latest",
+    "description": "prefix of latest version"
+  },
+  "sidenavLibraries.showLibrariesFor": {
+    "defaultMessage": "Show libraries for:",
+    "description": "Label for libraries architecture filter toggle"
+  },
+  "sidenavLibraries.standard": {
+    "defaultMessage": "All Libraries",
+    "description": "All Libraries"
+  },
+  "sidenavReference.functions": {
+    "defaultMessage": "Functions",
+    "description": "Functions"
+  },
+  "sidenavReference.structure": {
+    "defaultMessage": "Structures",
+    "description": "Structures"
+  },
+  "sidenavReference.variables": {
+    "defaultMessage": "Variables",
+    "description": "Variables"
+  },
+  "sketchPlan.cancelButton": {
+    "defaultMessage": "Cancel sketch proposal",
+    "description": "Label for button cancelling plan"
+  },
+  "sketchPlan.confirmButton": {
+    "defaultMessage": "Confirm",
+    "description": "Label for button confirming sketch generation plan"
+  },
+  "sketchPlan.generateSketchApply": {
+    "defaultMessage": "Apply",
+    "description": "Apply button for generating sketch"
+  },
+  "sketchPlan.generateSketchMessage": {
+    "defaultMessage": "/generate_sketch",
+    "description": "Message for generating sketch"
+  },
+  "sketchPlan.generateSketchNewFeature": {
+    "defaultMessage": "New feature:",
+    "description": "New feature for generating sketch"
+  },
+  "sketchPlan.generateSketchNewFeatureMessage": {
+    "defaultMessage": "Use this feature to create a new sketch from scratch",
+    "description": "Message for new feature in generating sketch"
+  },
+  "sketchPlan.generateSketchPlaceholder": {
+    "defaultMessage": "Describe the project you would like to create",
+    "description": "Placeholder for generating sketch"
+  },
+  "sketchPlan.includeDiagramCheckboxLabel": {
+    "defaultMessage": "Generate Circuit Diagram",
+    "description": "Label for the checkbox to add circuit diagram to generated sketch"
+  },
+  "sketchPlan.instructionsTitle": {
+    "defaultMessage": "Step by step instructions",
+    "description": "Title of instructions list for generated sketch"
+  },
+  "sketchPlan.regenerateButton": {
+    "defaultMessage": "Regenerate sketch proposal",
+    "description": "Label for button regenerating plan"
+  },
+  "skipLoginDialog.bodyDescription": {
+    "defaultMessage": "Signing in with your Arduino account unlocks App Lab's full potential, giving you:",
+    "description": "Message shown in the skip Arduino account dialog"
+  },
+  "skipLoginDialog.bodyFooter": {
+    "defaultMessage": "And as always, it's all completely free!",
+    "description": "Message shown in the skip Arduino account dialog"
+  },
+  "skipLoginDialog.bodyListItem1": {
+    "defaultMessage": "Advanced AI models with custom training capabilities",
+    "description": "Message to confirm the skip Arduino account dialog"
+  },
+  "skipLoginDialog.bodyListItem2": {
+    "defaultMessage": "Additional Arduino courses and learning materials",
+    "description": "Message to confirm the skip Arduino account dialog"
+  },
+  "skipLoginDialog.bodyListItem3": {
+    "defaultMessage": "Seamless integration with Arduino Cloud",
+    "description": "Message to confirm the skip Arduino account dialog"
+  },
+  "skipLoginDialog.bodyListItem4": {
+    "defaultMessage": "A growing library of additional apps",
+    "description": "Message to confirm the skip Arduino account dialog"
+  },
+  "skipLoginDialog.bodyTitle": {
+    "defaultMessage": "Are you sure you want to skip this?",
+    "description": "Message shown in the skip Arduino account dialog"
+  },
+  "skipLoginDialog.confirmButton": {
+    "defaultMessage": "Log In with Arduino",
+    "description": "Label for the confirm button"
+  },
+  "skipLoginDialog.skipButton": {
+    "defaultMessage": "Skip Log In",
+    "description": "Label for the skip button"
+  },
+  "skipLoginDialog.title": {
+    "defaultMessage": "Log In",
+    "description": "Title shown in the skip Arduino account dialog"
+  },
+  "swapRunningApp.bodyDescription": {
+    "defaultMessage": "You’re about to replace the app currently linked to this run with a new one. This may affect how the run behaves. Please make sure you want to proceed",
+    "description": "Body description of swap running app dialog"
+  },
+  "swapRunningApp.bodyTitle": {
+    "defaultMessage": "You’re about to change the app for this run",
+    "description": "Body title of swap running app dialog"
+  },
+  "swapRunningApp.cancelButton": {
+    "defaultMessage": "Cancel",
+    "description": "Text for cancel button in swap running app dialog"
+  },
+  "swapRunningApp.confirmButton": {
+    "defaultMessage": "Confirm and replace",
+    "description": "Text for confirm button in swap running app dialog"
+  },
+  "swapRunningApp.title": {
+    "defaultMessage": "Swap Running App",
+    "description": "Title of swap running app dialog"
+  },
+  "tabMenu.close": {
+    "defaultMessage": "Close",
+    "description": "Close"
+  },
+  "tabMenu.deleteFile": {
+    "defaultMessage": "Delete File",
+    "description": "Delete File"
+  },
+  "tabMenu.rename": {
+    "defaultMessage": "Rename",
+    "description": "Rename"
+  },
+  "toolbar.associateDevice": {
+    "defaultMessage": "Select device",
+    "description": "Label for the button used to associate a device to the sketch"
+  },
+  "toolbar.changeDeviceTooltip": {
+    "defaultMessage": "Change Associated Device",
+    "description": "Text shown in the tooltip shown when hovering the button to change the associated device"
+  },
+  "toolbar.connected-iot-port": {
+    "defaultMessage": "Over-The-Air",
+    "description": "Shown when a device is connected via OTA"
+  },
+  "toolbar.creating": {
+    "defaultMessage": "Creating...",
+    "description": "Label for the button showed when the Over-The-Air is creating"
+  },
+  "toolbar.detectedDevice": {
+    "defaultMessage": "Detect device",
+    "description": "Label to the trigger the web serial detect device flow"
+  },
+  "toolbar.device-found-title": {
+    "defaultMessage": "New device found",
+    "description": "Shown when a single new device is available"
+  },
+  "toolbar.deviceNotFound": {
+    "defaultMessage": "Device not found",
+    "description": "Text shown in the toolbar when the device is not connected"
+  },
+  "toolbar.deviceTooltip.detach": {
+    "defaultMessage": "Detach the device from any shield/carrier or external circuitry",
+    "description": "A troubleshooting step in the toolbar tooltip. It suggests to detach the device from any external accessory"
+  },
+  "toolbar.deviceTooltip.notFound": {
+    "defaultMessage": "If your device is plugged in, try to:",
+    "description": "Info text shown in the toolbar tooltip . It tells the user what to do when the device is not found"
+  },
+  "toolbar.deviceTooltip.reconnect": {
+    "defaultMessage": "Reconnect the device to the computer with another USB cable and make sure the power LED lights up",
+    "description": "A troubleshooting step in the toolbar tooltip. It suggests to reconnect the device to the computer with another USB cable"
+  },
+  "toolbar.deviceTooltip.reset": {
+    "defaultMessage": "Reset your device: quickly double press the Reset button (RST) of your board. Once reset, the LED should fade in and out.",
+    "description": "A troubleshooting step in the toolbar tooltip. It suggests to reset the device"
+  },
+  "toolbar.deviceTooltip.thirdParty": {
+    "defaultMessage": "3rd party device",
+    "description": "Text to indicate a third party device (not Arduino)"
+  },
+  "toolbar.deviceTooltip.unknown": {
+    "defaultMessage": "The device found is a {thirdPartyDeviceLabel} but we are not sure it's {article} {boardLabel}.",
+    "description": "Text to indicate the presence of an unknown device"
+  },
+  "toolbar.devices-found-title": {
+    "defaultMessage": "New devices found",
+    "description": "Shown when a multiple new devices are available"
+  },
+  "toolbar.downloadSketch": {
+    "defaultMessage": "Download Sketch",
+    "description": "Label for the button used to download the sketch"
+  },
+  "toolbar.flavourConfig": {
+    "defaultMessage": "Configure Flavour",
+    "description": "Label for the button used to open the flavour config"
+  },
+  "toolbar.iotSetupTabLink": {
+    "defaultMessage": "Setup tab",
+    "description": "Link to the setup tab"
+  },
+  "toolbar.iotSetupTabMessage": {
+    "defaultMessage": "Change the associated device from the {iotSetupTabLink}",
+    "description": "Message to show a quick link to the setup page"
+  },
+  "toolbar.many-matching-devices-found-label": {
+    "defaultMessage": "Multiple devices found",
+    "description": "Shown when a multiple devices matching selected board are available"
+  },
+  "toolbar.noAssociatedDevice": {
+    "defaultMessage": "No associated device yet",
+    "description": "Text shown in the toolbar when a device has not been associated to an iot sketch"
+  },
+  "toolbar.offline-iot-port": {
+    "defaultMessage": "Device offline",
+    "description": "Shown when a device is offline via OTA"
+  },
+  "toolbar.pend": {
+    "defaultMessage": "Pend...",
+    "description": "Label for the button showed when the Over-The-Air is pending"
+  },
+  "toolbar.pending": {
+    "defaultMessage": "Pending...",
+    "description": "Label for the button showed when the Over-The-Air is pending"
+  },
+  "toolbar.serialMonitor": {
+    "defaultMessage": "Serial Monitor",
+    "description": "Text shown in the toolbar when hovering the button to open the serial monitor"
+  },
+  "toolbar.serialPortBusy": {
+    "defaultMessage": "Serial Port Busy",
+    "description": "Title shown in the toolbar serial monitor button tooltip when the serial port is busy"
+  },
+  "toolbar.serialPortBusy.unavailable": {
+    "defaultMessage": "Please check if any other software is is using this port.",
+    "description": "Description shown in the toolbar serial monitor button tooltip when the serial port is busy"
+  },
+  "toolbar.serialPortTooltip.unavailable": {
+    "defaultMessage": "No device connected via USB.",
+    "description": "Description shown in the toolbar serial monitor button tooltip when the serial port is not available"
+  },
+  "toolbar.serialPortUnavailable": {
+    "defaultMessage": "Serial port unavailable",
+    "description": "Title shown in the toolbar serial monitor button tooltip when the serial port is not available"
+  },
+  "toolbar.shareSketch": {
+    "defaultMessage": "Share Sketch",
+    "description": "Label for the button used to share the sketch"
+  },
+  "toolbar.upload": {
+    "defaultMessage": "Upload",
+    "description": "Label for the button used to upload the sketch"
+  },
+  "toolbar.uploading": {
+    "defaultMessage": "Uploading...",
+    "description": "Label for the button used to upload the sketch when the sketch is being uploaded"
+  },
+  "toolbar.verify": {
+    "defaultMessage": "Verify",
+    "description": "Label for the button used to verify the sketch"
+  },
+  "toolbar.verifying": {
+    "defaultMessage": "Verifying...",
+    "description": "Label for the button used to verify the sketch when the sketch is being verified"
+  },
+  "toolbar.verifying-short": {
+    "defaultMessage": "Verify...",
+    "description": "Hover label for the button used to verify the sketch when the sketch is being verified"
+  },
+  "verify-timeout": {
+    "defaultMessage": "We are still verifying your sketch, thanks for your patience",
+    "description": "The current compile is taking longer than usual."
+  }
+}

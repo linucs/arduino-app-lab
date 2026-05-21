@@ -1,0 +1,5629 @@
+{
+  "addAppBrick.cancelButton": [
+    {
+      "type": 0,
+      "value": "Cancel"
+    }
+  ],
+  "addAppBrick.checkButton": [
+    {
+      "type": 0,
+      "value": "Check usage examples"
+    }
+  ],
+  "addAppBrick.confirmButton": [
+    {
+      "type": 0,
+      "value": "Add brick"
+    }
+  ],
+  "addAppBrick.successDescription": [
+    {
+      "type": 0,
+      "value": "Next steps:"
+    }
+  ],
+  "addAppBrick.successStep1": [
+    {
+      "type": 0,
+      "value": "Check "
+    },
+    {
+      "children": [
+        {
+          "type": 0,
+          "value": "usage examples"
+        }
+      ],
+      "type": 8,
+      "value": "bold"
+    }
+  ],
+  "addAppBrick.successStep2": [
+    {
+      "children": [
+        {
+          "type": 0,
+          "value": "Copy"
+        }
+      ],
+      "type": 8,
+      "value": "bold"
+    },
+    {
+      "type": 0,
+      "value": " the code you need in "
+    },
+    {
+      "children": [
+        {
+          "type": 0,
+          "value": "main.py"
+        }
+      ],
+      "type": 8,
+      "value": "bold"
+    }
+  ],
+  "addAppBrick.successTitle": [
+    {
+      "type": 0,
+      "value": "Success"
+    }
+  ],
+  "addAppBrick.title": [
+    {
+      "type": 0,
+      "value": "Add App Brick"
+    }
+  ],
+  "addSketchLibrary.search": [
+    {
+      "type": 0,
+      "value": "Search library"
+    }
+  ],
+  "addSketchLibrary.title": [
+    {
+      "type": 0,
+      "value": "Add sketch library"
+    }
+  ],
+  "aiModel.eiProjectID": [
+    {
+      "type": 0,
+      "value": "EI Project ID: "
+    },
+    {
+      "type": 1,
+      "value": "id"
+    }
+  ],
+  "aiModel.lessInfo": [
+    {
+      "type": 0,
+      "value": "- Less info"
+    }
+  ],
+  "aiModel.modelCard": [
+    {
+      "type": 0,
+      "value": "Model card"
+    }
+  ],
+  "aiModel.moreInfo": [
+    {
+      "type": 0,
+      "value": "+ More info"
+    }
+  ],
+  "aiModel.source": [
+    {
+      "type": 0,
+      "value": "Source: "
+    },
+    {
+      "type": 1,
+      "value": "source"
+    }
+  ],
+  "app-detail.app-is-running": [
+    {
+      "type": 0,
+      "value": "App is now running"
+    }
+  ],
+  "app-detail.app-is-stopped": [
+    {
+      "type": 0,
+      "value": "App is now stopped"
+    }
+  ],
+  "app-detail.code-copied": [
+    {
+      "type": 0,
+      "value": "Code copied to clipboard"
+    }
+  ],
+  "app-detail.copy-and-edit-button": [
+    {
+      "type": 0,
+      "value": "Copy and edit app"
+    }
+  ],
+  "app-detail.failed-add-brick": [
+    {
+      "type": 0,
+      "value": "Failed to add brick"
+    }
+  ],
+  "app-detail.failed-add-library": [
+    {
+      "type": 0,
+      "value": "Failed to add library"
+    }
+  ],
+  "app-detail.failed-create-file": [
+    {
+      "type": 0,
+      "value": "Failed to create file"
+    }
+  ],
+  "app-detail.failed-delete-app": [
+    {
+      "type": 0,
+      "value": "Failed to delete app"
+    }
+  ],
+  "app-detail.failed-delete-brick": [
+    {
+      "type": 0,
+      "value": "Failed to delete brick"
+    }
+  ],
+  "app-detail.failed-delete-file": [
+    {
+      "type": 0,
+      "value": "Failed to delete file"
+    }
+  ],
+  "app-detail.failed-delete-library": [
+    {
+      "type": 0,
+      "value": "Failed to delete library"
+    }
+  ],
+  "app-detail.failed-duplicate-app": [
+    {
+      "type": 0,
+      "value": "Failed to duplicate app"
+    }
+  ],
+  "app-detail.successfully-added-brick": [
+    {
+      "type": 0,
+      "value": "Brick added successfully"
+    }
+  ],
+  "app-detail.successfully-added-library": [
+    {
+      "type": 0,
+      "value": "Library added successfully"
+    }
+  ],
+  "app-detail.successfully-created-file": [
+    {
+      "type": 0,
+      "value": "File created successfully"
+    }
+  ],
+  "app-detail.successfully-deleted-app": [
+    {
+      "type": 0,
+      "value": "App deleted successfully"
+    }
+  ],
+  "app-detail.successfully-deleted-brick": [
+    {
+      "type": 0,
+      "value": "Brick deleted successfully"
+    }
+  ],
+  "app-detail.successfully-deleted-file": [
+    {
+      "type": 0,
+      "value": "File deleted successfully"
+    }
+  ],
+  "app-detail.successfully-deleted-library": [
+    {
+      "type": 0,
+      "value": "Library deleted successfully"
+    }
+  ],
+  "app-detail.successfully-duplicated-app": [
+    {
+      "type": 0,
+      "value": "App duplicated successfully"
+    }
+  ],
+  "app-files-section.add-brick-button": [
+    {
+      "type": 0,
+      "value": "Add Brick"
+    }
+  ],
+  "app-files-section.add-file-button": [
+    {
+      "type": 0,
+      "value": "Add File"
+    }
+  ],
+  "app-files-section.add-sketch-library-button": [
+    {
+      "type": 0,
+      "value": "Add Sketch Library"
+    }
+  ],
+  "app-files-section.bricks-label": [
+    {
+      "type": 0,
+      "value": "Bricks"
+    }
+  ],
+  "app-files-section.example-readonly": [
+    {
+      "type": 0,
+      "value": "Items can't be added in examples"
+    }
+  ],
+  "app-files-section.files-label": [
+    {
+      "type": 0,
+      "value": "Files"
+    }
+  ],
+  "app-files-section.no-bricks-added-yet": [
+    {
+      "type": 0,
+      "value": "No bricks added yet"
+    }
+  ],
+  "app-files-section.no-sketch-libraries-added-yet": [
+    {
+      "type": 0,
+      "value": "No sketch libraries added yet"
+    }
+  ],
+  "app-files-section.sidebar-collapse": [
+    {
+      "type": 0,
+      "value": "Collapse"
+    }
+  ],
+  "app-files-section.sidebar-expand": [
+    {
+      "type": 0,
+      "value": "Expand"
+    }
+  ],
+  "app-files-section.sketch-libraries-label": [
+    {
+      "type": 0,
+      "value": "Sketch Libraries"
+    }
+  ],
+  "app-lab-editor.code-copied": [
+    {
+      "type": 0,
+      "value": "Code copied to clipboard"
+    }
+  ],
+  "app-lab-editor.read-only-banner": [
+    {
+      "type": 0,
+      "value": "Read-only code. Create your own app from this example to edit."
+    }
+  ],
+  "app-lab-editor.read-only-banner-blocks-owned": [
+    {
+      "type": 0,
+      "value": "Generated from blocks. Delete "
+    },
+    {
+      "type": 1,
+      "value": "sidecarFullName"
+    },
+    {
+      "type": 0,
+      "value": " to edit manually."
+    }
+  ],
+  "app-lab.app-welcome-dialog.confirm-button": [
+    {
+      "type": 0,
+      "value": "Ok, got it"
+    }
+  ],
+  "app-lab.app-welcome-dialog.content-title": [
+    {
+      "type": 0,
+      "value": "Ready to Build? Explore App Lab's Core Concepts"
+    }
+  ],
+  "app-lab.app-welcome-dialog.features.apps.description": [
+    {
+      "type": 0,
+      "value": "Now you can build apps that seamlessly blend Python on Linux with C as a Sketch."
+    }
+  ],
+  "app-lab.app-welcome-dialog.features.apps.title": [
+    {
+      "type": 0,
+      "value": "Apps"
+    }
+  ],
+  "app-lab.app-welcome-dialog.features.brick.description": [
+    {
+      "type": 0,
+      "value": "Ready-to-use components that handle everything from AI-powered computer vision, audio and data storage. Just add them into your project to unlock powerful functionalities."
+    }
+  ],
+  "app-lab.app-welcome-dialog.features.brick.title": [
+    {
+      "type": 0,
+      "value": "Bricks"
+    }
+  ],
+  "app-lab.app-welcome-dialog.features.examples.description": [
+    {
+      "type": 0,
+      "value": "The perfect starting point for beginners. Each example is a simple app that shows you how to combine Bricks to get powerful results with just a few lines of code."
+    }
+  ],
+  "app-lab.app-welcome-dialog.features.examples.title": [
+    {
+      "type": 0,
+      "value": "Examples"
+    }
+  ],
+  "app-lab.app-welcome-dialog.title": [
+    {
+      "type": 0,
+      "value": "Welcome to Arduino App Lab"
+    }
+  ],
+  "app-lab.board-update-dialog.arduino-app-lab": [
+    {
+      "type": 0,
+      "value": "Arduino App Lab (on PC)"
+    }
+  ],
+  "app-lab.board-update-dialog.arduino-flasher-tool": [
+    {
+      "type": 0,
+      "value": "Arduino Flasher Tool"
+    }
+  ],
+  "app-lab.board-update-dialog.arduino-support": [
+    {
+      "type": 0,
+      "value": "Arduino Support."
+    }
+  ],
+  "app-lab.board-update-dialog.change-network": [
+    {
+      "type": 0,
+      "value": "Change Network"
+    }
+  ],
+  "app-lab.board-update-dialog.checking-failed": [
+    {
+      "type": 0,
+      "value": "Update failed"
+    }
+  ],
+  "app-lab.board-update-dialog.checking-failed-description": [
+    {
+      "type": 0,
+      "value": "If problem persists try flashing the latest OS image using"
+    }
+  ],
+  "app-lab.board-update-dialog.checking-for-updates": [
+    {
+      "type": 0,
+      "value": "Looking for updates..."
+    }
+  ],
+  "app-lab.board-update-dialog.checking-for-updates-description": [
+    {
+      "type": 0,
+      "value": "Gathering fresh system bits. Almost there!"
+    }
+  ],
+  "app-lab.board-update-dialog.hide-details": [
+    {
+      "type": 0,
+      "value": "Hide update details"
+    }
+  ],
+  "app-lab.board-update-dialog.install-update": [
+    {
+      "type": 0,
+      "value": "Install updates"
+    }
+  ],
+  "app-lab.board-update-dialog.installed": [
+    {
+      "type": 0,
+      "value": "Installed"
+    }
+  ],
+  "app-lab.board-update-dialog.installing": [
+    {
+      "type": 0,
+      "value": "Installing"
+    }
+  ],
+  "app-lab.board-update-dialog.or-contact": [
+    {
+      "type": 0,
+      "value": "or contact"
+    }
+  ],
+  "app-lab.board-update-dialog.restart": [
+    {
+      "type": 0,
+      "value": "Restart App Lab"
+    }
+  ],
+  "app-lab.board-update-dialog.retry": [
+    {
+      "type": 0,
+      "value": "Retry"
+    }
+  ],
+  "app-lab.board-update-dialog.show-details": [
+    {
+      "type": 0,
+      "value": "Show update details"
+    }
+  ],
+  "app-lab.board-update-dialog.skip-update": [
+    {
+      "type": 0,
+      "value": "Skip"
+    }
+  ],
+  "app-lab.board-update-dialog.software-update": [
+    {
+      "type": 1,
+      "value": "boardModel"
+    },
+    {
+      "type": 0,
+      "value": " Software update"
+    }
+  ],
+  "app-lab.board-update-dialog.title": [
+    {
+      "type": 0,
+      "value": "Updates Available"
+    }
+  ],
+  "app-lab.board-update-dialog.update-completed": [
+    {
+      "type": 0,
+      "value": "Update complete"
+    }
+  ],
+  "app-lab.board-update-dialog.update-failed": [
+    {
+      "type": 0,
+      "value": "Update failed, try again or check out error details"
+    }
+  ],
+  "app-lab.board-update-dialog.update-installing": [
+    {
+      "type": 0,
+      "value": "Installing updates..."
+    }
+  ],
+  "app-lab.board-update-dialog.version": [
+    {
+      "type": 0,
+      "value": "Version"
+    }
+  ],
+  "app-lab.export-app-dialog.body-description": [
+    {
+      "type": 0,
+      "value": "Download a package with your "
+    },
+    {
+      "children": [
+        {
+          "type": 0,
+          "value": "app code"
+        }
+      ],
+      "type": 8,
+      "value": "strong"
+    },
+    {
+      "type": 0,
+      "value": ", "
+    },
+    {
+      "children": [
+        {
+          "type": 0,
+          "value": "assets"
+        }
+      ],
+      "type": 8,
+      "value": "strong"
+    },
+    {
+      "type": 0,
+      "value": ", "
+    },
+    {
+      "children": [
+        {
+          "type": 0,
+          "value": "configuration"
+        }
+      ],
+      "type": 8,
+      "value": "strong"
+    },
+    {
+      "type": 0,
+      "value": ", and "
+    },
+    {
+      "children": [
+        {
+          "type": 0,
+          "value": "dependencies"
+        }
+      ],
+      "type": 8,
+      "value": "strong"
+    },
+    {
+      "type": 0,
+      "value": ". Share it, move it to another board, or upload it to Project Hub."
+    }
+  ],
+  "app-lab.export-app-dialog.body-title": [
+    {
+      "type": 0,
+      "value": "Export your "
+    },
+    {
+      "type": 1,
+      "value": "appName"
+    },
+    {
+      "type": 0,
+      "value": " App"
+    }
+  ],
+  "app-lab.export-app-dialog.cancel-button": [
+    {
+      "type": 0,
+      "value": "Cancel"
+    }
+  ],
+  "app-lab.export-app-dialog.confirm-button": [
+    {
+      "type": 0,
+      "value": "Export .zip"
+    }
+  ],
+  "app-lab.export-app-dialog.error-label": [
+    {
+      "type": 0,
+      "value": "Error:"
+    }
+  ],
+  "app-lab.export-app-dialog.export-failed": [
+    {
+      "type": 0,
+      "value": "This App is invalid"
+    }
+  ],
+  "app-lab.export-app-dialog.export-failed-description": [
+    {
+      "type": 0,
+      "value": "This app is broken or misconfigured."
+    }
+  ],
+  "app-lab.export-app-dialog.go-back-button": [
+    {
+      "type": 0,
+      "value": "Go back to App"
+    }
+  ],
+  "app-lab.export-app-dialog.include-data-label": [
+    {
+      "type": 0,
+      "value": "Include data associated with the App"
+    }
+  ],
+  "app-lab.export-app-dialog.include-data-tooltip-content": [
+    {
+      "type": 0,
+      "value": "When enabled, any data stored by your app will be included in the export package."
+    }
+  ],
+  "app-lab.export-app-dialog.include-data-tooltip-title": [
+    {
+      "type": 0,
+      "value": "App Data"
+    }
+  ],
+  "app-lab.export-app-dialog.title": [
+    {
+      "type": 0,
+      "value": "Export app"
+    }
+  ],
+  "app-lab.flash-board-dialog.description": [
+    {
+      "type": 0,
+      "value": "Your board needs an update to support the latest App Lab features. Make sure you have at least "
+    },
+    {
+      "children": [
+        {
+          "type": 0,
+          "value": "10 GB of free space"
+        }
+      ],
+      "type": 8,
+      "value": "bold"
+    },
+    {
+      "type": 0,
+      "value": " on your computer. Check our "
+    },
+    {
+      "children": [
+        {
+          "type": 0,
+          "value": "tutorial."
+        }
+      ],
+      "type": 8,
+      "value": "link"
+    }
+  ],
+  "app-lab.flash-board-dialog.skip-button": [
+    {
+      "type": 0,
+      "value": "Remind me later"
+    }
+  ],
+  "app-lab.flash-board-dialog.subtitle": [
+    {
+      "type": 0,
+      "value": "Your board software is a bit behind"
+    }
+  ],
+  "app-lab.flash-board-dialog.title": [
+    {
+      "type": 0,
+      "value": "Software updates"
+    }
+  ],
+  "app-lab.flash-board-dialog.update-button": [
+    {
+      "type": 0,
+      "value": "Update"
+    }
+  ],
+  "app-lab.import-app-dialog.drag-drop": [
+    {
+      "type": 0,
+      "value": "Drag & drop your file here"
+    }
+  ],
+  "app-lab.import-app-dialog.error-label": [
+    {
+      "type": 0,
+      "value": "Error:"
+    }
+  ],
+  "app-lab.import-app-dialog.go-to-my-app": [
+    {
+      "type": 0,
+      "value": "Go back to Apps"
+    }
+  ],
+  "app-lab.import-app-dialog.import-from-computer": [
+    {
+      "type": 0,
+      "value": "Import from computer"
+    }
+  ],
+  "app-lab.import-app-dialog.or": [
+    {
+      "type": 0,
+      "value": "or"
+    }
+  ],
+  "app-lab.import-app-dialog.process-takes-time": [
+    {
+      "type": 0,
+      "value": "just few seconds..."
+    }
+  ],
+  "app-lab.import-app-dialog.support-zip": [
+    {
+      "type": 0,
+      "value": "Only .zip files supported"
+    }
+  ],
+  "app-lab.import-app-dialog.title": [
+    {
+      "type": 0,
+      "value": "Import an App"
+    }
+  ],
+  "app-lab.import-app-dialog.upload-description-line1": [
+    {
+      "type": 0,
+      "value": "Import an App Lab project."
+    }
+  ],
+  "app-lab.import-app-dialog.upload-description-line2": [
+    {
+      "type": 0,
+      "value": "The app will be added to your workspace with its files, Bricks, and libraries."
+    }
+  ],
+  "app-lab.import-app-dialog.upload-failed": [
+    {
+      "type": 0,
+      "value": "This App is invalid"
+    }
+  ],
+  "app-lab.import-app-dialog.upload-failed-description": [
+    {
+      "type": 0,
+      "value": "This app is broken or misconfigured."
+    }
+  ],
+  "app-lab.import-app-dialog.upload-title": [
+    {
+      "type": 0,
+      "value": "Upload local App files"
+    }
+  ],
+  "app-lab.import-app-dialog.uploading-file": [
+    {
+      "type": 0,
+      "value": "Uploading file"
+    }
+  ],
+  "app-lab.whats-new-ad-hoc.close": [
+    {
+      "type": 0,
+      "value": "Close"
+    }
+  ],
+  "app-lab.whats-new-ad-hoc.title": [
+    {
+      "type": 0,
+      "value": "What's new"
+    }
+  ],
+  "app.account.arduinoCloud": [
+    {
+      "type": 0,
+      "value": "Arduino Cloud integration"
+    }
+  ],
+  "app.account.connectedBoards": [
+    {
+      "type": 0,
+      "value": "Publish your project to Project Hub in one click"
+    }
+  ],
+  "app.account.customAiModels": [
+    {
+      "type": 0,
+      "value": "AI Models training with Edge Impulse"
+    }
+  ],
+  "app.account.emailLabel": [
+    {
+      "type": 0,
+      "value": "Email"
+    }
+  ],
+  "app.account.fullNameLabel": [
+    {
+      "type": 0,
+      "value": "Full Name"
+    }
+  ],
+  "app.account.logoutLabel": [
+    {
+      "type": 0,
+      "value": "Log Out"
+    }
+  ],
+  "app.account.personalInfo": [
+    {
+      "type": 0,
+      "value": "Personal Information"
+    }
+  ],
+  "app.account.setupSubtitle": [
+    {
+      "type": 0,
+      "value": "Create or sign in with your Arduino account to unlock the full App Lab experience."
+    }
+  ],
+  "app.account.setupTitle": [
+    {
+      "type": 0,
+      "value": "Sign in with Arduino to access all App Lab features."
+    }
+  ],
+  "app.account.signInButton": [
+    {
+      "type": 0,
+      "value": "Sign In with Arduino"
+    }
+  ],
+  "app.account.subtitle": [
+    {
+      "type": 0,
+      "value": "By signing in with your Arduino account, you'll be able to unlock the full potential of App Lab:"
+    }
+  ],
+  "app.account.title": [
+    {
+      "type": 0,
+      "value": "Arduino Account"
+    }
+  ],
+  "app.account.usernameLabel": [
+    {
+      "type": 0,
+      "value": "Username"
+    }
+  ],
+  "appItem.actionDelete": [
+    {
+      "type": 0,
+      "value": "Delete"
+    }
+  ],
+  "appItem.actionDuplicate": [
+    {
+      "type": 0,
+      "value": "Duplicate"
+    }
+  ],
+  "appItem.actionExport": [
+    {
+      "type": 0,
+      "value": "Export App"
+    }
+  ],
+  "appItem.actionRename": [
+    {
+      "type": 0,
+      "value": "Rename"
+    }
+  ],
+  "appItem.actionRunAsStartup": [
+    {
+      "type": 0,
+      "value": "Run As Startup"
+    }
+  ],
+  "appItem.appDefault": [
+    {
+      "type": 0,
+      "value": "Default"
+    }
+  ],
+  "appItem.appRunning": [
+    {
+      "type": 0,
+      "value": "Running"
+    }
+  ],
+  "appItem.appSize": [
+    {
+      "type": 0,
+      "value": "Size: "
+    },
+    {
+      "type": 1,
+      "value": "size"
+    },
+    {
+      "type": 0,
+      "value": " MB"
+    }
+  ],
+  "appLab.changePasswordDialog.changePassword": [
+    {
+      "type": 0,
+      "value": "Change Linux Password"
+    }
+  ],
+  "appLab.changePasswordDialog.confirmPassword": [
+    {
+      "type": 0,
+      "value": "Confirm Password"
+    }
+  ],
+  "appLab.changePasswordDialog.description": [
+    {
+      "type": 0,
+      "value": "This change will affect your "
+    },
+    {
+      "children": [
+        {
+          "type": 0,
+          "value": "Linux system"
+        }
+      ],
+      "type": 8,
+      "value": "bold"
+    },
+    {
+      "type": 0,
+      "value": "."
+    },
+    {
+      "children": [],
+      "type": 8,
+      "value": "br"
+    },
+    {
+      "type": 0,
+      "value": " Please be sure to save your new password in a safe place."
+    }
+  ],
+  "appLab.changePasswordDialog.genericError": [
+    {
+      "type": 0,
+      "value": "An error occurred while changing the password"
+    }
+  ],
+  "appLab.changePasswordDialog.helperText": [
+    {
+      "type": 0,
+      "value": "Password must be at least 8 characters long."
+    }
+  ],
+  "appLab.changePasswordDialog.newPassword": [
+    {
+      "type": 0,
+      "value": "New Password"
+    }
+  ],
+  "appLab.changePasswordDialog.passwordMismatch": [
+    {
+      "type": 0,
+      "value": "Passwords do not match"
+    }
+  ],
+  "appLab.changePasswordDialog.save": [
+    {
+      "type": 0,
+      "value": "Save"
+    }
+  ],
+  "appLab.changePasswordDialog.subtitle": [
+    {
+      "type": 0,
+      "value": "Set a New Password"
+    }
+  ],
+  "appLab.passwordDialog.description": [
+    {
+      "type": 0,
+      "value": "Type your password to apply these changes"
+    }
+  ],
+  "appLab.passwordDialog.genericError": [
+    {
+      "type": 0,
+      "value": "Something went wrong. Please try again."
+    }
+  ],
+  "appLab.passwordDialog.password": [
+    {
+      "type": 0,
+      "value": "Password"
+    }
+  ],
+  "appLab.passwordDialog.passwordWrong": [
+    {
+      "type": 0,
+      "value": "Wrong password"
+    }
+  ],
+  "appLab.passwordDialog.save": [
+    {
+      "type": 0,
+      "value": "Confirm"
+    }
+  ],
+  "appLab.passwordDialog.subtitle": [
+    {
+      "type": 0,
+      "value": "Linux Password"
+    }
+  ],
+  "appLab.passwordDialog.title": [
+    {
+      "type": 0,
+      "value": "Password required"
+    }
+  ],
+  "appLabBrickDetail.trainNewModel.accountConnectedTitle": [
+    {
+      "type": 0,
+      "value": "Your Arduino Account is now connected to Edge Impulse 🎉"
+    }
+  ],
+  "appLabBrickDetail.trainNewModel.arduinoAiBrick": [
+    {
+      "type": 0,
+      "value": "Arduino AI Brick"
+    }
+  ],
+  "appLabBrickDetail.trainNewModel.arduinoSignIn": [
+    {
+      "type": 0,
+      "value": "Arduino Sign in"
+    }
+  ],
+  "appLabBrickDetail.trainNewModel.chooseModelType": [
+    {
+      "type": 0,
+      "value": "Choose to train a model using a tutorial or start from scratch"
+    }
+  ],
+  "appLabBrickDetail.trainNewModel.connectToEdgeImpulse": [
+    {
+      "type": 0,
+      "value": "Connect to Edge Impulse Studio"
+    }
+  ],
+  "appLabBrickDetail.trainNewModel.description": [
+    {
+      "type": 0,
+      "value": "Follow these steps to get started:"
+    }
+  ],
+  "appLabBrickDetail.trainNewModel.dontShowAgain": [
+    {
+      "type": 0,
+      "value": "Don’t show it anymore"
+    }
+  ],
+  "appLabBrickDetail.trainNewModel.edgeImpulseStudio": [
+    {
+      "type": 0,
+      "value": "Edge Impulse Studio"
+    }
+  ],
+  "appLabBrickDetail.trainNewModel.exitDialog": [
+    {
+      "type": 0,
+      "value": "Exit"
+    }
+  ],
+  "appLabBrickDetail.trainNewModel.learnMore": [
+    {
+      "type": 0,
+      "value": "Learn More"
+    }
+  ],
+  "appLabBrickDetail.trainNewModel.letsStart": [
+    {
+      "type": 0,
+      "value": "Ok, let's start"
+    }
+  ],
+  "appLabBrickDetail.trainNewModel.modelInAppLab": [
+    {
+      "type": 0,
+      "value": "The new AI model will automatically appear in App Lab, ready to install from its corresponding bricks."
+    }
+  ],
+  "appLabBrickDetail.trainNewModel.redirectToEdgeImpulse": [
+    {
+      "type": 0,
+      "value": "You will be redirected to Edge Impulse Studio"
+    }
+  ],
+  "appLabBrickDetail.trainNewModel.startToTrainButton": [
+    {
+      "type": 0,
+      "value": "Start to Train your AI model"
+    }
+  ],
+  "appLabBrickDetail.trainNewModel.stepOne": [
+    {
+      "type": 0,
+      "value": "Sign in or create your Arduino account"
+    }
+  ],
+  "appLabBrickDetail.trainNewModel.stepTwo": [
+    {
+      "type": 0,
+      "value": "Continue in Edge Impulse using your Arduino Account"
+    }
+  ],
+  "appLabBrickDetail.trainNewModel.title": [
+    {
+      "type": 0,
+      "value": "Train your AI Model with Edge Impulse Studio"
+    }
+  ],
+  "appLabBrickDetail.trainNewModel.welcomeDescriptionOne": [
+    {
+      "type": 0,
+      "value": "You’ll be redirected to the "
+    },
+    {
+      "type": 1,
+      "value": "bold"
+    },
+    {
+      "type": 0,
+      "value": " platform in your browser."
+    }
+  ],
+  "appLabBrickDetail.trainNewModel.welcomeDescriptionThree": [
+    {
+      "type": 0,
+      "value": "Back in App Lab, you’ll find your new model inside the suitable "
+    },
+    {
+      "type": 1,
+      "value": "bold"
+    },
+    {
+      "type": 0,
+      "value": " — ready to install and use."
+    }
+  ],
+  "appLabBrickDetail.trainNewModel.welcomeDescriptionTwo": [
+    {
+      "type": 0,
+      "value": "Train and finalise your model there."
+    }
+  ],
+  "appLabBrickDetail.trainNewModel.welcomeTitle": [
+    {
+      "type": 0,
+      "value": "Train your own custom AI models"
+    }
+  ],
+  "appLabFooterBar.boardSelection.notConnected": [
+    {
+      "type": 0,
+      "value": "Board not Connected"
+    }
+  ],
+  "appLabFooterBar.boardSelection.switchBoardDropdownButton": [
+    {
+      "type": 0,
+      "value": "Switch board"
+    }
+  ],
+  "appLabFooterBar.boardSelection.switchBoardDropdownMenuItemNoBoards": [
+    {
+      "type": 0,
+      "value": "No boards available"
+    }
+  ],
+  "appLabFooterBar.storage": [
+    {
+      "type": 0,
+      "value": "STORAGE:"
+    }
+  ],
+  "appLabFooterBar.systemInfo": [
+    {
+      "type": 0,
+      "value": "System Info"
+    }
+  ],
+  "appLabFooterBar.systemStats": [
+    {
+      "type": 0,
+      "value": "System stats"
+    }
+  ],
+  "appLabFooterBar.version": [
+    {
+      "type": 0,
+      "value": "v. "
+    },
+    {
+      "type": 1,
+      "value": "version"
+    }
+  ],
+  "appLabMultipleConsolePanel.clearLog": [
+    {
+      "type": 0,
+      "value": "Clear log"
+    }
+  ],
+  "appLabMultipleConsolePanel.close": [
+    {
+      "type": 0,
+      "value": "Close"
+    }
+  ],
+  "appLabMultipleConsolePanel.description": [
+    {
+      "type": 0,
+      "value": "Run the app to start generating logs"
+    }
+  ],
+  "appLabMultipleConsolePanel.disableAutoscroll": [
+    {
+      "type": 0,
+      "value": "Disable autoscroll"
+    }
+  ],
+  "appLabMultipleConsolePanel.enableAutoscroll": [
+    {
+      "type": 0,
+      "value": "Enable autoscroll"
+    }
+  ],
+  "appLabMultipleConsolePanel.hideTimestamp": [
+    {
+      "type": 0,
+      "value": "Hide timestamp"
+    }
+  ],
+  "appLabMultipleConsolePanel.maximize": [
+    {
+      "type": 0,
+      "value": "Maximize"
+    }
+  ],
+  "appLabMultipleConsolePanel.minimize": [
+    {
+      "type": 0,
+      "value": "Minimize"
+    }
+  ],
+  "appLabMultipleConsolePanel.openConsole": [
+    {
+      "type": 0,
+      "value": "Open console"
+    }
+  ],
+  "appLabMultipleConsolePanel.runAppToGenerate": [
+    {
+      "type": 0,
+      "value": "Run the app to start generating logs"
+    }
+  ],
+  "appLabMultipleConsolePanel.sendMessageNoBoardPlaceholder": [
+    {
+      "type": 0,
+      "value": "Message (Enter to send a message to your board)"
+    }
+  ],
+  "appLabMultipleConsolePanel.sendMessagePlaceholder": [
+    {
+      "type": 0,
+      "value": "Message (Enter to send a message to “"
+    },
+    {
+      "type": 1,
+      "value": "name"
+    },
+    {
+      "type": 0,
+      "value": "” on "
+    },
+    {
+      "type": 1,
+      "value": "address"
+    },
+    {
+      "type": 0,
+      "value": ")"
+    }
+  ],
+  "appLabMultipleConsolePanel.showTimestamp": [
+    {
+      "type": 0,
+      "value": "Show timestamp"
+    }
+  ],
+  "appLabSettings.app.documentation": [
+    {
+      "type": 0,
+      "value": "Documentation"
+    }
+  ],
+  "appLabSettings.app.title": [
+    {
+      "type": 0,
+      "value": "Arduino App Lab"
+    }
+  ],
+  "appLabSettings.app.upToDate": [
+    {
+      "type": 0,
+      "value": "Up to date"
+    }
+  ],
+  "appLabSettings.app.updateAvailable": [
+    {
+      "type": 0,
+      "value": "Update to App Lab "
+    },
+    {
+      "type": 1,
+      "value": "newAppVersion"
+    }
+  ],
+  "appLabSettings.app.version": [
+    {
+      "type": 0,
+      "value": "App Lab Version"
+    }
+  ],
+  "appLabSettings.app.viewDocumentation": [
+    {
+      "type": 0,
+      "value": "View documentation"
+    }
+  ],
+  "appLabSettings.copyright": [
+    {
+      "type": 0,
+      "value": "Copyright (C) Arduino s.r.l. and/or its affiliated companies."
+    }
+  ],
+  "appLabSettings.device.diskStorage": [
+    {
+      "type": 0,
+      "value": "Disk Storage"
+    }
+  ],
+  "appLabSettings.device.diskStorageUsage": [
+    {
+      "type": 0,
+      "value": "Used: "
+    },
+    {
+      "type": 1,
+      "value": "used"
+    },
+    {
+      "type": 0,
+      "value": " GB of "
+    },
+    {
+      "type": 1,
+      "value": "total"
+    },
+    {
+      "type": 0,
+      "value": " GB"
+    }
+  ],
+  "appLabSettings.device.diskStorageUsageError": [
+    {
+      "type": 0,
+      "value": "Storage is full. Free space to keep things running smoothly"
+    }
+  ],
+  "appLabSettings.device.diskStorageUsageInfo": [
+    {
+      "type": 0,
+      "value": "Storage"
+    }
+  ],
+  "appLabSettings.device.diskStorageUsageWarning": [
+    {
+      "type": 0,
+      "value": "Storage is getting full. Free space to keep things running smoothly"
+    }
+  ],
+  "appLabSettings.device.serialNumber": [
+    {
+      "type": 0,
+      "value": "Serial Number"
+    }
+  ],
+  "appLabSettings.device.title": [
+    {
+      "type": 0,
+      "value": "Device Details"
+    }
+  ],
+  "appLabSettings.network.addNetworkManually": [
+    {
+      "type": 0,
+      "value": "Add network manually"
+    }
+  ],
+  "appLabSettings.network.changeNetwork": [
+    {
+      "type": 0,
+      "value": "Change network"
+    }
+  ],
+  "appLabSettings.network.chooseNetwork": [
+    {
+      "type": 0,
+      "value": "Choose a network to access"
+    }
+  ],
+  "appLabSettings.network.connect": [
+    {
+      "type": 0,
+      "value": "Connect Wi-Fi"
+    }
+  ],
+  "appLabSettings.network.connectToNetwork": [
+    {
+      "type": 0,
+      "value": "Connect"
+    }
+  ],
+  "appLabSettings.network.connected": [
+    {
+      "type": 0,
+      "value": "Connected"
+    }
+  ],
+  "appLabSettings.network.connectingToNetwork": [
+    {
+      "type": 0,
+      "value": "Connecting..."
+    }
+  ],
+  "appLabSettings.network.ip": [
+    {
+      "type": 0,
+      "value": "IP"
+    }
+  ],
+  "appLabSettings.network.networkConnected": [
+    {
+      "type": 0,
+      "value": "Connected"
+    }
+  ],
+  "appLabSettings.network.networkError": [
+    {
+      "type": 0,
+      "value": "No networks found. Ensure your router is on, the credentials are right and the board is within range, then try again."
+    }
+  ],
+  "appLabSettings.network.networkName": [
+    {
+      "type": 0,
+      "value": "Network Name"
+    }
+  ],
+  "appLabSettings.network.networkPassword": [
+    {
+      "type": 0,
+      "value": "Password"
+    }
+  ],
+  "appLabSettings.network.networkSecurity": [
+    {
+      "type": 0,
+      "value": "Security"
+    }
+  ],
+  "appLabSettings.network.noAvailableNetworks": [
+    {
+      "type": 0,
+      "value": "No available networks found"
+    }
+  ],
+  "appLabSettings.network.noNetworkConnected": [
+    {
+      "type": 0,
+      "value": "No network connected"
+    }
+  ],
+  "appLabSettings.network.noNetworksWarning": [
+    {
+      "type": 0,
+      "value": "No networks found. Ensure your router is on, the credentials are right and the board is within range, then try again."
+    }
+  ],
+  "appLabSettings.network.none": [
+    {
+      "type": 0,
+      "value": "None"
+    }
+  ],
+  "appLabSettings.network.scanAgain": [
+    {
+      "type": 0,
+      "value": "Scan again"
+    }
+  ],
+  "appLabSettings.network.scanningForNetworks": [
+    {
+      "type": 0,
+      "value": "Scanning Networks..."
+    }
+  ],
+  "appLabSettings.network.setupManualNetwork": [
+    {
+      "type": 0,
+      "value": "Setup manually"
+    }
+  ],
+  "appLabSettings.network.skip": [
+    {
+      "type": 0,
+      "value": "Skip Wi-Fi connection"
+    }
+  ],
+  "appLabSettings.network.skipDescription": [
+    {
+      "type": 0,
+      "value": "Without a Wi-Fi connection, you'll miss out on key features like:"
+    }
+  ],
+  "appLabSettings.network.skipDescriptionListItem1": [
+    {
+      "type": 0,
+      "value": "Latest updates for Linux packages and Bricks"
+    }
+  ],
+  "appLabSettings.network.skipDescriptionListItem2": [
+    {
+      "type": 0,
+      "value": "Automatic updates for Arduino App Lab"
+    }
+  ],
+  "appLabSettings.network.skipDescriptionListItem3": [
+    {
+      "type": 0,
+      "value": "Seamless connection to your Arduino Account"
+    }
+  ],
+  "appLabSettings.network.skipDescriptionListItem4": [
+    {
+      "type": 0,
+      "value": "Enabling Remote Development capabilities"
+    }
+  ],
+  "appLabSettings.network.skipSubtitle": [
+    {
+      "type": 0,
+      "value": "Are you sure you don't want to connect your board to a Wi-Fi?"
+    }
+  ],
+  "appLabSettings.network.skipTitle": [
+    {
+      "type": 0,
+      "value": "Wi-Fi connection"
+    }
+  ],
+  "appLabSettings.network.ssid": [
+    {
+      "type": 0,
+      "value": "SSID"
+    }
+  ],
+  "appLabSettings.network.title": [
+    {
+      "type": 0,
+      "value": "Network Connections"
+    }
+  ],
+  "appLabSettings.network.wep": [
+    {
+      "type": 0,
+      "value": "WEP"
+    }
+  ],
+  "appLabSettings.network.wpa2": [
+    {
+      "type": 0,
+      "value": "WPA2"
+    }
+  ],
+  "appLabSettings.os.buildVersion": [
+    {
+      "type": 0,
+      "value": "Build Version"
+    }
+  ],
+  "appLabSettings.os.flashBoard": [
+    {
+      "type": 0,
+      "value": "Flash Board"
+    }
+  ],
+  "appLabSettings.os.installOsImage": [
+    {
+      "type": 0,
+      "value": "Install another OS version (Flash)"
+    }
+  ],
+  "appLabSettings.os.installOsImageInfo": [
+    {
+      "type": 0,
+      "value": "Reinstall your current OS or roll back to a previous build. You can choose to keep your personal data or perform a complete wipe."
+    }
+  ],
+  "appLabSettings.os.kernelVersion": [
+    {
+      "type": 0,
+      "value": "Kernel Version"
+    }
+  ],
+  "appLabSettings.os.linuxDistribution": [
+    {
+      "type": 0,
+      "value": "Linux Distribution"
+    }
+  ],
+  "appLabSettings.os.osBoardSoftwareBehind": [
+    {
+      "type": 0,
+      "value": "Your board software is a bit behind"
+    }
+  ],
+  "appLabSettings.os.releaseDate": [
+    {
+      "type": 0,
+      "value": "Release date"
+    }
+  ],
+  "appLabSettings.os.title": [
+    {
+      "type": 0,
+      "value": "Operating system"
+    }
+  ],
+  "appLabSettings.os.updateNow": [
+    {
+      "type": 0,
+      "value": "Update now"
+    }
+  ],
+  "appLabSettings.section.fqbn": [
+    {
+      "type": 0,
+      "value": "FQBN"
+    }
+  ],
+  "appLabSettings.system.changePassword": [
+    {
+      "type": 0,
+      "value": "Change password"
+    }
+  ],
+  "appLabSettings.system.keyboardLanguage": [
+    {
+      "type": 0,
+      "value": "Keyboard language"
+    }
+  ],
+  "appLabSettings.system.osPassword": [
+    {
+      "type": 0,
+      "value": "OS password"
+    }
+  ],
+  "appLabSettings.system.releaseNotes": [
+    {
+      "type": 0,
+      "value": "Release notes"
+    }
+  ],
+  "appLabSettings.system.remoteAccess": [
+    {
+      "type": 0,
+      "value": "Remote access (SSH)"
+    }
+  ],
+  "appLabSettings.system.remoteAccessInfo": [
+    {
+      "type": 0,
+      "value": "Secure remote access to your board’s Linux system. Required to connect to App Lab over the network."
+    }
+  ],
+  "appLabSettings.system.systemVersion": [
+    {
+      "type": 0,
+      "value": "System version"
+    }
+  ],
+  "appLabSettings.system.systemVersionInfo": [
+    {
+      "type": 0,
+      "value": "The system version includes App Lab, Arduino CLI, and other core software running on the board."
+    }
+  ],
+  "appLabSettings.system.systemVersionUpToDate": [
+    {
+      "type": 0,
+      "value": "System is up to date"
+    }
+  ],
+  "appLabSettings.system.systemVersionUpdateAvailable": [
+    {
+      "type": 0,
+      "value": "Update"
+    }
+  ],
+  "appLabSettings.system.title": [
+    {
+      "type": 0,
+      "value": "System Info"
+    }
+  ],
+  "appLabSettings.system.viewReleaseNotes": [
+    {
+      "type": 0,
+      "value": "View release notes"
+    }
+  ],
+  "appLabSetup.account.tooltip.content": [
+    {
+      "type": 0,
+      "value": "App Lab works out of the box without an Arduino account, but signing in lets you unlock the full experience and enjoy every feature."
+    }
+  ],
+  "appLabSetup.account.tooltip.title": [
+    {
+      "type": 0,
+      "value": "Why do we ask for this?"
+    }
+  ],
+  "appLabSetup.arduinoAccount": [
+    {
+      "type": 0,
+      "value": "Arduino Account"
+    }
+  ],
+  "appLabSetup.arduinoAccount.action": [
+    {
+      "type": 0,
+      "value": "Confirm"
+    }
+  ],
+  "appLabSetup.arduinoAccount.title": [
+    {
+      "type": 0,
+      "value": "Arduino Account"
+    }
+  ],
+  "appLabSetup.boardConfiguration": [
+    {
+      "type": 0,
+      "value": "Board Configuration"
+    }
+  ],
+  "appLabSetup.boardConfiguration.boardConfigurationError": [
+    {
+      "type": 0,
+      "value": "Error setting board configuration"
+    }
+  ],
+  "appLabSetup.boardConfiguration.boardConfigurationSuccess": [
+    {
+      "type": 0,
+      "value": "Board configuration set successfully"
+    }
+  ],
+  "appLabSetup.boardConfiguration.keyboardLabel": [
+    {
+      "type": 0,
+      "value": "Keyboard Layout"
+    }
+  ],
+  "appLabSetup.boardConfiguration.nameLabel": [
+    {
+      "type": 0,
+      "value": "Board Name"
+    }
+  ],
+  "appLabSetup.boardName.action": [
+    {
+      "type": 0,
+      "value": "Next"
+    }
+  ],
+  "appLabSetup.boardName.title": [
+    {
+      "type": 0,
+      "value": "Board configuration"
+    }
+  ],
+  "appLabSetup.chip.connection.tooltip": [
+    {
+      "type": 0,
+      "value": "Connected via "
+    },
+    {
+      "type": 1,
+      "value": "chip"
+    }
+  ],
+  "appLabSetup.linuxCredentials": [
+    {
+      "type": 0,
+      "value": "Linux Credentials"
+    }
+  ],
+  "appLabSetup.linuxCredentials.action": [
+    {
+      "type": 0,
+      "value": "Confirm"
+    }
+  ],
+  "appLabSetup.linuxCredentials.descriptionLabel": [
+    {
+      "type": 0,
+      "value": "Select a password for your Linux account"
+    }
+  ],
+  "appLabSetup.linuxCredentials.linuxCredentialsError": [
+    {
+      "type": 0,
+      "value": "Error setting user credentials"
+    }
+  ],
+  "appLabSetup.linuxCredentials.linuxCredentialsSuccess": [
+    {
+      "type": 0,
+      "value": "User credentials set successfully"
+    }
+  ],
+  "appLabSetup.linuxCredentials.passwordConfirmationLabel": [
+    {
+      "type": 0,
+      "value": "Confirm Password"
+    }
+  ],
+  "appLabSetup.linuxCredentials.passwordLabel": [
+    {
+      "type": 0,
+      "value": "Password"
+    }
+  ],
+  "appLabSetup.linuxCredentials.title": [
+    {
+      "type": 0,
+      "value": "Linux Credentials"
+    }
+  ],
+  "appLabSetup.linuxCredentials.usernameLabel": [
+    {
+      "type": 0,
+      "value": "Username"
+    }
+  ],
+  "appLabSetup.networkSetup": [
+    {
+      "type": 0,
+      "value": "Network Setup"
+    }
+  ],
+  "appLabSetup.networkSetup.action": [
+    {
+      "type": 0,
+      "value": "Confirm"
+    }
+  ],
+  "appLabSetup.networkSetup.title": [
+    {
+      "type": 0,
+      "value": "Network Setup"
+    }
+  ],
+  "appLabSetup.welcome.availableOnNetwork": [
+    {
+      "type": 0,
+      "value": "Available on your network"
+    }
+  ],
+  "appLabSetup.welcome.availableViaUsb": [
+    {
+      "type": 0,
+      "value": "Available via USB"
+    }
+  ],
+  "appLabSetup.welcome.cancelButton": [
+    {
+      "type": 0,
+      "value": "Cancel"
+    }
+  ],
+  "appLabSetup.welcome.chooseBoard": [
+    {
+      "type": 0,
+      "value": "Choose a board to get started."
+    }
+  ],
+  "appLabSetup.welcome.chooseBoardDescription": [
+    {
+      "type": 0,
+      "value": "Connect one via USB or access a board on your network."
+    }
+  ],
+  "appLabSetup.welcome.confirmButton": [
+    {
+      "type": 0,
+      "value": "Confirm"
+    }
+  ],
+  "appLabSetup.welcome.connectYourBoard": [
+    {
+      "type": 0,
+      "value": "Connect board"
+    }
+  ],
+  "appLabSetup.welcome.connectYourBoardDescription": [
+    {
+      "type": 0,
+      "value": "Waiting for a board to be connected"
+    }
+  ],
+  "appLabSetup.welcome.connected": [
+    {
+      "type": 0,
+      "value": "Connected"
+    }
+  ],
+  "appLabSetup.welcome.descriptionMultipleBoards": [
+    {
+      "type": 0,
+      "value": "Multiple boards are connected, please select one to start"
+    }
+  ],
+  "appLabSetup.welcome.lastConnectionPrefix": [
+    {
+      "type": 0,
+      "value": "Last connection:"
+    }
+  ],
+  "appLabSetup.welcome.linuxPasswordTitle": [
+    {
+      "type": 0,
+      "value": "Linux password"
+    }
+  ],
+  "appLabSetup.welcome.newBoardBadge": [
+    {
+      "type": 0,
+      "value": "NEW BOARD"
+    }
+  ],
+  "appLabSetup.welcome.noBoardsFound": [
+    {
+      "type": 0,
+      "value": "No boards found"
+    }
+  ],
+  "appLabSetup.welcome.noDevice": [
+    {
+      "type": 0,
+      "value": "No device"
+    }
+  ],
+  "appLabSetup.welcome.passwordLabel": [
+    {
+      "type": 0,
+      "value": "Password"
+    }
+  ],
+  "appLabSetup.welcome.title": [
+    {
+      "type": 0,
+      "value": "Welcome to Arduino App Lab"
+    }
+  ],
+  "appLabSetup.welcome.usernameLabel": [
+    {
+      "type": 0,
+      "value": "Username"
+    }
+  ],
+  "appLabSetup.wifi.tooltip.content": [
+    {
+      "type": 0,
+      "value": "App Lab requires a network connection only during the initial configuration to ensure the most up-to-date experience."
+    }
+  ],
+  "appLabSetup.wifi.tooltip.title": [
+    {
+      "type": 0,
+      "value": "Why we ask for this"
+    }
+  ],
+  "appTitle.actionDelete": [
+    {
+      "type": 0,
+      "value": "Delete"
+    }
+  ],
+  "appTitle.actionDuplicate": [
+    {
+      "type": 0,
+      "value": "Duplicate"
+    }
+  ],
+  "appTitle.actionExport": [
+    {
+      "type": 0,
+      "value": "Export App"
+    }
+  ],
+  "appTitle.actionRename": [
+    {
+      "type": 0,
+      "value": "Rename"
+    }
+  ],
+  "appTitle.appDefault": [
+    {
+      "type": 0,
+      "value": "Default"
+    }
+  ],
+  "appTitle.appNameInUse": [
+    {
+      "type": 0,
+      "value": "Name already in use, please choose another one."
+    }
+  ],
+  "appTitle.overrideAsDefault": [
+    {
+      "type": 0,
+      "value": "Only one app can be set to launch at startup. Enabling this feature for the current app will "
+    },
+    {
+      "children": [
+        {
+          "type": 0,
+          "value": "override the "
+        },
+        {
+          "type": 1,
+          "value": "appName"
+        },
+        {
+          "type": 0,
+          "value": " app"
+        }
+      ],
+      "type": 8,
+      "value": "bold"
+    },
+    {
+      "type": 0,
+      "value": "."
+    }
+  ],
+  "appTitle.runAtStartup": [
+    {
+      "type": 0,
+      "value": "Run at startup"
+    }
+  ],
+  "appTitle.setAsDefault": [
+    {
+      "type": 0,
+      "value": "This app is set as the startup app. This means it will automatically run every time you plug your board into "
+    },
+    {
+      "children": [
+        {
+          "type": 0,
+          "value": "any power source"
+        }
+      ],
+      "type": 8,
+      "value": "bold"
+    }
+  ],
+  "blockly-editor.sidecar-malformed": [
+    {
+      "type": 0,
+      "value": "Blocks file is corrupted. Delete it to edit the source manually."
+    }
+  ],
+  "blockly-editor.sidecar-unsupported-version": [
+    {
+      "type": 0,
+      "value": "Blocks file from a newer App Lab. Read-only — update App Lab or delete it."
+    }
+  ],
+  "blocklyPromptDialog.cancelButton": [
+    {
+      "type": 0,
+      "value": "Cancel"
+    }
+  ],
+  "blocklyPromptDialog.okButton": [
+    {
+      "type": 0,
+      "value": "OK"
+    }
+  ],
+  "blocklyPromptDialog.title.alert": [
+    {
+      "type": 0,
+      "value": "Notice"
+    }
+  ],
+  "blocklyPromptDialog.title.confirm": [
+    {
+      "type": 0,
+      "value": "Confirm"
+    }
+  ],
+  "blocklyPromptDialog.title.prompt": [
+    {
+      "type": 0,
+      "value": "Enter a value"
+    }
+  ],
+  "blocksOverwriteDialog.cancelButton": [
+    {
+      "type": 0,
+      "value": "Cancel"
+    }
+  ],
+  "blocksOverwriteDialog.confirmButton": [
+    {
+      "type": 0,
+      "value": "Yes, switch to blocks"
+    }
+  ],
+  "blocksOverwriteDialog.header": [
+    {
+      "type": 0,
+      "value": "Switch "
+    },
+    {
+      "type": 1,
+      "value": "sourceFullName"
+    },
+    {
+      "type": 0,
+      "value": " to blocks"
+    }
+  ],
+  "blocksOverwriteDialog.message": [
+    {
+      "type": 0,
+      "value": "A new file "
+    },
+    {
+      "type": 1,
+      "value": "sidecarFullName"
+    },
+    {
+      "type": 0,
+      "value": " will be created and "
+    },
+    {
+      "type": 1,
+      "value": "sourceFullName"
+    },
+    {
+      "type": 0,
+      "value": " will be overwritten with code generated from the blocks. Until you delete "
+    },
+    {
+      "type": 1,
+      "value": "sidecarFullName"
+    },
+    {
+      "type": 0,
+      "value": ", "
+    },
+    {
+      "type": 1,
+      "value": "sourceFullName"
+    },
+    {
+      "type": 0,
+      "value": " can only be edited through the Blocks view."
+    }
+  ],
+  "blocksOverwriteDialog.title": [
+    {
+      "type": 0,
+      "value": "Switch to blocks?"
+    }
+  ],
+  "brickDetail.aiModelBadge": [
+    {
+      "type": 0,
+      "value": "AI"
+    }
+  ],
+  "brickDetail.aiModelInUse": [
+    {
+      "type": 0,
+      "value": "IN USE"
+    }
+  ],
+  "brickDetail.aiModels": [
+    {
+      "type": 0,
+      "value": "AI models"
+    }
+  ],
+  "brickDetail.configureButton": [
+    {
+      "type": 0,
+      "value": "Brick configuration"
+    }
+  ],
+  "brickDetail.documentation": [
+    {
+      "type": 0,
+      "value": "API documentation"
+    }
+  ],
+  "brickDetail.examples": [
+    {
+      "type": 0,
+      "value": "Usage examples"
+    }
+  ],
+  "brickDetail.fileNotFound": [
+    {
+      "type": 0,
+      "value": "File not found"
+    }
+  ],
+  "brickDetail.missingModel": [
+    {
+      "type": 0,
+      "value": "Don't see your model here? You may need to select "
+    },
+    {
+      "children": [
+        {
+          "type": 1,
+          "value": "boardModel"
+        }
+      ],
+      "type": 8,
+      "value": "bold"
+    },
+    {
+      "type": 0,
+      "value": " as the target in Edge Impulse Studio."
+    }
+  ],
+  "brickDetail.overview": [
+    {
+      "type": 0,
+      "value": "Overview"
+    }
+  ],
+  "brickDetail.trainNewModel": [
+    {
+      "type": 0,
+      "value": "Train new AI model"
+    }
+  ],
+  "brickDetail.trainNewModelButton": [
+    {
+      "type": 0,
+      "value": "Train new AI model"
+    }
+  ],
+  "brickDetail.trainNewModelDescription": [
+    {
+      "type": 0,
+      "value": "Create and train your own AI model using Edge Impulse Studio. An Arduino account login is required."
+    }
+  ],
+  "brickDetail.usedInTitle": [
+    {
+      "type": 0,
+      "value": "Used in"
+    }
+  ],
+  "brickItem.addBrickLabel": [
+    {
+      "type": 0,
+      "value": "Add Brick"
+    }
+  ],
+  "brickItem.missingConfigTooltip": [
+    {
+      "type": 0,
+      "value": "Missing configuration files"
+    }
+  ],
+  "brickItem.removeBrickLabel": [
+    {
+      "type": 0,
+      "value": "Remove"
+    }
+  ],
+  "brickItem.renameBrickLabel": [
+    {
+      "type": 0,
+      "value": "Rename"
+    }
+  ],
+  "configureAppBrick.bodySubtitle": [
+    {
+      "type": 0,
+      "value": "Compatible AI Models"
+    }
+  ],
+  "configureAppBrick.cancelButton": [
+    {
+      "type": 0,
+      "value": "Cancel"
+    }
+  ],
+  "configureAppBrick.confirmButton": [
+    {
+      "type": 0,
+      "value": "Save"
+    }
+  ],
+  "configureAppBrick.title": [
+    {
+      "type": 0,
+      "value": "Configure"
+    }
+  ],
+  "configureAppBricks.bodyDescription": [
+    {
+      "type": 0,
+      "value": "You can always change these parameters later from Brick Configuration."
+    }
+  ],
+  "configureAppBricks.bodySubtitle": [
+    {
+      "type": 0,
+      "value": "Compatible AI Models"
+    }
+  ],
+  "configureAppBricks.bodyTitle": [
+    {
+      "type": 1,
+      "value": "brickName"
+    },
+    {
+      "type": 0,
+      "value": " requires mandatory configuration to RUN"
+    }
+  ],
+  "configureAppBricks.cancelButton": [
+    {
+      "type": 0,
+      "value": "Cancel"
+    }
+  ],
+  "configureAppBricks.confirmButton": [
+    {
+      "type": 0,
+      "value": "Save and run"
+    }
+  ],
+  "configureAppBricks.title": [
+    {
+      "type": 0,
+      "value": "Action required"
+    }
+  ],
+  "consolePanel.copyTooltip.copied": [
+    {
+      "type": 0,
+      "value": "Copied"
+    }
+  ],
+  "consolePanel.copyTooltip.error": [
+    {
+      "type": 0,
+      "value": "Error"
+    }
+  ],
+  "consolePanel.copyTooltip.initial": [
+    {
+      "type": 0,
+      "value": "Copy Console Output"
+    }
+  ],
+  "consolePanel.status.available": [
+    {
+      "type": 0,
+      "value": "- Initializing Over-The-Air update..."
+    }
+  ],
+  "consolePanel.status.fail": [
+    {
+      "type": 0,
+      "value": "Over-The-Air update failed"
+    }
+  ],
+  "consolePanel.status.fixErrors": [
+    {
+      "type": 0,
+      "value": "Fix Errors"
+    }
+  ],
+  "consolePanel.status.fixThisError": [
+    {
+      "type": 0,
+      "value": "Fix this error: "
+    },
+    {
+      "type": 1,
+      "value": "compileResultMessages"
+    }
+  ],
+  "consolePanel.status.hide": [
+    {
+      "type": 0,
+      "value": "Hide console panel"
+    }
+  ],
+  "consolePanel.status.limit1500messages": [
+    {
+      "type": 0,
+      "value": "1500 AI monthly messages."
+    }
+  ],
+  "consolePanel.status.limit50messages": [
+    {
+      "type": 0,
+      "value": "50 monthly AI messages."
+    }
+  ],
+  "consolePanel.status.pendingOta": [
+    {
+      "type": 0,
+      "value": "- Scheduled upload, waiting for the device to reconnect..."
+    }
+  ],
+  "consolePanel.status.plan1500LimitsReachedContent": [
+    {
+      "type": 0,
+      "value": "You’ve reached your daily limit of "
+    },
+    {
+      "type": 1,
+      "value": "limit1500messages"
+    },
+    {
+      "type": 0,
+      "value": " Wait until next month to reset your usage, or you can upgrade your plan to "
+    },
+    {
+      "type": 1,
+      "value": "unlockUnlimitedAccess"
+    }
+  ],
+  "consolePanel.status.plan50LimitsReachedContent": [
+    {
+      "type": 0,
+      "value": "You’ve reached your daily limit of "
+    },
+    {
+      "type": 1,
+      "value": "limit50Messages"
+    },
+    {
+      "type": 0,
+      "value": " Upgrade your plan to unlock 1500 messages per month."
+    }
+  ],
+  "consolePanel.status.planLimitsReachedLink": [
+    {
+      "type": 0,
+      "value": "Upgrade plan"
+    }
+  ],
+  "consolePanel.status.planLimitsReachedTitle": [
+    {
+      "type": 0,
+      "value": "Plan limits reached"
+    }
+  ],
+  "consolePanel.status.show": [
+    {
+      "type": 0,
+      "value": "Show console panel"
+    }
+  ],
+  "consolePanel.status.title": [
+    {
+      "type": 0,
+      "value": "Console"
+    }
+  ],
+  "consolePanel.status.unlockUnlimitedAccess": [
+    {
+      "type": 0,
+      "value": "unlock unlimited access."
+    }
+  ],
+  "consolePanel.status.uploadError": [
+    {
+      "type": 0,
+      "value": "Error Uploading "
+    },
+    {
+      "type": 1,
+      "value": "sketchName"
+    }
+  ],
+  "consolePanel.status.uploadSuccess": [
+    {
+      "type": 0,
+      "value": "Done Uploading "
+    },
+    {
+      "type": 1,
+      "value": "sketchName"
+    }
+  ],
+  "consolePanel.status.uploading": [
+    {
+      "type": 0,
+      "value": "- Rebooting the device..."
+    }
+  ],
+  "consolePanel.status.verifyError": [
+    {
+      "type": 0,
+      "value": "Error Verifying "
+    },
+    {
+      "type": 1,
+      "value": "sketchName"
+    }
+  ],
+  "consolePanel.status.verifySuccess": [
+    {
+      "type": 0,
+      "value": "Done Verifying "
+    },
+    {
+      "type": 1,
+      "value": "sketchName"
+    }
+  ],
+  "consolePanel.status.verifying": [
+    {
+      "type": 0,
+      "value": "Verifying"
+    }
+  ],
+  "contextMenu.commentUncomment": [
+    {
+      "type": 0,
+      "value": "Comment / Uncomment"
+    }
+  ],
+  "contextMenu.copy": [
+    {
+      "type": 0,
+      "value": "Copy"
+    }
+  ],
+  "contextMenu.cut": [
+    {
+      "type": 0,
+      "value": "Cut"
+    }
+  ],
+  "contextMenu.decreaseIndent": [
+    {
+      "type": 0,
+      "value": "Decrease Indent"
+    }
+  ],
+  "contextMenu.find": [
+    {
+      "type": 0,
+      "value": "Find"
+    }
+  ],
+  "contextMenu.increaseIndent": [
+    {
+      "type": 0,
+      "value": "Increase Indent"
+    }
+  ],
+  "contextMenu.paste": [
+    {
+      "type": 0,
+      "value": "Paste"
+    }
+  ],
+  "contextMenu.redo": [
+    {
+      "type": 0,
+      "value": "Redo"
+    }
+  ],
+  "contextMenu.selectAll": [
+    {
+      "type": 0,
+      "value": "Select All"
+    }
+  ],
+  "contextMenu.undo": [
+    {
+      "type": 0,
+      "value": "Undo"
+    }
+  ],
+  "createAppDialog.appNameInUse": [
+    {
+      "type": 0,
+      "value": "Name already in use, please choose another one."
+    }
+  ],
+  "createAppDialog.appNameRequired": [
+    {
+      "type": 0,
+      "value": "App name is required"
+    }
+  ],
+  "createAppDialog.cancelButton": [
+    {
+      "type": 0,
+      "value": "Cancel"
+    }
+  ],
+  "createAppDialog.confirmButton": [
+    {
+      "type": 0,
+      "value": "Create new"
+    }
+  ],
+  "createAppDialog.failedCreate": [
+    {
+      "type": 0,
+      "value": "Failed to create app. Please try again."
+    }
+  ],
+  "createAppDialog.failedDuplicate": [
+    {
+      "type": 0,
+      "value": "Failed to duplicate app. Please try again."
+    }
+  ],
+  "createAppDialog.inputPlaceholder": [
+    {
+      "type": 0,
+      "value": "Insert title"
+    }
+  ],
+  "createAppDialog.successCreate": [
+    {
+      "type": 0,
+      "value": "App created successfully"
+    }
+  ],
+  "createAppDialog.successDuplicate": [
+    {
+      "type": 0,
+      "value": "App duplicated successfully"
+    }
+  ],
+  "createAppDialog.title": [
+    {
+      "type": 0,
+      "value": "Create new app"
+    }
+  ],
+  "customBrickDialog.brickFolder": [
+    {
+      "type": 0,
+      "value": "brick folder"
+    }
+  ],
+  "customBrickDialog.createBrickBodyDescription": [
+    {
+      "type": 0,
+      "value": "A "
+    },
+    {
+      "type": 1,
+      "value": "brickFolder"
+    },
+    {
+      "type": 0,
+      "value": " will be created with a subfolder named after your Brick. It will include the default files README.txt and config.yaml."
+    }
+  ],
+  "customBrickDialog.createBrickBodyTitle": [
+    {
+      "type": 0,
+      "value": "Give a name"
+    }
+  ],
+  "customBrickDialog.createBrickDialogTitle": [
+    {
+      "type": 0,
+      "value": "Create Brick"
+    }
+  ],
+  "customBrickDialog.createButton": [
+    {
+      "type": 0,
+      "value": "Create"
+    }
+  ],
+  "customBrickDialog.createCustomBrickSubtitle": [
+    {
+      "type": 0,
+      "value": "Create your modular software component for your project"
+    }
+  ],
+  "customBrickDialog.createCustomBrickTitle": [
+    {
+      "type": 0,
+      "value": "Create custom brick"
+    }
+  ],
+  "customBrickDialog.customBrickId": [
+    {
+      "type": 0,
+      "value": "New ID: "
+    },
+    {
+      "type": 1,
+      "value": "brickId"
+    },
+    {
+      "type": 0,
+      "value": " (lowercase, no spaces)"
+    }
+  ],
+  "customBrickDialog.customBrickInputLabel": [
+    {
+      "type": 0,
+      "value": "Brick name"
+    }
+  ],
+  "customBrickDialog.customBrickRenameInputLabel": [
+    {
+      "type": 0,
+      "value": "Rename Brick"
+    }
+  ],
+  "customBrickDialog.mainPy": [
+    {
+      "type": 0,
+      "value": "main.py"
+    }
+  ],
+  "customBrickDialog.renameBrickBodyDescription": [
+    {
+      "type": 0,
+      "value": "Renaming will update the Brick folder name and ID. Make sure to update "
+    },
+    {
+      "type": 1,
+      "value": "mainPy"
+    },
+    {
+      "type": 0,
+      "value": " to match the new name, or imports may stop working."
+    }
+  ],
+  "customBrickDialog.renameBrickBodyTitle": [
+    {
+      "type": 0,
+      "value": "Rename "
+    },
+    {
+      "type": 1,
+      "value": "brickName"
+    }
+  ],
+  "customBrickDialog.renameBrickDialogTitle": [
+    {
+      "type": 0,
+      "value": "Rename Brick"
+    }
+  ],
+  "customBrickDialog.renameButton": [
+    {
+      "type": 0,
+      "value": "Rename"
+    }
+  ],
+  "deleteAppBrickDialog.bodyDescription": [
+    {
+      "type": 0,
+      "value": "All the configurations will be lost"
+    }
+  ],
+  "deleteAppBrickDialog.bodyTitle": [
+    {
+      "type": 0,
+      "value": "Are you sure you want to remove this Brick?"
+    }
+  ],
+  "deleteAppBrickDialog.cancelButton": [
+    {
+      "type": 0,
+      "value": "Cancel"
+    }
+  ],
+  "deleteAppBrickDialog.confirmButton": [
+    {
+      "type": 0,
+      "value": "Delete"
+    }
+  ],
+  "deleteAppBrickDialog.customBrickBodyDescription": [
+    {
+      "type": 0,
+      "value": "The "
+    },
+    {
+      "type": 1,
+      "value": "brickName"
+    },
+    {
+      "type": 0,
+      "value": " folder will remain, but the Brick will no longer work. You can recreate it using the same name to restore it."
+    }
+  ],
+  "deleteAppBrickDialog.customBrickBodyTitle": [
+    {
+      "type": 0,
+      "value": "Delete "
+    },
+    {
+      "type": 1,
+      "value": "brickName"
+    },
+    {
+      "type": 0,
+      "value": "?"
+    }
+  ],
+  "deleteAppBrickDialog.title": [
+    {
+      "type": 0,
+      "value": "Delete brick"
+    }
+  ],
+  "deleteAppDialog.bodyDescription": [
+    {
+      "type": 0,
+      "value": "This action cannot be undone"
+    }
+  ],
+  "deleteAppDialog.bodyTitle": [
+    {
+      "type": 0,
+      "value": "Are you sure you want to delete "
+    },
+    {
+      "type": 1,
+      "value": "appName"
+    },
+    {
+      "type": 0,
+      "value": "?"
+    }
+  ],
+  "deleteAppDialog.cancelButton": [
+    {
+      "type": 0,
+      "value": "Cancel"
+    }
+  ],
+  "deleteAppDialog.confirmButton": [
+    {
+      "type": 0,
+      "value": "Delete"
+    }
+  ],
+  "deleteAppDialog.title": [
+    {
+      "type": 0,
+      "value": "Delete app"
+    }
+  ],
+  "deleteFileDialog.cancelButton": [
+    {
+      "type": 0,
+      "value": "Cancel"
+    }
+  ],
+  "deleteFileDialog.confirmButton": [
+    {
+      "type": 0,
+      "value": "Yes, Delete"
+    }
+  ],
+  "deleteFileDialog.confirmMessage": [
+    {
+      "type": 0,
+      "value": "This action is irreversible. Are you sure you want to delete this file?"
+    }
+  ],
+  "deleteFileDialog.message": [
+    {
+      "type": 0,
+      "value": "Delete"
+    }
+  ],
+  "deleteFileDialog.messageName": [
+    {
+      "type": 1,
+      "value": "fileFullName"
+    }
+  ],
+  "deleteFileDialog.title": [
+    {
+      "type": 0,
+      "value": "Delete File"
+    }
+  ],
+  "deleteLibraryDialog.cancelButton": [
+    {
+      "type": 0,
+      "value": "Cancel"
+    }
+  ],
+  "deleteLibraryDialog.confirmButton": [
+    {
+      "type": 0,
+      "value": "Yes, Delete"
+    }
+  ],
+  "deleteLibraryDialog.confirmMessage": [
+    {
+      "type": 0,
+      "value": "This action is irreversible. Are you sure you want to delete this custom library?"
+    }
+  ],
+  "deleteLibraryDialog.message": [
+    {
+      "type": 0,
+      "value": "Delete"
+    }
+  ],
+  "deleteLibraryDialog.title": [
+    {
+      "type": 0,
+      "value": "Delete custom library"
+    }
+  ],
+  "deleteSecretDialog.actionDescription": [
+    {
+      "type": 0,
+      "value": "This action is irreversible. Are you sure you want to delete this secret?"
+    }
+  ],
+  "deleteSecretDialog.actionTitle": [
+    {
+      "type": 0,
+      "value": "Delete"
+    }
+  ],
+  "deleteSecretDialog.cancelButton": [
+    {
+      "type": 0,
+      "value": "Cancel"
+    }
+  ],
+  "deleteSecretDialog.deleteButton": [
+    {
+      "type": 0,
+      "value": "Yes, delete"
+    }
+  ],
+  "deleteSecretDialog.title": [
+    {
+      "type": 0,
+      "value": "Delete secret"
+    }
+  ],
+  "deleteSecretDialog.warningDescription": [
+    {
+      "type": 0,
+      "value": "Please note that deleting the secret will render the associated keys in the sketch files non-functional. You will need to manually remove them from the code."
+    }
+  ],
+  "deleteSketchDialog.cancelButton": [
+    {
+      "type": 0,
+      "value": "Cancel"
+    }
+  ],
+  "deleteSketchDialog.confirmButton": [
+    {
+      "type": 0,
+      "value": "Yes, Delete"
+    }
+  ],
+  "deleteSketchDialog.confirmMessage": [
+    {
+      "type": 0,
+      "value": "This action is irreversible. Are you sure you want to delete this sketch?"
+    }
+  ],
+  "deleteSketchDialog.message": [
+    {
+      "type": 0,
+      "value": "Delete"
+    }
+  ],
+  "deleteSketchDialog.title": [
+    {
+      "type": 0,
+      "value": "Delete sketch"
+    }
+  ],
+  "deleteTreeItemDialog.cancelButton": [
+    {
+      "type": 0,
+      "value": "Cancel"
+    }
+  ],
+  "deleteTreeItemDialog.confirmButton": [
+    {
+      "type": 0,
+      "value": "Yes, Delete"
+    }
+  ],
+  "deleteTreeItemDialog.deleteFileTitle": [
+    {
+      "type": 0,
+      "value": "Delete File"
+    }
+  ],
+  "deleteTreeItemDialog.deleteFolderTitle": [
+    {
+      "type": 0,
+      "value": "Delete Folder"
+    }
+  ],
+  "deleteTreeItemDialog.directoryBodyDescription": [
+    {
+      "type": 0,
+      "value": "This will permanently delete the folder and all its files"
+    }
+  ],
+  "deleteTreeItemDialog.directoryBodyTitle": [
+    {
+      "type": 0,
+      "value": "Delete "
+    },
+    {
+      "type": 1,
+      "value": "fileName"
+    },
+    {
+      "type": 0,
+      "value": "?"
+    }
+  ],
+  "deleteTreeItemDialog.fileBodyDescription": [
+    {
+      "type": 0,
+      "value": "This will permanently delete the file"
+    }
+  ],
+  "deleteTreeItemDialog.fileBodyTitle": [
+    {
+      "type": 0,
+      "value": "Delete "
+    },
+    {
+      "type": 1,
+      "value": "fileName"
+    },
+    {
+      "type": 0,
+      "value": "?"
+    }
+  ],
+  "deleteTreeItemDialog.title": [
+    {
+      "type": 0,
+      "value": "Delete"
+    }
+  ],
+  "devicesDialog.agentNotFoundDownload": [
+    {
+      "type": 0,
+      "value": "Download"
+    }
+  ],
+  "devicesDialog.agentNotFoundMessage": [
+    {
+      "type": 0,
+      "value": "You need to download and install the plugin in order to upload sketches from Arduino Cloud platform to your board or device."
+    }
+  ],
+  "devicesDialog.agentNotFoundTitle": [
+    {
+      "type": 0,
+      "value": "Arduino Cloud Agent not found"
+    }
+  ],
+  "devicesDialog.agentNotFoundTroubleMessage": [
+    {
+      "type": 0,
+      "value": "If you have already installed the plugin but it’s not running, try restarting it. If the problem persists, check the "
+    },
+    {
+      "type": 1,
+      "value": "troubleshootingLink"
+    }
+  ],
+  "devicesDialog.associateButton": [
+    {
+      "type": 0,
+      "value": "Associate"
+    }
+  ],
+  "devicesDialog.associateToSketchHelper": [
+    {
+      "type": 0,
+      "value": "Select the type of the device you are associating to the sketch."
+    }
+  ],
+  "devicesDialog.associatedToSketch": [
+    {
+      "type": 0,
+      "value": "This device is currently associated with the sketch"
+    }
+  ],
+  "devicesDialog.backButton": [
+    {
+      "type": 0,
+      "value": "Back"
+    }
+  ],
+  "devicesDialog.closeButton": [
+    {
+      "type": 0,
+      "value": "Close"
+    }
+  ],
+  "devicesDialog.detachButton": [
+    {
+      "type": 0,
+      "value": "Detach"
+    }
+  ],
+  "devicesDialog.detected-devices-tab-label": [
+    {
+      "type": 0,
+      "value": "Detected devices"
+    }
+  ],
+  "devicesDialog.detectedDeviceListHelper": [
+    {
+      "type": 0,
+      "value": "Select the device you want to associate to the sketch to start coding and uploading."
+    }
+  ],
+  "devicesDialog.dividerLabel": [
+    {
+      "type": 0,
+      "value": "or"
+    }
+  ],
+  "devicesDialog.identifyDeviceHelper": [
+    {
+      "type": 0,
+      "value": "Specify the type of the device you are associating to the sketch."
+    }
+  ],
+  "devicesDialog.identifyDeviceTitle": [
+    {
+      "type": 0,
+      "value": "Unknown device, identify its type"
+    }
+  ],
+  "devicesDialog.manualSelectionButton": [
+    {
+      "type": 0,
+      "value": "Select device type"
+    }
+  ],
+  "devicesDialog.manualSelectionMessage": [
+    {
+      "type": 0,
+      "value": "Do you want to verify your sketch for a specific device type you don’t have at hand?"
+    }
+  ],
+  "devicesDialog.noDevicesTitle": [
+    {
+      "type": 0,
+      "value": "Plug your device into your computer"
+    }
+  ],
+  "devicesDialog.noResults": [
+    {
+      "type": 0,
+      "value": "No results found"
+    }
+  ],
+  "devicesDialog.noResultsSubtitle": [
+    {
+      "type": 0,
+      "value": "We couldn't find any device with this name."
+    }
+  ],
+  "devicesDialog.offline-devices-tab-label": [
+    {
+      "type": 0,
+      "value": "Offline devices"
+    }
+  ],
+  "devicesDialog.over-the-air-device-label": [
+    {
+      "type": 0,
+      "value": "Over-The-Air"
+    }
+  ],
+  "devicesDialog.plugin-board-prompt": [
+    {
+      "type": 0,
+      "value": "If you have your device, plug it in and it'll be recognized."
+    }
+  ],
+  "devicesDialog.readyToBeAssociated": [
+    {
+      "type": 0,
+      "value": "Your device "
+    },
+    {
+      "type": 1,
+      "value": "name"
+    },
+    {
+      "type": 0,
+      "value": " is ready to be associated."
+    }
+  ],
+  "devicesDialog.searchBarPlaceholder": [
+    {
+      "type": 0,
+      "value": "Search device type"
+    }
+  ],
+  "devicesDialog.selectForUploadHelper": [
+    {
+      "type": 0,
+      "value": "Choose the device type you want to verify your sketch for."
+    }
+  ],
+  "devicesDialog.selectedTypeTitle": [
+    {
+      "type": 0,
+      "value": "Select a device type"
+    }
+  ],
+  "devicesDialog.title": [
+    {
+      "type": 0,
+      "value": "Select device"
+    }
+  ],
+  "devicesDialog.titleIdUnknow": [
+    {
+      "type": 0,
+      "value": "Unknown Device Found"
+    }
+  ],
+  "devicesDialog.troubleshootingLink": [
+    {
+      "type": 0,
+      "value": "troubleshooting"
+    }
+  ],
+  "devicesDialog.troubleshootingMessage": [
+    {
+      "type": 0,
+      "value": "If your device is plugged in but it’s not getting detected, check the "
+    },
+    {
+      "type": 1,
+      "value": "troubleshootingLink"
+    }
+  ],
+  "devicesDialog.upload-not-supported": [
+    {
+      "type": 0,
+      "value": "Upload not supported yet"
+    }
+  ],
+  "devicesDialog.upload-prompt-title": [
+    {
+      "type": 0,
+      "value": "Choose a device to upload to"
+    }
+  ],
+  "devicesDialog.verify-only": [
+    {
+      "type": 0,
+      "value": "Verify Only"
+    }
+  ],
+  "disableNetworkModeDialog.bodyDescription": [
+    {
+      "type": 0,
+      "value": "Turning off Remote Access (SSH) will prevent App Lab from connecting to your board over the network."
+    }
+  ],
+  "disableNetworkModeDialog.bodyTitle": [
+    {
+      "type": 0,
+      "value": "Disable remote access?"
+    }
+  ],
+  "disableNetworkModeDialog.cancelButton": [
+    {
+      "type": 0,
+      "value": "Cancel"
+    }
+  ],
+  "disableNetworkModeDialog.confirmButton": [
+    {
+      "type": 0,
+      "value": "Disable"
+    }
+  ],
+  "disableNetworkModeDialog.title": [
+    {
+      "type": 0,
+      "value": "Remote access (SSH)"
+    }
+  ],
+  "duplicateFileDialog.cancelButton": [
+    {
+      "type": 0,
+      "value": "Cancel"
+    }
+  ],
+  "duplicateFileDialog.fileBodyDescription": [
+    {
+      "type": 0,
+      "value": "Do you want to overwrite the existing file or keep both?"
+    }
+  ],
+  "duplicateFileDialog.fileBodyTitle": [
+    {
+      "type": 1,
+      "value": "fileName"
+    },
+    {
+      "type": 0,
+      "value": " already exists"
+    }
+  ],
+  "duplicateFileDialog.fileConflictTitle": [
+    {
+      "type": 0,
+      "value": "File Conflict"
+    }
+  ],
+  "duplicateFileDialog.fileFolderConflictDescription": [
+    {
+      "type": 0,
+      "value": "Can't move this file. A folder with the same name already exists. Keep both to create a renamed copy."
+    }
+  ],
+  "duplicateFileDialog.folderBodyDescription": [
+    {
+      "type": 0,
+      "value": "A folder with this name already exists. Merge the folders or keep both as separate folders."
+    }
+  ],
+  "duplicateFileDialog.folderBodyTitle": [
+    {
+      "type": 1,
+      "value": "fileName"
+    },
+    {
+      "type": 0,
+      "value": " already exists"
+    }
+  ],
+  "duplicateFileDialog.folderConflictTitle": [
+    {
+      "type": 0,
+      "value": "Folder Conflict"
+    }
+  ],
+  "duplicateFileDialog.folderFileConflictDescription": [
+    {
+      "type": 0,
+      "value": "Can't move this folder. A file with the same name already exists. Keep both to create a renamed copy."
+    }
+  ],
+  "duplicateFileDialog.keepBothButton": [
+    {
+      "type": 0,
+      "value": "Keep both"
+    }
+  ],
+  "duplicateFileDialog.mergeButton": [
+    {
+      "type": 0,
+      "value": "Merge"
+    }
+  ],
+  "duplicateFileDialog.nameConflictBodyTitle": [
+    {
+      "type": 1,
+      "value": "fileName"
+    },
+    {
+      "type": 0,
+      "value": " already exists"
+    }
+  ],
+  "duplicateFileDialog.nameConflictTitle": [
+    {
+      "type": 0,
+      "value": "Name Conflict"
+    }
+  ],
+  "duplicateFileDialog.overwriteButton": [
+    {
+      "type": 0,
+      "value": "Overwrite"
+    }
+  ],
+  "duplicateFileDialog.skipButton": [
+    {
+      "type": 0,
+      "value": "Skip"
+    }
+  ],
+  "duplicateFileDialog.sourceLabel": [
+    {
+      "type": 0,
+      "value": "Source"
+    }
+  ],
+  "duplicateFileDialog.targetLabel": [
+    {
+      "type": 0,
+      "value": "Target"
+    }
+  ],
+  "duplicateFileDialog.warningMessage": [
+    {
+      "type": 0,
+      "value": "Warning: Choosing \"Overwrite\" will permanently replace the existing "
+    },
+    {
+      "type": 1,
+      "value": "itemType"
+    },
+    {
+      "type": 0,
+      "value": "."
+    }
+  ],
+  "examples.allDevices": [
+    {
+      "type": 0,
+      "value": "ALL DEVICES"
+    }
+  ],
+  "examples.searchExamples": [
+    {
+      "type": 0,
+      "value": "Search examples"
+    }
+  ],
+  "examples.showExamples": [
+    {
+      "type": 0,
+      "value": "Showing examples for:"
+    }
+  ],
+  "examplesMenu.copyInYourSketches": [
+    {
+      "type": 0,
+      "value": "Copy in your sketches"
+    }
+  ],
+  "examplesMenu.download": [
+    {
+      "type": 0,
+      "value": "Download"
+    }
+  ],
+  "fileMenu.delete": [
+    {
+      "type": 0,
+      "value": "Delete"
+    }
+  ],
+  "fileMenu.rename": [
+    {
+      "type": 0,
+      "value": "Rename"
+    }
+  ],
+  "fileTree.modifiedAt": [
+    {
+      "type": 0,
+      "value": "Date Modified"
+    }
+  ],
+  "fileTree.name": [
+    {
+      "type": 0,
+      "value": "Name"
+    }
+  ],
+  "fileTree.size": [
+    {
+      "type": 0,
+      "value": "Size"
+    }
+  ],
+  "files.addFile": [
+    {
+      "type": 0,
+      "value": "Add"
+    }
+  ],
+  "files.files": [
+    {
+      "type": 0,
+      "value": "Files"
+    }
+  ],
+  "files.searchFiles": [
+    {
+      "type": 0,
+      "value": "Search files"
+    }
+  ],
+  "findAndReplace.next": [
+    {
+      "type": 0,
+      "value": "Next"
+    }
+  ],
+  "findAndReplace.noResults": [
+    {
+      "type": 0,
+      "value": "No results"
+    }
+  ],
+  "findAndReplace.occurrences": [
+    {
+      "type": 1,
+      "value": "currentMatch"
+    },
+    {
+      "type": 0,
+      "value": " of "
+    },
+    {
+      "type": 1,
+      "value": "totalOccurrences"
+    }
+  ],
+  "findAndReplace.prev": [
+    {
+      "type": 0,
+      "value": "Previous"
+    }
+  ],
+  "findAndReplace.replace": [
+    {
+      "type": 0,
+      "value": "Replace"
+    }
+  ],
+  "findAndReplace.replaceAll": [
+    {
+      "type": 0,
+      "value": "Replace All"
+    }
+  ],
+  "findAndReplace.selectAll": [
+    {
+      "type": 0,
+      "value": "Select All"
+    }
+  ],
+  "flavourConfigDialog.header": [
+    {
+      "type": 0,
+      "value": "Flavours"
+    }
+  ],
+  "genAIPolicyTermsDialog.fifthPart": [
+    {
+      "type": 0,
+      "value": "Moreover, the user undertakes not to upload to the Arduino AI Assistant content (text or graphic or any other type)/prompt/information which:"
+    }
+  ],
+  "genAIPolicyTermsDialog.fifthPartListItem1": [
+    {
+      "type": 0,
+      "value": "is offensive, vulgar, violent, false, harmful to Arduino’s image or contrary to law, or in breach of third parties’ rights, illegal, misleading, defamatory, slanderous, intimidating, offensive or in any other way contrary to law and public morality;"
+    }
+  ],
+  "genAIPolicyTermsDialog.fifthPartListItem2": [
+    {
+      "type": 0,
+      "value": "may constitute, encourage, promote or incite unlawful conduct;"
+    }
+  ],
+  "genAIPolicyTermsDialog.fifthPartListItem3": [
+    {
+      "type": 0,
+      "value": "is in breach of any patent, trademark, trade secret, copyright or any other intellectual or industrial property right, or of any other applicable law;"
+    }
+  ],
+  "genAIPolicyTermsDialog.fifthPartListItem4": [
+    {
+      "type": 0,
+      "value": "includes without lawful basis private or confidential information of third parties, such as addresses, phone numbers, email addresses or personal data."
+    }
+  ],
+  "genAIPolicyTermsDialog.firstPart": [
+    {
+      "type": 0,
+      "value": "The Arduino AI Assistant is an experimental feature to assist the user in creating code for their sketch. It uses Generative AI to answer prompt-based questions from the user to understand the need and generate the code"
+    }
+  ],
+  "genAIPolicyTermsDialog.fourthPart": [
+    {
+      "type": 0,
+      "value": "It is a responsibility of the user to:"
+    }
+  ],
+  "genAIPolicyTermsDialog.fourthPartListItem1": [
+    {
+      "type": 0,
+      "value": "properly assess and verify the accuracy of the results provided"
+    }
+  ],
+  "genAIPolicyTermsDialog.fourthPartListItem2": [
+    {
+      "type": 0,
+      "value": "verify that the code provided does not infringe any third party rights"
+    }
+  ],
+  "genAIPolicyTermsDialog.fourthPartListItem3": [
+    {
+      "type": 0,
+      "value": "not to spread viruses, malware or any other technology designed to harm the Arduino AI Assistant, to breach Arduino’s rights or the rights of other users"
+    }
+  ],
+  "genAIPolicyTermsDialog.secondPart": [
+    {
+      "type": 0,
+      "value": "Arduino will not use the information uploaded/content/prompt into Arduino AI Assistant to enrich the algorithm of the AI Assistant; in order to provide this service, Arduino is sending the prompt and user sketch to third parties in order to provide user with the requested result, however no user personal information or identity is shared with third parties. The user undertakes not to upload any personal data and any information related to physical persons as part of the prompt or sketch."
+    }
+  ],
+  "genAIPolicyTermsDialog.sixthPart": [
+    {
+      "type": 0,
+      "value": "By using Arduino AI Assistant, you understand and agree to these terms. For more information please contact Arduino at support@arduino.cc"
+    }
+  ],
+  "genAIPolicyTermsDialog.thirdPart": [
+    {
+      "type": 0,
+      "value": "The code generated by Arduino assistant is provided “as is” and we make no express or implied warranties whatsoever with respect to its functionality, operability, or use, fitness for a particular purpose, or infringement of third party rights."
+    }
+  ],
+  "genAIPolicyTermsDialog.title": [
+    {
+      "type": 0,
+      "value": "Arduino Assistant Policy Terms"
+    }
+  ],
+  "genAiBanner.description": [
+    {
+      "type": 0,
+      "value": "The Arduino AI Assistant is here to help you code faster and smarter. Enjoy "
+    },
+    {
+      "type": 1,
+      "value": "limit"
+    },
+    {
+      "type": 0,
+      "value": " and share your feedback!"
+    }
+  ],
+  "genAiBanner.freeLimit": [
+    {
+      "type": 0,
+      "value": "50 free messages per month"
+    }
+  ],
+  "genAiBanner.makerDescription": [
+    {
+      "type": 0,
+      "value": "The Arduino AI Assistant is here to help you code faster and smarter. With your paid plan, you can send "
+    },
+    {
+      "type": 1,
+      "value": "limit"
+    },
+    {
+      "type": 0,
+      "value": " Give it a try and let us know what you think!"
+    }
+  ],
+  "genAiBanner.makerLimit": [
+    {
+      "type": 0,
+      "value": "1500 messages per month."
+    }
+  ],
+  "genAiBanner.maybeLaterButton": [
+    {
+      "type": 0,
+      "value": "Maybe later"
+    }
+  ],
+  "genAiBanner.proDescription": [
+    {
+      "type": 0,
+      "value": "The Arduino AI Assistant is here to help you code faster and smarter. With your paid plan, you can send "
+    },
+    {
+      "type": 1,
+      "value": "limit"
+    },
+    {
+      "type": 0,
+      "value": " Give it a try and let us know what you think!"
+    }
+  ],
+  "genAiBanner.proLimit": [
+    {
+      "type": 0,
+      "value": "unlimited messages per day."
+    }
+  ],
+  "genAiBanner.title": [
+    {
+      "type": 0,
+      "value": "Welcome to the AI Assistant in Arduino Cloud Editor! 🤖✨"
+    }
+  ],
+  "genAiBanner.tryItNowButton": [
+    {
+      "type": 0,
+      "value": "Try it now"
+    }
+  ],
+  "genai.apply-fix": [
+    {
+      "type": 0,
+      "value": "Apply fix"
+    }
+  ],
+  "genai.apply-fix-message": [
+    {
+      "type": 0,
+      "value": "Apply recommended fix in code"
+    }
+  ],
+  "genai.clear-chat-button": [
+    {
+      "type": 0,
+      "value": "Clear chat"
+    }
+  ],
+  "genai.create-code-example": [
+    {
+      "type": 0,
+      "value": "Create code to blink an LED without using delays"
+    }
+  ],
+  "genai.disclaimer-arduino-assistant": [
+    {
+      "type": 0,
+      "value": "The Arduino AI Assistant can make mistakes. Consider checking important information."
+    }
+  ],
+  "genai.error-not-fixed-in-code": [
+    {
+      "type": 0,
+      "value": "Fix incompatible or already included"
+    }
+  ],
+  "genai.explain-function-example": [
+    {
+      "type": 0,
+      "value": "Explain this function: map(input, 0, 255, 0, 10)"
+    }
+  ],
+  "genai.explain-sketch": [
+    {
+      "type": 0,
+      "value": "/explain_sketch"
+    }
+  ],
+  "genai.fix-error": [
+    {
+      "type": 0,
+      "value": "Fix error"
+    }
+  ],
+  "genai.fix-error-message": [
+    {
+      "type": 0,
+      "value": "Fix the error"
+    }
+  ],
+  "genai.fix-errors": [
+    {
+      "type": 0,
+      "value": "/fix_errors"
+    }
+  ],
+  "genai.generate-sketch-example": [
+    {
+      "type": 0,
+      "value": "Generate Sketch for..."
+    }
+  ],
+  "genai.generating-requirements": [
+    {
+      "type": 0,
+      "value": "Generating requirements..."
+    }
+  ],
+  "genai.go-to-error": [
+    {
+      "type": 0,
+      "value": "Go to error"
+    }
+  ],
+  "genai.legal-disclaimer-accept-terms": [
+    {
+      "type": 0,
+      "value": "Accept terms"
+    }
+  ],
+  "genai.legal-disclaimer-ask-content": [
+    {
+      "type": 0,
+      "value": "From basics to advanced projects, I’ll help with all your Arduino coding needs."
+    }
+  ],
+  "genai.legal-disclaimer-ask-title": [
+    {
+      "type": 0,
+      "value": "Ask me anything"
+    }
+  ],
+  "genai.legal-disclaimer-be-responsible-content": [
+    {
+      "type": 0,
+      "value": "Arduino AI Assistant is built to provide you only with suggestions and examples. Always verify generated code for accuracy, safety and intellectual property. Avoid harmful or illegal content, and respect others’ privacy."
+    }
+  ],
+  "genai.legal-disclaimer-be-responsible-title": [
+    {
+      "type": 0,
+      "value": "Be responsible"
+    }
+  ],
+  "genai.legal-disclaimer-main-content": [
+    {
+      "type": 0,
+      "value": "I’m ready to help with coding, troubleshooting, and project advice for all your Arduino boards."
+    }
+  ],
+  "genai.legal-disclaimer-policy-terms": [
+    {
+      "type": 0,
+      "value": "By using the Arduino AI Assistant you accept the "
+    },
+    {
+      "type": 1,
+      "value": "privacyPolicy"
+    },
+    {
+      "type": 0,
+      "value": "."
+    }
+  ],
+  "genai.legal-disclaimer-privacy-policy": [
+    {
+      "type": 0,
+      "value": "full policy terms"
+    }
+  ],
+  "genai.legal-disclaimer-private-data-content": [
+    {
+      "type": 0,
+      "value": "Your sketches and questions remain private and won’t be used to train or enhance the AI."
+    }
+  ],
+  "genai.legal-disclaimer-private-data-title": [
+    {
+      "type": 0,
+      "value": "Your data is private"
+    }
+  ],
+  "genai.legal-disclaimer-title": [
+    {
+      "type": 0,
+      "value": "Hey there, I'm Arduino AI Assistant"
+    }
+  ],
+  "genai.loading-message": [
+    {
+      "type": 0,
+      "value": "Certainly! I will start searching for all need resources"
+    }
+  ],
+  "genai.new-messages": [
+    {
+      "type": 0,
+      "value": "New messages"
+    }
+  ],
+  "genai.notification-chat-deleted": [
+    {
+      "type": 0,
+      "value": "Chat deleted"
+    }
+  ],
+  "genai.notification-close-button": [
+    {
+      "type": 0,
+      "value": "Close"
+    }
+  ],
+  "genai.notification-undo-button": [
+    {
+      "type": 0,
+      "value": "Undo"
+    }
+  ],
+  "genai.placeholder-send-box": [
+    {
+      "type": 0,
+      "value": "Ask a question to the Arduino AI Assistant or type ‘/’"
+    }
+  ],
+  "genai.placeholder-send-box-no-sketch-generation": [
+    {
+      "type": 0,
+      "value": "Ask a question to the Arduino AI Assistant or type '/'"
+    }
+  ],
+  "genai.plan-limits-reached": [
+    {
+      "type": 0,
+      "value": "Plan limits reached."
+    }
+  ],
+  "genai.references": [
+    {
+      "type": 0,
+      "value": "References:"
+    }
+  ],
+  "genai.reload-error": [
+    {
+      "type": 0,
+      "value": "Reload error"
+    }
+  ],
+  "genai.remaining-messages": [
+    {
+      "type": 1,
+      "value": "messagesLeft"
+    },
+    {
+      "type": 0,
+      "value": " messages remaining"
+    }
+  ],
+  "genai.suggest-project-example": [
+    {
+      "type": 0,
+      "value": "Suggest a project idea using a strip LED"
+    }
+  ],
+  "genai.survey-button": [
+    {
+      "type": 0,
+      "value": "Let us know"
+    }
+  ],
+  "genai.survey-label": [
+    {
+      "type": 0,
+      "value": "How was your experience with this conversation?"
+    }
+  ],
+  "genai.try-hints-message": [
+    {
+      "type": 0,
+      "value": "Try these hints"
+    }
+  ],
+  "genai.upgrade-plan": [
+    {
+      "type": 0,
+      "value": "Upgrade plan"
+    }
+  ],
+  "genai.upgrade-to-unlock": [
+    {
+      "type": 1,
+      "value": "planLimitsReached"
+    },
+    {
+      "type": 0,
+      "value": " Upgrade to unlock more."
+    }
+  ],
+  "genai.upgrade-to-unlock-shorter": [
+    {
+      "type": 1,
+      "value": "planLimitsReached"
+    }
+  ],
+  "markdownReader.copy": [
+    {
+      "type": 0,
+      "value": "Copy"
+    }
+  ],
+  "mobileWarningDialog.continueButton": [
+    {
+      "type": 0,
+      "value": "Continue"
+    }
+  ],
+  "mobileWarningDialog.description": [
+    {
+      "type": 0,
+      "value": "Currently, our mobile version is a work in progress, so "
+    },
+    {
+      "children": [
+        {
+          "type": 0,
+          "value": "you might encounter some limitations and something might not be working properly"
+        }
+      ],
+      "type": 8,
+      "value": "bold"
+    },
+    {
+      "type": 0,
+      "value": "."
+    }
+  ],
+  "mobileWarningDialog.header": [
+    {
+      "type": 0,
+      "value": "Mobile Cloud Editor"
+    }
+  ],
+  "mobileWarningDialog.otaDescription": [
+    {
+      "type": 0,
+      "value": "Keep in mind, uploading is only possible for IoT sketches already associated to an online "
+    },
+    {
+      "children": [
+        {
+          "type": 0,
+          "value": "OTA (Over-the-Air) device"
+        }
+      ],
+      "type": 8,
+      "value": "link"
+    },
+    {
+      "type": 0,
+      "value": "."
+    }
+  ],
+  "mobileWarningDialog.title": [
+    {
+      "type": 0,
+      "value": "Discover the editor on the go!"
+    }
+  ],
+  "networkSettingsDialog.confirmButton": [
+    {
+      "type": 0,
+      "value": "Connect"
+    }
+  ],
+  "networkSettingsDialog.title": [
+    {
+      "type": 0,
+      "value": "Network Settings"
+    }
+  ],
+  "newFileMenu.addHeaderFile": [
+    {
+      "type": 0,
+      "value": "Add Header File"
+    }
+  ],
+  "newFileMenu.addSecretsTab": [
+    {
+      "type": 0,
+      "value": "Add Secrets Tab"
+    }
+  ],
+  "newFileMenu.addSketchFile": [
+    {
+      "type": 0,
+      "value": "Add Sketch File"
+    }
+  ],
+  "newFileMenu.addTextFile": [
+    {
+      "type": 0,
+      "value": "Add Text File"
+    }
+  ],
+  "newFileMenu.importFile": [
+    {
+      "type": 0,
+      "value": "Import File"
+    }
+  ],
+  "newTabMenu.addHeaderFile": [
+    {
+      "type": 0,
+      "value": "Add Header File"
+    }
+  ],
+  "newTabMenu.addSecretsTab": [
+    {
+      "type": 0,
+      "value": "Add Secrets Tab"
+    }
+  ],
+  "newTabMenu.addSketchFile": [
+    {
+      "type": 0,
+      "value": "Add Sketch File"
+    }
+  ],
+  "newTabMenu.addTextFile": [
+    {
+      "type": 0,
+      "value": "Add Text File"
+    }
+  ],
+  "newTabMenu.importFile": [
+    {
+      "type": 0,
+      "value": "Import File"
+    }
+  ],
+  "onboardingSteps.connectDeviceContent": [
+    {
+      "type": 0,
+      "value": "Start connecting your device or choosing a device type to start coding."
+    }
+  ],
+  "onboardingSteps.connectDeviceTitle": [
+    {
+      "type": 0,
+      "value": "Connect your device"
+    }
+  ],
+  "onboardingSteps.deviceInteractionContent": [
+    {
+      "type": 0,
+      "value": "Engage in direct communication with your hardware using real-time data exchange via the Serial Monitor."
+    }
+  ],
+  "onboardingSteps.deviceInteractionTitle": [
+    {
+      "type": 0,
+      "value": "Device real-time interactions"
+    }
+  ],
+  "onboardingSteps.examplesContent": [
+    {
+      "type": 0,
+      "value": "Not sure where to start? Browse and select from a variety of examples that fit your project's needs or to get inspired."
+    }
+  ],
+  "onboardingSteps.examplesTitle": [
+    {
+      "type": 0,
+      "value": "Get inspired with Examples"
+    }
+  ],
+  "onboardingSteps.finishTour": [
+    {
+      "type": 0,
+      "value": "Finish Tour"
+    }
+  ],
+  "onboardingSteps.librariesAndLanguageContent": [
+    {
+      "type": 0,
+      "value": "Access a wealth of resources with Arduino libraries and get familiar with coding fundamentals using the Language Reference."
+    }
+  ],
+  "onboardingSteps.librariesAndLanguageTitle": [
+    {
+      "type": 0,
+      "value": "Libraries and Language Reference"
+    }
+  ],
+  "onboardingSteps.sketchCollectionContent": [
+    {
+      "type": 0,
+      "value": "Use the navigation to switch between the Arduino Cloud features and to conveniently access the full collection of your sketches"
+    }
+  ],
+  "onboardingSteps.sketchCollectionTitle": [
+    {
+      "type": 0,
+      "value": "Back to Your Sketch Collection"
+    }
+  ],
+  "onboardingSteps.skipAll": [
+    {
+      "type": 0,
+      "value": "Skip All"
+    }
+  ],
+  "onboardingSteps.verifyAndUploadContent": [
+    {
+      "type": 0,
+      "value": "Make sure your code is error-free with 'Verify' or directly 'Upload' it to your board and watch the magic happen!"
+    }
+  ],
+  "onboardingSteps.verifyAndUploadTitle": [
+    {
+      "type": 0,
+      "value": "Verify and upload With Ease"
+    }
+  ],
+  "onboardingWindow.description": [
+    {
+      "type": 0,
+      "value": "You've just opened a sketch, named "
+    },
+    {
+      "type": 1,
+      "value": "sketchName"
+    },
+    {
+      "type": 0,
+      "value": ", awaiting your unique touch. This is where your Arduino ideas will take shape."
+    }
+  ],
+  "onboardingWindow.hideButton": [
+    {
+      "type": 0,
+      "value": "Hide"
+    }
+  ],
+  "onboardingWindow.startButton": [
+    {
+      "type": 0,
+      "value": "Start Tour"
+    }
+  ],
+  "onboardingWindow.title": [
+    {
+      "type": 0,
+      "value": "Welcome to Your New Sketch Workspace"
+    }
+  ],
+  "readOnlyBar.byOwner": [
+    {
+      "type": 0,
+      "value": "by "
+    },
+    {
+      "type": 1,
+      "value": "owner"
+    }
+  ],
+  "readOnlyBar.createdLabel": [
+    {
+      "type": 0,
+      "value": "Created"
+    }
+  ],
+  "readOnlyBar.modifiedLabel": [
+    {
+      "type": 0,
+      "value": "Modified"
+    }
+  ],
+  "readOnlyBar.sizeLabel": [
+    {
+      "type": 0,
+      "value": "Size"
+    }
+  ],
+  "referenceCategory.functions": [
+    {
+      "type": 0,
+      "value": "For controlling the Arduino board and performing computations."
+    }
+  ],
+  "referenceCategory.structure": [
+    {
+      "type": 0,
+      "value": "The elements of Arduino (C++) code."
+    }
+  ],
+  "referenceCategory.variables": [
+    {
+      "type": 0,
+      "value": "Arduino data types and constants."
+    }
+  ],
+  "renameAppDialog.appNameInUse": [
+    {
+      "type": 0,
+      "value": "Name already in use, please choose another one."
+    }
+  ],
+  "renameAppDialog.cancelButton": [
+    {
+      "type": 0,
+      "value": "Cancel"
+    }
+  ],
+  "renameAppDialog.confirmButton": [
+    {
+      "type": 0,
+      "value": "Rename"
+    }
+  ],
+  "renameAppDialog.failedRename": [
+    {
+      "type": 0,
+      "value": "Failed to rename app. Please try again."
+    }
+  ],
+  "renameAppDialog.inputPlaceholder": [
+    {
+      "type": 0,
+      "value": "Insert new name"
+    }
+  ],
+  "renameAppDialog.successRename": [
+    {
+      "type": 0,
+      "value": "App renamed successfully"
+    }
+  ],
+  "renameAppDialog.title": [
+    {
+      "type": 0,
+      "value": "Rename app"
+    }
+  ],
+  "renameDialog.actionTitle": [
+    {
+      "type": 0,
+      "value": "Rename sketch"
+    }
+  ],
+  "renameDialog.cancelButton": [
+    {
+      "type": 0,
+      "value": "Cancel"
+    }
+  ],
+  "renameDialog.inputLabel": [
+    {
+      "type": 0,
+      "value": "Name"
+    }
+  ],
+  "renameDialog.renameButton": [
+    {
+      "type": 0,
+      "value": "Rename"
+    }
+  ],
+  "renameDialog.sketchNameAlreadyExists": [
+    {
+      "type": 0,
+      "value": "Name already in use, please choose another one."
+    }
+  ],
+  "renameDialog.sketchNameContainsInvalidCharacters": [
+    {
+      "type": 0,
+      "value": "Spaces, punctuations and special characters are not allowed."
+    }
+  ],
+  "renameDialog.sketchNameExceedsLimit": [
+    {
+      "type": 0,
+      "value": "Character limit reached."
+    }
+  ],
+  "renameDialog.title": [
+    {
+      "type": 0,
+      "value": "Rename sketch"
+    }
+  ],
+  "secretsEditor.addButton": [
+    {
+      "type": 0,
+      "value": "Add new"
+    }
+  ],
+  "secretsEditor.description": [
+    {
+      "type": 0,
+      "value": "You can use Secrets to hide sensitive data (passwords, API keys, etc.) so that they are not publicly displayed when you share your Sketches. A secret consists of a Key, the part that remains visible when the Sketch is shared, and a Value, visible only to the user who created the Sketch."
+    }
+  ],
+  "secretsEditor.duplicateError": [
+    {
+      "type": 0,
+      "value": "Duplicate key. Please choose a unique one."
+    }
+  ],
+  "secretsEditor.header": [
+    {
+      "type": 0,
+      "value": "Hide your sensitive data"
+    }
+  ],
+  "secretsEditor.keyLabel": [
+    {
+      "type": 0,
+      "value": "Key"
+    }
+  ],
+  "secretsEditor.removeButton": [
+    {
+      "type": 0,
+      "value": "Delete"
+    }
+  ],
+  "secretsEditor.valueLabel": [
+    {
+      "type": 0,
+      "value": "Value"
+    }
+  ],
+  "serialMonitor.body.bothNLandCR": [
+    {
+      "type": 0,
+      "value": "Both NL & CR"
+    }
+  ],
+  "serialMonitor.body.carriageReturn": [
+    {
+      "type": 0,
+      "value": "Carriage Return"
+    }
+  ],
+  "serialMonitor.body.clearLog": [
+    {
+      "type": 0,
+      "value": "Clear log"
+    }
+  ],
+  "serialMonitor.body.connecting": [
+    {
+      "type": 0,
+      "value": "Connecting..."
+    }
+  ],
+  "serialMonitor.body.connectionLost": [
+    {
+      "type": 0,
+      "value": "We can’t find the device, please make sure it is connected via serial port. You can still see log history here, but data won’t be printed until new connection."
+    }
+  ],
+  "serialMonitor.body.downloadLog": [
+    {
+      "type": 0,
+      "value": "Download Log"
+    }
+  ],
+  "serialMonitor.body.hideTimestamp": [
+    {
+      "type": 0,
+      "value": "Hide Timestamp"
+    }
+  ],
+  "serialMonitor.body.newLine": [
+    {
+      "type": 0,
+      "value": "New Line"
+    }
+  ],
+  "serialMonitor.body.noLineEnding": [
+    {
+      "type": 0,
+      "value": "No Line Ending"
+    }
+  ],
+  "serialMonitor.body.searchLog": [
+    {
+      "type": 0,
+      "value": "Search log"
+    }
+  ],
+  "serialMonitor.body.searchLogDisabled": [
+    {
+      "type": 0,
+      "value": "To enable the Search, first put the serial monitor in pause."
+    }
+  ],
+  "serialMonitor.body.send": [
+    {
+      "type": 0,
+      "value": "Send"
+    }
+  ],
+  "serialMonitor.body.showTimestamp": [
+    {
+      "type": 0,
+      "value": "Show Timestamp"
+    }
+  ],
+  "serialMonitor.body.unavailable": [
+    {
+      "type": 0,
+      "value": "Serial monitor unavailable."
+    }
+  ],
+  "serialMonitor.body.viewNewData": [
+    {
+      "type": 0,
+      "value": "View new data"
+    }
+  ],
+  "serialMonitor.toolbar.pause": [
+    {
+      "type": 0,
+      "value": "Pause"
+    }
+  ],
+  "serialMonitor.toolbar.run": [
+    {
+      "type": 0,
+      "value": "Run"
+    }
+  ],
+  "setAsDefaultAppDialog.bodyDescription": [
+    {
+      "type": 0,
+      "value": "It will automatically launch every time the board is powered on."
+    }
+  ],
+  "setAsDefaultAppDialog.bodyTitle": [
+    {
+      "type": 0,
+      "value": "Do you want to set this app as the default?"
+    }
+  ],
+  "setAsDefaultAppDialog.cancelButton": [
+    {
+      "type": 0,
+      "value": "Cancel"
+    }
+  ],
+  "setAsDefaultAppDialog.confirmButton": [
+    {
+      "type": 0,
+      "value": "Set as default"
+    }
+  ],
+  "setAsDefaultAppDialog.title": [
+    {
+      "type": 0,
+      "value": "Set as default"
+    }
+  ],
+  "settings.appearance": [
+    {
+      "type": 0,
+      "value": "Appearance"
+    }
+  ],
+  "settings.appearance.fontSizeSection": [
+    {
+      "type": 0,
+      "value": "Font size"
+    }
+  ],
+  "settings.appearance.themeSection": [
+    {
+      "type": 0,
+      "value": "Theme"
+    }
+  ],
+  "settings.appearance.themeSection.auto": [
+    {
+      "type": 0,
+      "value": "Auto"
+    }
+  ],
+  "settings.appearance.themeSection.auto.description": [
+    {
+      "type": 0,
+      "value": "- based on OS setting"
+    }
+  ],
+  "settings.appearance.themeSection.comingSoon": [
+    {
+      "type": 0,
+      "value": "Coming Soon"
+    }
+  ],
+  "settings.appearance.themeSection.dark": [
+    {
+      "type": 0,
+      "value": "Dark"
+    }
+  ],
+  "settings.appearance.themeSection.light": [
+    {
+      "type": 0,
+      "value": "Light"
+    }
+  ],
+  "settings.device": [
+    {
+      "type": 0,
+      "value": "Device"
+    }
+  ],
+  "settings.device.consoleVerbositySection": [
+    {
+      "type": 0,
+      "value": "Console verbosity"
+    }
+  ],
+  "settings.device.consoleVerbositySection.concise": [
+    {
+      "type": 0,
+      "value": "Concise"
+    }
+  ],
+  "settings.device.consoleVerbositySection.conciseOutput": [
+    {
+      "type": 0,
+      "value": "Concise output"
+    }
+  ],
+  "settings.device.consoleVerbositySection.info": [
+    {
+      "type": 0,
+      "value": "This change will be applied from the next compilation."
+    }
+  ],
+  "settings.device.consoleVerbositySection.verbose": [
+    {
+      "type": 0,
+      "value": "Verbose"
+    }
+  ],
+  "settings.device.consoleVerbositySection.verboseOutput": [
+    {
+      "type": 0,
+      "value": "Verbose output"
+    }
+  ],
+  "settings.device.deviceSelectionSection": [
+    {
+      "type": 0,
+      "value": "Device selection"
+    }
+  ],
+  "settings.device.deviceSelectionSection.autoSelectionInfo": [
+    {
+      "type": 0,
+      "value": "On new sketches, when you plug a device it will get automatically selected."
+    }
+  ],
+  "settings.device.deviceSelectionSection.enableAutoSelection": [
+    {
+      "type": 0,
+      "value": "Enable auto-selection"
+    }
+  ],
+  "settings.restoreSettings": [
+    {
+      "type": 0,
+      "value": "RESTORE Settings to Default"
+    }
+  ],
+  "settings.sketch": [
+    {
+      "type": 0,
+      "value": "Sketch"
+    }
+  ],
+  "settings.sketch.savingSection": [
+    {
+      "type": 0,
+      "value": "Saving"
+    }
+  ],
+  "settings.sketch.savingSection.enableAutoSave": [
+    {
+      "type": 0,
+      "value": "Enable autosave"
+    }
+  ],
+  "settings.sketch.savingSection.saveOnVerifyAndUpload": [
+    {
+      "type": 0,
+      "value": "Save on verifying and uploading"
+    }
+  ],
+  "settings.verifyAndUpload": [
+    {
+      "type": 0,
+      "value": "Verify & upload"
+    }
+  ],
+  "shareSketch.embed-label": [
+    {
+      "type": 0,
+      "value": "Embed in HTML code"
+    }
+  ],
+  "shareSketch.members-url-label": [
+    {
+      "type": 0,
+      "value": "Link to share it within space members"
+    }
+  ],
+  "shareSketch.organization-label": [
+    {
+      "type": 0,
+      "value": "Only users who have access to the shared space SHARED-SPACE-NAME can view and edit this sketch."
+    }
+  ],
+  "shareSketch.personal-label": [
+    {
+      "type": 0,
+      "value": "Only you can view and edit this sketch"
+    }
+  ],
+  "shareSketch.public-disabled": [
+    {
+      "type": 0,
+      "value": "Disabled"
+    }
+  ],
+  "shareSketch.public-enabled": [
+    {
+      "type": 0,
+      "value": "Enabled"
+    }
+  ],
+  "shareSketch.public-label": [
+    {
+      "type": 0,
+      "value": "Anyone with the link can view this sketch, but they cannot edit the original."
+    }
+  ],
+  "shareSketch.share-to-classroom": [
+    {
+      "type": 0,
+      "value": "Share to Google Classroom"
+    }
+  ],
+  "shareSketch.title-organization": [
+    {
+      "type": 0,
+      "value": "Public sharing"
+    }
+  ],
+  "shareSketch.title-personal": [
+    {
+      "type": 0,
+      "value": "Sketch sharing"
+    }
+  ],
+  "shareSketch.url-label": [
+    {
+      "type": 0,
+      "value": "Link to share"
+    }
+  ],
+  "shareSketchDialog.body-title": [
+    {
+      "type": 0,
+      "value": "Choose the visibility of your sketch"
+    }
+  ],
+  "shareSketchDialog.embed-label": [
+    {
+      "type": 0,
+      "value": "Embed"
+    }
+  ],
+  "shareSketchDialog.private-label": [
+    {
+      "type": 0,
+      "value": "Private, only you can view the sketch"
+    }
+  ],
+  "shareSketchDialog.public-label": [
+    {
+      "type": 0,
+      "value": "Public, anyone with the link can view the sketch"
+    }
+  ],
+  "shareSketchDialog.title": [
+    {
+      "type": 0,
+      "value": "Share Sketch"
+    }
+  ],
+  "shareSketchDialog.url-label": [
+    {
+      "type": 0,
+      "value": "Link"
+    }
+  ],
+  "shareSketchToClassroomDialog.body": [
+    {
+      "type": 0,
+      "value": "By proceeding, the sketch visibility will be automatically set as Public, everyone with the link can view the sketch."
+    }
+  ],
+  "shareSketchToClassroomDialog.shareToClassroomButton": [
+    {
+      "type": 0,
+      "value": "Share to Google Classroom"
+    }
+  ],
+  "shareSketchToClassroomDialog.title": [
+    {
+      "type": 0,
+      "value": "Share Sketch to Google Classroom"
+    }
+  ],
+  "sidePanel.account": [
+    {
+      "type": 0,
+      "value": "Account"
+    }
+  ],
+  "sidePanel.aiModels": [
+    {
+      "type": 0,
+      "value": "AI Models"
+    }
+  ],
+  "sidePanel.bricks": [
+    {
+      "type": 0,
+      "value": "Bricks"
+    }
+  ],
+  "sidePanel.examples": [
+    {
+      "type": 0,
+      "value": "Examples"
+    }
+  ],
+  "sidePanel.learn": [
+    {
+      "type": 0,
+      "value": "Learn"
+    }
+  ],
+  "sidePanel.myApps": [
+    {
+      "type": 0,
+      "value": "My Apps"
+    }
+  ],
+  "sidePanel.settings": [
+    {
+      "type": 0,
+      "value": "Settings"
+    }
+  ],
+  "sidenav.examples": [
+    {
+      "type": 0,
+      "value": "Examples"
+    }
+  ],
+  "sidenav.genAI": [
+    {
+      "type": 0,
+      "value": "Arduino AI Assistant"
+    }
+  ],
+  "sidenav.genAIExperimental": [
+    {
+      "type": 0,
+      "value": "Experimental"
+    }
+  ],
+  "sidenav.hideSidenavContent": [
+    {
+      "type": 0,
+      "value": "Hide sidenav content"
+    }
+  ],
+  "sidenav.libraries": [
+    {
+      "type": 0,
+      "value": "Libraries"
+    }
+  ],
+  "sidenav.libraries.addLibraryToFavorite": [
+    {
+      "type": 0,
+      "value": "Add library to favorites"
+    }
+  ],
+  "sidenav.libraries.copyAndModifyLibrary": [
+    {
+      "type": 0,
+      "value": "Copy & modify library"
+    }
+  ],
+  "sidenav.libraries.deleteLibrary": [
+    {
+      "type": 0,
+      "value": "Delete library"
+    }
+  ],
+  "sidenav.libraries.downloadLibrary": [
+    {
+      "type": 0,
+      "value": "Download"
+    }
+  ],
+  "sidenav.libraries.examples": [
+    {
+      "type": 0,
+      "value": "Examples"
+    }
+  ],
+  "sidenav.libraries.includeButton": [
+    {
+      "type": 0,
+      "value": "Include"
+    }
+  ],
+  "sidenav.libraries.modifyLibrary": [
+    {
+      "type": 0,
+      "value": "Modify library"
+    }
+  ],
+  "sidenav.libraries.noCustomLibrariesMsg": [
+    {
+      "type": 0,
+      "value": "No custom libraries found"
+    }
+  ],
+  "sidenav.libraries.noCustomLibrariesTitle": [
+    {
+      "type": 0,
+      "value": "No custom libraries"
+    }
+  ],
+  "sidenav.libraries.noFavoriteLibrariesMsg": [
+    {
+      "type": 0,
+      "value": "No favorite libraries found"
+    }
+  ],
+  "sidenav.libraries.noFavoriteLibrariesTitle": [
+    {
+      "type": 0,
+      "value": "No Favorites"
+    }
+  ],
+  "sidenav.libraries.removeLibraryFromFavorite": [
+    {
+      "type": 0,
+      "value": "Remove library from favorites"
+    }
+  ],
+  "sidenav.libraries.searchLibraries": [
+    {
+      "type": 0,
+      "value": "Search libraries"
+    }
+  ],
+  "sidenav.moreInfo": [
+    {
+      "type": 0,
+      "value": "More info"
+    }
+  ],
+  "sidenav.noResultsSubtitle": [
+    {
+      "type": 0,
+      "value": "We couldn't find any "
+    },
+    {
+      "type": 1,
+      "value": "resourceName"
+    },
+    {
+      "type": 0,
+      "value": " with this name"
+    }
+  ],
+  "sidenav.noResultsTitle": [
+    {
+      "type": 0,
+      "value": "No results found"
+    }
+  ],
+  "sidenav.reference": [
+    {
+      "type": 0,
+      "value": "Reference"
+    }
+  ],
+  "sidenav.settings": [
+    {
+      "type": 0,
+      "value": "Settings"
+    }
+  ],
+  "sidenav.sidenavContentClose": [
+    {
+      "type": 0,
+      "value": "Close"
+    }
+  ],
+  "sidenavExamples.builtIn": [
+    {
+      "type": 0,
+      "value": "Built-in"
+    }
+  ],
+  "sidenavExamples.device": [
+    {
+      "type": 0,
+      "value": "Device"
+    }
+  ],
+  "sidenavExamples.fromLibraries": [
+    {
+      "type": 0,
+      "value": "From Libraries"
+    }
+  ],
+  "sidenavLibraries.allDevices": [
+    {
+      "type": 0,
+      "value": "All devices"
+    }
+  ],
+  "sidenavLibraries.custom": [
+    {
+      "type": 0,
+      "value": "Custom"
+    }
+  ],
+  "sidenavLibraries.favorites": [
+    {
+      "type": 0,
+      "value": "Favorites"
+    }
+  ],
+  "sidenavLibraries.includeDisabledContent": [
+    {
+      "type": 0,
+      "value": "Add an \"includes\" field to the library.properties file to enable this."
+    }
+  ],
+  "sidenavLibraries.includeDisabledTitle": [
+    {
+      "type": 0,
+      "value": "Inclusion must be done manually"
+    }
+  ],
+  "sidenavLibraries.included": [
+    {
+      "type": 0,
+      "value": "Included version"
+    }
+  ],
+  "sidenavLibraries.latest": [
+    {
+      "type": 0,
+      "value": "Latest"
+    }
+  ],
+  "sidenavLibraries.showLibrariesFor": [
+    {
+      "type": 0,
+      "value": "Show libraries for:"
+    }
+  ],
+  "sidenavLibraries.standard": [
+    {
+      "type": 0,
+      "value": "All Libraries"
+    }
+  ],
+  "sidenavReference.functions": [
+    {
+      "type": 0,
+      "value": "Functions"
+    }
+  ],
+  "sidenavReference.structure": [
+    {
+      "type": 0,
+      "value": "Structures"
+    }
+  ],
+  "sidenavReference.variables": [
+    {
+      "type": 0,
+      "value": "Variables"
+    }
+  ],
+  "sketchPlan.cancelButton": [
+    {
+      "type": 0,
+      "value": "Cancel sketch proposal"
+    }
+  ],
+  "sketchPlan.confirmButton": [
+    {
+      "type": 0,
+      "value": "Confirm"
+    }
+  ],
+  "sketchPlan.generateSketchApply": [
+    {
+      "type": 0,
+      "value": "Apply"
+    }
+  ],
+  "sketchPlan.generateSketchMessage": [
+    {
+      "type": 0,
+      "value": "/generate_sketch"
+    }
+  ],
+  "sketchPlan.generateSketchNewFeature": [
+    {
+      "type": 0,
+      "value": "New feature:"
+    }
+  ],
+  "sketchPlan.generateSketchNewFeatureMessage": [
+    {
+      "type": 0,
+      "value": "Use this feature to create a new sketch from scratch"
+    }
+  ],
+  "sketchPlan.generateSketchPlaceholder": [
+    {
+      "type": 0,
+      "value": "Describe the project you would like to create"
+    }
+  ],
+  "sketchPlan.includeDiagramCheckboxLabel": [
+    {
+      "type": 0,
+      "value": "Generate Circuit Diagram"
+    }
+  ],
+  "sketchPlan.instructionsTitle": [
+    {
+      "type": 0,
+      "value": "Step by step instructions"
+    }
+  ],
+  "sketchPlan.regenerateButton": [
+    {
+      "type": 0,
+      "value": "Regenerate sketch proposal"
+    }
+  ],
+  "skipLoginDialog.bodyDescription": [
+    {
+      "type": 0,
+      "value": "Signing in with your Arduino account unlocks App Lab's full potential, giving you:"
+    }
+  ],
+  "skipLoginDialog.bodyFooter": [
+    {
+      "type": 0,
+      "value": "And as always, it's all completely free!"
+    }
+  ],
+  "skipLoginDialog.bodyListItem1": [
+    {
+      "type": 0,
+      "value": "Advanced AI models with custom training capabilities"
+    }
+  ],
+  "skipLoginDialog.bodyListItem2": [
+    {
+      "type": 0,
+      "value": "Additional Arduino courses and learning materials"
+    }
+  ],
+  "skipLoginDialog.bodyListItem3": [
+    {
+      "type": 0,
+      "value": "Seamless integration with Arduino Cloud"
+    }
+  ],
+  "skipLoginDialog.bodyListItem4": [
+    {
+      "type": 0,
+      "value": "A growing library of additional apps"
+    }
+  ],
+  "skipLoginDialog.bodyTitle": [
+    {
+      "type": 0,
+      "value": "Are you sure you want to skip this?"
+    }
+  ],
+  "skipLoginDialog.confirmButton": [
+    {
+      "type": 0,
+      "value": "Log In with Arduino"
+    }
+  ],
+  "skipLoginDialog.skipButton": [
+    {
+      "type": 0,
+      "value": "Skip Log In"
+    }
+  ],
+  "skipLoginDialog.title": [
+    {
+      "type": 0,
+      "value": "Log In"
+    }
+  ],
+  "swapRunningApp.bodyDescription": [
+    {
+      "type": 0,
+      "value": "You’re about to replace the app currently linked to this run with a new one. This may affect how the run behaves. Please make sure you want to proceed"
+    }
+  ],
+  "swapRunningApp.bodyTitle": [
+    {
+      "type": 0,
+      "value": "You’re about to change the app for this run"
+    }
+  ],
+  "swapRunningApp.cancelButton": [
+    {
+      "type": 0,
+      "value": "Cancel"
+    }
+  ],
+  "swapRunningApp.confirmButton": [
+    {
+      "type": 0,
+      "value": "Confirm and replace"
+    }
+  ],
+  "swapRunningApp.title": [
+    {
+      "type": 0,
+      "value": "Swap Running App"
+    }
+  ],
+  "tabMenu.close": [
+    {
+      "type": 0,
+      "value": "Close"
+    }
+  ],
+  "tabMenu.deleteFile": [
+    {
+      "type": 0,
+      "value": "Delete File"
+    }
+  ],
+  "tabMenu.rename": [
+    {
+      "type": 0,
+      "value": "Rename"
+    }
+  ],
+  "toolbar.associateDevice": [
+    {
+      "type": 0,
+      "value": "Select device"
+    }
+  ],
+  "toolbar.changeDeviceTooltip": [
+    {
+      "type": 0,
+      "value": "Change Associated Device"
+    }
+  ],
+  "toolbar.connected-iot-port": [
+    {
+      "type": 0,
+      "value": "Over-The-Air"
+    }
+  ],
+  "toolbar.creating": [
+    {
+      "type": 0,
+      "value": "Creating..."
+    }
+  ],
+  "toolbar.detectedDevice": [
+    {
+      "type": 0,
+      "value": "Detect device"
+    }
+  ],
+  "toolbar.device-found-title": [
+    {
+      "type": 0,
+      "value": "New device found"
+    }
+  ],
+  "toolbar.deviceNotFound": [
+    {
+      "type": 0,
+      "value": "Device not found"
+    }
+  ],
+  "toolbar.deviceTooltip.detach": [
+    {
+      "type": 0,
+      "value": "Detach the device from any shield/carrier or external circuitry"
+    }
+  ],
+  "toolbar.deviceTooltip.notFound": [
+    {
+      "type": 0,
+      "value": "If your device is plugged in, try to:"
+    }
+  ],
+  "toolbar.deviceTooltip.reconnect": [
+    {
+      "type": 0,
+      "value": "Reconnect the device to the computer with another USB cable and make sure the power LED lights up"
+    }
+  ],
+  "toolbar.deviceTooltip.reset": [
+    {
+      "type": 0,
+      "value": "Reset your device: quickly double press the Reset button (RST) of your board. Once reset, the LED should fade in and out."
+    }
+  ],
+  "toolbar.deviceTooltip.thirdParty": [
+    {
+      "type": 0,
+      "value": "3rd party device"
+    }
+  ],
+  "toolbar.deviceTooltip.unknown": [
+    {
+      "type": 0,
+      "value": "The device found is a "
+    },
+    {
+      "type": 1,
+      "value": "thirdPartyDeviceLabel"
+    },
+    {
+      "type": 0,
+      "value": " but we are not sure it's "
+    },
+    {
+      "type": 1,
+      "value": "article"
+    },
+    {
+      "type": 0,
+      "value": " "
+    },
+    {
+      "type": 1,
+      "value": "boardLabel"
+    },
+    {
+      "type": 0,
+      "value": "."
+    }
+  ],
+  "toolbar.devices-found-title": [
+    {
+      "type": 0,
+      "value": "New devices found"
+    }
+  ],
+  "toolbar.downloadSketch": [
+    {
+      "type": 0,
+      "value": "Download Sketch"
+    }
+  ],
+  "toolbar.flavourConfig": [
+    {
+      "type": 0,
+      "value": "Configure Flavour"
+    }
+  ],
+  "toolbar.iotSetupTabLink": [
+    {
+      "type": 0,
+      "value": "Setup tab"
+    }
+  ],
+  "toolbar.iotSetupTabMessage": [
+    {
+      "type": 0,
+      "value": "Change the associated device from the "
+    },
+    {
+      "type": 1,
+      "value": "iotSetupTabLink"
+    }
+  ],
+  "toolbar.many-matching-devices-found-label": [
+    {
+      "type": 0,
+      "value": "Multiple devices found"
+    }
+  ],
+  "toolbar.noAssociatedDevice": [
+    {
+      "type": 0,
+      "value": "No associated device yet"
+    }
+  ],
+  "toolbar.offline-iot-port": [
+    {
+      "type": 0,
+      "value": "Device offline"
+    }
+  ],
+  "toolbar.pend": [
+    {
+      "type": 0,
+      "value": "Pend..."
+    }
+  ],
+  "toolbar.pending": [
+    {
+      "type": 0,
+      "value": "Pending..."
+    }
+  ],
+  "toolbar.serialMonitor": [
+    {
+      "type": 0,
+      "value": "Serial Monitor"
+    }
+  ],
+  "toolbar.serialPortBusy": [
+    {
+      "type": 0,
+      "value": "Serial Port Busy"
+    }
+  ],
+  "toolbar.serialPortBusy.unavailable": [
+    {
+      "type": 0,
+      "value": "Please check if any other software is is using this port."
+    }
+  ],
+  "toolbar.serialPortTooltip.unavailable": [
+    {
+      "type": 0,
+      "value": "No device connected via USB."
+    }
+  ],
+  "toolbar.serialPortUnavailable": [
+    {
+      "type": 0,
+      "value": "Serial port unavailable"
+    }
+  ],
+  "toolbar.shareSketch": [
+    {
+      "type": 0,
+      "value": "Share Sketch"
+    }
+  ],
+  "toolbar.upload": [
+    {
+      "type": 0,
+      "value": "Upload"
+    }
+  ],
+  "toolbar.uploading": [
+    {
+      "type": 0,
+      "value": "Uploading..."
+    }
+  ],
+  "toolbar.verify": [
+    {
+      "type": 0,
+      "value": "Verify"
+    }
+  ],
+  "toolbar.verifying": [
+    {
+      "type": 0,
+      "value": "Verifying..."
+    }
+  ],
+  "toolbar.verifying-short": [
+    {
+      "type": 0,
+      "value": "Verify..."
+    }
+  ],
+  "verify-timeout": [
+    {
+      "type": 0,
+      "value": "We are still verifying your sketch, thanks for your patience"
+    }
+  ]
+}

@@ -1,8 +1,4 @@
-// Pass 1 toolbox: built-in Blockly categories only (Logic, Loops, Math, Text,
-// Variables, Lists, Functions). Pass 2 will split this per-language and add
-// Arduino-flavoured categories (setup/loop, pinMode, digitalWrite, app.start,
-// lifecycle handlers, etc.).
-export const defaultToolbox = {
+export const pythonToolbox = {
   kind: 'categoryToolbox',
   contents: [
     {

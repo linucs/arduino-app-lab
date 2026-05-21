@@ -2,6 +2,12 @@ export const SIDECAR_FORMAT_VERSION = 1;
 
 export type BlocklyLanguage = 'cpp' | 'python';
 
+// Runtime is the catalog-facing identifier used by adapters and (in iteration
+// 4) by block catalog entries. It is distinct from `BlocklyLanguage`, which is
+// the editor-facing display value persisted in the sidecar envelope's
+// `language` field for backward compatibility with the on-disk format.
+export type Runtime = 'arduino:cpp' | 'arduino:python';
+
 export type BlocklyEditorLogic = () => {
   // 'cpp' covers both `.ino` and `.cpp`; routes the language used by the stub generator.
   language: BlocklyLanguage;
@@ -28,10 +34,7 @@ export type BlocklyEditorLogic = () => {
   // which are no-ops inside Wails webviews. When provided, the editor wires
   // them via `Blockly.dialog.set{Prompt,Alert,Confirm}` so the built-in
   // variable / function / rename / delete interactions work.
-  onPrompt?: (
-    message: string,
-    defaultValue: string,
-  ) => Promise<string | null>;
+  onPrompt?: (message: string, defaultValue: string) => Promise<string | null>;
   onAlert?: (message: string) => Promise<void>;
   onConfirm?: (message: string) => Promise<boolean>;
 };

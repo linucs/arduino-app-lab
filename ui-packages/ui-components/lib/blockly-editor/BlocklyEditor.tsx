@@ -1,22 +1,21 @@
-import * as Blockly from 'blockly';
 import 'blockly/blocks';
+
+import * as Blockly from 'blockly';
 import clsx from 'clsx';
 import { useEffect, useRef } from 'react';
 import { useDebouncedCallback } from 'use-debounce';
 
 import { useI18n } from '../i18n/useI18n';
 import { snackbar } from '../snackbar';
+import { adapterFor, languageToRuntime } from './adapters';
 import styles from './BlocklyEditor.module.scss';
 import {
   BlocklyEditorLogic,
   BlocklyLanguage,
   SIDECAR_FORMAT_VERSION,
 } from './blocklyEditor.type';
-import { generateCppStub } from './generators/cppStubGenerator';
-import { generatePythonStub } from './generators/pythonStubGenerator';
 import { messages } from './messages';
 import { appLabDarkTheme } from './themes/appLabDarkTheme';
-import { defaultToolbox } from './toolboxes/defaultToolbox';
 
 interface SidecarEnvelope {
   version: number;
@@ -25,11 +24,6 @@ interface SidecarEnvelope {
 }
 
 const DEBOUNCE_MS = 1000;
-
-const generate = (language: BlocklyLanguage, blocksJson: string): string =>
-  language === 'python'
-    ? generatePythonStub(blocksJson)
-    : generateCppStub(blocksJson);
 
 type ParseResult = {
   blocksState: object | undefined;
@@ -51,7 +45,11 @@ const parseSidecar = (raw: string | undefined): ParseResult => {
         errorKind: 'unsupported-version',
       };
     }
-    if (parsed && typeof parsed.workspace === 'object' && parsed.workspace !== null) {
+    if (
+      parsed &&
+      typeof parsed.workspace === 'object' &&
+      parsed.workspace !== null
+    ) {
       return { blocksState: parsed.workspace, unsupportedVersion: false };
     }
   } catch (_error) {
@@ -112,6 +110,8 @@ const BlocklyEditor: React.FC<BlocklyEditorProps> = (
     toastedErrorSignatureRef.current = undefined;
   }
 
+  const adapter = adapterFor(languageToRuntime(language));
+
   const flushChange = useDebouncedCallback(() => {
     const workspace = workspaceRef.current;
     if (!workspace) return;
@@ -122,7 +122,10 @@ const BlocklyEditor: React.FC<BlocklyEditorProps> = (
       workspace: state,
     };
     const blocksJson = JSON.stringify(envelope, null, 2);
-    const generatedCode = generate(language, blocksJson);
+    // Per §1 + §9: the generator's own workspaceToCode runs the full pipeline
+    // (handler dispatch → definitions_ collection → finish() assembly). No
+    // second layer of assembly lives in the editor or a factory.
+    const generatedCode = adapter.generator.workspaceToCode(workspace);
     // Pre-register this payload as the last-applied state so the round-trip
     // (parent saves → updates `initialBlocks` prop → effect compares) skips
     // reloading the workspace, avoiding scroll/selection resets.
@@ -193,7 +196,7 @@ const BlocklyEditor: React.FC<BlocklyEditorProps> = (
     const isReadOnly = readOnly === true || unsupportedVersion;
 
     const workspace = Blockly.inject(container, {
-      toolbox: defaultToolbox,
+      toolbox: adapter.toolbox,
       readOnly: isReadOnly,
       trashcan: true,
       move: { scrollbars: true, drag: true, wheel: true },
@@ -206,7 +209,9 @@ const BlocklyEditor: React.FC<BlocklyEditorProps> = (
     lastAppliedSidecarRef.current = undefined;
     applySidecar(initialBlocks);
 
-    const handleChange = async (event: Blockly.Events.Abstract): Promise<void> => {
+    const handleChange = async (
+      event: Blockly.Events.Abstract,
+    ): Promise<void> => {
       if (event.isUiEvent) return;
       if (awaitingConfirmRef.current) return;
       if (isApplyingSidecarRef.current) return;

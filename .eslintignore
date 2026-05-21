@@ -35,4 +35,15 @@ TODO
 *.sh
 *.pem
 
+# JSON has its own formatting; ESLint+Prettier reformatting drifts files that
+# aren't source code (Wails config, Debian packaging metadata, lottie assets).
+*.json
+
+# Debian packaging artifacts include shell scripts with no extension (postrm,
+# postinst) that ESLint will parse as JS and corrupt.
+standalone-apps/app-lab-desktop/build/
+
+# Lottie animation data — large generated JSON not meant for human formatting.
+ui-packages/images/assets/
+
 standalone-apps/app-lab-desktop/frontend/wailsjs

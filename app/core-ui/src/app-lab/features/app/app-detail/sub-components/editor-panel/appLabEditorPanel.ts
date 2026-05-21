@@ -43,6 +43,7 @@ import {
   useCodeEditorViewInstance,
 } from '../../../../../../common/hooks/editor';
 import { SKETCH_SECRETS_FILE_ID } from '../../../../../../common/hooks/files';
+import { GET_BATCH_FILE_CONTENT_QUERY_KEY } from '../../../../../../common/hooks/queries/arduinoAppFiles';
 import { UseCreateSketchFromExisting } from '../../../../../../common/hooks/queries/create.type';
 import { getAppLabFileIcon } from '../../../../../../common/utils';
 import { makeAppBrickDetailLogic } from '../../../../../hooks/useBrickDetail';
@@ -205,7 +206,7 @@ export const useCreateEditorPanelLogic: UseCreateEditorPanelLogic = function (
     if (!hasSidecar(fileId)) return;
     if (sidecarContents.has(fileId)) return;
     let cancelled = false;
-    (async () => {
+    (async (): Promise<void> => {
       try {
         const sidecarFullPath = `${appPath}/${sidecarPathForSource(fileId)}`;
         const raw = await getAppFileContent(sidecarFullPath);
@@ -331,15 +332,12 @@ export const useCreateEditorPanelLogic: UseCreateEditorPanelLogic = function (
     blocklyDialogInputRef.current = blocklyDialogInput;
   }, [blocklyDialogInput]);
 
-  const resolveBlocklyDialog = useCallback(
-    (approved: boolean): void => {
-      const resolver = blocklyDialogResolverRef.current;
-      blocklyDialogResolverRef.current = null;
-      setBlocklyDialogOpen(false);
-      if (resolver) resolver(approved);
-    },
-    [],
-  );
+  const resolveBlocklyDialog = useCallback((approved: boolean): void => {
+    const resolver = blocklyDialogResolverRef.current;
+    blocklyDialogResolverRef.current = null;
+    setBlocklyDialogOpen(false);
+    if (resolver) resolver(approved);
+  }, []);
 
   const blocklyPrompt = useCallback(
     (message: string, defaultValue: string): Promise<string | null> => {
@@ -420,6 +418,21 @@ export const useCreateEditorPanelLogic: UseCreateEditorPanelLogic = function (
           return next;
         });
         await queryClient.invalidateQueries(['app-files', appId]);
+        // saveBlocksAndCode wrote the source via Wails, bypassing the React
+        // Query pipeline that primes CodeMirror's code subject. Invalidate both
+        // content-query namespaces: the batch query (most files) and the
+        // singleton query used by useRetrieveArduinoAppFileContents (which
+        // serves the first-selected file plus sketch.ino, app.yaml, sketch.yaml
+        // — see filteredFiles in useAppDetailFiles).
+        await queryClient.invalidateQueries([
+          GET_BATCH_FILE_CONTENT_QUERY_KEY,
+          sourceFullPath,
+        ]);
+        await queryClient.invalidateQueries([
+          'get-app-file-content',
+          appPath,
+          fileId,
+        ]);
       } catch (error) {
         console.error('saveBlocksAndCode failed', error);
         snackbar({
