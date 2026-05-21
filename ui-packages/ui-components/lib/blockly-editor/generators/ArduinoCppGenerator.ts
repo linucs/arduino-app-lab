@@ -1,5 +1,26 @@
 import * as Blockly from 'blockly';
 
+import { registerCppBlocks } from '../custom-blocks/cppBlocks';
+
+// C++ standard language keywords reserved in nameDB_ (codegen-iteration-3.md
+// step 1). Deliberately excludes Arduino identifiers (setup, loop, pinMode,
+// Serial, …) and standard-library names — hardware identifiers enter user
+// code as literals from custom-block handlers, not through nameDB_.
+const CPP_KEYWORDS = [
+  'auto', 'break', 'case', 'catch', 'char', 'class', 'const', 'constexpr',
+  'continue', 'default', 'delete', 'do', 'double', 'else', 'enum', 'explicit',
+  'extern', 'false', 'float', 'for', 'friend', 'goto', 'if', 'inline', 'int',
+  'long', 'mutable', 'namespace', 'new', 'noexcept', 'nullptr', 'operator',
+  'private', 'protected', 'public', 'register', 'return', 'short', 'signed',
+  'sizeof', 'static', 'static_assert', 'static_cast', 'struct', 'switch',
+  'template', 'this', 'thread_local', 'throw', 'true', 'try', 'typedef',
+  'typeid', 'typename', 'union', 'unsigned', 'using', 'virtual', 'void',
+  'volatile', 'wchar_t', 'while',
+  // C++20 additions
+  'concept', 'consteval', 'constinit', 'co_await', 'co_return', 'co_yield',
+  'requires', 'char8_t',
+];
+
 export enum CppOrder {
   ATOMIC = 0,
   FUNCTION_CALL = 2,
@@ -36,8 +57,13 @@ const LOGIC_OP: Record<string, { op: string; order: CppOrder }> = {
 };
 
 export class ArduinoCppGenerator extends Blockly.CodeGenerator {
+  // Widened from protected — handler modules under custom-blocks/ write
+  // setup_* / include_* / decl_* entries through this map (codegen.md §5).
+  public declare definitions_: { [key: string]: string };
+
   constructor() {
     super('ArduinoCpp');
+    this.addReservedWords(CPP_KEYWORDS.join(','));
 
     this.forBlock['controls_if'] = (block, generator): string => {
       let code = '';
@@ -145,11 +171,180 @@ export class ArduinoCppGenerator extends Blockly.CodeGenerator {
         .replace(/\t/g, '\\t');
       return [`"${escaped}"`, CppOrder.ATOMIC];
     };
+
+    // ---- Variables ----
+    // Default storage type is `int` (iteration-3 verification step 6). The
+    // declaration is contributed to definitions_ so finish() emits it at file
+    // scope, not inside loop().
+
+    this.forBlock['variables_get'] = (block, generator): [string, CppOrder] => {
+      const name = generator.getVariableName(block.getFieldValue('VAR'));
+      generator.definitions_[`decl_var_${name}`] = `int ${name} = 0;`;
+      return [name, CppOrder.ATOMIC];
+    };
+
+    this.forBlock['variables_set'] = (block, generator): string => {
+      const value = generator.valueToCode(block, 'VALUE', CppOrder.NONE) || '0';
+      const name = generator.getVariableName(block.getFieldValue('VAR'));
+      generator.definitions_[`decl_var_${name}`] = `int ${name} = 0;`;
+      return `${name} = ${value};\n`;
+    };
+
+    this.forBlock['math_change'] = (block, generator): string => {
+      const delta = generator.valueToCode(block, 'DELTA', CppOrder.ADDITIVE) || '0';
+      const name = generator.getVariableName(block.getFieldValue('VAR'));
+      generator.definitions_[`decl_var_${name}`] = `int ${name} = 0;`;
+      return `${name} += ${delta};\n`;
+    };
+
+    // ---- Functions (procedures) ----
+    // All params and return values default to `int` — keeps the toolbox usable
+    // without a type-inference pass. `void` is used for noreturn definitions.
+    // Function bodies are stashed under `func_<name>` so finish() places them
+    // at file scope, before setup()/loop().
+
+    const buildDefinition = (
+      block: Blockly.Block,
+      generator: ArduinoCppGenerator,
+      returnType: 'void' | 'int',
+    ): null => {
+      const name = generator.getProcedureName(block.getFieldValue('NAME'));
+      const argIds = block.getVars();
+      const args = argIds.map((id) => generator.getVariableName(id));
+      const paramList = args.map((a) => `int ${a}`).join(', ');
+      const body = generator.statementToCode(block, 'STACK') || '';
+      const returnValue =
+        returnType === 'int'
+          ? generator.valueToCode(block, 'RETURN', CppOrder.NONE) || '0'
+          : '';
+      const returnLine =
+        returnType === 'int' ? `${generator.INDENT}return ${returnValue};\n` : '';
+      generator.definitions_[`func_${name}`] =
+        `${returnType} ${name}(${paramList}) {\n${body}${returnLine}}\n`;
+      return null;
+    };
+
+    this.forBlock['procedures_defnoreturn'] = (block, generator): null =>
+      buildDefinition(block, generator as ArduinoCppGenerator, 'void');
+
+    this.forBlock['procedures_defreturn'] = (block, generator): null =>
+      buildDefinition(block, generator as ArduinoCppGenerator, 'int');
+
+    const buildCallArgs = (
+      block: Blockly.Block,
+      generator: ArduinoCppGenerator,
+    ): string => {
+      const argIds = block.getVars();
+      return argIds
+        .map((_id, i) => generator.valueToCode(block, `ARG${i}`, CppOrder.NONE) || '0')
+        .join(', ');
+    };
+
+    this.forBlock['procedures_callnoreturn'] = (block, generator): string => {
+      const gen = generator as ArduinoCppGenerator;
+      const name = gen.getProcedureName(block.getFieldValue('NAME'));
+      return `${name}(${buildCallArgs(block, gen)});\n`;
+    };
+
+    this.forBlock['procedures_callreturn'] = (
+      block,
+      generator,
+    ): [string, CppOrder] => {
+      const gen = generator as ArduinoCppGenerator;
+      const name = gen.getProcedureName(block.getFieldValue('NAME'));
+      return [`${name}(${buildCallArgs(block, gen)})`, CppOrder.FUNCTION_CALL];
+    };
+
+    this.forBlock['procedures_ifreturn'] = (block, generator): string => {
+      const cond = generator.valueToCode(block, 'CONDITION', CppOrder.NONE) || 'false';
+      const hasReturn = (block as Blockly.Block & { hasReturnValue_?: boolean })
+        .hasReturnValue_;
+      const value = hasReturn
+        ? generator.valueToCode(block, 'VALUE', CppOrder.NONE) || '0'
+        : '';
+      return `if (${cond}) {\n${generator.INDENT}return${value ? ` ${value}` : ''};\n}\n`;
+    };
+
+    registerCppBlocks(this);
   }
 
-  // Iteration 2 passthrough. Iteration 3 replaces this with setup()/loop()
-  // assembly + definitions_ categorization by key prefix.
-  override finish(code: string): string {
+  // Required because Blockly.CodeGenerator's base init() doesn't create
+  // nameDB_ or reset definitions_. Without this, definitions_ would leak
+  // entries from prior generations (e.g. setup_led_LED3 lingers after the
+  // block is deleted).
+  override init(workspace: Blockly.Workspace): void {
+    super.init(workspace);
+    this.definitions_ = Object.create(null);
+    if (!this.nameDB_) {
+      this.nameDB_ = new Blockly.Names(this.RESERVED_WORDS_);
+    } else {
+      this.nameDB_.reset();
+    }
+    this.nameDB_.setVariableMap(workspace.getVariableMap());
+    this.nameDB_.populateVariables(workspace);
+    this.nameDB_.populateProcedures(workspace);
+  }
+
+  // Walk to the next block in a statement chain. Blockly.CodeGenerator's base
+  // scrub_ is a no-op, so without this override only the first block in every
+  // chain (top-level stacks AND statement inputs like controls_if's DO branch)
+  // would be emitted. PythonGenerator ships its own scrub_; we need ours.
+  override scrub_(
+    block: Blockly.Block,
+    code: string,
+    thisOnly = false,
+  ): string {
+    const nextBlock = block.nextConnection?.targetBlock();
+    if (nextBlock && !thisOnly) {
+      return code + (this.blockToCode(nextBlock) as string);
+    }
     return code;
+  }
+
+  // Categorize definitions_ by key prefix and wrap in setup()/loop().
+  // Per codegen.md §5, this is the single source of truth — no parallel
+  // collection mechanism. Arduino.h is auto-included for .ino files, so
+  // iteration-3 blocks emit no include_* entries.
+  override finish(code: string): string {
+    const includes: string[] = [];
+    const decls: string[] = [];
+    const funcs: string[] = [];
+    const setupLines: string[] = [];
+
+    // Insertion order preserves the order in which handlers ran during
+    // workspaceToCode — keeps the generated file stable as the user edits.
+    for (const key of Object.keys(this.definitions_)) {
+      const value = this.definitions_[key];
+      if (key.startsWith('include_')) includes.push(value);
+      else if (key.startsWith('decl_')) decls.push(value);
+      else if (key.startsWith('func_')) funcs.push(value);
+      else if (key.startsWith('setup_')) setupLines.push(value);
+    }
+
+    const sections: string[] = [];
+    if (includes.length) sections.push(includes.join('\n'));
+    if (decls.length) sections.push(decls.join('\n'));
+    if (funcs.length) sections.push(funcs.join('\n'));
+
+    const setupBody = setupLines.length
+      ? this.prefixLines(setupLines.join('\n'), this.INDENT)
+      : '';
+    sections.push(
+      setupBody ? `void setup() {\n${setupBody}\n}` : 'void setup() {\n}',
+    );
+
+    const loopBody = code
+      ? this.prefixLines(code.replace(/\n+$/, ''), this.INDENT)
+      : '';
+    sections.push(
+      loopBody ? `void loop() {\n${loopBody}\n}` : 'void loop() {\n}',
+    );
+
+    // Reset state per Blockly's generator contract: subsequent
+    // workspaceToCode invocations must start from a clean slate.
+    this.definitions_ = Object.create(null);
+    this.nameDB_?.reset();
+
+    return sections.join('\n\n') + '\n';
   }
 }

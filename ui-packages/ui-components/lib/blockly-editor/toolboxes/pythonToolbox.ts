@@ -94,5 +94,14 @@ export const pythonToolbox = {
       colour: '290',
       custom: 'PROCEDURE',
     },
+    {
+      kind: 'category',
+      name: 'App Lab',
+      colour: '30',
+      contents: [
+        { kind: 'block', type: 'python_led' },
+        { kind: 'block', type: 'python_wait' },
+      ],
+    },
   ],
 };

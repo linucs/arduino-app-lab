@@ -40,5 +40,27 @@ export const cppToolbox = {
       colour: '160',
       contents: [{ kind: 'block', type: 'text' }],
     },
+    {
+      kind: 'category',
+      name: 'Variables',
+      colour: '330',
+      custom: 'VARIABLE',
+    },
+    {
+      kind: 'category',
+      name: 'Functions',
+      colour: '290',
+      custom: 'PROCEDURE',
+    },
+    {
+      kind: 'category',
+      name: 'App Lab',
+      colour: '30',
+      contents: [
+        { kind: 'block', type: 'cpp_led' },
+        { kind: 'block', type: 'cpp_wait' },
+        { kind: 'block', type: 'cpp_print' },
+      ],
+    },
   ],
 };

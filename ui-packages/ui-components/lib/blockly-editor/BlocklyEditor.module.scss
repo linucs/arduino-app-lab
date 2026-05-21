@@ -1,3 +1,5 @@
+@use "../../public/shared.module.scss";
+
 $app-lab-font-family: '"Open Sans", "Lucida Grande", lucida, verdana, sans-serif';
 $app-lab-letter-spacing: 0.01em;
 
@@ -46,6 +48,86 @@ $app-lab-letter-spacing: 0.01em;
   font-family: #{$app-lab-font-family} !important;
   letter-spacing: $app-lab-letter-spacing;
   font-size: 12px;
+}
+
+// Blockly contextual (right-click) menus: mirrored directly from App Lab's
+// file-tree context menu (see file-tree/file-tree.module.scss `.tree-row-
+// context-menu*` rules — same tokens, same dimensions, same per-item
+// rounding). Scoped under `.blocklyContextMenu` so field dropdowns — which
+// share `.blocklyMenuItem` / `.blocklyMenuItemHighlight` — stay on Blockly's
+// defaults. Item content is replaced with an icon+label DOM tree by
+// `contextMenuStyling.ts` (class hooks: `.appLabContextMenu*`).
+:global(.blocklyWidgetDiv .blocklyContextMenu) {
+  background: var(--component-bg-above, #374146) !important;
+  border: none !important;
+  border-radius: 8px !important;
+  min-width: 180px !important;
+  padding: 4px !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25) !important;
+}
+
+:global(.blocklyContextMenu .blocklyMenuItem) {
+  display: flex !important;
+  align-items: center !important;
+  color: var(--text-default, #fff) !important;
+  height: 28px !important;
+  min-width: 0 !important;
+  padding: 0 12px !important;
+  margin: 0 !important;
+  border-radius: 4px !important;
+  background-color: transparent !important;
+  font-size: 12px !important;
+  font-weight: 400 !important;
+  line-height: 20px !important;
+  cursor: pointer;
+  user-select: none;
+}
+
+// The wrapper span built by contextMenuStyling.ts is the single direct child
+// of `.blocklyMenuItem`, so `gap` on the menu item itself has no effect — we
+// need flex layout *inside* the wrapper for the icon-box and label to be
+// vertically centered as siblings and to apply the icon-to-label gap.
+:global(.appLabContextMenuItem) {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+}
+
+:global(.blocklyContextMenu .blocklyMenuItemHighlight) {
+  background-color: var(--component-bg-flexible, #aeb8b826) !important;
+}
+
+:global(.blocklyContextMenu .blocklyMenuItemDisabled) {
+  opacity: 0.5;
+}
+
+// Destructive override needs (0,3,0) to beat the .blocklyContextMenu
+// .blocklyMenuItem rule above (0,2,0).
+:global(.blocklyContextMenu .blocklyMenuItem .appLabContextMenuItemDestructive) {
+  color: var(--feedback-error-default, #ff8878);
+}
+
+// Icon glyphs render at ~12px to match App Lab's file-tree menu (which uses
+// 12x12 source SVGs at `width: 10`). Borrowed Blockly icons have mixed
+// intrinsic aspect ratios (e.g. bin 18x21, toggle 37x20), so we cap both axes
+// at 12px with `width/height: auto` to preserve each icon's shape inside the
+// 18px slot rather than stretching them to fill it.
+:global(.appLabContextMenuIcon) {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+
+  svg {
+    width: auto;
+    height: auto;
+    max-width: 12px;
+    max-height: 12px;
+    display: block;
+  }
 }
 
 .blockly-workspace {

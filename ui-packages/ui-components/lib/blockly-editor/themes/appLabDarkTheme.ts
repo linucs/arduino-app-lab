@@ -24,6 +24,6 @@ export const appLabDarkTheme = Blockly.Theme.defineTheme('appLabDark', {
   fontStyle: {
     family: '"Open Sans", "Lucida Grande", lucida, verdana, sans-serif',
     weight: '400',
-    size: 12,
+    size: 10,
   },
 });

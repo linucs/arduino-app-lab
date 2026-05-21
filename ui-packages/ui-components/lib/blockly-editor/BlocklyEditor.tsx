@@ -14,6 +14,7 @@ import {
   BlocklyLanguage,
   SIDECAR_FORMAT_VERSION,
 } from './blocklyEditor.type';
+import { installAppLabContextMenuStyling } from './contextMenuStyling';
 import { messages } from './messages';
 import { appLabDarkTheme } from './themes/appLabDarkTheme';
 
@@ -202,8 +203,14 @@ const BlocklyEditor: React.FC<BlocklyEditorProps> = (
       move: { scrollbars: true, drag: true, wheel: true },
       zoom: { controls: true, wheel: true, startScale: 1.0 },
       theme: appLabDarkTheme,
+      renderer: 'thrasos',
       grid: { spacing: 20, length: 1, colour: '#232B2E', snap: true },
     }) as Blockly.WorkspaceSvg;
+
+    // Re-skin Blockly's built-in context-menu items with App Lab icons + the
+    // destructive red on Delete actions. Idempotent — guarded by a module
+    // flag so additional mounts don't stack wrappers on top of each other.
+    installAppLabContextMenuStyling();
 
     workspaceRef.current = workspace;
     lastAppliedSidecarRef.current = undefined;
