@@ -11,6 +11,7 @@ import (
 	"app-lab-desktop/internal/appui"
 	"app-lab-desktop/internal/arduinoapps"
 	"app-lab-desktop/internal/auth"
+	"app-lab-desktop/internal/blocks"
 	"app-lab-desktop/internal/board"
 	"app-lab-desktop/internal/carrier"
 	"app-lab-desktop/internal/featureflags"
@@ -316,6 +317,11 @@ func (a *App) ImportAppFromPath(filePath string) (string, error) {
 	}
 
 	return arduinoapps.ImportAppFromPath(a.ctx(), orchestratorURL, filePath)
+}
+
+// Block catalog
+func (a *App) GetBlockCatalog() ([]blocks.CatalogEntry, error) {
+	return blocks.NewSource().LoadCatalog(a.ctx())
 }
 
 // Edge Impulse integration

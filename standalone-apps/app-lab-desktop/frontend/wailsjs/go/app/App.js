@@ -78,6 +78,10 @@ export function GetAvailableFreeSpace() {
   return window['go']['app']['App']['GetAvailableFreeSpace']();
 }
 
+export function GetBlockCatalog() {
+  return window['go']['app']['App']['GetBlockCatalog']();
+}
+
 export function GetBoardList() {
   return window['go']['app']['App']['GetBoardList']();
 }

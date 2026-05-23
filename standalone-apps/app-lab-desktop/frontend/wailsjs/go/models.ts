@@ -1,3 +1,188 @@
+export namespace blocks {
+	
+	export class BlockCodegen {
+	    imports?: string[];
+	    declarations?: string[];
+	    setup?: string[];
+	    helpers?: Record<string, string>;
+	    cleanup?: string[];
+	    body?: string[];
+	    precedence?: string;
+	    inputDefaults?: Record<string, any>;
+	
+	    static createFrom(source: any = {}) {
+	        return new BlockCodegen(source);
+	    }
+	
+	    constructor(source: any = {}) {
+	        if ('string' === typeof source) source = JSON.parse(source);
+	        this.imports = source["imports"];
+	        this.declarations = source["declarations"];
+	        this.setup = source["setup"];
+	        this.helpers = source["helpers"];
+	        this.cleanup = source["cleanup"];
+	        this.body = source["body"];
+	        this.precedence = source["precedence"];
+	        this.inputDefaults = source["inputDefaults"];
+	    }
+	}
+	export class BlockDefinition {
+	    blockly: Record<string, any>;
+	    codegen?: BlockCodegen;
+	    generator?: string;
+	    tags?: string[];
+	
+	    static createFrom(source: any = {}) {
+	        return new BlockDefinition(source);
+	    }
+	
+	    constructor(source: any = {}) {
+	        if ('string' === typeof source) source = JSON.parse(source);
+	        this.blockly = source["blockly"];
+	        this.codegen = this.convertValues(source["codegen"], BlockCodegen);
+	        this.generator = source["generator"];
+	        this.tags = source["tags"];
+	    }
+	
+		convertValues(a: any, classs: any, asMap: boolean = false): any {
+		    if (!a) {
+		        return a;
+		    }
+		    if (a.slice && a.map) {
+		        return (a as any[]).map(elem => this.convertValues(elem, classs));
+		    } else if ("object" === typeof a) {
+		        if (asMap) {
+		            for (const key of Object.keys(a)) {
+		                a[key] = new classs(a[key]);
+		            }
+		            return a;
+		        }
+		        return new classs(a);
+		    }
+		    return a;
+		}
+	}
+	export class CodegenSections {
+	    imports?: string[];
+	    declarations?: string[];
+	    setup?: string[];
+	    helpers?: Record<string, string>;
+	    cleanup?: string[];
+	
+	    static createFrom(source: any = {}) {
+	        return new CodegenSections(source);
+	    }
+	
+	    constructor(source: any = {}) {
+	        if ('string' === typeof source) source = JSON.parse(source);
+	        this.imports = source["imports"];
+	        this.declarations = source["declarations"];
+	        this.setup = source["setup"];
+	        this.helpers = source["helpers"];
+	        this.cleanup = source["cleanup"];
+	    }
+	}
+	export class Dependency {
+	    type: string;
+	    name: string;
+	    minVersion?: string;
+	    variables?: Record<string, string>;
+	
+	    static createFrom(source: any = {}) {
+	        return new Dependency(source);
+	    }
+	
+	    constructor(source: any = {}) {
+	        if ('string' === typeof source) source = JSON.parse(source);
+	        this.type = source["type"];
+	        this.name = source["name"];
+	        this.minVersion = source["minVersion"];
+	        this.variables = source["variables"];
+	    }
+	}
+	export class Implementation {
+	    runtime: string;
+	    dependencies?: Dependency[];
+	    codegen?: CodegenSections;
+	    apiReference?: string;
+	    repository?: string;
+	    blocks: BlockDefinition[];
+	
+	    static createFrom(source: any = {}) {
+	        return new Implementation(source);
+	    }
+	
+	    constructor(source: any = {}) {
+	        if ('string' === typeof source) source = JSON.parse(source);
+	        this.runtime = source["runtime"];
+	        this.dependencies = this.convertValues(source["dependencies"], Dependency);
+	        this.codegen = this.convertValues(source["codegen"], CodegenSections);
+	        this.apiReference = source["apiReference"];
+	        this.repository = source["repository"];
+	        this.blocks = this.convertValues(source["blocks"], BlockDefinition);
+	    }
+	
+		convertValues(a: any, classs: any, asMap: boolean = false): any {
+		    if (!a) {
+		        return a;
+		    }
+		    if (a.slice && a.map) {
+		        return (a as any[]).map(elem => this.convertValues(elem, classs));
+		    } else if ("object" === typeof a) {
+		        if (asMap) {
+		            for (const key of Object.keys(a)) {
+		                a[key] = new classs(a[key]);
+		            }
+		            return a;
+		        }
+		        return new classs(a);
+		    }
+		    return a;
+		}
+	}
+	export class CatalogEntry {
+	    id: string;
+	    displayName: any;
+	    category: string;
+	    docs?: Record<string, string>;
+	    implementations: Implementation[];
+	
+	    static createFrom(source: any = {}) {
+	        return new CatalogEntry(source);
+	    }
+	
+	    constructor(source: any = {}) {
+	        if ('string' === typeof source) source = JSON.parse(source);
+	        this.id = source["id"];
+	        this.displayName = source["displayName"];
+	        this.category = source["category"];
+	        this.docs = source["docs"];
+	        this.implementations = this.convertValues(source["implementations"], Implementation);
+	    }
+	
+		convertValues(a: any, classs: any, asMap: boolean = false): any {
+		    if (!a) {
+		        return a;
+		    }
+		    if (a.slice && a.map) {
+		        return (a as any[]).map(elem => this.convertValues(elem, classs));
+		    } else if ("object" === typeof a) {
+		        if (asMap) {
+		            for (const key of Object.keys(a)) {
+		                a[key] = new classs(a[key]);
+		            }
+		            return a;
+		        }
+		        return new classs(a);
+		    }
+		    return a;
+		}
+	}
+	
+	
+
+}
+
 export namespace board {
 	
 	export class BoardInfo {

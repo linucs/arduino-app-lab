@@ -3,6 +3,7 @@
 import {carrier} from '../models';
 import {flasher} from '../models';
 import {assetserver} from '../models';
+import {blocks} from '../models';
 import {board} from '../models';
 import {options} from '../models';
 import {ethernet} from '../models';
@@ -47,6 +48,8 @@ export function GetAboutMessage():Promise<string>;
 export function GetAssetMiddleware():Promise<assetserver.Middleware>;
 
 export function GetAvailableFreeSpace():Promise<number>;
+
+export function GetBlockCatalog():Promise<Array<blocks.CatalogEntry>>;
 
 export function GetBoardList():Promise<Array<board.Board>>;
 

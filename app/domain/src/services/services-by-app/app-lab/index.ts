@@ -1,4 +1,5 @@
 export * from '../../app-ui-service';
+export * from '../../block-catalog-service';
 export * from '../../arduino-app-files-service';
 export * from '../../arduino-auth';
 export * from '../../board-service';

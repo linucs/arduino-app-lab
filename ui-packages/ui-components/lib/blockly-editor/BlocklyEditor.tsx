@@ -5,9 +5,12 @@ import clsx from 'clsx';
 import { useEffect, useRef } from 'react';
 import { useDebouncedCallback } from 'use-debounce';
 
+import { getBlockCatalog } from '@cloud-editor-mono/domain/src/services/services-by-app/app-lab';
+
 import { useI18n } from '../i18n/useI18n';
 import { snackbar } from '../snackbar';
 import { adapterFor, languageToRuntime } from './adapters';
+import { CodeFactory } from './code-factory';
 import styles from './BlocklyEditor.module.scss';
 import {
   BlocklyEditorLogic,
@@ -106,6 +109,7 @@ const BlocklyEditor: React.FC<BlocklyEditorProps> = (
   // suppressing the second toast.
   const lastFileIdRef = useRef<string | undefined>(undefined);
   const toastedErrorSignatureRef = useRef<string | undefined>(undefined);
+  const factoryRef = useRef<CodeFactory | null>(null);
   if (lastFileIdRef.current !== fileId) {
     lastFileIdRef.current = fileId;
     toastedErrorSignatureRef.current = undefined;
@@ -123,10 +127,10 @@ const BlocklyEditor: React.FC<BlocklyEditorProps> = (
       workspace: state,
     };
     const blocksJson = JSON.stringify(envelope, null, 2);
-    // Per §1 + §9: the generator's own workspaceToCode runs the full pipeline
-    // (handler dispatch → definitions_ collection → finish() assembly). No
-    // second layer of assembly lives in the editor or a factory.
-    const generatedCode = adapter.generator.workspaceToCode(workspace);
+    const factory = factoryRef.current;
+    const generatedCode = factory
+      ? factory.generateCode(workspace)
+      : adapter.generator.workspaceToCode(workspace);
     // Pre-register this payload as the last-applied state so the round-trip
     // (parent saves → updates `initialBlocks` prop → effect compares) skips
     // reloading the workspace, avoiding scroll/selection resets.
@@ -213,6 +217,28 @@ const BlocklyEditor: React.FC<BlocklyEditorProps> = (
     installAppLabContextMenuStyling();
 
     workspaceRef.current = workspace;
+
+    const factory = new CodeFactory(adapter);
+    factoryRef.current = factory;
+    getBlockCatalog()
+      .then((entries) => {
+        factory.loadCatalogEntries(entries);
+        const catalogCategories = factory.getCatalogToolboxCategories();
+        if (catalogCategories.length > 0 && !isReadOnly) {
+          const merged: Blockly.utils.toolbox.ToolboxInfo = {
+            kind: 'categoryToolbox',
+            contents: [
+              ...(adapter.toolbox as Blockly.utils.toolbox.ToolboxInfo).contents,
+              ...catalogCategories,
+            ],
+          };
+          workspace.updateToolbox(merged);
+        }
+      })
+      .catch((err) => {
+        console.warn('[BlocklyEditor] failed to load block catalog:', err);
+      });
+
     lastAppliedSidecarRef.current = undefined;
     applySidecar(initialBlocks);
 

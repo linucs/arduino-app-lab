@@ -748,6 +748,8 @@ export const useAppDetailLogic: AppLabAppDetailLogic = function (
         try {
           closeFile(path);
           await deleteAppFile(path);
+          // Best-effort cleanup of the `.blocks` sidecar (if any).
+          if (!isDir) deleteAppFile(`${path}.blocks`).catch(() => {});
           const messages = DELETE_MESSAGES[nodeType || 'file'];
           sendAppLabNotification({
             message: formatMessage(messages.success),

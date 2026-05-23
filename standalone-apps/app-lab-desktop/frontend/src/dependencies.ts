@@ -2,6 +2,7 @@ import {
   setAppUIService,
   setArduinoAppFilesService,
   setArduinoAuthService,
+  setBlockCatalogService,
   setBoardService,
   setBrowserService,
   setClipboardService,
@@ -17,6 +18,7 @@ import {
 } from '@cloud-editor-mono/domain/src/services/services-by-app/app-lab';
 
 import * as StandaloneAppUIService from './services/appUIService.impl.standalone';
+import * as StandaloneBlockCatalogService from './services/blockCatalogService.impl.standalone';
 import * as StandaloneArduinoAppFilesService from './services/arduinoAppFilesService.impl.standalone';
 import * as StandaloneAuthService from './services/authService.impl.standalone';
 import * as StandaloneBoardService from './services/boardService.impl.standalone';
@@ -34,6 +36,7 @@ import * as StandaloneWailsService from './services/wailsService.impl.standalone
 
 export const injectDependencies = (): void => {
   setAppUIService(StandaloneAppUIService);
+  setBlockCatalogService(StandaloneBlockCatalogService);
   setArduinoAppFilesService(StandaloneArduinoAppFilesService);
   setLearnService(StandaloneLearnService);
   setBoardService(StandaloneBoardService);
