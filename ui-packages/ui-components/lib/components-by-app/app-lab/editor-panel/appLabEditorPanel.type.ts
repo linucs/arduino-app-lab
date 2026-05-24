@@ -1,4 +1,5 @@
 import { EditorPanelLogic } from '../../../editor-panel';
+import { TypedVariableDialogLogic } from '../../../dialogs/app-lab/typed-variable-dialog/typedVariableDialog.type';
 import { KeywordMap, SelectableFileData } from '../../shared';
 import { BlocksOverwriteDialogLogic } from '../blocks-overwrite-dialog';
 import { BlocklyPromptDialogLogic } from '../blockly-prompt-dialog';
@@ -19,4 +20,5 @@ export type AppLabEditorPanelLogic = () => {
   blocklyPromptDialogLogic?: BlocklyPromptDialogLogic;
   selectedFileFullName?: string;
   hasSidecar?: boolean;
+  typedVariableDialogLogic?: TypedVariableDialogLogic;
 };

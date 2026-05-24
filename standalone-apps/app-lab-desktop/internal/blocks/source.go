@@ -3,32 +3,50 @@ package blocks
 import (
 	"context"
 	"os"
+
+	"github.com/wailsapp/wails/v2/pkg/runtime"
 )
 
 // Source is the single interface the Go backend uses to obtain catalog entries.
-// Two implementations exist across iterations:
-//   - FilesystemSource (this iteration): reads $BLOCK_CATALOG_PATH on disk.
+// Three implementations exist across iterations:
+//   - BundledSource (this iteration): reads //go:embed YAML from the binary.
+//   - FilesystemSource (dev override): reads $BLOCK_CATALOG_PATH on disk.
 //   - RemoteSource (iteration 5): fetches a tagged release tarball from the
 //     arduino-app-blocks repo and caches it under {UserCacheDir}/arduino-app-lab/blocks/.
 type Source interface {
 	LoadCatalog(ctx context.Context) ([]CatalogEntry, error)
 }
 
-// NewSource returns the appropriate Source based on the environment. When
-// BLOCK_CATALOG_PATH is set (dev override), a FilesystemSource pointing at
-// that path is returned. Otherwise a noopSource is returned — RemoteSource
-// is not yet implemented (iteration 5).
-func NewSource() Source {
-	if path := os.Getenv("BLOCK_CATALOG_PATH"); path != "" {
-		return &FilesystemSource{path: path}
-	}
-	return &noopSource{}
+// compositeSource merges entries from multiple sources. Bundled entries
+// (built-in blocks embedded in the binary) are always loaded first;
+// external entries (FilesystemSource or RemoteSource) are appended.
+type compositeSource struct {
+	sources []Source
 }
 
-// noopSource returns an empty catalog. Used in production builds until
-// RemoteSource is implemented in iteration 5.
-type noopSource struct{}
+func (c *compositeSource) LoadCatalog(ctx context.Context) ([]CatalogEntry, error) {
+	var all []CatalogEntry
+	for _, src := range c.sources {
+		entries, err := src.LoadCatalog(ctx)
+		if err != nil {
+			runtime.LogWarningf(ctx, "blocks: source failed: %v", err)
+			continue
+		}
+		all = append(all, entries...)
+	}
+	return all, nil
+}
 
-func (n *noopSource) LoadCatalog(_ context.Context) ([]CatalogEntry, error) {
-	return nil, nil
+// NewSource returns a composite Source that always includes bundled entries
+// (//go:embed built-in blocks). When BLOCK_CATALOG_PATH is set (dev override),
+// a FilesystemSource is added for external catalog entries. In production,
+// RemoteSource (iteration 5) will replace the noop external slot.
+func NewSource() Source {
+	sources := []Source{&BundledSource{}}
+
+	if path := os.Getenv("BLOCK_CATALOG_PATH"); path != "" {
+		sources = append(sources, &FilesystemSource{path: path})
+	}
+
+	return &compositeSource{sources: sources}
 }

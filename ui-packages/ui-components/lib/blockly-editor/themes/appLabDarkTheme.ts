@@ -1,8 +1,20 @@
 import * as Blockly from 'blockly';
 
+import { PALETTE } from '../palette';
+
 export const appLabDarkTheme = Blockly.Theme.defineTheme('appLabDark', {
   name: 'appLabDark',
   base: Blockly.Themes.Classic,
+  blockStyles: {
+    logic_blocks:            { colourPrimary: PALETTE.Logic },
+    loop_blocks:             { colourPrimary: PALETTE.Loops },
+    math_blocks:             { colourPrimary: PALETTE.Mathematics },
+    text_blocks:             { colourPrimary: PALETTE.Text },
+    list_blocks:             { colourPrimary: PALETTE.Lists },
+    variable_blocks:         { colourPrimary: PALETTE.Variables },
+    variable_dynamic_blocks: { colourPrimary: PALETTE.Variables },
+    procedure_blocks:        { colourPrimary: PALETTE.Functions },
+  },
   componentStyles: {
     workspaceBackgroundColour: '#171E21',
     toolboxBackgroundColour: '#090F11',

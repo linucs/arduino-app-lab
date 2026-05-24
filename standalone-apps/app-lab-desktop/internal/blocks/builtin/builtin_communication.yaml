@@ -1,0 +1,225 @@
+id: builtin_communication
+displayName: Messaging
+category: "Messaging"
+implementations:
+  - runtime: "arduino:cpp"
+    codegen:
+      imports:
+        - "#include <Arduino_RouterBridge.h>"
+    blocks:
+      # --- Monitor.println (cpp_print — iteration 3 name preserved) ---
+      - blockly:
+          type: cpp_print
+          message0: "Monitor.println %1"
+          args0:
+            - type: input_value
+              name: VALUE
+          previousStatement: null
+          nextStatement: null
+          tooltip: "Print a value to the serial monitor via the Arduino Router Bridge."
+          inputsInline: true
+        codegen:
+          setup:
+            - "Monitor.begin();"
+          body:
+            - "Monitor.println({{VALUE}});"
+          inputDefaults:
+            VALUE: '""'
+
+      # --- Bridge.notify (declarative) ---
+      - blockly:
+          type: cpp_bridge_notify
+          message0: "Bridge.notify %1 data %2"
+          args0:
+            - type: field_input
+              name: NAME
+              text: "eventName"
+            - type: input_value
+              name: ARGS
+          previousStatement: null
+          nextStatement: null
+          tooltip: "Send a notification event to the SBC side via the Bridge."
+          inputsInline: true
+        codegen:
+          body:
+            - "Bridge.notify(\"{{NAME}}\", {{ARGS}});"
+          inputDefaults:
+            ARGS: "nullptr"
+
+      # --- Bridge.provide (declarative — callback function via declarations) ---
+      # declarations are content-hashed: two provide blocks with different
+      # NAME values produce separate handler functions.
+      - blockly:
+          type: cpp_bridge_provide
+          message0: "Bridge.provide %1"
+          args0:
+            - type: field_input
+              name: NAME
+              text: "serviceName"
+          message1: "do %1"
+          args1:
+            - type: input_statement
+              name: BODY
+          nextStatement: null
+          tooltip: "Register a handler for a Bridge service call from the SBC side."
+        codegen:
+          declarations:
+            - "String _bridgeHandler_{{NAME}}(String args) {\n  {{BODY}}\n  return \"\";\n}"
+          setup:
+            - "Bridge.begin();"
+            - "Bridge.provide(\"{{NAME}}\", _bridgeHandler_{{NAME}});"
+
+      # --- Bridge.call (declarative) ---
+      - blockly:
+          type: cpp_bridge_call
+          message0: "Bridge.call %1 args %2 into %3"
+          args0:
+            - type: field_input
+              name: NAME
+              text: "serviceName"
+            - type: input_value
+              name: ARGS
+            - type: field_input
+              name: OUT_VAR
+              text: "result"
+          previousStatement: null
+          nextStatement: null
+          tooltip: "Call a Bridge service on the SBC and capture the result."
+          inputsInline: true
+        codegen:
+          setup:
+            - "Bridge.begin();"
+          body:
+            - "Bridge.call(\"{{NAME}}\", {{ARGS}}).result({{OUT_VAR}});"
+          inputDefaults:
+            ARGS: "nullptr"
+
+  - runtime: "arduino:python"
+    codegen:
+      imports:
+        - "from arduino.app_utils import Bridge"
+    blocks:
+      # --- Python print ---
+      - blockly:
+          type: python_print
+          message0: "print %1"
+          args0:
+            - type: input_value
+              name: VALUE
+          previousStatement: null
+          nextStatement: null
+          tooltip: "Print a value to the console."
+          inputsInline: true
+        codegen:
+          body:
+            - "print({{VALUE}})"
+          inputDefaults:
+            VALUE: '""'
+
+      # --- Bridge.notify (Python, declarative) ---
+      - blockly:
+          type: python_bridge_notify
+          message0: "Bridge.notify %1 data %2"
+          args0:
+            - type: field_input
+              name: NAME
+              text: "eventName"
+            - type: input_value
+              name: ARGS
+          previousStatement: null
+          nextStatement: null
+          tooltip: "Send a notification event to the MCU side via the Bridge."
+          inputsInline: true
+        codegen:
+          body:
+            - "Bridge.notify(\"{{NAME}}\", {{ARGS}})"
+          inputDefaults:
+            ARGS: "None"
+
+      # --- Bridge.provide (Python, declarative — callback via declarations) ---
+      # declarations are content-hashed: two provide blocks with different
+      # NAME values produce separate handler functions.
+      - blockly:
+          type: python_bridge_provide
+          message0: "Bridge.provide %1"
+          args0:
+            - type: field_input
+              name: NAME
+              text: "serviceName"
+          message1: "do %1"
+          args1:
+            - type: input_statement
+              name: BODY
+          nextStatement: null
+          tooltip: "Register a handler for a Bridge service call from the MCU side."
+        codegen:
+          declarations:
+            - "def _bridge_handler_{{NAME}}(args):\n  {{BODY}}"
+          setup:
+            - "Bridge.provide(\"{{NAME}}\", _bridge_handler_{{NAME}})"
+
+      # --- Bridge.call (Python, declarative — value block) ---
+      - blockly:
+          type: python_bridge_call
+          message0: "Bridge.call %1 args %2"
+          args0:
+            - type: field_input
+              name: NAME
+              text: "serviceName"
+            - type: input_value
+              name: ARGS
+          output: null
+          tooltip: "Call a Bridge service on the MCU and return the result."
+          inputsInline: true
+        codegen:
+          body:
+            - "Bridge.call(\"{{NAME}}\", {{ARGS}})"
+          precedence: ATOMIC
+          inputDefaults:
+            ARGS: "None"
+
+      # --- Logger create (setup: creates a named Logger instance) ---
+      - blockly:
+          type: python_logger_create
+          message0: "Logger %1 named %2"
+          args0:
+            - type: field_input
+              name: VAR_NAME
+              text: "logger"
+            - type: field_input
+              name: LABEL
+              text: "app"
+          previousStatement: null
+          nextStatement: null
+          tooltip: "Create a Logger instance. Place near the top of the workspace."
+        codegen:
+          imports:
+            - "from arduino.app_utils import Logger"
+          declarations:
+            - "{{VAR_NAME}} = Logger('{{LABEL}}')"
+
+      # --- Logger log ---
+      - blockly:
+          type: python_logger_log
+          message0: "%1 . %2 %3"
+          args0:
+            - type: input_value
+              name: LOGGER
+            - type: field_dropdown
+              name: LEVEL
+              options:
+                - ["info", "info"]
+                - ["debug", "debug"]
+                - ["warning", "warning"]
+            - type: input_value
+              name: MESSAGE
+          previousStatement: null
+          nextStatement: null
+          tooltip: "Log a message at the given level."
+          inputsInline: true
+        codegen:
+          body:
+            - "{{LOGGER}}.{{LEVEL}}({{MESSAGE}})"
+          inputDefaults:
+            LOGGER: "logger"
+            MESSAGE: '""'

@@ -1,0 +1,196 @@
+id: builtin_serial
+displayName: Serial
+category: "Messaging::Serial"
+implementations:
+  - runtime: "arduino:cpp"
+    blocks:
+      # --- Serial.begin (setup-only) ---
+      - blockly:
+          type: cpp_serial_begin
+          message0: "Serial.begin %1 baud"
+          args0:
+            - type: field_dropdown
+              name: BAUD
+              options:
+                - ["9600", "9600"]
+                - ["19200", "19200"]
+                - ["57600", "57600"]
+                - ["115200", "115200"]
+                - ["230400", "230400"]
+          previousStatement: null
+          nextStatement: null
+          tooltip: "Initialize Serial communication at the given baud rate. Place in setup."
+        codegen:
+          setup:
+            - "Serial.begin({{BAUD}});"
+
+      # --- Serial.println ---
+      - blockly:
+          type: cpp_serial_println
+          message0: "Serial.println %1"
+          args0:
+            - type: input_value
+              name: VALUE
+          previousStatement: null
+          nextStatement: null
+          tooltip: "Print a value followed by a newline to the Serial port."
+          inputsInline: true
+        codegen:
+          body:
+            - "Serial.println({{VALUE}});"
+          inputDefaults:
+            VALUE: '""'
+
+      # --- Serial.print (no newline) ---
+      - blockly:
+          type: cpp_serial_print
+          message0: "Serial.print %1"
+          args0:
+            - type: input_value
+              name: VALUE
+          previousStatement: null
+          nextStatement: null
+          tooltip: "Print a value without a trailing newline to the Serial port."
+          inputsInline: true
+        codegen:
+          body:
+            - "Serial.print({{VALUE}});"
+          inputDefaults:
+            VALUE: '""'
+
+      # --- Serial.write ---
+      - blockly:
+          type: cpp_serial_write
+          message0: "Serial.write %1"
+          args0:
+            - type: input_value
+              name: VALUE
+              check: ["Number", "int", "unsigned int", "long", "unsigned long", "byte", "word", "uint8_t", "uint16_t", "uint32_t", "int8_t", "int16_t", "int32_t", "String"]
+          previousStatement: null
+          nextStatement: null
+          tooltip: "Write raw binary data to the Serial port."
+          inputsInline: true
+        codegen:
+          body:
+            - "Serial.write({{VALUE}});"
+          inputDefaults:
+            VALUE: "0"
+
+      # --- Serial.available ---
+      - blockly:
+          type: cpp_serial_available
+          message0: "Serial.available"
+          args0: []
+          output: Number
+          tooltip: "Return the number of bytes available to read from the Serial port."
+        codegen:
+          body:
+            - "Serial.available()"
+          precedence: ATOMIC
+
+      # --- Serial.read ---
+      - blockly:
+          type: cpp_serial_read
+          message0: "Serial.read"
+          args0: []
+          output: Number
+          tooltip: "Read the first byte from the Serial input buffer."
+        codegen:
+          body:
+            - "Serial.read()"
+          precedence: ATOMIC
+
+      # --- Serial.readString ---
+      - blockly:
+          type: cpp_serial_read_string
+          message0: "Serial.readString"
+          args0: []
+          output: null
+          tooltip: "Read characters from the Serial buffer into a String until timeout."
+        codegen:
+          body:
+            - "Serial.readString()"
+          precedence: ATOMIC
+
+      # --- Serial.parseInt ---
+      - blockly:
+          type: cpp_serial_parse_int
+          message0: "Serial.parseInt"
+          args0: []
+          output: Number
+          tooltip: "Read the next integer from the Serial input buffer."
+        codegen:
+          body:
+            - "Serial.parseInt()"
+          precedence: ATOMIC
+
+      # --- Serial.parseFloat ---
+      - blockly:
+          type: cpp_serial_parse_float
+          message0: "Serial.parseFloat"
+          args0: []
+          output: Number
+          tooltip: "Read the next floating-point number from the Serial input buffer."
+        codegen:
+          body:
+            - "Serial.parseFloat()"
+          precedence: ATOMIC
+
+      # --- Serial.find ---
+      - blockly:
+          type: cpp_serial_find
+          message0: "Serial.find %1"
+          args0:
+            - type: input_value
+              name: TARGET
+          output: null
+          tooltip: "Search Serial buffer for a target string. Returns true if found."
+          inputsInline: true
+        codegen:
+          body:
+            - "Serial.find({{TARGET}})"
+          precedence: ATOMIC
+          inputDefaults:
+            TARGET: '""'
+
+      # --- Serial.setTimeout (setup-recommended) ---
+      - blockly:
+          type: cpp_serial_set_timeout
+          message0: "Serial.setTimeout %1 ms"
+          args0:
+            - type: input_value
+              name: MS
+              check: ["Number", "int", "unsigned int", "long", "unsigned long", "byte", "word", "uint8_t", "uint16_t", "uint32_t", "int8_t", "int16_t", "int32_t"]
+          previousStatement: null
+          nextStatement: null
+          tooltip: "Set the timeout for Serial read operations in milliseconds."
+          inputsInline: true
+        codegen:
+          setup:
+            - "Serial.setTimeout({{MS}});"
+          inputDefaults:
+            MS: "1000"
+
+      # --- Serial.flush ---
+      - blockly:
+          type: cpp_serial_flush
+          message0: "Serial.flush"
+          args0: []
+          previousStatement: null
+          nextStatement: null
+          tooltip: "Wait for outgoing Serial data to finish sending."
+        codegen:
+          body:
+            - "Serial.flush();"
+
+      # --- Serial.end ---
+      - blockly:
+          type: cpp_serial_end
+          message0: "Serial.end"
+          args0: []
+          previousStatement: null
+          nextStatement: null
+          tooltip: "Disable the Serial port."
+        codegen:
+          body:
+            - "Serial.end();"

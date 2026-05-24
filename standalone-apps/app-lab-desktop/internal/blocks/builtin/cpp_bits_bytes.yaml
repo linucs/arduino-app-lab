@@ -1,0 +1,151 @@
+id: builtin_bits_bytes
+displayName: Bits and Bytes
+category: "Input / Output::Advanced"
+implementations:
+  - runtime: "arduino:cpp"
+    blocks:
+      # --- bitRead ---
+      - blockly:
+          type: cpp_bit_read
+          message0: "bitRead %1 bit %2"
+          args0:
+            - type: input_value
+              name: VALUE
+              check: ["Number", "int", "unsigned int", "long", "unsigned long", "byte", "word", "uint8_t", "uint16_t", "uint32_t", "int8_t", "int16_t", "int32_t"]
+            - type: input_value
+              name: BIT
+              check: ["Number", "int", "unsigned int", "long", "unsigned long", "byte", "word", "uint8_t", "uint16_t", "uint32_t", "int8_t", "int16_t", "int32_t"]
+          output: Number
+          tooltip: "Read a specific bit of a number. Returns 0 or 1."
+          inputsInline: true
+        codegen:
+          body:
+            - "bitRead({{VALUE}}, {{BIT}})"
+          precedence: ATOMIC
+          inputDefaults:
+            VALUE: "0"
+            BIT: "0"
+
+      # --- bitWrite ---
+      - blockly:
+          type: cpp_bit_write
+          message0: "bitWrite %1 bit %2 = %3"
+          args0:
+            - type: input_value
+              name: VALUE
+              check: ["Number", "int", "unsigned int", "long", "unsigned long", "byte", "word", "uint8_t", "uint16_t", "uint32_t", "int8_t", "int16_t", "int32_t"]
+            - type: input_value
+              name: BIT
+              check: ["Number", "int", "unsigned int", "long", "unsigned long", "byte", "word", "uint8_t", "uint16_t", "uint32_t", "int8_t", "int16_t", "int32_t"]
+            - type: input_value
+              name: BIT_VALUE
+              check: ["Number", "int", "unsigned int", "long", "unsigned long", "byte", "word", "uint8_t", "uint16_t", "uint32_t", "int8_t", "int16_t", "int32_t"]
+          previousStatement: null
+          nextStatement: null
+          tooltip: "Write a 0 or 1 to a specific bit of a variable."
+          inputsInline: true
+        codegen:
+          body:
+            - "bitWrite({{VALUE}}, {{BIT}}, {{BIT_VALUE}});"
+          inputDefaults:
+            VALUE: "0"
+            BIT: "0"
+            BIT_VALUE: "1"
+
+      # --- bitSet ---
+      - blockly:
+          type: cpp_bit_set
+          message0: "bitSet %1 bit %2"
+          args0:
+            - type: input_value
+              name: VALUE
+              check: ["Number", "int", "unsigned int", "long", "unsigned long", "byte", "word", "uint8_t", "uint16_t", "uint32_t", "int8_t", "int16_t", "int32_t"]
+            - type: input_value
+              name: BIT
+              check: ["Number", "int", "unsigned int", "long", "unsigned long", "byte", "word", "uint8_t", "uint16_t", "uint32_t", "int8_t", "int16_t", "int32_t"]
+          previousStatement: null
+          nextStatement: null
+          tooltip: "Set a specific bit of a variable to 1."
+          inputsInline: true
+        codegen:
+          body:
+            - "bitSet({{VALUE}}, {{BIT}});"
+          inputDefaults:
+            VALUE: "0"
+            BIT: "0"
+
+      # --- bitClear ---
+      - blockly:
+          type: cpp_bit_clear
+          message0: "bitClear %1 bit %2"
+          args0:
+            - type: input_value
+              name: VALUE
+              check: ["Number", "int", "unsigned int", "long", "unsigned long", "byte", "word", "uint8_t", "uint16_t", "uint32_t", "int8_t", "int16_t", "int32_t"]
+            - type: input_value
+              name: BIT
+              check: ["Number", "int", "unsigned int", "long", "unsigned long", "byte", "word", "uint8_t", "uint16_t", "uint32_t", "int8_t", "int16_t", "int32_t"]
+          previousStatement: null
+          nextStatement: null
+          tooltip: "Clear a specific bit of a variable to 0."
+          inputsInline: true
+        codegen:
+          body:
+            - "bitClear({{VALUE}}, {{BIT}});"
+          inputDefaults:
+            VALUE: "0"
+            BIT: "0"
+
+      # --- bit ---
+      - blockly:
+          type: cpp_bit
+          message0: "bit %1"
+          args0:
+            - type: input_value
+              name: N
+              check: ["Number", "int", "unsigned int", "long", "unsigned long", "byte", "word", "uint8_t", "uint16_t", "uint32_t", "int8_t", "int16_t", "int32_t"]
+          output: Number
+          tooltip: "Compute the value of 2^n (a bitmask with bit n set)."
+          inputsInline: true
+        codegen:
+          body:
+            - "bit({{N}})"
+          precedence: ATOMIC
+          inputDefaults:
+            N: "0"
+
+      # --- highByte ---
+      - blockly:
+          type: cpp_high_byte
+          message0: "highByte %1"
+          args0:
+            - type: input_value
+              name: VALUE
+              check: ["Number", "int", "unsigned int", "long", "unsigned long", "byte", "word", "uint8_t", "uint16_t", "uint32_t", "int8_t", "int16_t", "int32_t"]
+          output: Number
+          tooltip: "Extract the high byte (bits 8–15) of a 16-bit value."
+          inputsInline: true
+        codegen:
+          body:
+            - "highByte({{VALUE}})"
+          precedence: ATOMIC
+          inputDefaults:
+            VALUE: "0"
+
+      # --- lowByte ---
+      - blockly:
+          type: cpp_low_byte
+          message0: "lowByte %1"
+          args0:
+            - type: input_value
+              name: VALUE
+              check: ["Number", "int", "unsigned int", "long", "unsigned long", "byte", "word", "uint8_t", "uint16_t", "uint32_t", "int8_t", "int16_t", "int32_t"]
+          output: Number
+          tooltip: "Extract the low byte (bits 0–7) of a value."
+          inputsInline: true
+        codegen:
+          body:
+            - "lowByte({{VALUE}})"
+          precedence: ATOMIC
+          inputDefaults:
+            VALUE: "0"

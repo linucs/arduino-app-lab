@@ -1,0 +1,545 @@
+id: builtin_string
+displayName: String
+category: "Text"
+implementations:
+  - runtime: "arduino:cpp"
+    blocks:
+
+      # =========================================================
+      # VALUE BLOCKS — query methods (return a value)
+      # =========================================================
+
+      # --- length ---
+      - blockly:
+          type: cpp_string_length
+          message0: "%1 .length()"
+          args0:
+            - type: input_value
+              name: OBJECT
+              check: String
+          output: Number
+          tooltip: "Return the number of characters in the String."
+          inputsInline: true
+        codegen:
+          body:
+            - "{{OBJECT}}.length()"
+          precedence: ATOMIC
+          inputDefaults:
+            OBJECT: '""'
+
+      # --- charAt ---
+      - blockly:
+          type: cpp_string_char_at
+          message0: "%1 .charAt( %2 )"
+          args0:
+            - type: input_value
+              name: OBJECT
+              check: String
+            - type: input_value
+              name: INDEX
+              check: ["Number", "int", "unsigned int", "long", "byte", "word", "uint8_t", "uint16_t", "uint32_t"]
+          output: Number
+          tooltip: "Return the character at the given index as an integer (char)."
+          inputsInline: true
+        codegen:
+          body:
+            - "{{OBJECT}}.charAt({{INDEX}})"
+          precedence: ATOMIC
+          inputDefaults:
+            OBJECT: '""'
+            INDEX: "0"
+
+      # --- indexOf (char) ---
+      - blockly:
+          type: cpp_string_index_of_char
+          message0: "%1 .indexOf( char %2 )"
+          args0:
+            - type: input_value
+              name: OBJECT
+              check: String
+            - type: input_value
+              name: VAL
+              check: ["Number", "int", "char", "byte"]
+          output: Number
+          tooltip: "Return the index of the first occurrence of a character (-1 if not found)."
+          inputsInline: true
+        codegen:
+          body:
+            - "{{OBJECT}}.indexOf({{VAL}})"
+          precedence: ATOMIC
+          inputDefaults:
+            OBJECT: '""'
+            VAL: "'a'"
+
+      # --- indexOf (String) ---
+      - blockly:
+          type: cpp_string_index_of_str
+          message0: "%1 .indexOf( %2 )"
+          args0:
+            - type: input_value
+              name: OBJECT
+              check: String
+            - type: input_value
+              name: VAL
+              check: String
+          output: Number
+          tooltip: "Return the index of the first occurrence of a substring (-1 if not found)."
+          inputsInline: true
+        codegen:
+          body:
+            - "{{OBJECT}}.indexOf({{VAL}})"
+          precedence: ATOMIC
+          inputDefaults:
+            OBJECT: '""'
+            VAL: '""'
+
+      # --- lastIndexOf (char) ---
+      - blockly:
+          type: cpp_string_last_index_of_char
+          message0: "%1 .lastIndexOf( char %2 )"
+          args0:
+            - type: input_value
+              name: OBJECT
+              check: String
+            - type: input_value
+              name: VAL
+              check: ["Number", "int", "char", "byte"]
+          output: Number
+          tooltip: "Return the index of the last occurrence of a character (-1 if not found)."
+          inputsInline: true
+        codegen:
+          body:
+            - "{{OBJECT}}.lastIndexOf({{VAL}})"
+          precedence: ATOMIC
+          inputDefaults:
+            OBJECT: '""'
+            VAL: "'a'"
+
+      # --- lastIndexOf (String) ---
+      - blockly:
+          type: cpp_string_last_index_of_str
+          message0: "%1 .lastIndexOf( %2 )"
+          args0:
+            - type: input_value
+              name: OBJECT
+              check: String
+            - type: input_value
+              name: VAL
+              check: String
+          output: Number
+          tooltip: "Return the index of the last occurrence of a substring (-1 if not found)."
+          inputsInline: true
+        codegen:
+          body:
+            - "{{OBJECT}}.lastIndexOf({{VAL}})"
+          precedence: ATOMIC
+          inputDefaults:
+            OBJECT: '""'
+            VAL: '""'
+
+      # --- substring (from) ---
+      - blockly:
+          type: cpp_string_substring
+          message0: "%1 .substring( from %2 )"
+          args0:
+            - type: input_value
+              name: OBJECT
+              check: String
+            - type: input_value
+              name: FROM
+              check: ["Number", "int", "unsigned int", "byte", "word", "uint8_t", "uint16_t"]
+          output: String
+          tooltip: "Return the portion of the String from the given index to the end."
+          inputsInline: true
+        codegen:
+          body:
+            - "{{OBJECT}}.substring({{FROM}})"
+          precedence: ATOMIC
+          inputDefaults:
+            OBJECT: '""'
+            FROM: "0"
+
+      # --- substring (from, to) ---
+      - blockly:
+          type: cpp_string_substring_to
+          message0: "%1 .substring( from %2 to %3 )"
+          args0:
+            - type: input_value
+              name: OBJECT
+              check: String
+            - type: input_value
+              name: FROM
+              check: ["Number", "int", "unsigned int", "byte", "word", "uint8_t", "uint16_t"]
+            - type: input_value
+              name: TO
+              check: ["Number", "int", "unsigned int", "byte", "word", "uint8_t", "uint16_t"]
+          output: String
+          tooltip: "Return the portion of the String between FROM (inclusive) and TO (exclusive)."
+          inputsInline: true
+        codegen:
+          body:
+            - "{{OBJECT}}.substring({{FROM}}, {{TO}})"
+          precedence: ATOMIC
+          inputDefaults:
+            OBJECT: '""'
+            FROM: "0"
+            TO: "1"
+
+      # --- toInt ---
+      - blockly:
+          type: cpp_string_to_int
+          message0: "%1 .toInt()"
+          args0:
+            - type: input_value
+              name: OBJECT
+              check: String
+          output: Number
+          tooltip: "Parse the String as a long integer (returns 0 if not a valid number)."
+          inputsInline: true
+        codegen:
+          body:
+            - "{{OBJECT}}.toInt()"
+          precedence: ATOMIC
+          inputDefaults:
+            OBJECT: '"0"'
+
+      # --- toFloat ---
+      - blockly:
+          type: cpp_string_to_float
+          message0: "%1 .toFloat()"
+          args0:
+            - type: input_value
+              name: OBJECT
+              check: String
+          output: Number
+          tooltip: "Parse the String as a float (returns 0.0 if not a valid number)."
+          inputsInline: true
+        codegen:
+          body:
+            - "{{OBJECT}}.toFloat()"
+          precedence: ATOMIC
+          inputDefaults:
+            OBJECT: '"0.0"'
+
+      # --- toDouble ---
+      - blockly:
+          type: cpp_string_to_double
+          message0: "%1 .toDouble()"
+          args0:
+            - type: input_value
+              name: OBJECT
+              check: String
+          output: Number
+          tooltip: "Parse the String as a double (returns 0.0 if not a valid number)."
+          inputsInline: true
+        codegen:
+          body:
+            - "{{OBJECT}}.toDouble()"
+          precedence: ATOMIC
+          inputDefaults:
+            OBJECT: '"0.0"'
+
+      # --- equals ---
+      - blockly:
+          type: cpp_string_equals
+          message0: "%1 .equals( %2 )"
+          args0:
+            - type: input_value
+              name: OBJECT
+              check: String
+            - type: input_value
+              name: OTHER
+              check: String
+          output: Boolean
+          tooltip: "Return true if both Strings contain the same characters (case-sensitive)."
+          inputsInline: true
+        codegen:
+          body:
+            - "{{OBJECT}}.equals({{OTHER}})"
+          precedence: ATOMIC
+          inputDefaults:
+            OBJECT: '""'
+            OTHER: '""'
+
+      # --- equalsIgnoreCase ---
+      - blockly:
+          type: cpp_string_equals_ignore_case
+          message0: "%1 .equalsIgnoreCase( %2 )"
+          args0:
+            - type: input_value
+              name: OBJECT
+              check: String
+            - type: input_value
+              name: OTHER
+              check: String
+          output: Boolean
+          tooltip: "Return true if both Strings are equal, ignoring upper/lower case."
+          inputsInline: true
+        codegen:
+          body:
+            - "{{OBJECT}}.equalsIgnoreCase({{OTHER}})"
+          precedence: ATOMIC
+          inputDefaults:
+            OBJECT: '""'
+            OTHER: '""'
+
+      # --- startsWith ---
+      - blockly:
+          type: cpp_string_starts_with
+          message0: "%1 .startsWith( %2 )"
+          args0:
+            - type: input_value
+              name: OBJECT
+              check: String
+            - type: input_value
+              name: PREFIX
+              check: String
+          output: Boolean
+          tooltip: "Return true if the String starts with the given prefix."
+          inputsInline: true
+        codegen:
+          body:
+            - "{{OBJECT}}.startsWith({{PREFIX}})"
+          precedence: ATOMIC
+          inputDefaults:
+            OBJECT: '""'
+            PREFIX: '""'
+
+      # --- endsWith ---
+      - blockly:
+          type: cpp_string_ends_with
+          message0: "%1 .endsWith( %2 )"
+          args0:
+            - type: input_value
+              name: OBJECT
+              check: String
+            - type: input_value
+              name: SUFFIX
+              check: String
+          output: Boolean
+          tooltip: "Return true if the String ends with the given suffix."
+          inputsInline: true
+        codegen:
+          body:
+            - "{{OBJECT}}.endsWith({{SUFFIX}})"
+          precedence: ATOMIC
+          inputDefaults:
+            OBJECT: '""'
+            SUFFIX: '""'
+
+      # --- compareTo ---
+      - blockly:
+          type: cpp_string_compare_to
+          message0: "%1 .compareTo( %2 )"
+          args0:
+            - type: input_value
+              name: OBJECT
+              check: String
+            - type: input_value
+              name: OTHER
+              check: String
+          output: Number
+          tooltip: "Compare two Strings lexicographically. Returns negative, zero, or positive."
+          inputsInline: true
+        codegen:
+          body:
+            - "{{OBJECT}}.compareTo({{OTHER}})"
+          precedence: ATOMIC
+          inputDefaults:
+            OBJECT: '""'
+            OTHER: '""'
+
+      # --- concatenation operator (+) — returns a new String ---
+      - blockly:
+          type: cpp_string_concat_value
+          message0: "%1 + %2"
+          args0:
+            - type: input_value
+              name: LEFT
+              check: String
+            - type: input_value
+              name: RIGHT
+          output: String
+          tooltip: "Concatenate two values into a new String."
+          inputsInline: true
+        codegen:
+          body:
+            - "{{LEFT}} + {{RIGHT}}"
+          precedence: ADDITION
+          inputDefaults:
+            LEFT: '""'
+            RIGHT: '""'
+
+      # =========================================================
+      # STATEMENT BLOCKS — mutators (modify the String in-place)
+      # =========================================================
+
+      # --- toUpperCase ---
+      - blockly:
+          type: cpp_string_to_upper_case
+          message0: "%1 .toUpperCase()"
+          args0:
+            - type: input_value
+              name: OBJECT
+              check: String
+          previousStatement: null
+          nextStatement: null
+          tooltip: "Convert all characters of the String to upper case (in-place)."
+          inputsInline: true
+        codegen:
+          body:
+            - "{{OBJECT}}.toUpperCase();"
+          inputDefaults:
+            OBJECT: '""'
+
+      # --- toLowerCase ---
+      - blockly:
+          type: cpp_string_to_lower_case
+          message0: "%1 .toLowerCase()"
+          args0:
+            - type: input_value
+              name: OBJECT
+              check: String
+          previousStatement: null
+          nextStatement: null
+          tooltip: "Convert all characters of the String to lower case (in-place)."
+          inputsInline: true
+        codegen:
+          body:
+            - "{{OBJECT}}.toLowerCase();"
+          inputDefaults:
+            OBJECT: '""'
+
+      # --- trim ---
+      - blockly:
+          type: cpp_string_trim
+          message0: "%1 .trim()"
+          args0:
+            - type: input_value
+              name: OBJECT
+              check: String
+          previousStatement: null
+          nextStatement: null
+          tooltip: "Remove leading and trailing whitespace from the String (in-place)."
+          inputsInline: true
+        codegen:
+          body:
+            - "{{OBJECT}}.trim();"
+          inputDefaults:
+            OBJECT: '""'
+
+      # --- replace (char, char) ---
+      - blockly:
+          type: cpp_string_replace_char
+          message0: "%1 .replace( char %2 with %3 )"
+          args0:
+            - type: input_value
+              name: OBJECT
+              check: String
+            - type: input_value
+              name: FROM
+              check: ["Number", "int", "char", "byte"]
+            - type: input_value
+              name: TO
+              check: ["Number", "int", "char", "byte"]
+          previousStatement: null
+          nextStatement: null
+          tooltip: "Replace all occurrences of a character with another character (in-place)."
+          inputsInline: true
+        codegen:
+          body:
+            - "{{OBJECT}}.replace({{FROM}}, {{TO}});"
+          inputDefaults:
+            FROM: "'a'"
+            TO: "'b'"
+
+      # --- replace (String, String) ---
+      - blockly:
+          type: cpp_string_replace_str
+          message0: "%1 .replace( %2 with %3 )"
+          args0:
+            - type: input_value
+              name: OBJECT
+              check: String
+            - type: input_value
+              name: FROM
+              check: String
+            - type: input_value
+              name: TO
+              check: String
+          previousStatement: null
+          nextStatement: null
+          tooltip: "Replace all occurrences of a substring with another String (in-place)."
+          inputsInline: true
+        codegen:
+          body:
+            - "{{OBJECT}}.replace({{FROM}}, {{TO}});"
+          inputDefaults:
+            FROM: '""'
+            TO: '""'
+
+      # --- remove (from index to end) ---
+      - blockly:
+          type: cpp_string_remove
+          message0: "%1 .remove( from %2 )"
+          args0:
+            - type: input_value
+              name: OBJECT
+              check: String
+            - type: input_value
+              name: INDEX
+              check: ["Number", "int", "unsigned int", "byte", "word", "uint8_t", "uint16_t"]
+          previousStatement: null
+          nextStatement: null
+          tooltip: "Remove all characters from the given index to the end of the String (in-place)."
+          inputsInline: true
+        codegen:
+          body:
+            - "{{OBJECT}}.remove({{INDEX}});"
+          inputDefaults:
+            INDEX: "0"
+
+      # --- remove (index, count) ---
+      - blockly:
+          type: cpp_string_remove_count
+          message0: "%1 .remove( from %2 count %3 )"
+          args0:
+            - type: input_value
+              name: OBJECT
+              check: String
+            - type: input_value
+              name: INDEX
+              check: ["Number", "int", "unsigned int", "byte", "word", "uint8_t", "uint16_t"]
+            - type: input_value
+              name: COUNT
+              check: ["Number", "int", "unsigned int", "byte", "word", "uint8_t", "uint16_t"]
+          previousStatement: null
+          nextStatement: null
+          tooltip: "Remove a number of characters starting at the given index (in-place)."
+          inputsInline: true
+        codegen:
+          body:
+            - "{{OBJECT}}.remove({{INDEX}}, {{COUNT}});"
+          inputDefaults:
+            INDEX: "0"
+            COUNT: "1"
+
+      # --- concat (+=) ---
+      - blockly:
+          type: cpp_string_concat
+          message0: "%1 .concat( %2 )"
+          args0:
+            - type: input_value
+              name: OBJECT
+              check: String
+            - type: input_value
+              name: OTHER
+          previousStatement: null
+          nextStatement: null
+          tooltip: "Append a value to the String in-place (equivalent to +=)."
+          inputsInline: true
+        codegen:
+          body:
+            - "{{OBJECT}}.concat({{OTHER}});"
+          inputDefaults:
+            OTHER: '""'

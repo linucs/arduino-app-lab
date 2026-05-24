@@ -1,0 +1,101 @@
+id: builtin_analog_io
+displayName: Analog I/O
+category: "Input / Output::Analog"
+implementations:
+  - runtime: "arduino:cpp"
+    blocks:
+      # --- analogRead ---
+      - blockly:
+          type: cpp_analog_read
+          message0: "analogRead %1"
+          args0:
+            - type: input_value
+              name: PIN
+              check: ["Number", "int", "unsigned int", "long", "unsigned long", "byte", "word", "uint8_t", "uint16_t", "uint32_t", "int8_t", "int16_t", "int32_t"]
+          output: Number
+          tooltip: "Read the analog voltage on a pin (0–4095 at 12-bit resolution)."
+          inputsInline: true
+        codegen:
+          body:
+            - "analogRead({{PIN}})"
+          precedence: ATOMIC
+          inputDefaults:
+            PIN: "A0"
+
+      # --- analogWrite (PWM) ---
+      - blockly:
+          type: cpp_analog_write
+          message0: "analogWrite pin %1 value %2"
+          args0:
+            - type: input_value
+              name: PIN
+              check: ["Number", "int", "unsigned int", "long", "unsigned long", "byte", "word", "uint8_t", "uint16_t", "uint32_t", "int8_t", "int16_t", "int32_t"]
+            - type: input_value
+              name: VALUE
+              check: ["Number", "int", "unsigned int", "long", "unsigned long", "byte", "word", "uint8_t", "uint16_t", "uint32_t", "int8_t", "int16_t", "int32_t"]
+          previousStatement: null
+          nextStatement: null
+          tooltip: "Write a PWM value (0–255) to a pin."
+          inputsInline: true
+        codegen:
+          body:
+            - "analogWrite({{PIN}}, {{VALUE}});"
+          inputDefaults:
+            PIN: "3"
+            VALUE: "128"
+
+      # --- analogReference ---
+      - blockly:
+          type: cpp_analog_reference
+          message0: "analogReference %1"
+          args0:
+            - type: field_dropdown
+              name: TYPE
+              options:
+                - ["DEFAULT", "DEFAULT"]
+                - ["INTERNAL", "INTERNAL"]
+                - ["INTERNAL1V1", "INTERNAL1V1"]
+                - ["INTERNAL2V56", "INTERNAL2V56"]
+                - ["EXTERNAL", "EXTERNAL"]
+          previousStatement: null
+          nextStatement: null
+          tooltip: "Configure the reference voltage for analogRead."
+        codegen:
+          body:
+            - "analogReference({{TYPE}});"
+
+      # --- analogReadResolution (setup-only) ---
+      - blockly:
+          type: cpp_analog_read_resolution
+          message0: "analogReadResolution %1 bits"
+          args0:
+            - type: field_dropdown
+              name: BITS
+              options:
+                - ["10 bits", "10"]
+                - ["12 bits", "12"]
+                - ["14 bits", "14"]
+          previousStatement: null
+          nextStatement: null
+          tooltip: "Set the ADC resolution for analogRead (10/12/14 bits). Place in setup."
+        codegen:
+          setup:
+            - "analogReadResolution({{BITS}});"
+
+      # --- analogWriteResolution (setup-only) ---
+      - blockly:
+          type: cpp_analog_write_resolution
+          message0: "analogWriteResolution %1 bits"
+          args0:
+            - type: field_dropdown
+              name: BITS
+              options:
+                - ["8 bits", "8"]
+                - ["10 bits", "10"]
+                - ["12 bits", "12"]
+          previousStatement: null
+          nextStatement: null
+          tooltip: "Set the PWM resolution for analogWrite (8/10/12 bits). Place in setup."
+        codegen:
+          setup:
+            - "analogWriteResolution({{BITS}});"

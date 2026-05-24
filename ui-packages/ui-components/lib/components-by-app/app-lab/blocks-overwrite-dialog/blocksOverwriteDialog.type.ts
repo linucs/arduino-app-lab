@@ -1,9 +1,10 @@
-import { ConfirmActionDialogLogic } from '../../../essential/confirm-action-dialog';
-
 export type BlocksOverwriteDialogData = {
   sourceFullName: string;
   sidecarFullName: string;
 };
 
-export type BlocksOverwriteDialogLogic =
-  () => ReturnType<ConfirmActionDialogLogic> & BlocksOverwriteDialogData;
+export type BlocksOverwriteDialogLogic = () => BlocksOverwriteDialogData & {
+  open: boolean;
+  onOpenChange: (open: boolean) => void;
+  confirmAction: () => void;
+};

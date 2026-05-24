@@ -9,8 +9,8 @@
   "properties": {
     "id": {
       "type": "string",
-      "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$",
-      "description": "Unique kebab-case component identifier."
+      "pattern": "^[a-z0-9]+([_-][a-z0-9]+)*$",
+      "description": "Unique component identifier. Use kebab-case for external catalog entries (e.g. modulino-thermo). Built-in entries use snake_case (e.g. builtin_serial, cpp_math)."
     },
     "displayName": {
       "description": "Human-readable name. String or locale map.",

@@ -85,15 +85,20 @@ export function applyCodegenSections(
 // Write block-level BlockCodegen sections and return the resolved body string.
 // The `inputDefaults` map is used as fallback values when a value input is
 // unconnected — the template engine substitutes the default rather than ''.
+//
+// Unlike applyCodegenSections (which writes static implementation-level strings),
+// block-level sections may contain {{placeholder}} tokens that vary per block
+// instance (e.g. setup: ["Serial.begin({{BAUD}})"]).  We resolve those here
+// before keying into definitions_ so the stored value is the real code string.
 export function applyBlockCodegen(
   codegen: BlockCodegen,
   block: Blockly.Block,
   generator: Blockly.CodeGenerator,
   inputDefaults?: { [inputName: string]: unknown },
 ): string {
-  applyCodegenSections(codegen, generator);
-
   const defaults = { ...(codegen.inputDefaults ?? {}), ...(inputDefaults ?? {}) };
+
+  applyResolvedSections(codegen, block, generator, defaults);
 
   const bodyLines = codegen.body ?? [];
   const resolved = bodyLines
@@ -101,6 +106,40 @@ export function applyBlockCodegen(
     .join('\n');
 
   return resolved ? resolved + '\n' : '';
+}
+
+// Resolve {{placeholder}} tokens in block-level codegen sections before writing
+// to definitions_.  This is necessary for sections like setup/declarations that
+// hold per-instance values (e.g. a baud-rate dropdown or a field_input).
+// applyCodegenSections is kept for implementation-level sections (static strings).
+function applyResolvedSections(
+  sections: CodegenSections,
+  block: Blockly.Block,
+  generator: Blockly.CodeGenerator,
+  defaults: { [name: string]: unknown },
+): void {
+  const defs = (generator as unknown as { definitions_: { [k: string]: string } }).definitions_;
+
+  for (const line of sections.imports ?? []) {
+    const r = resolveTemplateWithDefaults(line, block, generator, defaults);
+    if (r) defs[`import_${hashKey(r)}`] = r;
+  }
+  for (const line of sections.declarations ?? []) {
+    const r = resolveTemplateWithDefaults(line, block, generator, defaults);
+    if (r) defs[`decl_${hashKey(r)}`] = r;
+  }
+  for (const line of sections.setup ?? []) {
+    const r = resolveTemplateWithDefaults(line, block, generator, defaults);
+    if (r) defs[`setup_${hashKey(r)}`] = r;
+  }
+  for (const [name, body] of Object.entries(sections.helpers ?? {})) {
+    const r = resolveTemplateWithDefaults(body, block, generator, defaults);
+    if (r) defs[`func_${name}`] = r;
+  }
+  for (const line of sections.cleanup ?? []) {
+    const r = resolveTemplateWithDefaults(line, block, generator, defaults);
+    if (r) defs[`cleanup_${hashKey(r)}`] = r;
+  }
 }
 
 // Like resolveTemplate but falls back to inputDefaults for unconnected value inputs.

@@ -1,0 +1,111 @@
+id: builtin_section_containers
+displayName: Section Containers
+category: "Custom Code"
+implementations:
+  - runtime: "arduino:cpp"
+    blocks:
+      # --- Includes: code injected before global declarations ---
+      # C++: #include / #define zone. Python: import zone.
+      - blockly:
+          type: section_includes
+          message0: "Includes %1"
+          args0:
+            - type: input_statement
+              name: BODY
+          previousStatement: null
+          nextStatement: null
+          colour: 210
+          tooltip: "C++: code goes to the #include zone (before global declarations). Python: code goes before the first import."
+        generator: SectionIncludesGenerator
+
+      # --- Global declarations: code at global / module scope ---
+      # C++: before setup(). Python: module-level after imports.
+      - blockly:
+          type: section_declarations
+          message0: "Global declarations %1"
+          args0:
+            - type: input_statement
+              name: BODY
+          previousStatement: null
+          nextStatement: null
+          colour: 160
+          tooltip: "C++: code at global scope (after includes, before setup). Python: module-level code after imports."
+        generator: SectionDeclarationsGenerator
+
+      # --- Setup: code that runs once at startup ---
+      # C++: inside void setup(). Python: module-level before def loop().
+      - blockly:
+          type: section_setup
+          message0: "Setup %1"
+          args0:
+            - type: input_statement
+              name: BODY
+          previousStatement: null
+          nextStatement: null
+          colour: 60
+          tooltip: "C++: code runs inside void setup(). Python: code runs at module level before def loop()."
+        generator: SectionSetupGenerator
+
+      # --- Helper functions: reusable function definitions ---
+      # C++: function definitions at global scope (before setup). Python: def blocks at module level.
+      - blockly:
+          type: section_helpers
+          message0: "Helper functions %1"
+          args0:
+            - type: input_statement
+              name: BODY
+          previousStatement: null
+          nextStatement: null
+          colour: 30
+          tooltip: "C++: function definitions at global scope (before setup). Python: def blocks at module level."
+        generator: SectionHelpersGenerator
+
+  - runtime: "arduino:python"
+    blocks:
+      - blockly:
+          type: section_includes
+          message0: "Includes %1"
+          args0:
+            - type: input_statement
+              name: BODY
+          previousStatement: null
+          nextStatement: null
+          colour: 210
+          tooltip: "C++: code goes to the #include zone (before global declarations). Python: code goes before the first import."
+        generator: SectionIncludesGenerator
+
+      - blockly:
+          type: section_declarations
+          message0: "Global declarations %1"
+          args0:
+            - type: input_statement
+              name: BODY
+          previousStatement: null
+          nextStatement: null
+          colour: 160
+          tooltip: "C++: code at global scope (after includes, before setup). Python: module-level code after imports."
+        generator: SectionDeclarationsGenerator
+
+      - blockly:
+          type: section_setup
+          message0: "Setup %1"
+          args0:
+            - type: input_statement
+              name: BODY
+          previousStatement: null
+          nextStatement: null
+          colour: 60
+          tooltip: "C++: code runs inside void setup(). Python: code runs at module level before def loop()."
+        generator: SectionSetupGenerator
+
+      - blockly:
+          type: section_helpers
+          message0: "Helper functions %1"
+          args0:
+            - type: input_statement
+              name: BODY
+          previousStatement: null
+          nextStatement: null
+          colour: 30
+          tooltip: "C++: function definitions at global scope (before setup). Python: def blocks at module level."
+        generator: SectionHelpersGenerator

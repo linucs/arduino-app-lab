@@ -1,0 +1,39 @@
+id: builtin_characters
+displayName: Characters
+category: "Text"
+implementations:
+  - runtime: "arduino:cpp"
+    blocks:
+      # --- Character test (single block with 13-option dropdown) ---
+      - blockly:
+          type: cpp_char_test
+          message0: "%1 ( %2 )"
+          args0:
+            - type: field_dropdown
+              name: FUNC
+              options:
+                - ["isAlpha", "isAlpha"]
+                - ["isDigit", "isDigit"]
+                - ["isAlphaNumeric", "isAlphaNumeric"]
+                - ["isUpperCase", "isUpperCase"]
+                - ["isLowerCase", "isLowerCase"]
+                - ["isSpace", "isSpace"]
+                - ["isPrintable", "isPrintable"]
+                - ["isPunct", "isPunct"]
+                - ["isHexadecimalDigit", "isHexadecimalDigit"]
+                - ["isAscii", "isAscii"]
+                - ["isControl", "isControl"]
+                - ["isGraph", "isGraph"]
+                - ["isWhitespace", "isWhitespace"]
+            - type: input_value
+              name: CHAR
+              check: ["Number", "int", "char", "byte", "uint8_t", "int8_t"]
+          output: null
+          tooltip: "Test a character against the selected category. Returns true or false."
+          inputsInline: true
+        codegen:
+          body:
+            - "{{FUNC}}({{CHAR}})"
+          precedence: ATOMIC
+          inputDefaults:
+            CHAR: "'a'"

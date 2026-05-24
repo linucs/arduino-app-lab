@@ -11,12 +11,21 @@ import { useI18n } from '../i18n/useI18n';
 import { snackbar } from '../snackbar';
 import { adapterFor, languageToRuntime } from './adapters';
 import { CodeFactory } from './code-factory';
+import './code-factory/sectionContainerGenerators';
+import './custom-blocks/cppFunctionBlock';
+import './custom-blocks/cppFunctionCallBlock';
+import './custom-blocks/switchCaseBlock';
 import styles from './BlocklyEditor.module.scss';
 import {
   BlocklyEditorLogic,
   BlocklyLanguage,
   SIDECAR_FORMAT_VERSION,
 } from './blocklyEditor.type';
+import {
+  CPP_VARIABLE_TYPES,
+  initTypedVariableModal,
+  initWorkspacePlugins,
+} from './blocklyPlugins';
 import { installAppLabContextMenuStyling } from './contextMenuStyling';
 import { messages } from './messages';
 import { appLabDarkTheme } from './themes/appLabDarkTheme';
@@ -28,6 +37,63 @@ interface SidecarEnvelope {
 }
 
 const DEBOUNCE_MS = 1000;
+
+/**
+ * Build a map of top-level category name → colour from a toolbox definition.
+ * Used to auto-assign block colours when a YAML block omits the colour field.
+ */
+function extractCategoryColours(
+  toolbox: Blockly.utils.toolbox.ToolboxDefinition,
+): Record<string, string> {
+  const result: Record<string, string> = {};
+  const info = toolbox as Blockly.utils.toolbox.ToolboxInfo;
+  for (const item of info.contents ?? []) {
+    const cat = item as Blockly.utils.toolbox.StaticCategoryInfo;
+    if (cat.kind === 'category' && cat.name && cat.colour) {
+      result[cat.name] = cat.colour as string;
+    }
+  }
+  return result;
+}
+
+/**
+ * Merge catalog toolbox categories into the adapter toolbox.
+ * If a catalog category shares a name with an existing adapter category the
+ * catalog's blocks are appended to that category's contents rather than
+ * creating a second category with the same name.  Custom categories (e.g.
+ * VARIABLE / PROCEDURE) are never merged — they have no `contents` array.
+ */
+function mergeToolboxCategories(
+  base: Blockly.utils.toolbox.ToolboxItemInfo[],
+  extra: Blockly.utils.toolbox.ToolboxItemInfo[],
+): Blockly.utils.toolbox.ToolboxItemInfo[] {
+  // Shallow-copy the base so we can splice without mutating the adapter object.
+  const result = base.map((item) => ({ ...item }));
+  for (const cat of extra) {
+    const incoming = cat as Blockly.utils.toolbox.StaticCategoryInfo;
+    if (incoming.kind !== 'category' || !incoming.name || !incoming.contents) {
+      // Not a mergeable contents-bearing category — append as-is.
+      result.push(cat);
+      continue;
+    }
+    const idx = result.findIndex(
+      (b) =>
+        (b as Blockly.utils.toolbox.StaticCategoryInfo).kind === 'category' &&
+        (b as Blockly.utils.toolbox.StaticCategoryInfo).name === incoming.name &&
+        !!(b as Blockly.utils.toolbox.StaticCategoryInfo).contents,
+    );
+    if (idx >= 0) {
+      const existing = result[idx] as Blockly.utils.toolbox.StaticCategoryInfo;
+      result[idx] = {
+        ...existing,
+        contents: [...(existing.contents ?? []), ...incoming.contents],
+      };
+    } else {
+      result.push(cat);
+    }
+  }
+  return result;
+}
 
 type ParseResult = {
   blocksState: object | undefined;
@@ -83,6 +149,7 @@ const BlocklyEditor: React.FC<BlocklyEditorProps> = (
     onPrompt,
     onAlert,
     onConfirm,
+    onCreateTypedVariable,
     fileId,
     readOnly,
   } = blocklyEditorLogic();
@@ -218,24 +285,38 @@ const BlocklyEditor: React.FC<BlocklyEditorProps> = (
 
     workspaceRef.current = workspace;
 
+    // Initialize workspace UX plugins (search, zoom-to-fit, minimap, etc.).
+    // Skip in read-only mode — no toolbox, no UX controls needed.
+    const disposePlugins = isReadOnly ? null : initWorkspacePlugins(workspace);
+
+    // Typed-variable modal: C++ only (Python is dynamically typed).
+    const disposeTypedVars =
+      !isReadOnly && language === 'cpp'
+        ? initTypedVariableModal(workspace, CPP_VARIABLE_TYPES, onCreateTypedVariable)
+        : null;
+
+    let disposed = false;
     const factory = new CodeFactory(adapter);
     factoryRef.current = factory;
+    const categoryColours = extractCategoryColours(adapter.toolbox);
     getBlockCatalog()
       .then((entries) => {
-        factory.loadCatalogEntries(entries);
+        if (disposed) return;
+        factory.loadCatalogEntries(entries, categoryColours);
         const catalogCategories = factory.getCatalogToolboxCategories();
         if (catalogCategories.length > 0 && !isReadOnly) {
           const merged: Blockly.utils.toolbox.ToolboxInfo = {
             kind: 'categoryToolbox',
-            contents: [
-              ...(adapter.toolbox as Blockly.utils.toolbox.ToolboxInfo).contents,
-              ...catalogCategories,
-            ],
+            contents: mergeToolboxCategories(
+              (adapter.toolbox as Blockly.utils.toolbox.ToolboxInfo).contents,
+              catalogCategories,
+            ),
           };
           workspace.updateToolbox(merged);
         }
       })
       .catch((err) => {
+        if (disposed) return;
         console.warn('[BlocklyEditor] failed to load block catalog:', err);
       });
 
@@ -288,6 +369,9 @@ const BlocklyEditor: React.FC<BlocklyEditorProps> = (
     workspace.addChangeListener(handleChange);
 
     return () => {
+      disposed = true;
+      disposeTypedVars?.();
+      disposePlugins?.();
       flushChange.cancel();
       workspace.removeChangeListener(handleChange);
       workspace.dispose();

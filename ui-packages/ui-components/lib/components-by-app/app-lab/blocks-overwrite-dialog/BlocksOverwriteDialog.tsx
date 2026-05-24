@@ -1,49 +1,60 @@
-import { ConfirmActionDialog } from '../../../essential/confirm-action-dialog';
+import { Button, ButtonAppearance, ButtonVariant } from '../../../components-by-app/app-lab';
+import { AppLabDialog } from '../../../dialogs/app-lab/app-lab-dialog/AppLabDialog';
 import { useI18n } from '../../../i18n/useI18n';
-import { Small } from '../../../typography';
+import { Small, XSmall } from '../../../typography';
 import { BlocksOverwriteDialogLogic } from './blocksOverwriteDialog.type';
 import { messages } from './messages';
 
 interface BlocksOverwriteDialogProps {
-  themeClass?: string;
   blocksOverwriteDialogLogic: BlocksOverwriteDialogLogic;
 }
 
-const BlocksOverwriteDialog: React.FC<BlocksOverwriteDialogProps> = (
-  props: BlocksOverwriteDialogProps,
-) => {
-  const { themeClass, blocksOverwriteDialogLogic } = props;
-  const { sourceFullName, sidecarFullName } = blocksOverwriteDialogLogic();
-
+const BlocksOverwriteDialog: React.FC<BlocksOverwriteDialogProps> = ({
+  blocksOverwriteDialogLogic,
+}: BlocksOverwriteDialogProps) => {
+  const { open, onOpenChange, confirmAction, sourceFullName, sidecarFullName } =
+    blocksOverwriteDialogLogic();
   const { formatMessage } = useI18n();
 
   return (
-    <ConfirmActionDialog
-      headerTitle={formatMessage(messages.blocksOverwriteDialogTitle)}
-      dialogTitle={formatMessage(messages.blocksOverwriteDialogHeader, {
-        sourceFullName,
-      })}
-      dialogMessage={
-        <Small>
-          {formatMessage(messages.blocksOverwriteDialogMessage, {
-            sourceFullName,
-            sidecarFullName,
-          })}
-        </Small>
+    <AppLabDialog
+      open={open}
+      onOpenChange={onOpenChange}
+      title={formatMessage(messages.blocksOverwriteDialogTitle)}
+      footer={
+        <>
+          <Button
+            variant={ButtonVariant.Secondary}
+            onClick={() => onOpenChange(false)}
+          >
+            {formatMessage(messages.blocksOverwriteDialogCancelButton)}
+          </Button>
+          <Button
+            variant={ButtonVariant.Secondary}
+            appearance={ButtonAppearance.Destructive}
+            onClick={confirmAction}
+          >
+            {formatMessage(messages.blocksOverwriteDialogConfirmButton)}
+          </Button>
+        </>
       }
-      dialogCancelButtonLabel={
-        <Small uppercase bold>
-          {formatMessage(messages.blocksOverwriteDialogCancelButton)}
-        </Small>
-      }
-      dialogConfirmButtonLabel={
-        <Small uppercase bold>
-          {formatMessage(messages.blocksOverwriteDialogConfirmButton)}
-        </Small>
-      }
-      confirmActionDialogLogic={blocksOverwriteDialogLogic}
-      themeClass={themeClass}
-    />
+    >
+      {open && (
+        <>
+          <XSmall bold>
+            {formatMessage(messages.blocksOverwriteDialogHeader, {
+              sourceFullName,
+            })}
+          </XSmall>
+          <Small>
+            {formatMessage(messages.blocksOverwriteDialogMessage, {
+              sourceFullName,
+              sidecarFullName,
+            })}
+          </Small>
+        </>
+      )}
+    </AppLabDialog>
   );
 };
 

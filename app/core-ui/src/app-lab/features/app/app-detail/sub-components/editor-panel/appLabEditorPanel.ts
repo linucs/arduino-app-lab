@@ -93,6 +93,12 @@ type UseCreateEditorPanelLogic = (params: EditorPanelLogicParams) => {
   editorPanelLogic: EditorPanelLogic;
   blocksOverwriteDialogLogic: BlocksOverwriteDialogLogic;
   blocklyPromptDialogLogic: BlocklyPromptDialogLogic;
+  typedVariableDialogLogic: () => {
+    open: boolean;
+    onOpenChange: (open: boolean) => void;
+    types: [string, string][];
+    confirmAction: (name: string, type: string) => void;
+  };
 };
 
 export const useCreateEditorPanelLogic: UseCreateEditorPanelLogic = function (
@@ -300,17 +306,56 @@ export const useCreateEditorPanelLogic: UseCreateEditorPanelLogic = function (
     () => ({
       sourceFullName: dialogTargetRef.current?.sourceFullName ?? '',
       sidecarFullName: dialogTargetRef.current?.sidecarFullName ?? '',
-      reactModalProps: {
-        isOpen: blocksDialogOpen,
-        onRequestClose: () => resolveDialog(false),
-        ariaHideApp: false,
+      open: blocksDialogOpen,
+      onOpenChange: (open: boolean) => {
+        if (!open) resolveDialog(false);
       },
-      setIsOpen: setBlocksDialogOpen,
       confirmAction: () => resolveDialog(true),
-      cancelAction: () => resolveDialog(false),
-      isLoading: false,
     }),
     [blocksDialogOpen, resolveDialog],
+  );
+
+  // TypedVariableDialog state — same Promise-based pattern as BlocksOverwriteDialog.
+  const [typedVarDialogOpen, setTypedVarDialogOpen] = useState(false);
+  const [typedVarTypes, setTypedVarTypes] = useState<[string, string][]>([]);
+  const typedVarResolverRef = useRef<
+    ((result: { name: string; type: string } | null) => void) | null
+  >(null);
+
+  const openTypedVarDialog = useCallback(
+    (
+      types: [string, string][],
+    ): Promise<{ name: string; type: string } | null> => {
+      setTypedVarTypes(types);
+      setTypedVarDialogOpen(true);
+      return new Promise((resolve) => {
+        typedVarResolverRef.current = resolve;
+      });
+    },
+    [],
+  );
+
+  const resolveTypedVarDialog = useCallback(
+    (result: { name: string; type: string } | null) => {
+      const resolver = typedVarResolverRef.current;
+      typedVarResolverRef.current = null;
+      setTypedVarDialogOpen(false);
+      if (resolver) resolver(result);
+    },
+    [],
+  );
+
+  const typedVariableDialogLogic = useCallback(
+    () => ({
+      open: typedVarDialogOpen,
+      onOpenChange: (open: boolean) => {
+        if (!open) resolveTypedVarDialog(null);
+      },
+      types: typedVarTypes,
+      confirmAction: (name: string, type: string) =>
+        resolveTypedVarDialog({ name, type }),
+    }),
+    [typedVarDialogOpen, typedVarTypes, resolveTypedVarDialog],
   );
 
   // BlocklyPromptDialog state. Replaces Blockly's default `window.prompt`/
@@ -380,12 +425,10 @@ export const useCreateEditorPanelLogic: UseCreateEditorPanelLogic = function (
       message: blocklyDialogMessage,
       inputValue: blocklyDialogInput,
       setInputValue: setBlocklyDialogInput,
-      reactModalProps: {
-        isOpen: blocklyDialogOpen,
-        onRequestClose: () => resolveBlocklyDialog(false),
-        ariaHideApp: false,
+      open: blocklyDialogOpen,
+      onOpenChange: (open: boolean) => {
+        if (!open) resolveBlocklyDialog(false);
       },
-      setIsOpen: setBlocklyDialogOpen,
       confirmAction: () => resolveBlocklyDialog(true),
       cancelAction: () => resolveBlocklyDialog(false),
     }),
@@ -472,6 +515,7 @@ export const useCreateEditorPanelLogic: UseCreateEditorPanelLogic = function (
       onPrompt: blocklyPrompt,
       onAlert: blocklyAlert,
       onConfirm: blocklyConfirm,
+      onCreateTypedVariable: openTypedVarDialog,
     });
   }, [
     selectedFile,
@@ -483,6 +527,7 @@ export const useCreateEditorPanelLogic: UseCreateEditorPanelLogic = function (
     blocklyPrompt,
     blocklyAlert,
     blocklyConfirm,
+    openTypedVarDialog,
   ]);
 
   const codeBlocksCanBeToggled = !(
@@ -773,5 +818,6 @@ export const useCreateEditorPanelLogic: UseCreateEditorPanelLogic = function (
     editorPanelLogic,
     blocksOverwriteDialogLogic,
     blocklyPromptDialogLogic,
+    typedVariableDialogLogic,
   };
 };

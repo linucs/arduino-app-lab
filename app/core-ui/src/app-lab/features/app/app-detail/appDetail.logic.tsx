@@ -749,7 +749,10 @@ export const useAppDetailLogic: AppLabAppDetailLogic = function (
           closeFile(path);
           await deleteAppFile(path);
           // Best-effort cleanup of the `.blocks` sidecar (if any).
-          if (!isDir) deleteAppFile(`${path}.blocks`).catch(() => {});
+          // Skip when the file itself IS a sidecar — avoids trying to
+          // delete `.blocks.blocks` which corrupts filesContents state.
+          if (!isDir && !path.endsWith('.blocks'))
+            deleteAppFile(`${path}.blocks`).catch(() => {});
           const messages = DELETE_MESSAGES[nodeType || 'file'];
           sendAppLabNotification({
             message: formatMessage(messages.success),
@@ -1027,6 +1030,7 @@ export const useAppDetailLogic: AppLabAppDetailLogic = function (
         editorPanelLogic,
         blocksOverwriteDialogLogic,
         blocklyPromptDialogLogic,
+        typedVariableDialogLogic,
       } = useCreateEditorPanelLogic(editorPanelLogicParams);
 
       const onCopyCode = useCallback(() => {
@@ -1053,6 +1057,7 @@ export const useAppDetailLogic: AppLabAppDetailLogic = function (
         readOnly: editorPanelLogicParams.readOnly,
         blocksOverwriteDialogLogic,
         blocklyPromptDialogLogic,
+        typedVariableDialogLogic,
         selectedFileFullName: selectedFile?.fileFullName,
         hasSidecar: sidecarOwned,
       };

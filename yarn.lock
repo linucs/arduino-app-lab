@@ -2162,6 +2162,134 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@blockly/block-plus-minus@npm:^9.0.10":
+  version: 9.0.10
+  resolution: "@blockly/block-plus-minus@npm:9.0.10"
+  peerDependencies:
+    blockly: ^12.0.0
+  checksum: 840f004faa9272bfdba4eb503bcd11e0ae088bb91e223240230c572538145de5de99a81612253b33752b05641797cae5237c66ea32decdcc5ca3eee34c3ef050
+  languageName: node
+  linkType: hard
+
+"@blockly/field-date@npm:^10.0.9":
+  version: 10.0.9
+  resolution: "@blockly/field-date@npm:10.0.9"
+  peerDependencies:
+    blockly: ^12.0.0
+  checksum: 6f5f4a834c4f42ee5474cfbd02db1c4a7011da9937c00e3d38ee5efd4d96333e540a877632b6a333a36bbed7f27f0fe2818d15f72fd7895d1785e68a2846af74
+  languageName: node
+  linkType: hard
+
+"@blockly/field-dependent-dropdown@npm:^5.0.10":
+  version: 5.0.10
+  resolution: "@blockly/field-dependent-dropdown@npm:5.0.10"
+  peerDependencies:
+    blockly: ^12.0.0
+  checksum: de9b659737301ba407393ee21d0952b3a7d2619ad4e615aaa8b005b1eae827fb83f5b9f4b551d8ee1fa5f496d1cd01bf05460c6094eb5e35fa3cd093a86a716d
+  languageName: node
+  linkType: hard
+
+"@blockly/field-grid-dropdown@npm:^6.0.10":
+  version: 6.0.10
+  resolution: "@blockly/field-grid-dropdown@npm:6.0.10"
+  peerDependencies:
+    blockly: ^12.0.0
+  checksum: be7a136f6ce73f7efe193986c6113bb914cdb2839cd47e9ae5e2455ac06e6f1f89d6a3f389a9f040ef5f3112acac83c814b7f4f16a69f0ad355a640efa413830
+  languageName: node
+  linkType: hard
+
+"@blockly/field-multilineinput@npm:^6.0.9":
+  version: 6.0.9
+  resolution: "@blockly/field-multilineinput@npm:6.0.9"
+  peerDependencies:
+    blockly: ^12.0.0
+  checksum: fbb218d275f1f3294f19fa029de82908dd78a38386dcf79515e77d75cbc9549157b92b0f4bf7d2cefecdd47a14261eb9039678363e5eb7244088e89de05359b8
+  languageName: node
+  linkType: hard
+
+"@blockly/plugin-modal@npm:^8.0.9":
+  version: 8.0.9
+  resolution: "@blockly/plugin-modal@npm:8.0.9"
+  peerDependencies:
+    blockly: ^12.0.0
+  checksum: e34481d625cd82844f98b0942c96f16373c40a66af52a776310c8ae8e71fa0ae825650266465e8da8acce50a4f9093837b795008a9b1baf664007b1523f91a5a
+  languageName: node
+  linkType: hard
+
+"@blockly/plugin-strict-connection-checker@npm:^6.0.9":
+  version: 6.0.9
+  resolution: "@blockly/plugin-strict-connection-checker@npm:6.0.9"
+  peerDependencies:
+    blockly: ^12.0.0
+  checksum: df6059f4f365b18edf7d27ce6fd7d7e9296fd48352c2de26a0f14062053faddcb1fff89b907c52fa44a438697a8abbe263711a02f8bb3c211857494bf21fda97
+  languageName: node
+  linkType: hard
+
+"@blockly/plugin-typed-variable-modal@npm:^9.0.9":
+  version: 9.0.9
+  resolution: "@blockly/plugin-typed-variable-modal@npm:9.0.9"
+  dependencies:
+    "@blockly/plugin-modal": ^8.0.9
+  peerDependencies:
+    blockly: ^12.0.0
+  checksum: 83c1bd30179d3502fe0cf24ee71b4f4cdf054d63f6fb3c3c60950e3a035b52f6ec7a79c2b82afe1cfa7532564d10e3b991edb892e862f40223a95196c0c0b397
+  languageName: node
+  linkType: hard
+
+"@blockly/plugin-workspace-search@npm:^10.1.8":
+  version: 10.1.8
+  resolution: "@blockly/plugin-workspace-search@npm:10.1.8"
+  peerDependencies:
+    blockly: ^12.0.0
+  checksum: 6653c57c71d1415cf7cef3ccda976c7a7e70e2bc6663e50c5df576d1cc81c14193b4019858cd8212ca42980c405d2ebdd56193ca9158bf61af1a29b46e35ed03
+  languageName: node
+  linkType: hard
+
+"@blockly/shadow-block-converter@npm:^7.0.10":
+  version: 7.0.10
+  resolution: "@blockly/shadow-block-converter@npm:7.0.10"
+  peerDependencies:
+    blockly: ^12.0.0
+  checksum: d9548c08990e71f5a2967818ea720f95a30e62900882373c79300fc3ef7f464afcaa513090041cc86bb177cff9721687a4bbe008f5a781618458253b48a4ec84
+  languageName: node
+  linkType: hard
+
+"@blockly/toolbox-search@npm:^3.1.9":
+  version: 3.1.9
+  resolution: "@blockly/toolbox-search@npm:3.1.9"
+  peerDependencies:
+    blockly: ^12.0.0
+  checksum: 04d221d5aea78eb9a435a12eb1abb0e78436ee3c8aa3a7793086d498390341d2065e3d3c329bf97a8b74edb29d17727aef86268e7ba6e9930c76079e39b56d99
+  languageName: node
+  linkType: hard
+
+"@blockly/workspace-content-highlight@npm:^6.0.9":
+  version: 6.0.9
+  resolution: "@blockly/workspace-content-highlight@npm:6.0.9"
+  peerDependencies:
+    blockly: ^12.0.0
+  checksum: d2940667c7697a506f3292c84b4fca8d9a5f8061bb90e4c5c761473abdc5e21e68fe81f1f1f8ebf7e19916ff95a94b302b2ca25ab1d96b036a6ad1d84b943a03
+  languageName: node
+  linkType: hard
+
+"@blockly/workspace-minimap@npm:^0.3.9":
+  version: 0.3.9
+  resolution: "@blockly/workspace-minimap@npm:0.3.9"
+  peerDependencies:
+    blockly: ^12.0.0
+  checksum: 7e14c6224dcddd7ffc9e9c1e8341e2dcda827c095ccf0c2a9d0d8af704a65898671d03bd061a6b37aae1669f9a69c430cc3c2ed946b8771ff4e5536e862db861
+  languageName: node
+  linkType: hard
+
+"@blockly/zoom-to-fit@npm:^7.0.9":
+  version: 7.0.9
+  resolution: "@blockly/zoom-to-fit@npm:7.0.9"
+  peerDependencies:
+    blockly: ^12.0.0
+  checksum: d0b0e0f71cc1933c887658b77b6ea6dadeb5a3135b82867fd6a9dbc0e0dab7c83b12e65c4793539727be761c86da7643be0bfa320fbf3260a0e4d5cf731b4e71
+  languageName: node
+  linkType: hard
+
 "@bundled-es-modules/cookie@npm:^2.0.1":
   version: 2.0.1
   resolution: "@bundled-es-modules/cookie@npm:2.0.1"
@@ -12316,12 +12444,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"blockly@npm:^11.2.0":
-  version: 11.2.2
-  resolution: "blockly@npm:11.2.2"
+"blockly@npm:^12.0.0":
+  version: 12.5.1
+  resolution: "blockly@npm:12.5.1"
   dependencies:
-    jsdom: 25.0.1
-  checksum: 34e248b7d1f909defac104a4ab8ea2be1bcb5f20ec599c22cd2e322893fc2b60c460c97b967b9768724b3f93eb82d66d4013be43f69dbb74a054cfdeac6658c6
+    jsdom: 26.1.0
+  checksum: b3ecfdb7dbd3e9e239a2f07224074bf0c1b15ad9c8ad2e4b7353c7931cb8d924581be4e09dbcc5e0ffa6b1cb6a307f6002341e8d052fead4c30d21a13d3bdf8c
   languageName: node
   linkType: hard
 
@@ -13383,6 +13511,19 @@ __metadata:
     "@bcmi-labs/arduino-chromeos-uploader": "npm:@bcmi-labs/arduino-chromeos-uploader@1.4.3"
     "@bcmi-labs/art-auth": "npm:@bcmi-labs/auth@1.4.3"
     "@bcmi-labs/cloud-sidebar": "npm:@bcmi-labs/cloud-sidebar@1.4.3"
+    "@blockly/block-plus-minus": ^9.0.10
+    "@blockly/field-date": ^10.0.9
+    "@blockly/field-dependent-dropdown": ^5.0.10
+    "@blockly/field-grid-dropdown": ^6.0.10
+    "@blockly/field-multilineinput": ^6.0.9
+    "@blockly/plugin-strict-connection-checker": ^6.0.9
+    "@blockly/plugin-typed-variable-modal": ^9.0.9
+    "@blockly/plugin-workspace-search": ^10.1.8
+    "@blockly/shadow-block-converter": ^7.0.10
+    "@blockly/toolbox-search": ^3.1.9
+    "@blockly/workspace-content-highlight": ^6.0.9
+    "@blockly/workspace-minimap": ^0.3.9
+    "@blockly/zoom-to-fit": ^7.0.9
     "@cloud-editor-mono/arduino-sass": "npm:@bcmi-labs/arduino-sass@^1.4.3"
     "@cloud-editor-mono/board-communication-tools": "npm:@bcmi-labs/cloud-editor-board-communication-tools@^1.4.3"
     "@cloud-editor-mono/common": "npm:@bcmi-labs/cloud-editor-common@^1.4.3"
@@ -13449,7 +13590,7 @@ __metadata:
     "@vitest/coverage-v8": 1.4.0
     "@vitest/ui": 1.4.0
     algoliasearch: 4.20.0
-    blockly: ^11.2.0
+    blockly: ^12.0.0
     buffer: ^6.0.3
     clsx: 1.2.1
     cross-env: 7.0.3
@@ -14400,7 +14541,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"cssstyle@npm:^4.1.0":
+"cssstyle@npm:^4.2.1":
   version: 4.6.0
   resolution: "cssstyle@npm:4.6.0"
   dependencies:
@@ -14606,7 +14747,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"decimal.js@npm:^10.2.0, decimal.js@npm:^10.4.3":
+"decimal.js@npm:^10.2.0":
   version: 10.6.0
   resolution: "decimal.js@npm:10.6.0"
   checksum: 9302b990cd6f4da1c7602200002e40e15d15660374432963421d3cd6d81cc6e27e0a488356b030fee64650947e32e78bdbea245d596dadfeeeb02e146d485999
@@ -18652,7 +18793,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"https-proxy-agent@npm:^7.0.1, https-proxy-agent@npm:^7.0.5":
+"https-proxy-agent@npm:^7.0.1, https-proxy-agent@npm:^7.0.6":
   version: 7.0.6
   resolution: "https-proxy-agent@npm:7.0.6"
   dependencies:
@@ -20165,37 +20306,36 @@ __metadata:
   languageName: node
   linkType: hard
 
-"jsdom@npm:25.0.1":
-  version: 25.0.1
-  resolution: "jsdom@npm:25.0.1"
+"jsdom@npm:26.1.0":
+  version: 26.1.0
+  resolution: "jsdom@npm:26.1.0"
   dependencies:
-    cssstyle: ^4.1.0
+    cssstyle: ^4.2.1
     data-urls: ^5.0.0
-    decimal.js: ^10.4.3
-    form-data: ^4.0.0
+    decimal.js: ^10.5.0
     html-encoding-sniffer: ^4.0.0
     http-proxy-agent: ^7.0.2
-    https-proxy-agent: ^7.0.5
+    https-proxy-agent: ^7.0.6
     is-potential-custom-element-name: ^1.0.1
-    nwsapi: ^2.2.12
-    parse5: ^7.1.2
-    rrweb-cssom: ^0.7.1
+    nwsapi: ^2.2.16
+    parse5: ^7.2.1
+    rrweb-cssom: ^0.8.0
     saxes: ^6.0.0
     symbol-tree: ^3.2.4
-    tough-cookie: ^5.0.0
+    tough-cookie: ^5.1.1
     w3c-xmlserializer: ^5.0.0
     webidl-conversions: ^7.0.0
     whatwg-encoding: ^3.1.1
     whatwg-mimetype: ^4.0.0
-    whatwg-url: ^14.0.0
+    whatwg-url: ^14.1.1
     ws: ^8.18.0
     xml-name-validator: ^5.0.0
   peerDependencies:
-    canvas: ^2.11.2
+    canvas: ^3.0.0
   peerDependenciesMeta:
     canvas:
       optional: true
-  checksum: b637d28445d570014195b3c77d06e54ef69d1f807eaf61388cb470e4d9227244e7fe2e0c32b6df03ac4fe35f746d7c721672d9136ecebb49d2e61a04ab9628e0
+  checksum: 248e500a872b70bfba3fdbd01a13890ab520bfe42912bb85cb99e7f2eda375d80aa4adfcbd5c4716b6e35e93c2c72b127b8e74527a598c5b6d8e62e05f29eb9b
   languageName: node
   linkType: hard
 
@@ -23422,7 +23562,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"nwsapi@npm:^2.2.12":
+"nwsapi@npm:^2.2.16":
   version: 2.2.23
   resolution: "nwsapi@npm:2.2.23"
   checksum: 7af519de08381df9dc0c913d817255cb21e33671641603f6cdabe8cb04b18b32aca1477fdc5dfe08b2039125afa3216d3ef01a3c2603a97d114e842d9414e0c3
@@ -24240,7 +24380,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"parse5@npm:^7.0.0, parse5@npm:^7.1.1, parse5@npm:^7.1.2":
+"parse5@npm:^7.0.0, parse5@npm:^7.1.1, parse5@npm:^7.2.1":
   version: 7.3.0
   resolution: "parse5@npm:7.3.0"
   dependencies:
@@ -26878,13 +27018,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"rrweb-cssom@npm:^0.7.1":
-  version: 0.7.1
-  resolution: "rrweb-cssom@npm:0.7.1"
-  checksum: 62e410ddbaaba6abc196c3bbfa8de4952e0a134d9f2b454ee293039bf9931322d806e14d52ed122a5c2bd332a868b9da2e99358fb6232c33758b5ede86d992c8
-  languageName: node
-  linkType: hard
-
 "rrweb-cssom@npm:^0.8.0":
   version: 0.8.0
   resolution: "rrweb-cssom@npm:0.8.0"
@@ -29290,7 +29423,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tough-cookie@npm:^5.0.0":
+"tough-cookie@npm:^5.1.1":
   version: 5.1.2
   resolution: "tough-cookie@npm:5.1.2"
   dependencies:
@@ -31249,7 +31382,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"whatwg-url@npm:^14.0.0":
+"whatwg-url@npm:^14.0.0, whatwg-url@npm:^14.1.1":
   version: 14.2.0
   resolution: "whatwg-url@npm:14.2.0"
   dependencies:

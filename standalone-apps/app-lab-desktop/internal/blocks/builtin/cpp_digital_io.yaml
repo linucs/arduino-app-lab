@@ -1,0 +1,71 @@
+# Built-in block: Digital I/O (C++ only, MCU-side pin control).
+# Lives in internal/blocks/builtin/ → embedded in the binary via //go:embed.
+# Processed by the same CodeFactory pipeline as external catalog entries.
+
+id: builtin_digital_io
+displayName: Digital I/O
+category: "Input / Output::Digital"
+implementations:
+  - runtime: "arduino:cpp"
+    blocks:
+      # --- pinMode ---
+      - blockly:
+          type: cpp_pin_mode
+          message0: "pinMode pin %1 mode %2"
+          args0:
+            - type: input_value
+              name: PIN
+              check: ["Number", "int", "unsigned int", "long", "unsigned long", "byte", "word", "uint8_t", "uint16_t", "uint32_t", "int8_t", "int16_t", "int32_t"]
+            - type: field_dropdown
+              name: MODE
+              options:
+                - ["INPUT", "INPUT"]
+                - ["OUTPUT", "OUTPUT"]
+                - ["INPUT_PULLUP", "INPUT_PULLUP"]
+          previousStatement: null
+          nextStatement: null
+          tooltip: "Configure a digital pin as INPUT, OUTPUT, or INPUT_PULLUP."
+        codegen:
+          body:
+            - "pinMode({{PIN}}, {{MODE}});"
+          inputDefaults:
+            PIN: "13"
+
+      # --- digitalWrite ---
+      - blockly:
+          type: cpp_digital_write
+          message0: "digitalWrite pin %1 %2"
+          args0:
+            - type: input_value
+              name: PIN
+              check: ["Number", "int", "unsigned int", "long", "unsigned long", "byte", "word", "uint8_t", "uint16_t", "uint32_t", "int8_t", "int16_t", "int32_t"]
+            - type: field_dropdown
+              name: VALUE
+              options:
+                - ["HIGH", "HIGH"]
+                - ["LOW", "LOW"]
+          previousStatement: null
+          nextStatement: null
+          tooltip: "Write HIGH or LOW to a digital pin."
+        codegen:
+          body:
+            - "digitalWrite({{PIN}}, {{VALUE}});"
+          inputDefaults:
+            PIN: "13"
+
+      # --- digitalRead ---
+      - blockly:
+          type: cpp_digital_read
+          message0: "digitalRead pin %1"
+          args0:
+            - type: input_value
+              name: PIN
+              check: ["Number", "int", "unsigned int", "long", "unsigned long", "byte", "word", "uint8_t", "uint16_t", "uint32_t", "int8_t", "int16_t", "int32_t"]
+          output: Number
+          tooltip: "Read the value from a digital pin (HIGH or LOW)."
+        codegen:
+          body:
+            - "digitalRead({{PIN}})"
+          precedence: ATOMIC
+          inputDefaults:
+            PIN: "2"

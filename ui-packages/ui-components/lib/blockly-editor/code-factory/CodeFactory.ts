@@ -33,8 +33,8 @@ const PRECEDENCE: Record<CodegenPrecedence, number> = {
   NONE: 99,
 };
 
-// Default category colour for catalog-generated toolbox categories.
-const CATALOG_CATEGORY_COLOUR = '180';
+// Default colour for catalog-generated sub-categories (Digital, Analog, Serial, …).
+const CATALOG_CATEGORY_COLOUR = '#607D8B';
 
 interface CategoryNode {
   blocks: string[];
@@ -50,7 +50,10 @@ export class CodeFactory {
     this.adapter = adapter;
   }
 
-  loadCatalogEntries(entries: CatalogEntry[]): void {
+  loadCatalogEntries(
+    entries: CatalogEntry[],
+    categoryColours: Record<string, string> = {},
+  ): void {
     for (const entry of entries) {
       const impl = entry.implementations.find(
         (i) => i.runtime === this.adapter.runtime,
@@ -59,8 +62,11 @@ export class CodeFactory {
 
       this.collectDependencies(impl);
 
+      const topCategory = entry.category.split('::')[0];
+      const fallbackColour = categoryColours[topCategory];
+
       for (const blockDef of impl.blocks) {
-        if (this.registerBlock(blockDef, impl)) {
+        if (this.registerBlock(blockDef, impl, fallbackColour)) {
           this.addToCategory(entry.category, blockDef.blockly.type);
         }
       }
@@ -88,16 +94,17 @@ export class CodeFactory {
   private registerBlock(
     blockDef: BlockDefinition,
     impl: Implementation,
+    fallbackColour?: string,
   ): boolean {
     const blockType = blockDef.blockly.type;
 
     this.lintDropdownBooleans(blockDef);
 
     if (blockDef.generator) {
-      return this.registerImperativeBlock(blockDef, impl);
+      return this.registerImperativeBlock(blockDef, impl, fallbackColour);
     }
     if (blockDef.codegen) {
-      return this.registerDeclarativeBlock(blockDef, impl);
+      return this.registerDeclarativeBlock(blockDef, impl, fallbackColour);
     }
 
     console.warn(
@@ -111,6 +118,7 @@ export class CodeFactory {
   private registerImperativeBlock(
     blockDef: BlockDefinition,
     impl: Implementation,
+    fallbackColour?: string,
   ): boolean {
     const blockType = blockDef.blockly.type;
     const generatorName = blockDef.generator!;
@@ -123,7 +131,7 @@ export class CodeFactory {
       return false;
     }
 
-    this.defineBlockType(blockDef);
+    this.defineBlockType(blockDef, fallbackColour);
 
     const instance = new GeneratorClass();
     const implCodegen = impl.codegen;
@@ -140,8 +148,9 @@ export class CodeFactory {
   private registerDeclarativeBlock(
     blockDef: BlockDefinition,
     impl: Implementation,
+    fallbackColour?: string,
   ): boolean {
-    this.defineBlockType(blockDef);
+    this.defineBlockType(blockDef, fallbackColour);
 
     const codegen = blockDef.codegen!;
     const implCodegen = impl.codegen;
@@ -169,11 +178,15 @@ export class CodeFactory {
 
   // Register the block's JSON definition in the global Blockly.Blocks
   // registry, guarded by the module-level dedup Set (codegen.md §6).
-  private defineBlockType(blockDef: BlockDefinition): void {
+  private defineBlockType(blockDef: BlockDefinition, fallbackColour?: string): void {
     const blockType = blockDef.blockly.type;
     if (registeredBlockTypes.has(blockType)) return;
     registeredBlockTypes.add(blockType);
-    Blockly.common.defineBlocksWithJsonArray([blockDef.blockly]);
+    const def =
+      fallbackColour && blockDef.blockly.colour === undefined
+        ? { ...blockDef.blockly, colour: fallbackColour }
+        : blockDef.blockly;
+    Blockly.common.defineBlocksWithJsonArray([def]);
   }
 
   private collectDependencies(impl: Implementation): void {

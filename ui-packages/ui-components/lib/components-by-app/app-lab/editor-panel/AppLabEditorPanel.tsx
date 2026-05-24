@@ -8,6 +8,7 @@ import {
   EditorPanel,
   useI18n,
 } from '@cloud-editor-mono/ui-components/lib/components-by-app/app-lab';
+import { TypedVariableDialog } from '../../../dialogs/app-lab/typed-variable-dialog/TypedVariableDialog';
 import clsx from 'clsx';
 import { memo, useCallback } from 'react';
 
@@ -34,6 +35,7 @@ const AppLabEditorPanel: React.FC<AppLabEditorPanelProps> = (
     getKeywords,
     blocksOverwriteDialogLogic,
     blocklyPromptDialogLogic,
+    typedVariableDialogLogic,
     selectedFileFullName,
     hasSidecar,
   } = appLabEditorLogic();
@@ -79,15 +81,18 @@ const AppLabEditorPanel: React.FC<AppLabEditorPanelProps> = (
         }}
         readOnlyBanner={getReadOnlyBanner()}
       />
-      {blocksOverwriteDialogLogic?.().reactModalProps.isOpen && (
+      {blocksOverwriteDialogLogic?.().open && (
         <BlocksOverwriteDialog
           blocksOverwriteDialogLogic={blocksOverwriteDialogLogic}
         />
       )}
-      {blocklyPromptDialogLogic?.().reactModalProps.isOpen && (
+      {blocklyPromptDialogLogic?.().open && (
         <BlocklyPromptDialog
           blocklyPromptDialogLogic={blocklyPromptDialogLogic}
         />
+      )}
+      {typedVariableDialogLogic?.().open && (
+        <TypedVariableDialog logic={typedVariableDialogLogic} />
       )}
     </>
   ) : (

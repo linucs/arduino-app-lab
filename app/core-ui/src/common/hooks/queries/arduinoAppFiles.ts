@@ -413,7 +413,7 @@ export const useRetrieveBatchArduinoAppFileContents: UseRetrieveBatchArduinoAppF
     const deleteAppFile = useCallback(
       async (path?: string | undefined) => {
         const fileIndex = filesContents.items.findIndex((f) => f.path === path);
-        const file = filesContents.items[fileIndex];
+        const file = fileIndex >= 0 ? filesContents.items[fileIndex] : undefined;
         setFilesContents((prev) => ({
           ...prev,
           items: prev.items.filter((item) => item.path !== path),
@@ -422,7 +422,9 @@ export const useRetrieveBatchArduinoAppFileContents: UseRetrieveBatchArduinoAppF
           return await deleteAppFileMutate(path);
         } catch (error) {
           const err = error as Error;
-          if (err.cause !== 404 && file) {
+          // Rollback: re-insert the removed item only if we actually had one
+          // and the error is not a 404 (file already gone on disk).
+          if (err.cause !== 404 && file && fileIndex >= 0) {
             setFilesContents((prev) => {
               const items = [
                 ...prev.items.slice(0, fileIndex),

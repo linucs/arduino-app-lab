@@ -1,0 +1,141 @@
+id: builtin_math
+displayName: Mathematics (Arduino)
+category: "Mathematics"
+implementations:
+  - runtime: "arduino:cpp"
+    blocks:
+      # --- map ---
+      - blockly:
+          type: cpp_map
+          message0: "map %1 from [%2 , %3] to [%4 , %5]"
+          args0:
+            - type: input_value
+              name: VALUE
+              check: ["Number", "int", "unsigned int", "long", "unsigned long", "byte", "word", "uint8_t", "uint16_t", "uint32_t", "int8_t", "int16_t", "int32_t"]
+            - type: input_value
+              name: FROM_LOW
+              check: ["Number", "int", "unsigned int", "long", "unsigned long", "byte", "word", "uint8_t", "uint16_t", "uint32_t", "int8_t", "int16_t", "int32_t"]
+            - type: input_value
+              name: FROM_HIGH
+              check: ["Number", "int", "unsigned int", "long", "unsigned long", "byte", "word", "uint8_t", "uint16_t", "uint32_t", "int8_t", "int16_t", "int32_t"]
+            - type: input_value
+              name: TO_LOW
+              check: ["Number", "int", "unsigned int", "long", "unsigned long", "byte", "word", "uint8_t", "uint16_t", "uint32_t", "int8_t", "int16_t", "int32_t"]
+            - type: input_value
+              name: TO_HIGH
+              check: ["Number", "int", "unsigned int", "long", "unsigned long", "byte", "word", "uint8_t", "uint16_t", "uint32_t", "int8_t", "int16_t", "int32_t"]
+          output: Number
+          tooltip: "Re-map a number from one range to another."
+          inputsInline: true
+        codegen:
+          body:
+            - "map({{VALUE}}, {{FROM_LOW}}, {{FROM_HIGH}}, {{TO_LOW}}, {{TO_HIGH}})"
+          precedence: ATOMIC
+          inputDefaults:
+            VALUE: "0"
+            FROM_LOW: "0"
+            FROM_HIGH: "1023"
+            TO_LOW: "0"
+            TO_HIGH: "255"
+
+      # --- constrain ---
+      - blockly:
+          type: cpp_constrain
+          message0: "constrain %1 between %2 and %3"
+          args0:
+            - type: input_value
+              name: VALUE
+              check: ["Number", "int", "unsigned int", "long", "unsigned long", "byte", "word", "float", "double", "uint8_t", "uint16_t", "uint32_t", "int8_t", "int16_t", "int32_t"]
+            - type: input_value
+              name: MIN
+              check: ["Number", "int", "unsigned int", "long", "unsigned long", "byte", "word", "float", "double", "uint8_t", "uint16_t", "uint32_t", "int8_t", "int16_t", "int32_t"]
+            - type: input_value
+              name: MAX
+              check: ["Number", "int", "unsigned int", "long", "unsigned long", "byte", "word", "float", "double", "uint8_t", "uint16_t", "uint32_t", "int8_t", "int16_t", "int32_t"]
+          output: Number
+          tooltip: "Constrain a number to be within a range."
+          inputsInline: true
+        codegen:
+          body:
+            - "constrain({{VALUE}}, {{MIN}}, {{MAX}})"
+          precedence: ATOMIC
+          inputDefaults:
+            VALUE: "0"
+            MIN: "0"
+            MAX: "255"
+
+      # --- random (max only) ---
+      - blockly:
+          type: cpp_random_max
+          message0: "random up to %1"
+          args0:
+            - type: input_value
+              name: MAX
+              check: ["Number", "int", "unsigned int", "long", "unsigned long", "byte", "word", "uint8_t", "uint16_t", "uint32_t", "int8_t", "int16_t", "int32_t"]
+          output: Number
+          tooltip: "Generate a random number between 0 and max (exclusive)."
+          inputsInline: true
+        codegen:
+          body:
+            - "random({{MAX}})"
+          precedence: ATOMIC
+          inputDefaults:
+            MAX: "100"
+
+      # --- random (min, max) ---
+      - blockly:
+          type: cpp_random_range
+          message0: "random from %1 to %2"
+          args0:
+            - type: input_value
+              name: MIN
+              check: ["Number", "int", "unsigned int", "long", "unsigned long", "byte", "word", "uint8_t", "uint16_t", "uint32_t", "int8_t", "int16_t", "int32_t"]
+            - type: input_value
+              name: MAX
+              check: ["Number", "int", "unsigned int", "long", "unsigned long", "byte", "word", "uint8_t", "uint16_t", "uint32_t", "int8_t", "int16_t", "int32_t"]
+          output: Number
+          tooltip: "Generate a random number between min (inclusive) and max (exclusive)."
+          inputsInline: true
+        codegen:
+          body:
+            - "random({{MIN}}, {{MAX}})"
+          precedence: ATOMIC
+          inputDefaults:
+            MIN: "0"
+            MAX: "100"
+
+      # --- randomSeed (setup-only) ---
+      - blockly:
+          type: cpp_random_seed
+          message0: "randomSeed %1"
+          args0:
+            - type: input_value
+              name: SEED
+              check: ["Number", "int", "unsigned int", "long", "unsigned long", "byte", "word", "uint8_t", "uint16_t", "uint32_t", "int8_t", "int16_t", "int32_t"]
+          previousStatement: null
+          nextStatement: null
+          tooltip: "Initialize the random number generator. Place in setup. Use analogRead(A0) for noise-based seeding."
+          inputsInline: true
+        codegen:
+          setup:
+            - "randomSeed({{SEED}});"
+          inputDefaults:
+            SEED: "analogRead(A0)"
+
+      # --- sq ---
+      - blockly:
+          type: cpp_sq
+          message0: "sq %1"
+          args0:
+            - type: input_value
+              name: VALUE
+              check: ["Number", "int", "unsigned int", "long", "unsigned long", "byte", "word", "float", "double", "uint8_t", "uint16_t", "uint32_t", "int8_t", "int16_t", "int32_t"]
+          output: Number
+          tooltip: "Square a number (value * value)."
+          inputsInline: true
+        codegen:
+          body:
+            - "sq({{VALUE}})"
+          precedence: ATOMIC
+          inputDefaults:
+            VALUE: "0"

@@ -37,4 +37,11 @@ export type BlocklyEditorLogic = () => {
   onPrompt?: (message: string, defaultValue: string) => Promise<string | null>;
   onAlert?: (message: string) => Promise<void>;
   onConfirm?: (message: string) => Promise<boolean>;
+  // When provided, replaces @blockly/plugin-typed-variable-modal with a React
+  // dialog that matches App Lab's visual style. Called when the user clicks
+  // "Create typed variable…" in the flyout; resolves with the chosen name+type
+  // or null if cancelled.
+  onCreateTypedVariable?: (
+    types: [string, string][],
+  ) => Promise<{ name: string; type: string } | null>;
 };

@@ -1,6 +1,5 @@
+import * as Blockly from 'blockly';
 import { PythonGenerator, pythonGenerator } from 'blockly/python';
-
-import { registerPythonBlocks } from '../custom-blocks/pythonBlocks';
 
 // The built-in Python handlers are attached to the bundled singleton by
 // side-effect at module load, not in PythonGenerator's constructor — a fresh
@@ -14,7 +13,62 @@ export class ArduinoPythonGenerator extends PythonGenerator {
   constructor() {
     super('ArduinoPython');
     Object.assign(this.forBlock, pythonGenerator.forBlock);
-    registerPythonBlocks(this);
+
+    // match/case (Python 3.10+)
+    this.forBlock['controls_switch_case'] = (block, generator): string => {
+      const INDENT = generator.INDENT;
+      const PASS   = (generator as unknown as { PASS: string }).PASS ?? 'pass';
+      const expr   = generator.valueToCode(block, 'SWITCH_EXPR', 0) || '0';
+      const reindent = (code: string): string =>
+        code.split('\n').map(l => (l ? INDENT + l : l)).join('\n');
+
+      let code = `match ${expr}:\n`;
+      for (let i = 0; block.getInput(`CASE_${i}_VAL`); i++) {
+        const val  = generator.valueToCode(block, `CASE_${i}_VAL`, 0) || '0';
+        const body = generator.statementToCode(block, `CASE_${i}_BODY`) || `${INDENT}${PASS}\n`;
+        code += `${INDENT}case ${val}:\n`;
+        code += reindent(body);
+      }
+      const defaultBody = generator.statementToCode(block, 'DEFAULT_BODY');
+      if (defaultBody) {
+        code += `${INDENT}case _:\n`;
+        code += reindent(defaultBody);
+      }
+      return code;
+    };
+  }
+
+  // PythonGenerator.init() writes ALL workspace VariableModels as "x = None"
+  // into definitions_.variables — including procedure parameters. Parameters
+  // must not appear as module-level declarations: they already appear in the
+  // function signature. Override to rebuild definitions_.variables after the
+  // parent runs, excluding variables that are parameters of any procedure block.
+  override init(workspace: Blockly.Workspace): void {
+    super.init(workspace);
+
+    const paramVarIds = new Set<string>();
+    for (const block of workspace.getAllBlocks(false)) {
+      if (
+        block.type === 'procedures_defnoreturn' ||
+        block.type === 'procedures_defreturn'
+      ) {
+        for (const id of block.getVars()) paramVarIds.add(id);
+      }
+    }
+
+    if (paramVarIds.size === 0) return;
+
+    const nonParamVars = Blockly.Variables.allUsedVarModels(workspace).filter(
+      (v) => !paramVarIds.has(v.getId()),
+    );
+
+    if (nonParamVars.length === 0) {
+      delete this.definitions_['variables'];
+    } else {
+      this.definitions_['variables'] = nonParamVars
+        .map((v) => `${this.getVariableName(v.getId())} = None`)
+        .join('\n');
+    }
   }
 
   // Wraps the body in `def loop():` + `App.run(user_loop=loop)` and prepends

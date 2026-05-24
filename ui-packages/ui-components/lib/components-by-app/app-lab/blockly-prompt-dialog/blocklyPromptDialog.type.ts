@@ -1,5 +1,3 @@
-import { ModalLogic } from '../../../essential/dialog';
-
 export type BlocklyDialogKind = 'prompt' | 'alert' | 'confirm';
 
 export type BlocklyPromptDialogData = {
@@ -8,12 +6,13 @@ export type BlocklyPromptDialogData = {
   inputValue: string;
 };
 
-export type BlocklyPromptDialogLogic = () => ReturnType<ModalLogic> &
-  BlocklyPromptDialogData & {
-    setInputValue: (value: string) => void;
-    confirmAction: () => void;
-    cancelAction: () => void;
-  };
+export type BlocklyPromptDialogLogic = () => BlocklyPromptDialogData & {
+  open: boolean;
+  onOpenChange: (open: boolean) => void;
+  setInputValue: (value: string) => void;
+  confirmAction: () => void;
+  cancelAction: () => void;
+};
 
 export type BlocklyPromptFn = (
   message: string,
