@@ -1,4 +1,4 @@
-import { CatalogEntry } from '@cloud-editor-mono/common';
+import { CatalogEntry } from './catalogEntry.types';
 
 export interface BlockCatalogService {
   getBlockCatalog(): Promise<CatalogEntry[]>;

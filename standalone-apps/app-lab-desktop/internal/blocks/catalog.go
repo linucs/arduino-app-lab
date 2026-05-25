@@ -1,7 +1,7 @@
 package blocks
 
 // Domain types for the block catalog. The JSON tags mirror the TypeScript
-// CatalogEntry types in app/common/schemas/v1/catalogEntry.types.ts — Wails
+// CatalogEntry types in app/domain/src/services/block-catalog-service/catalogEntry.types.ts — Wails
 // serializes these structs directly to the frontend via GetBlockCatalog().
 
 // CatalogEntry is the top-level unit in the block catalog. A single YAML file

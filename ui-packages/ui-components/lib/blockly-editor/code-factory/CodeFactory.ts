@@ -6,7 +6,7 @@ import type {
   CodegenPrecedence,
   Dependency,
   Implementation,
-} from '@cloud-editor-mono/common';
+} from '@cloud-editor-mono/domain/src/services/block-catalog-service';
 
 import type { RuntimeAdapter } from '../adapters/runtimeAdapter.type';
 import { getGenerator } from './generatorRegistry';

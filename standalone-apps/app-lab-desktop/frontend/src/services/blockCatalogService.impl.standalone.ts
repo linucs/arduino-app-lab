@@ -1,5 +1,7 @@
-import { BlockCatalogService } from '@cloud-editor-mono/domain/src/services/services-by-app/app-lab';
-import { CatalogEntry } from '@cloud-editor-mono/common';
+import {
+  BlockCatalogService,
+  CatalogEntry,
+} from '@cloud-editor-mono/domain/src/services/services-by-app/app-lab';
 
 import { GetBlockCatalog } from '../../wailsjs/go/app/App';
 

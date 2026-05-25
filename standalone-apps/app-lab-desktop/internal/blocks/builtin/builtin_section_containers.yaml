@@ -1,6 +1,6 @@
 id: builtin_section_containers
 displayName: Section Containers
-category: "Custom Code"
+category: "Control"
 implementations:
   - runtime: "arduino:cpp"
     blocks:
@@ -14,8 +14,7 @@ implementations:
               name: BODY
           previousStatement: null
           nextStatement: null
-          colour: 210
-          tooltip: "C++: code goes to the #include zone (before global declarations). Python: code goes before the first import."
+          tooltip: "C++: code goes to the #include zone (before global declarations)."
         generator: SectionIncludesGenerator
 
       # --- Global declarations: code at global / module scope ---
@@ -28,8 +27,7 @@ implementations:
               name: BODY
           previousStatement: null
           nextStatement: null
-          colour: 160
-          tooltip: "C++: code at global scope (after includes, before setup). Python: module-level code after imports."
+          tooltip: "C++: code at global scope (after includes, before setup)."
         generator: SectionDeclarationsGenerator
 
       # --- Setup: code that runs once at startup ---
@@ -42,8 +40,7 @@ implementations:
               name: BODY
           previousStatement: null
           nextStatement: null
-          colour: 60
-          tooltip: "C++: code runs inside void setup(). Python: code runs at module level before def loop()."
+          tooltip: "C++: code runs inside void setup()."
         generator: SectionSetupGenerator
 
       # --- Helper functions: reusable function definitions ---
@@ -56,8 +53,7 @@ implementations:
               name: BODY
           previousStatement: null
           nextStatement: null
-          colour: 30
-          tooltip: "C++: function definitions at global scope (before setup). Python: def blocks at module level."
+          tooltip: "C++: function definitions at global scope (before setup)."
         generator: SectionHelpersGenerator
 
   - runtime: "arduino:python"
@@ -70,8 +66,7 @@ implementations:
               name: BODY
           previousStatement: null
           nextStatement: null
-          colour: 210
-          tooltip: "C++: code goes to the #include zone (before global declarations). Python: code goes before the first import."
+          tooltip: "Python: code that imports packages used in the program (before global declarations)."
         generator: SectionIncludesGenerator
 
       - blockly:
@@ -82,8 +77,7 @@ implementations:
               name: BODY
           previousStatement: null
           nextStatement: null
-          colour: 160
-          tooltip: "C++: code at global scope (after includes, before setup). Python: module-level code after imports."
+          tooltip: "Python: module-level code after imports."
         generator: SectionDeclarationsGenerator
 
       - blockly:
@@ -94,8 +88,7 @@ implementations:
               name: BODY
           previousStatement: null
           nextStatement: null
-          colour: 60
-          tooltip: "C++: code runs inside void setup(). Python: code runs at module level before def loop()."
+          tooltip: "Python: code runs at module level before def loop()."
         generator: SectionSetupGenerator
 
       - blockly:
@@ -106,6 +99,5 @@ implementations:
               name: BODY
           previousStatement: null
           nextStatement: null
-          colour: 30
-          tooltip: "C++: function definitions at global scope (before setup). Python: def blocks at module level."
+          tooltip: "Python: def blocks at module level."
         generator: SectionHelpersGenerator

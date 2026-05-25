@@ -1,6 +1,6 @@
 import * as Blockly from 'blockly';
 
-import { BlockCodegen, CodegenSections } from '@cloud-editor-mono/common';
+import { BlockCodegen, CodegenSections } from '@cloud-editor-mono/domain/src/services/block-catalog-service';
 
 // Order.NONE for value inputs — lets the generator wrap with parens when needed.
 const ORDER_NONE = 99;
@@ -29,6 +29,10 @@ export function resolveTemplate(
   return template.replace(/\{\{(\w+)\}\}/g, (_match, name: string) => {
     const field = block.getField(name);
     if (field !== null) {
+      if (field instanceof Blockly.FieldVariable) {
+        const varId = block.getFieldValue(name) ?? '';
+        return varId ? generator.getVariableName(varId) : '';
+      }
       return String(block.getFieldValue(name) ?? '');
     }
 
@@ -152,6 +156,10 @@ function resolveTemplateWithDefaults(
   return template.replace(/\{\{(\w+)\}\}/g, (_match, name: string) => {
     const field = block.getField(name);
     if (field !== null) {
+      if (field instanceof Blockly.FieldVariable) {
+        const varId = block.getFieldValue(name) ?? '';
+        return varId ? generator.getVariableName(varId) : '';
+      }
       return String(block.getFieldValue(name) ?? '');
     }
 
