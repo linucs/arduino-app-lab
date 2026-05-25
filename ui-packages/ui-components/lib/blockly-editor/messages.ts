@@ -15,4 +15,11 @@ export const messages = defineMessages({
     description:
       'Warning toast shown when the Blockly sidecar version is higher than SIDECAR_FORMAT_VERSION',
   },
+  sidecarPartialLoad: {
+    id: 'blockly-editor.sidecar-partial-load',
+    defaultMessage:
+      'Some blocks could not be restored — they may require an update or a missing catalog.',
+    description:
+      'Warning toast shown when Blockly fails to deserialize some block types from the sidecar',
+  },
 });

@@ -45,6 +45,11 @@ import { registerFieldMultilineInput } from '@blockly/field-multilineinput';
 // field_multilinetext: requires explicit call.
 registerFieldMultilineInput(); // → 'field_multilinetext'
 
+// --- Extensions ---
+Blockly.Extensions.register('hat_event_style', function (this: Blockly.Block) {
+  (this as unknown as { hat: string }).hat = 'cap';
+});
+
 // Callback key used by the toolbox button and TypedVariableModal together.
 const TYPED_VAR_CALLBACK_KEY = 'CREATE_TYPED_VARIABLE_BUTTON';
 

@@ -51,6 +51,8 @@ implementations:
             - type: input_statement
               name: BODY
           nextStatement: null
+          extensions:
+            - hat_event_style
           tooltip: "Run the attached code whenever the pin changes to the selected state."
         codegen:
           declarations:

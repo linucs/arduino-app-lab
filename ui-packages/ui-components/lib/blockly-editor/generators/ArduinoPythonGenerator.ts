@@ -91,13 +91,13 @@ export class ArduinoPythonGenerator extends PythonGenerator {
     sections.push(imports.join('\n'));
     if (others.length) sections.push(others.join('\n'));
     sections.push(`def loop():\n${body}`);
-    sections.push('\nApp.run(user_loop=loop)');
+    sections.push('App.run(user_loop=loop)');
 
     // Reset state per Blockly's generator contract: subsequent
     // workspaceToCode invocations must start from a clean slate.
     this.definitions_ = Object.create(null);
     this.nameDB_?.reset();
 
-    return sections.join('\n') + '\n';
+    return sections.join('\n\n') + '\n';
   }
 }

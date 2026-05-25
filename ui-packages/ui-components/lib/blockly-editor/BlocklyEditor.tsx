@@ -177,6 +177,13 @@ const BlocklyEditor: React.FC<BlocklyEditorProps> = (
   const lastFileIdRef = useRef<string | undefined>(undefined);
   const toastedErrorSignatureRef = useRef<string | undefined>(undefined);
   const factoryRef = useRef<CodeFactory | null>(null);
+  // True once getBlockCatalog() has settled (resolved or rejected) for the
+  // current mount cycle — gates applySidecar so it runs after catalog types
+  // are registered rather than racing the async load.
+  const catalogReadyRef = useRef<boolean>(false);
+  // Tracks the most-recently-desired sidecar value so the catalog-load
+  // callback applies the up-to-date prop, not a stale closure capture.
+  const desiredSidecarRef = useRef<string | undefined>(undefined);
   if (lastFileIdRef.current !== fileId) {
     lastFileIdRef.current = fileId;
     toastedErrorSignatureRef.current = undefined;
@@ -229,31 +236,29 @@ const BlocklyEditor: React.FC<BlocklyEditorProps> = (
         }
       }
     }
-    // Use an application-level flag instead of Blockly.Events.disable() so
-    // that Blockly's internal events still fire (keeping the toolbox flyout in
-    // sync) while our handleChange listener skips spurious flushChange() calls.
     isApplyingSidecarRef.current = true;
+    let loadFailed = false;
     try {
       workspace.clear();
       if (blocksState) {
         Blockly.serialization.workspaces.load(blocksState, workspace);
       }
     } catch (error) {
-      console.error('BlocklyEditor: failed to load sidecar state', error);
-      // Reset to a known-clean empty state after a partial load failure.
-      try {
-        workspace.clear();
-      } catch (_) {
-        // ignore secondary clear errors
-      }
+      loadFailed = true;
+      console.warn('BlocklyEditor: some blocks could not be restored (unregistered types?)', error);
+      snackbar({
+        message: formatMessage(messages.sidecarPartialLoad),
+        variant: 'warning',
+        opts: { duration: 6000 },
+      });
     } finally {
       isApplyingSidecarRef.current = false;
-      // Discard any undo entries created during clear/load so the user starts
-      // with a clean undo history relative to the freshly applied state.
       workspace.clearUndo();
     }
     sidecarExistedRef.current = Boolean(raw);
-    lastAppliedSidecarRef.current = raw;
+    if (!loadFailed) {
+      lastAppliedSidecarRef.current = raw;
+    }
   };
 
   // Mount / remount the workspace whenever the bound file changes.
@@ -299,6 +304,11 @@ const BlocklyEditor: React.FC<BlocklyEditorProps> = (
     const factory = new CodeFactory(adapter);
     factoryRef.current = factory;
     const categoryColours = extractCategoryColours(adapter.toolbox);
+
+    lastAppliedSidecarRef.current = undefined;
+    catalogReadyRef.current = false;
+    desiredSidecarRef.current = initialBlocks;
+
     getBlockCatalog()
       .then((entries) => {
         if (disposed) return;
@@ -312,16 +322,22 @@ const BlocklyEditor: React.FC<BlocklyEditorProps> = (
               catalogCategories,
             ),
           };
-          workspace.updateToolbox(merged);
+          try {
+            workspace.updateToolbox(merged);
+          } catch (e) {
+            console.warn('[BlocklyEditor] toolbox update failed (bad block definition?):', e);
+          }
         }
       })
       .catch((err) => {
         if (disposed) return;
         console.warn('[BlocklyEditor] failed to load block catalog:', err);
+      })
+      .finally(() => {
+        if (disposed) return;
+        catalogReadyRef.current = true;
+        applySidecar(desiredSidecarRef.current);
       });
-
-    lastAppliedSidecarRef.current = undefined;
-    applySidecar(initialBlocks);
 
     const handleChange = async (
       event: Blockly.Events.Abstract,
@@ -370,6 +386,7 @@ const BlocklyEditor: React.FC<BlocklyEditorProps> = (
 
     return () => {
       disposed = true;
+      catalogReadyRef.current = false;
       disposeTypedVars?.();
       disposePlugins?.();
       flushChange.cancel();
@@ -383,6 +400,8 @@ const BlocklyEditor: React.FC<BlocklyEditorProps> = (
   // Reload the workspace when the sidecar content arrives asynchronously
   // (e.g. after a `getAppFileContent` fetch settles for the just-opened file).
   useEffect(() => {
+    desiredSidecarRef.current = initialBlocks;
+    if (!catalogReadyRef.current) return;
     if (initialBlocks === lastAppliedSidecarRef.current) return;
     applySidecar(initialBlocks);
     // eslint-disable-next-line react-hooks/exhaustive-deps
