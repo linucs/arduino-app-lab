@@ -450,6 +450,7 @@ implementations:
           body:
             - "{{OBJECT}}.replace({{FROM}}, {{TO}});"
           inputDefaults:
+            OBJECT: '""'
             FROM: "'a'"
             TO: "'b'"
 
@@ -475,6 +476,7 @@ implementations:
           body:
             - "{{OBJECT}}.replace({{FROM}}, {{TO}});"
           inputDefaults:
+            OBJECT: '""'
             FROM: '""'
             TO: '""'
 
@@ -497,6 +499,7 @@ implementations:
           body:
             - "{{OBJECT}}.remove({{INDEX}});"
           inputDefaults:
+            OBJECT: '""'
             INDEX: "0"
 
       # --- remove (index, count) ---
@@ -521,6 +524,7 @@ implementations:
           body:
             - "{{OBJECT}}.remove({{INDEX}}, {{COUNT}});"
           inputDefaults:
+            OBJECT: '""'
             INDEX: "0"
             COUNT: "1"
 
@@ -542,4 +546,5 @@ implementations:
           body:
             - "{{OBJECT}}.concat({{OTHER}});"
           inputDefaults:
+            OBJECT: '""'
             OTHER: '""'

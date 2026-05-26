@@ -41,6 +41,8 @@ implementations:
           tooltip: "Send a notification event to the SBC side via the Bridge."
           inputsInline: true
         codegen:
+          setup:
+            - "Bridge.begin();"
           body:
             - "Bridge.notify(\"{{NAME}}\", {{ARGS}});"
           inputDefaults:
@@ -64,7 +66,7 @@ implementations:
           tooltip: "Register a handler for a Bridge service call from the SBC side."
         codegen:
           declarations:
-            - "String _bridgeHandler_{{NAME}}(String args) {\n  {{BODY}}\n  return \"\";\n}"
+            - "String _bridgeHandler_{{NAME}}(String args) {\n{{BODY}}\n  return \"\";\n}"
           setup:
             - "Bridge.begin();"
             - "Bridge.provide(\"{{NAME}}\", _bridgeHandler_{{NAME}});"
@@ -72,21 +74,31 @@ implementations:
       # --- Bridge.call (declarative) ---
       - blockly:
           type: cpp_bridge_call
-          message0: "Bridge.call %1 args %2 into %3"
+          message0: "Bridge.call %1 args %2 into %3 %4"
           args0:
             - type: field_input
               name: NAME
               text: "serviceName"
             - type: input_value
               name: ARGS
+            - type: field_dropdown
+              name: TYPE
+              options:
+                - ["String", "String"]
+                - ["int", "int"]
+                - ["float", "float"]
+                - ["double", "double"]
+                - ["bool", "bool"]
             - type: field_input
               name: OUT_VAR
               text: "result"
           previousStatement: null
           nextStatement: null
-          tooltip: "Call a Bridge service on the SBC and capture the result."
+          tooltip: "Call a Bridge service on the SBC and capture the result into a typed variable."
           inputsInline: true
         codegen:
+          declarations:
+            - "{{TYPE}} {{OUT_VAR}};"
           setup:
             - "Bridge.begin();"
           body:
@@ -99,23 +111,6 @@ implementations:
       imports:
         - "from arduino.app_utils import Bridge"
     blocks:
-      # --- Python print ---
-      - blockly:
-          type: python_print
-          message0: "print %1"
-          args0:
-            - type: input_value
-              name: VALUE
-          previousStatement: null
-          nextStatement: null
-          tooltip: "Print a value to the console."
-          inputsInline: true
-        codegen:
-          body:
-            - "print({{VALUE}})"
-          inputDefaults:
-            VALUE: '""'
-
       # --- Bridge.notify (Python, declarative) ---
       - blockly:
           type: python_bridge_notify
@@ -154,7 +149,7 @@ implementations:
           tooltip: "Register a handler for a Bridge service call from the MCU side."
         codegen:
           declarations:
-            - "def _bridge_handler_{{NAME}}(args):\n  {{BODY}}"
+            - "def _bridge_handler_{{NAME}}(args):\n{{BODY}}"
           setup:
             - "Bridge.provide(\"{{NAME}}\", _bridge_handler_{{NAME}})"
 

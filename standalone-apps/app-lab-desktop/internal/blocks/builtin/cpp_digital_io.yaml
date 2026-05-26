@@ -1,3 +1,5 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/linucs/arduino-app-lab/refs/heads/main/ui-packages/ui-components/lib/blockly-editor/schemas/block-catalog_v1.schema.json
+
 # Built-in block: Digital I/O (C++ only, MCU-side pin control).
 # Lives in internal/blocks/builtin/ → embedded in the binary via //go:embed.
 # Processed by the same CodeFactory pipeline as external catalog entries.
@@ -26,7 +28,7 @@ implementations:
           nextStatement: null
           tooltip: "Configure a digital pin as INPUT, OUTPUT, or INPUT_PULLUP."
         codegen:
-          body:
+          setup:
             - "pinMode({{PIN}}, {{MODE}});"
           inputDefaults:
             PIN: "13"

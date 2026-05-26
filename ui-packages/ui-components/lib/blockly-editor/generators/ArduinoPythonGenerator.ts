@@ -9,6 +9,7 @@ export class ArduinoPythonGenerator extends PythonGenerator {
   // Widened from protected — handler modules under custom-blocks/ write
   // import_* / decl_* entries through this map (codegen.md §5).
   public declare definitions_: { [key: string]: string };
+  private paramVarIds_: Set<string> = new Set();
 
   constructor() {
     super('ArduinoPython');
@@ -36,6 +37,28 @@ export class ArduinoPythonGenerator extends PythonGenerator {
       }
       return code;
     };
+
+    this.forBlock['variables_get'] = (block) => {
+      const varId = block.getFieldValue('VAR');
+      const name = this.getVariableName(varId);
+      return [this.paramVarIds_.has(varId) ? name : `_State.${name}`, 0];
+    };
+
+    this.forBlock['variables_set'] = (block) => {
+      const varId = block.getFieldValue('VAR');
+      const name = this.getVariableName(varId);
+      const value = this.valueToCode(block, 'VALUE', 0) || 'None';
+      const lhs = this.paramVarIds_.has(varId) ? name : `_State.${name}`;
+      return `${lhs} = ${value}\n`;
+    };
+
+    this.forBlock['math_change'] = (block) => {
+      const varId = block.getFieldValue('VAR');
+      const name = this.getVariableName(varId);
+      const delta = this.valueToCode(block, 'DELTA', 6 /* Order.ADDITIVE */) || '0';
+      const ref = this.paramVarIds_.has(varId) ? name : `_State.${name}`;
+      return `${ref} = (${ref} if isinstance(${ref}, (int, float)) else 0) + ${delta}\n`;
+    };
   }
 
   // PythonGenerator.init() writes ALL workspace VariableModels as "x = None"
@@ -56,6 +79,7 @@ export class ArduinoPythonGenerator extends PythonGenerator {
       }
     }
 
+    this.paramVarIds_ = paramVarIds;
     if (paramVarIds.size === 0) return;
 
     const nonParamVars = Blockly.Variables.allUsedVarModels(workspace).filter(
@@ -80,15 +104,22 @@ export class ArduinoPythonGenerator extends PythonGenerator {
     const others: string[] = [];
     for (const key of Object.keys(this.definitions_)) {
       const value = this.definitions_[key];
+      if (key === 'variables') continue;
       if (key.startsWith('import_')) imports.push(value);
       else others.push(value);
     }
     imports.push('from arduino.app_utils import App');
 
+    const varsDef = this.definitions_['variables'];
+    const stateClass = varsDef
+      ? `class _State:\n${varsDef.split('\n').map((l) => this.INDENT + l).join('\n')}`
+      : '';
+
     const body = code ? this.prefixLines(code.replace(/\n+$/, ''), this.INDENT) : this.INDENT + this.PASS;
 
     const sections: string[] = [];
     sections.push(imports.join('\n'));
+    if (stateClass) sections.push(stateClass);
     if (others.length) sections.push(others.join('\n'));
     sections.push(`def loop():\n${body}`);
     sections.push('App.run(user_loop=loop)');
@@ -96,6 +127,7 @@ export class ArduinoPythonGenerator extends PythonGenerator {
     // Reset state per Blockly's generator contract: subsequent
     // workspaceToCode invocations must start from a clean slate.
     this.definitions_ = Object.create(null);
+    this.paramVarIds_ = new Set();
     this.nameDB_?.reset();
 
     return sections.join('\n\n') + '\n';

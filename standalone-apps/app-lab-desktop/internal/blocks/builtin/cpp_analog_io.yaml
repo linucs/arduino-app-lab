@@ -44,7 +44,7 @@ implementations:
             PIN: "3"
             VALUE: "128"
 
-      # --- analogReference ---
+      # --- analogReference (setup-only) ---
       - blockly:
           type: cpp_analog_reference
           message0: "analogReference %1"
@@ -61,7 +61,7 @@ implementations:
           nextStatement: null
           tooltip: "Configure the reference voltage for analogRead."
         codegen:
-          body:
+          setup:
             - "analogReference({{TYPE}});"
 
       # --- analogReadResolution (setup-only) ---

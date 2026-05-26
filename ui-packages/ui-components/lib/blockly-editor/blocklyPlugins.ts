@@ -208,7 +208,7 @@ export function initTypedVariableModal(
           return;
         }
 
-        workspace.createVariable(trimmed, result.type);
+        workspace.getVariableMap().createVariable(trimmed, result.type);
       },
     );
 
