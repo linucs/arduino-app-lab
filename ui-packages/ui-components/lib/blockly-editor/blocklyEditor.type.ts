@@ -44,4 +44,8 @@ export type BlocklyEditorLogic = () => {
   onCreateTypedVariable?: (
     types: [string, string][],
   ) => Promise<{ name: string; type: string } | null>;
+  // Override for Blockly's `window.open()` called by the block-help action,
+  // which is a no-op inside Wails webviews (same class of problem as
+  // `window.prompt`/`alert`/`confirm` above).
+  onOpenUrl?: (url: string) => void;
 };

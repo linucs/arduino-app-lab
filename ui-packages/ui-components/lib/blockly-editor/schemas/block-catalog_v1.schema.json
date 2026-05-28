@@ -4,27 +4,13 @@
   "title": "Block Catalog Entry",
   "description": "Schema for Arduino App Lab block catalog entries. Catalog files are authored as YAML; this JSON Schema validates the parsed data model.",
   "type": "object",
-  "required": ["id", "displayName", "category", "implementations"],
+  "required": ["id", "category", "implementations"],
   "additionalProperties": false,
   "properties": {
     "id": {
       "type": "string",
       "pattern": "^[a-z0-9]+([_-][a-z0-9]+)*$",
       "description": "Unique component identifier. Use kebab-case for external catalog entries (e.g. modulino-thermo). Built-in entries use snake_case (e.g. builtin_serial, cpp_math)."
-    },
-    "displayName": {
-      "description": "Human-readable name. String or locale map.",
-      "oneOf": [
-        { "type": "string" },
-        {
-          "type": "object",
-          "patternProperties": {
-            "^[a-z]{2}$": { "type": "string" }
-          },
-          "additionalProperties": false,
-          "minProperties": 1
-        }
-      ]
     },
     "category": {
       "type": "string",
@@ -33,10 +19,6 @@
     "docs": {
       "type": "object",
       "description": "External documentation links.",
-      "properties": {
-        "datasheet": { "type": "string", "format": "uri" },
-        "library": { "type": "string", "format": "uri" }
-      },
       "additionalProperties": { "type": "string", "format": "uri" }
     },
     "implementations": {
@@ -64,16 +46,6 @@
         "codegen": {
           "$ref": "#/definitions/CodegenSections",
           "description": "Implementation-level codegen. Emitted once if any block from this implementation is used. Typical: shared imports, object construction, .begin() calls."
-        },
-        "apiReference": {
-          "type": "string",
-          "format": "uri",
-          "description": "URL to the library's API documentation."
-        },
-        "repository": {
-          "type": "string",
-          "format": "uri",
-          "description": "URL to the library's source repository."
         },
         "blocks": {
           "type": "array",

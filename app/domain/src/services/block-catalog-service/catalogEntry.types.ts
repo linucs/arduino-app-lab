@@ -3,8 +3,6 @@
 
 export type Runtime = 'arduino:cpp' | 'arduino:python';
 
-export type DisplayName = string | { [locale: string]: string };
-
 export interface LibraryDependency {
   type: 'library';
   name: string;
@@ -64,14 +62,11 @@ export interface Implementation {
   runtime: Runtime;
   dependencies?: Dependency[];
   codegen?: CodegenSections;
-  apiReference?: string;
-  repository?: string;
   blocks: BlockDefinition[];
 }
 
 export interface CatalogEntry {
   id: string;
-  displayName: DisplayName;
   category: string;
   docs?: { [key: string]: string };
   implementations: Implementation[];

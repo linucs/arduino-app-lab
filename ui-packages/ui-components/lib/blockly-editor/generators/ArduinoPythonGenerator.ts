@@ -101,12 +101,16 @@ export class ArduinoPythonGenerator extends PythonGenerator {
   // (insertion order) and to keep `App.run` after the body, not inside it.
   override finish(code: string): string {
     const imports: string[] = [];
-    const others: string[] = [];
+    const decls: string[] = [];
+    const helpers: string[] = [];
+    const setupLines: string[] = [];
     for (const key of Object.keys(this.definitions_)) {
       const value = this.definitions_[key];
       if (key === 'variables') continue;
       if (key.startsWith('import_')) imports.push(value);
-      else others.push(value);
+      else if (key.startsWith('decl_')) decls.push(value);
+      else if (key.startsWith('func_')) helpers.push(value);
+      else if (key.startsWith('setup_')) setupLines.push(value);
     }
     imports.push('from arduino.app_utils import App');
 
@@ -118,9 +122,11 @@ export class ArduinoPythonGenerator extends PythonGenerator {
     const body = code ? this.prefixLines(code.replace(/\n+$/, ''), this.INDENT) : this.INDENT + this.PASS;
 
     const sections: string[] = [];
-    sections.push(imports.join('\n'));
-    if (stateClass) sections.push(stateClass);
-    if (others.length) sections.push(others.join('\n'));
+    sections.push('# --- Imports ---\n' + imports.join('\n'));
+    if (stateClass) sections.push('# --- State ---\n' + stateClass);
+    if (decls.length) sections.push('# --- Declarations ---\n' + decls.join('\n\n'));
+    if (helpers.length) sections.push('# --- Helper functions ---\n' + helpers.join('\n\n'));
+    if (setupLines.length) sections.push('# --- Setup ---\n' + setupLines.join('\n\n'));
     sections.push(`def loop():\n${body}`);
     sections.push('App.run(user_loop=loop)');
 

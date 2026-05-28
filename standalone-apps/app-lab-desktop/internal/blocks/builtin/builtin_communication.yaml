@@ -1,6 +1,8 @@
 id: builtin_communication
-displayName: Messaging
 category: "Messaging"
+docs:
+  library: "https://docs.arduino.cc/libraries/bridge/"
+  api: "https://docs.arduino.cc/software/app-lab/bridge/bridge-api/"
 implementations:
   - runtime: "arduino:cpp"
     codegen:
@@ -17,6 +19,7 @@ implementations:
           previousStatement: null
           nextStatement: null
           tooltip: "Print a value to the serial monitor via the Arduino Router Bridge."
+          helpUrl: "https://docs.arduino.cc/software/app-lab/bridge/bridge-api/"
           inputsInline: true
         codegen:
           setup:
@@ -39,6 +42,7 @@ implementations:
           previousStatement: null
           nextStatement: null
           tooltip: "Send a notification event to the SBC side via the Bridge."
+          helpUrl: "https://docs.arduino.cc/software/app-lab/bridge/bridge-api/"
           inputsInline: true
         codegen:
           setup:
@@ -64,6 +68,7 @@ implementations:
               name: BODY
           nextStatement: null
           tooltip: "Register a handler for a Bridge service call from the SBC side."
+          helpUrl: "https://docs.arduino.cc/software/app-lab/bridge/bridge-api/"
         codegen:
           declarations:
             - "String _bridgeHandler_{{NAME}}(String args) {\n{{BODY}}\n  return \"\";\n}"
@@ -95,6 +100,7 @@ implementations:
           previousStatement: null
           nextStatement: null
           tooltip: "Call a Bridge service on the SBC and capture the result into a typed variable."
+          helpUrl: "https://docs.arduino.cc/software/app-lab/bridge/bridge-api/"
           inputsInline: true
         codegen:
           declarations:
@@ -124,6 +130,7 @@ implementations:
           previousStatement: null
           nextStatement: null
           tooltip: "Send a notification event to the MCU side via the Bridge."
+          helpUrl: "https://docs.arduino.cc/software/app-lab/bridge/bridge-api/"
           inputsInline: true
         codegen:
           body:
@@ -147,6 +154,7 @@ implementations:
               name: BODY
           nextStatement: null
           tooltip: "Register a handler for a Bridge service call from the MCU side."
+          helpUrl: "https://docs.arduino.cc/software/app-lab/bridge/bridge-api/"
         codegen:
           declarations:
             - "def _bridge_handler_{{NAME}}(args):\n{{BODY}}"
@@ -165,6 +173,7 @@ implementations:
               name: ARGS
           output: null
           tooltip: "Call a Bridge service on the MCU and return the result."
+          helpUrl: "https://docs.arduino.cc/software/app-lab/bridge/bridge-api/"
           inputsInline: true
         codegen:
           body:
@@ -187,6 +196,7 @@ implementations:
           previousStatement: null
           nextStatement: null
           tooltip: "Create a Logger instance. Place near the top of the workspace."
+          helpUrl: "https://docs.arduino.cc/software/app-lab/bridge/bridge-api/"
         codegen:
           imports:
             - "from arduino.app_utils import Logger"

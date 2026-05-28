@@ -42,7 +42,9 @@ export function resolveTemplate(
         return generator.valueToCode(block, name, ORDER_NONE) || '';
       }
       if (input.type === Blockly.inputs.inputTypes.STATEMENT) {
-        return generator.statementToCode(block, name);
+        // Strip trailing newline: statementToCode appends '\n' but the
+        // template join already adds one between body lines.
+        return generator.statementToCode(block, name).replace(/\n$/, '');
       }
     }
 
@@ -172,7 +174,7 @@ function resolveTemplateWithDefaults(
         return fallback !== undefined ? String(fallback) : '';
       }
       if (input.type === Blockly.inputs.inputTypes.STATEMENT) {
-        return generator.statementToCode(block, name);
+        return generator.statementToCode(block, name).replace(/\n$/, '');
       }
     }
 

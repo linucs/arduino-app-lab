@@ -104,8 +104,6 @@ export namespace blocks {
 	    runtime: string;
 	    dependencies?: Dependency[];
 	    codegen?: CodegenSections;
-	    apiReference?: string;
-	    repository?: string;
 	    blocks: BlockDefinition[];
 	
 	    static createFrom(source: any = {}) {
@@ -117,8 +115,6 @@ export namespace blocks {
 	        this.runtime = source["runtime"];
 	        this.dependencies = this.convertValues(source["dependencies"], Dependency);
 	        this.codegen = this.convertValues(source["codegen"], CodegenSections);
-	        this.apiReference = source["apiReference"];
-	        this.repository = source["repository"];
 	        this.blocks = this.convertValues(source["blocks"], BlockDefinition);
 	    }
 	
@@ -142,7 +138,6 @@ export namespace blocks {
 	}
 	export class CatalogEntry {
 	    id: string;
-	    displayName: any;
 	    category: string;
 	    docs?: Record<string, string>;
 	    implementations: Implementation[];
@@ -154,7 +149,6 @@ export namespace blocks {
 	    constructor(source: any = {}) {
 	        if ('string' === typeof source) source = JSON.parse(source);
 	        this.id = source["id"];
-	        this.displayName = source["displayName"];
 	        this.category = source["category"];
 	        this.docs = source["docs"];
 	        this.implementations = this.convertValues(source["implementations"], Implementation);

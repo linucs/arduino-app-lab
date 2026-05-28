@@ -54,11 +54,18 @@ export class CodeFactory {
     entries: CatalogEntry[],
     categoryColours: Record<string, string> = {},
   ): void {
+    let registered = 0;
+    let skippedRuntime = 0;
+    const refused: string[] = [];
+
     for (const entry of entries) {
       const impl = entry.implementations.find(
         (i) => i.runtime === this.adapter.runtime,
       );
-      if (!impl) continue;
+      if (!impl) {
+        skippedRuntime++;
+        continue;
+      }
 
       this.collectDependencies(impl);
 
@@ -68,9 +75,24 @@ export class CodeFactory {
       for (const blockDef of impl.blocks) {
         if (this.registerBlock(blockDef, impl, fallbackColour)) {
           this.addToCategory(entry.category, blockDef.blockly.type);
+          registered++;
+        } else {
+          refused.push(blockDef.blockly.type ?? '(no type)');
         }
       }
     }
+
+    if (refused.length > 0) {
+      console.warn(
+        `[CodeFactory] ${this.adapter.runtime}: ${refused.length} blocks REFUSED:`,
+        refused,
+      );
+    }
+    console.debug(
+      `[CodeFactory] ${this.adapter.runtime}: ${registered} blocks registered` +
+        ` (${skippedRuntime} entries skipped — wrong runtime` +
+        `${refused.length > 0 ? `, ${refused.length} refused` : ''})`,
+    );
   }
 
   generateCode(workspace: Blockly.Workspace): string {

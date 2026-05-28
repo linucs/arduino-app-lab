@@ -8,7 +8,6 @@ package blocks
 // contains exactly one entry.
 type CatalogEntry struct {
 	ID              string            `yaml:"id"              json:"id"`
-	DisplayName     interface{}       `yaml:"displayName"     json:"displayName"`
 	Category        string            `yaml:"category"        json:"category"`
 	Docs            map[string]string `yaml:"docs,omitempty"  json:"docs,omitempty"`
 	Implementations []Implementation  `yaml:"implementations" json:"implementations"`
@@ -21,8 +20,6 @@ type Implementation struct {
 	Runtime      string           `yaml:"runtime"               json:"runtime"`
 	Dependencies []Dependency     `yaml:"dependencies,omitempty" json:"dependencies,omitempty"`
 	Codegen      *CodegenSections `yaml:"codegen,omitempty"      json:"codegen,omitempty"`
-	APIReference string           `yaml:"apiReference,omitempty" json:"apiReference,omitempty"`
-	Repository   string           `yaml:"repository,omitempty"   json:"repository,omitempty"`
 	Blocks       []BlockDefinition `yaml:"blocks"                json:"blocks"`
 }
 

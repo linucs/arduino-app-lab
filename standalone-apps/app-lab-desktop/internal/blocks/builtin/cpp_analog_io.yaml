@@ -1,5 +1,4 @@
 id: builtin_analog_io
-displayName: Analog I/O
 category: "Input / Output::Analog"
 implementations:
   - runtime: "arduino:cpp"
@@ -14,6 +13,7 @@ implementations:
               check: ["Number", "int", "unsigned int", "long", "unsigned long", "byte", "word", "uint8_t", "uint16_t", "uint32_t", "int8_t", "int16_t", "int32_t"]
           output: Number
           tooltip: "Read the analog voltage on a pin (0–4095 at 12-bit resolution)."
+          helpUrl: "https://www.arduino.cc/reference/en/language/functions/analog-io/analogread/"
           inputsInline: true
         codegen:
           body:
@@ -36,6 +36,7 @@ implementations:
           previousStatement: null
           nextStatement: null
           tooltip: "Write a PWM value (0–255) to a pin."
+          helpUrl: "https://www.arduino.cc/reference/en/language/functions/analog-io/analogwrite/"
           inputsInline: true
         codegen:
           body:
@@ -60,6 +61,7 @@ implementations:
           previousStatement: null
           nextStatement: null
           tooltip: "Configure the reference voltage for analogRead."
+          helpUrl: "https://www.arduino.cc/reference/en/language/functions/analog-io/analogreference/"
         codegen:
           setup:
             - "analogReference({{TYPE}});"
@@ -78,6 +80,7 @@ implementations:
           previousStatement: null
           nextStatement: null
           tooltip: "Set the ADC resolution for analogRead (10/12/14 bits). Place in setup."
+          helpUrl: "https://www.arduino.cc/reference/en/language/functions/zero-due-mkr-family/analogreadresolution/"
         codegen:
           setup:
             - "analogReadResolution({{BITS}});"
@@ -96,6 +99,7 @@ implementations:
           previousStatement: null
           nextStatement: null
           tooltip: "Set the PWM resolution for analogWrite (8/10/12 bits). Place in setup."
+          helpUrl: "https://www.arduino.cc/reference/en/language/functions/zero-due-mkr-family/analogwriteresolution/"
         codegen:
           setup:
             - "analogWriteResolution({{BITS}});"

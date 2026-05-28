@@ -1,5 +1,4 @@
 id: builtin_bits_bytes
-displayName: Bits and Bytes
 category: "Input / Output::Advanced"
 implementations:
   - runtime: "arduino:cpp"
@@ -17,6 +16,7 @@ implementations:
               check: ["Number", "int", "unsigned int", "long", "unsigned long", "byte", "word", "uint8_t", "uint16_t", "uint32_t", "int8_t", "int16_t", "int32_t"]
           output: Number
           tooltip: "Read a specific bit of a number. Returns 0 or 1."
+          helpUrl: "https://www.arduino.cc/reference/en/language/functions/bits-and-bytes/bitread/"
           inputsInline: true
         codegen:
           body:
@@ -43,6 +43,7 @@ implementations:
           previousStatement: null
           nextStatement: null
           tooltip: "Write a 0 or 1 to a specific bit of a variable."
+          helpUrl: "https://www.arduino.cc/reference/en/language/functions/bits-and-bytes/bitwrite/"
           inputsInline: true
         codegen:
           body:
@@ -66,6 +67,7 @@ implementations:
           previousStatement: null
           nextStatement: null
           tooltip: "Set a specific bit of a variable to 1."
+          helpUrl: "https://www.arduino.cc/reference/en/language/functions/bits-and-bytes/bitset/"
           inputsInline: true
         codegen:
           body:
@@ -88,6 +90,7 @@ implementations:
           previousStatement: null
           nextStatement: null
           tooltip: "Clear a specific bit of a variable to 0."
+          helpUrl: "https://www.arduino.cc/reference/en/language/functions/bits-and-bytes/bitclear/"
           inputsInline: true
         codegen:
           body:
@@ -106,6 +109,7 @@ implementations:
               check: ["Number", "int", "unsigned int", "long", "unsigned long", "byte", "word", "uint8_t", "uint16_t", "uint32_t", "int8_t", "int16_t", "int32_t"]
           output: Number
           tooltip: "Compute the value of 2^n (a bitmask with bit n set)."
+          helpUrl: "https://www.arduino.cc/reference/en/language/functions/bits-and-bytes/bit/"
           inputsInline: true
         codegen:
           body:
@@ -124,6 +128,7 @@ implementations:
               check: ["Number", "int", "unsigned int", "long", "unsigned long", "byte", "word", "uint8_t", "uint16_t", "uint32_t", "int8_t", "int16_t", "int32_t"]
           output: Number
           tooltip: "Extract the high byte (bits 8–15) of a 16-bit value."
+          helpUrl: "https://www.arduino.cc/reference/en/language/functions/bits-and-bytes/highbyte/"
           inputsInline: true
         codegen:
           body:
@@ -142,6 +147,7 @@ implementations:
               check: ["Number", "int", "unsigned int", "long", "unsigned long", "byte", "word", "uint8_t", "uint16_t", "uint32_t", "int8_t", "int16_t", "int32_t"]
           output: Number
           tooltip: "Extract the low byte (bits 0–7) of a value."
+          helpUrl: "https://www.arduino.cc/reference/en/language/functions/bits-and-bytes/lowbyte/"
           inputsInline: true
         codegen:
           body:

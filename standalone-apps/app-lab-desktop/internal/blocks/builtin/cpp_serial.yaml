@@ -1,6 +1,7 @@
 id: builtin_serial
-displayName: Serial
 category: "Messaging::Serial"
+docs:
+  library: "https://www.arduino.cc/reference/en/language/functions/communication/serial/"
 implementations:
   - runtime: "arduino:cpp"
     blocks:
@@ -20,6 +21,7 @@ implementations:
           previousStatement: null
           nextStatement: null
           tooltip: "Initialize Serial communication at the given baud rate. Place in setup."
+          helpUrl: "https://www.arduino.cc/reference/en/language/functions/communication/serial/begin/"
         codegen:
           setup:
             - "Serial.begin({{BAUD}});"
@@ -34,6 +36,7 @@ implementations:
           previousStatement: null
           nextStatement: null
           tooltip: "Print a value followed by a newline to the Serial port."
+          helpUrl: "https://www.arduino.cc/reference/en/language/functions/communication/serial/println/"
           inputsInline: true
         codegen:
           body:
@@ -51,6 +54,7 @@ implementations:
           previousStatement: null
           nextStatement: null
           tooltip: "Print a value without a trailing newline to the Serial port."
+          helpUrl: "https://www.arduino.cc/reference/en/language/functions/communication/serial/print/"
           inputsInline: true
         codegen:
           body:
@@ -69,6 +73,7 @@ implementations:
           previousStatement: null
           nextStatement: null
           tooltip: "Write raw binary data to the Serial port."
+          helpUrl: "https://www.arduino.cc/reference/en/language/functions/communication/serial/write/"
           inputsInline: true
         codegen:
           body:
@@ -83,6 +88,7 @@ implementations:
           args0: []
           output: Number
           tooltip: "Return the number of bytes available to read from the Serial port."
+          helpUrl: "https://www.arduino.cc/reference/en/language/functions/communication/serial/available/"
         codegen:
           body:
             - "Serial.available()"
@@ -95,6 +101,7 @@ implementations:
           args0: []
           output: Number
           tooltip: "Read the first byte from the Serial input buffer."
+          helpUrl: "https://www.arduino.cc/reference/en/language/functions/communication/serial/read/"
         codegen:
           body:
             - "Serial.read()"
@@ -107,6 +114,7 @@ implementations:
           args0: []
           output: null
           tooltip: "Read characters from the Serial buffer into a String until timeout."
+          helpUrl: "https://www.arduino.cc/reference/en/language/functions/communication/serial/readstring/"
         codegen:
           body:
             - "Serial.readString()"
@@ -119,6 +127,7 @@ implementations:
           args0: []
           output: Number
           tooltip: "Read the next integer from the Serial input buffer."
+          helpUrl: "https://www.arduino.cc/reference/en/language/functions/communication/serial/parseint/"
         codegen:
           body:
             - "Serial.parseInt()"
@@ -131,6 +140,7 @@ implementations:
           args0: []
           output: Number
           tooltip: "Read the next floating-point number from the Serial input buffer."
+          helpUrl: "https://www.arduino.cc/reference/en/language/functions/communication/serial/parsefloat/"
         codegen:
           body:
             - "Serial.parseFloat()"
@@ -145,6 +155,7 @@ implementations:
               name: TARGET
           output: null
           tooltip: "Search Serial buffer for a target string. Returns true if found."
+          helpUrl: "https://www.arduino.cc/reference/en/language/functions/communication/serial/find/"
           inputsInline: true
         codegen:
           body:
@@ -164,6 +175,7 @@ implementations:
           previousStatement: null
           nextStatement: null
           tooltip: "Set the timeout for Serial read operations in milliseconds."
+          helpUrl: "https://www.arduino.cc/reference/en/language/functions/communication/serial/settimeout/"
           inputsInline: true
         codegen:
           setup:
@@ -179,6 +191,7 @@ implementations:
           previousStatement: null
           nextStatement: null
           tooltip: "Wait for outgoing Serial data to finish sending."
+          helpUrl: "https://www.arduino.cc/reference/en/language/functions/communication/serial/flush/"
         codegen:
           body:
             - "Serial.flush();"
@@ -191,6 +204,7 @@ implementations:
           previousStatement: null
           nextStatement: null
           tooltip: "Disable the Serial port."
+          helpUrl: "https://www.arduino.cc/reference/en/language/functions/communication/serial/end/"
         codegen:
           body:
             - "Serial.end();"

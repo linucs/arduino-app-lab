@@ -15,6 +15,8 @@ import './code-factory/sectionContainerGenerators';
 import './custom-blocks/cppFunctionBlock';
 import './custom-blocks/cppFunctionCallBlock';
 import './custom-blocks/switchCaseBlock';
+import './custom-fields/FieldCode';
+import { setFieldCodeLanguage } from './custom-fields/FieldCode';
 import styles from './BlocklyEditor.module.scss';
 import {
   BlocklyEditorLogic,
@@ -150,6 +152,7 @@ const BlocklyEditor: React.FC<BlocklyEditorProps> = (
     onAlert,
     onConfirm,
     onCreateTypedVariable,
+    onOpenUrl,
     fileId,
     readOnly,
   } = blocklyEditorLogic();
@@ -271,6 +274,8 @@ const BlocklyEditor: React.FC<BlocklyEditorProps> = (
     // Setting workspace.options.readOnly after inject has no visual effect.
     const { unsupportedVersion } = parseSidecar(initialBlocks);
     const isReadOnly = readOnly === true || unsupportedVersion;
+
+    setFieldCodeLanguage(language);
 
     const workspace = Blockly.inject(container, {
       toolbox: adapter.toolbox,
@@ -429,6 +434,17 @@ const BlocklyEditor: React.FC<BlocklyEditorProps> = (
       });
     }
   }, [onPrompt, onAlert, onConfirm]);
+
+  // Override Blockly's `showHelp()` which calls `window.open()` — a no-op in
+  // Wails webviews. Same pattern as the dialog overrides above.
+  useEffect(() => {
+    if (!onOpenUrl) return;
+    Blockly.BlockSvg.prototype.showHelp = function () {
+      const url =
+        typeof this.helpUrl === 'function' ? this.helpUrl() : this.helpUrl;
+      if (url) onOpenUrl(url);
+    };
+  }, [onOpenUrl]);
 
   // Resize handling — Blockly needs an explicit `svgResize` when the host
   // container size changes (e.g. side panel toggle, fullscreen).

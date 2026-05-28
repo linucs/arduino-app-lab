@@ -5,7 +5,6 @@
 # Processed by the same CodeFactory pipeline as external catalog entries.
 
 id: builtin_digital_io
-displayName: Digital I/O
 category: "Input / Output::Digital"
 implementations:
   - runtime: "arduino:cpp"
@@ -27,6 +26,7 @@ implementations:
           previousStatement: null
           nextStatement: null
           tooltip: "Configure a digital pin as INPUT, OUTPUT, or INPUT_PULLUP."
+          helpUrl: "https://www.arduino.cc/reference/en/language/functions/digital-io/pinmode/"
         codegen:
           setup:
             - "pinMode({{PIN}}, {{MODE}});"
@@ -49,6 +49,7 @@ implementations:
           previousStatement: null
           nextStatement: null
           tooltip: "Write HIGH or LOW to a digital pin."
+          helpUrl: "https://www.arduino.cc/reference/en/language/functions/digital-io/digitalwrite/"
         codegen:
           body:
             - "digitalWrite({{PIN}}, {{VALUE}});"
@@ -65,6 +66,7 @@ implementations:
               check: ["Number", "int", "unsigned int", "long", "unsigned long", "byte", "word", "uint8_t", "uint16_t", "uint32_t", "int8_t", "int16_t", "int32_t"]
           output: Number
           tooltip: "Read the value from a digital pin (HIGH or LOW)."
+          helpUrl: "https://www.arduino.cc/reference/en/language/functions/digital-io/digitalread/"
         codegen:
           body:
             - "digitalRead({{PIN}})"

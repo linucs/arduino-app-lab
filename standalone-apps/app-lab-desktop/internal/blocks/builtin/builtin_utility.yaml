@@ -1,5 +1,4 @@
 id: builtin_utility
-displayName: Control
 category: "Control"
 implementations:
   - runtime: "arduino:cpp"
@@ -58,6 +57,7 @@ implementations:
           previousStatement: null
           nextStatement: null
           tooltip: "Pause execution for the given number of milliseconds."
+          helpUrl: "https://www.arduino.cc/reference/en/language/functions/time/delay/"
           inputsInline: true
         codegen:
           body:
@@ -72,6 +72,7 @@ implementations:
           args0: []
           output: Number
           tooltip: "Return the number of milliseconds since the board started."
+          helpUrl: "https://www.arduino.cc/reference/en/language/functions/time/millis/"
         codegen:
           body:
             - "millis()"
@@ -84,6 +85,7 @@ implementations:
           args0: []
           output: Number
           tooltip: "Return the number of microseconds since the board started."
+          helpUrl: "https://www.arduino.cc/reference/en/language/functions/time/micros/"
         codegen:
           body:
             - "micros()"
@@ -100,6 +102,7 @@ implementations:
           previousStatement: null
           nextStatement: null
           tooltip: "Pause execution for the given number of microseconds."
+          helpUrl: "https://www.arduino.cc/reference/en/language/functions/time/delaymicroseconds/"
           inputsInline: true
         codegen:
           body:

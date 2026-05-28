@@ -1,5 +1,4 @@
 id: builtin_section_containers
-displayName: Section Containers
 category: "Control"
 implementations:
   - runtime: "arduino:cpp"
@@ -21,7 +20,7 @@ implementations:
       # C++: before setup(). Python: module-level after imports.
       - blockly:
           type: section_declarations
-          message0: "Global declarations %1"
+          message0: "Globals %1"
           args0:
             - type: input_statement
               name: BODY
@@ -43,19 +42,6 @@ implementations:
           tooltip: "C++: code runs inside void setup()."
         generator: SectionSetupGenerator
 
-      # --- Helper functions: reusable function definitions ---
-      # C++: function definitions at global scope (before setup). Python: def blocks at module level.
-      - blockly:
-          type: section_helpers
-          message0: "Helper functions %1"
-          args0:
-            - type: input_statement
-              name: BODY
-          previousStatement: null
-          nextStatement: null
-          tooltip: "C++: function definitions at global scope (before setup)."
-        generator: SectionHelpersGenerator
-
   - runtime: "arduino:python"
     blocks:
       - blockly:
@@ -71,7 +57,7 @@ implementations:
 
       - blockly:
           type: section_declarations
-          message0: "Global declarations %1"
+          message0: "Globals %1"
           args0:
             - type: input_statement
               name: BODY
@@ -91,13 +77,3 @@ implementations:
           tooltip: "Python: code runs at module level before def loop()."
         generator: SectionSetupGenerator
 
-      - blockly:
-          type: section_helpers
-          message0: "Helper functions %1"
-          args0:
-            - type: input_statement
-              name: BODY
-          previousStatement: null
-          nextStatement: null
-          tooltip: "Python: def blocks at module level."
-        generator: SectionHelpersGenerator

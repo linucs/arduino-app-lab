@@ -336,6 +336,84 @@ $app-lab-letter-spacing: 0.01em;
   fill: #434f54 !important;
 }
 
+// ---------------------------------------------------------------------------
+// FieldCode — CodeMirror modal editor for custom_code blocks
+// Appended to <body> by FieldCode.ts, outside the component subtree.
+// ---------------------------------------------------------------------------
+:global(.fieldCode-modal) {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+:global(.fieldCode-backdrop) {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+:global(.fieldCode-dialog) {
+  position: relative;
+  width: 80%;
+  max-width: 800px;
+  height: 70%;
+  max-height: 600px;
+  background: #171e21;
+  border: 1px solid #5d6a6b;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+}
+
+:global(.fieldCode-header) {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 16px;
+  border-bottom: 1px solid #2a3439;
+  background: #1c2529;
+  flex-shrink: 0;
+}
+
+:global(.fieldCode-title) {
+  color: #c9d2d2;
+  font-family: #{$app-lab-font-family};
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: $app-lab-letter-spacing;
+}
+
+:global(.fieldCode-done) {
+  background: #25c2c7;
+  color: #171e21;
+  border: none;
+  border-radius: 4px;
+  padding: 5px 14px;
+  font-family: #{$app-lab-font-family};
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  letter-spacing: $app-lab-letter-spacing;
+
+  &:hover {
+    background: #1da5aa;
+  }
+}
+
+:global(.fieldCode-editorContainer) {
+  flex: 1;
+  overflow: hidden;
+
+  .cm-editor {
+    height: 100%;
+  }
+}
+
 .blockly-workspace {
   flex: 1;
   width: 100%;

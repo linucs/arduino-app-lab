@@ -516,6 +516,7 @@ export const useCreateEditorPanelLogic: UseCreateEditorPanelLogic = function (
       onAlert: blocklyAlert,
       onConfirm: blocklyConfirm,
       onCreateTypedVariable: openTypedVarDialog,
+      onOpenUrl: openLinkExternal,
     });
   }, [
     selectedFile,

@@ -1,5 +1,4 @@
 id: builtin_interrupts
-displayName: Interrupts
 category: "Input / Output::Advanced"
 implementations:
   - runtime: "arduino:cpp"
@@ -12,6 +11,7 @@ implementations:
           previousStatement: null
           nextStatement: null
           tooltip: "Re-enable interrupts after noInterrupts(). Use to close a critical section."
+          helpUrl: "https://www.arduino.cc/reference/en/language/functions/interrupts/interrupts/"
         codegen:
           body:
             - "interrupts();"
@@ -24,6 +24,7 @@ implementations:
           previousStatement: null
           nextStatement: null
           tooltip: "Disable interrupts. Use at the start of a critical section."
+          helpUrl: "https://www.arduino.cc/reference/en/language/functions/interrupts/nointerrupts/"
         codegen:
           body:
             - "noInterrupts();"
@@ -54,6 +55,7 @@ implementations:
           extensions:
             - hat_event_style
           tooltip: "Run the attached code whenever the pin changes to the selected state."
+          helpUrl: "https://www.arduino.cc/reference/en/language/functions/external-interrupts/attachinterrupt/"
         codegen:
           declarations:
             - "volatile bool _isr_flag_{{PIN}} = false;"
@@ -79,6 +81,7 @@ implementations:
           previousStatement: null
           nextStatement: null
           tooltip: "Turn off the interrupt on the given pin."
+          helpUrl: "https://www.arduino.cc/reference/en/language/functions/external-interrupts/detachinterrupt/"
         codegen:
           body:
             - "detachInterrupt(digitalPinToInterrupt({{PIN}}));"

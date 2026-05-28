@@ -1,6 +1,7 @@
 id: builtin_string
-displayName: String
 category: "Text"
+docs:
+  library: "https://www.arduino.cc/reference/en/language/variables/data-types/stringobject/"
 implementations:
   - runtime: "arduino:cpp"
     blocks:
@@ -19,6 +20,7 @@ implementations:
               check: String
           output: Number
           tooltip: "Return the number of characters in the String."
+          helpUrl: "https://www.arduino.cc/reference/en/language/variables/data-types/string/functions/length/"
           inputsInline: true
         codegen:
           body:
@@ -40,6 +42,7 @@ implementations:
               check: ["Number", "int", "unsigned int", "long", "byte", "word", "uint8_t", "uint16_t", "uint32_t"]
           output: Number
           tooltip: "Return the character at the given index as an integer (char)."
+          helpUrl: "https://www.arduino.cc/reference/en/language/variables/data-types/string/functions/charat/"
           inputsInline: true
         codegen:
           body:
@@ -62,6 +65,7 @@ implementations:
               check: ["Number", "int", "char", "byte"]
           output: Number
           tooltip: "Return the index of the first occurrence of a character (-1 if not found)."
+          helpUrl: "https://www.arduino.cc/reference/en/language/variables/data-types/string/functions/indexof/"
           inputsInline: true
         codegen:
           body:
@@ -84,6 +88,7 @@ implementations:
               check: String
           output: Number
           tooltip: "Return the index of the first occurrence of a substring (-1 if not found)."
+          helpUrl: "https://www.arduino.cc/reference/en/language/variables/data-types/string/functions/indexof/"
           inputsInline: true
         codegen:
           body:
@@ -106,6 +111,7 @@ implementations:
               check: ["Number", "int", "char", "byte"]
           output: Number
           tooltip: "Return the index of the last occurrence of a character (-1 if not found)."
+          helpUrl: "https://www.arduino.cc/reference/en/language/variables/data-types/string/functions/lastindexof/"
           inputsInline: true
         codegen:
           body:
@@ -128,6 +134,7 @@ implementations:
               check: String
           output: Number
           tooltip: "Return the index of the last occurrence of a substring (-1 if not found)."
+          helpUrl: "https://www.arduino.cc/reference/en/language/variables/data-types/string/functions/lastindexof/"
           inputsInline: true
         codegen:
           body:
@@ -150,6 +157,7 @@ implementations:
               check: ["Number", "int", "unsigned int", "byte", "word", "uint8_t", "uint16_t"]
           output: String
           tooltip: "Return the portion of the String from the given index to the end."
+          helpUrl: "https://www.arduino.cc/reference/en/language/variables/data-types/string/functions/substring/"
           inputsInline: true
         codegen:
           body:
@@ -175,6 +183,7 @@ implementations:
               check: ["Number", "int", "unsigned int", "byte", "word", "uint8_t", "uint16_t"]
           output: String
           tooltip: "Return the portion of the String between FROM (inclusive) and TO (exclusive)."
+          helpUrl: "https://www.arduino.cc/reference/en/language/variables/data-types/string/functions/substring/"
           inputsInline: true
         codegen:
           body:
@@ -195,6 +204,7 @@ implementations:
               check: String
           output: Number
           tooltip: "Parse the String as a long integer (returns 0 if not a valid number)."
+          helpUrl: "https://www.arduino.cc/reference/en/language/variables/data-types/string/functions/toint/"
           inputsInline: true
         codegen:
           body:
@@ -213,6 +223,7 @@ implementations:
               check: String
           output: Number
           tooltip: "Parse the String as a float (returns 0.0 if not a valid number)."
+          helpUrl: "https://www.arduino.cc/reference/en/language/variables/data-types/string/functions/tofloat/"
           inputsInline: true
         codegen:
           body:
@@ -231,6 +242,7 @@ implementations:
               check: String
           output: Number
           tooltip: "Parse the String as a double (returns 0.0 if not a valid number)."
+          helpUrl: "https://www.arduino.cc/reference/en/language/variables/data-types/string/functions/todouble/"
           inputsInline: true
         codegen:
           body:
@@ -252,6 +264,7 @@ implementations:
               check: String
           output: Boolean
           tooltip: "Return true if both Strings contain the same characters (case-sensitive)."
+          helpUrl: "https://www.arduino.cc/reference/en/language/variables/data-types/string/functions/equals/"
           inputsInline: true
         codegen:
           body:
@@ -274,6 +287,7 @@ implementations:
               check: String
           output: Boolean
           tooltip: "Return true if both Strings are equal, ignoring upper/lower case."
+          helpUrl: "https://www.arduino.cc/reference/en/language/variables/data-types/string/functions/equalsignorecase/"
           inputsInline: true
         codegen:
           body:
@@ -296,6 +310,7 @@ implementations:
               check: String
           output: Boolean
           tooltip: "Return true if the String starts with the given prefix."
+          helpUrl: "https://www.arduino.cc/reference/en/language/variables/data-types/string/functions/startswith/"
           inputsInline: true
         codegen:
           body:
@@ -318,6 +333,7 @@ implementations:
               check: String
           output: Boolean
           tooltip: "Return true if the String ends with the given suffix."
+          helpUrl: "https://www.arduino.cc/reference/en/language/variables/data-types/string/functions/endswith/"
           inputsInline: true
         codegen:
           body:
@@ -340,6 +356,7 @@ implementations:
               check: String
           output: Number
           tooltip: "Compare two Strings lexicographically. Returns negative, zero, or positive."
+          helpUrl: "https://www.arduino.cc/reference/en/language/variables/data-types/string/functions/compareto/"
           inputsInline: true
         codegen:
           body:
@@ -361,6 +378,7 @@ implementations:
               name: RIGHT
           output: String
           tooltip: "Concatenate two values into a new String."
+          helpUrl: "https://www.arduino.cc/reference/en/language/variables/data-types/string/functions/concat/"
           inputsInline: true
         codegen:
           body:
@@ -385,6 +403,7 @@ implementations:
           previousStatement: null
           nextStatement: null
           tooltip: "Convert all characters of the String to upper case (in-place)."
+          helpUrl: "https://www.arduino.cc/reference/en/language/variables/data-types/string/functions/touppercase/"
           inputsInline: true
         codegen:
           body:
@@ -403,6 +422,7 @@ implementations:
           previousStatement: null
           nextStatement: null
           tooltip: "Convert all characters of the String to lower case (in-place)."
+          helpUrl: "https://www.arduino.cc/reference/en/language/variables/data-types/string/functions/tolowercase/"
           inputsInline: true
         codegen:
           body:
@@ -421,6 +441,7 @@ implementations:
           previousStatement: null
           nextStatement: null
           tooltip: "Remove leading and trailing whitespace from the String (in-place)."
+          helpUrl: "https://www.arduino.cc/reference/en/language/variables/data-types/string/functions/trim/"
           inputsInline: true
         codegen:
           body:
@@ -445,6 +466,7 @@ implementations:
           previousStatement: null
           nextStatement: null
           tooltip: "Replace all occurrences of a character with another character (in-place)."
+          helpUrl: "https://www.arduino.cc/reference/en/language/variables/data-types/string/functions/replace/"
           inputsInline: true
         codegen:
           body:
@@ -471,6 +493,7 @@ implementations:
           previousStatement: null
           nextStatement: null
           tooltip: "Replace all occurrences of a substring with another String (in-place)."
+          helpUrl: "https://www.arduino.cc/reference/en/language/variables/data-types/string/functions/replace/"
           inputsInline: true
         codegen:
           body:
@@ -494,6 +517,7 @@ implementations:
           previousStatement: null
           nextStatement: null
           tooltip: "Remove all characters from the given index to the end of the String (in-place)."
+          helpUrl: "https://www.arduino.cc/reference/en/language/variables/data-types/string/functions/remove/"
           inputsInline: true
         codegen:
           body:
@@ -519,6 +543,7 @@ implementations:
           previousStatement: null
           nextStatement: null
           tooltip: "Remove a number of characters starting at the given index (in-place)."
+          helpUrl: "https://www.arduino.cc/reference/en/language/variables/data-types/string/functions/remove/"
           inputsInline: true
         codegen:
           body:
@@ -541,6 +566,7 @@ implementations:
           previousStatement: null
           nextStatement: null
           tooltip: "Append a value to the String in-place (equivalent to +=)."
+          helpUrl: "https://www.arduino.cc/reference/en/language/variables/data-types/string/functions/concat/"
           inputsInline: true
         codegen:
           body:

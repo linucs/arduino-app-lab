@@ -1,5 +1,4 @@
 id: builtin_math
-displayName: Mathematics (Arduino)
 category: "Mathematics"
 implementations:
   - runtime: "arduino:cpp"
@@ -26,6 +25,7 @@ implementations:
               check: ["Number", "int", "unsigned int", "long", "unsigned long", "byte", "word", "uint8_t", "uint16_t", "uint32_t", "int8_t", "int16_t", "int32_t"]
           output: Number
           tooltip: "Re-map a number from one range to another."
+          helpUrl: "https://www.arduino.cc/reference/en/language/functions/math/map/"
           inputsInline: true
         codegen:
           body:
@@ -54,6 +54,7 @@ implementations:
               check: ["Number", "int", "unsigned int", "long", "unsigned long", "byte", "word", "float", "double", "uint8_t", "uint16_t", "uint32_t", "int8_t", "int16_t", "int32_t"]
           output: Number
           tooltip: "Constrain a number to be within a range."
+          helpUrl: "https://www.arduino.cc/reference/en/language/functions/math/constrain/"
           inputsInline: true
         codegen:
           body:
@@ -74,6 +75,7 @@ implementations:
               check: ["Number", "int", "unsigned int", "long", "unsigned long", "byte", "word", "uint8_t", "uint16_t", "uint32_t", "int8_t", "int16_t", "int32_t"]
           output: Number
           tooltip: "Generate a random number between 0 and max (exclusive)."
+          helpUrl: "https://www.arduino.cc/reference/en/language/functions/random-numbers/random/"
           inputsInline: true
         codegen:
           body:
@@ -95,6 +97,7 @@ implementations:
               check: ["Number", "int", "unsigned int", "long", "unsigned long", "byte", "word", "uint8_t", "uint16_t", "uint32_t", "int8_t", "int16_t", "int32_t"]
           output: Number
           tooltip: "Generate a random number between min (inclusive) and max (exclusive)."
+          helpUrl: "https://www.arduino.cc/reference/en/language/functions/random-numbers/random/"
           inputsInline: true
         codegen:
           body:
@@ -115,6 +118,7 @@ implementations:
           previousStatement: null
           nextStatement: null
           tooltip: "Initialize the random number generator. Place in setup. Use analogRead(A0) for noise-based seeding."
+          helpUrl: "https://www.arduino.cc/reference/en/language/functions/random-numbers/randomseed/"
           inputsInline: true
         codegen:
           setup:
@@ -132,6 +136,7 @@ implementations:
               check: ["Number", "int", "unsigned int", "long", "unsigned long", "byte", "word", "float", "double", "uint8_t", "uint16_t", "uint32_t", "int8_t", "int16_t", "int32_t"]
           output: Number
           tooltip: "Square a number (value * value)."
+          helpUrl: "https://www.arduino.cc/reference/en/language/functions/math/sq/"
           inputsInline: true
         codegen:
           body:

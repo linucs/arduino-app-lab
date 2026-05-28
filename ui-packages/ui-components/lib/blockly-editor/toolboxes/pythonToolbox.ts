@@ -9,6 +9,7 @@ export const pythonToolbox = {
     // ── Hardware / connectivity ──────────────────────────────────────────────
     // Populated from catalog (mergeToolboxCategories in BlocklyEditor.tsx).
     { kind: 'category', name: 'Control',   colour: PALETTE.Control,   contents: [] },
+    { kind: 'category', name: 'Sensors',  colour: PALETTE.Sensors,   contents: [] },
     { kind: 'category', name: 'Messaging', colour: PALETTE.Messaging, contents: [] },
 
     // ── Brick-level SBC categories ───────────────────────────────────────────

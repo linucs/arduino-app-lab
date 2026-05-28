@@ -1,6 +1,7 @@
 id: builtin_wire
-displayName: Wire (I2C)
 category: "Messaging::Wire"
+docs:
+  library: "https://www.arduino.cc/reference/en/language/functions/communication/wire/"
 implementations:
   - runtime: "arduino:cpp"
     codegen:
@@ -15,6 +16,7 @@ implementations:
           previousStatement: null
           nextStatement: null
           tooltip: "Initialize the I2C bus as a controller. Place in setup."
+          helpUrl: "https://www.arduino.cc/reference/en/language/functions/communication/wire/begin/"
         codegen:
           setup:
             - "Wire.begin();"
@@ -33,6 +35,7 @@ implementations:
           previousStatement: null
           nextStatement: null
           tooltip: "Request bytes from a peripheral I2C device."
+          helpUrl: "https://www.arduino.cc/reference/en/language/functions/communication/wire/requestfrom/"
           inputsInline: true
         codegen:
           body:
@@ -52,6 +55,7 @@ implementations:
           previousStatement: null
           nextStatement: null
           tooltip: "Begin a transmission to the I2C peripheral at the given address."
+          helpUrl: "https://www.arduino.cc/reference/en/language/functions/communication/wire/begintransmission/"
           inputsInline: true
         codegen:
           body:
@@ -70,6 +74,7 @@ implementations:
           previousStatement: null
           nextStatement: null
           tooltip: "Queue a byte for transmission to a peripheral."
+          helpUrl: "https://www.arduino.cc/reference/en/language/functions/communication/wire/write/"
           inputsInline: true
         codegen:
           body:
@@ -84,6 +89,7 @@ implementations:
           args0: []
           output: Number
           tooltip: "Send the queued bytes. Returns 0 on success."
+          helpUrl: "https://www.arduino.cc/reference/en/language/functions/communication/wire/endtransmission/"
         codegen:
           body:
             - "Wire.endTransmission()"
@@ -96,6 +102,7 @@ implementations:
           args0: []
           output: Number
           tooltip: "Read one byte from the I2C receive buffer."
+          helpUrl: "https://www.arduino.cc/reference/en/language/functions/communication/wire/read/"
         codegen:
           body:
             - "Wire.read()"
@@ -108,6 +115,7 @@ implementations:
           args0: []
           output: Number
           tooltip: "Return the number of bytes available in the I2C receive buffer."
+          helpUrl: "https://www.arduino.cc/reference/en/language/functions/communication/wire/available/"
         codegen:
           body:
             - "Wire.available()"

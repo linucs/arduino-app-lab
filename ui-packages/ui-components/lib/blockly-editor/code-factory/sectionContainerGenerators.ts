@@ -60,14 +60,6 @@ class SectionSetupGenerator implements IBlockCodeGenerator {
   }
 }
 
-class SectionHelpersGenerator implements IBlockCodeGenerator {
-  generate(block: Blockly.Block, generator: Blockly.CodeGenerator): string {
-    writeToDefs(generator, 'func_', getRawStatementCode(block, 'BODY', generator));
-    return '';
-  }
-}
-
 registerGenerator('SectionIncludesGenerator', SectionIncludesGenerator);
 registerGenerator('SectionDeclarationsGenerator', SectionDeclarationsGenerator);
 registerGenerator('SectionSetupGenerator', SectionSetupGenerator);
-registerGenerator('SectionHelpersGenerator', SectionHelpersGenerator);

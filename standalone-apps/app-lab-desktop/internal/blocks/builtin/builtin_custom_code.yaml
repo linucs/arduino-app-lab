@@ -1,5 +1,4 @@
 id: builtin_custom_code
-displayName: Custom Code
 category: "Control"
 implementations:
   - runtime: "arduino:cpp"
@@ -8,13 +7,13 @@ implementations:
           type: custom_code
           message0: "Custom code %1"
           args0:
-            - type: field_multilinetext
+            - type: field_code
               name: CODE
               text: "// your code here"
           previousStatement: null
           nextStatement: null
           colour: "#5C81A6"
-          tooltip: "Insert custom C++ code. Place inside a section container to target includes, global declarations, setup, or helper functions."
+          tooltip: "Insert custom C++ code. Place inside a section container to target includes, global declarations, or setup."
         codegen:
           body:
             - "{{CODE}}"
@@ -25,13 +24,13 @@ implementations:
           type: custom_code
           message0: "Custom code %1"
           args0:
-            - type: field_multilinetext
+            - type: field_code
               name: CODE
               text: "# your code here"
           previousStatement: null
           nextStatement: null
           colour: "#5C81A6"
-          tooltip: "Insert Python custom code. Place inside a section container to target imports, global declarations, setup, or helper functions."
+          tooltip: "Insert Python custom code. Place inside a section container to target imports, global declarations, or setup."
         codegen:
           body:
             - "{{CODE}}"

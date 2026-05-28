@@ -556,12 +556,13 @@ export class ArduinoCppGenerator extends Blockly.CodeGenerator {
     }
 
     const sections: string[] = [];
-    if (includes.length) sections.push(includes.join('\n'));
-    if (decls.length) sections.push(decls.join('\n'));
-    if (funcs.length) sections.push(funcs.join('\n'));
+    if (includes.length) sections.push('// --- Includes ---\n' + includes.join('\n'));
+    if (decls.length) sections.push('// --- Declarations ---\n' + decls.join('\n'));
+    if (funcs.length) sections.push('// --- Helper functions ---\n' + funcs.join('\n\n'));
 
+    // Separate setup lines with blank lines so each init action stands out.
     const setupBody = setupLines.length
-      ? this.prefixLines(setupLines.join('\n'), this.INDENT)
+      ? this.prefixLines(setupLines.join('\n\n'), this.INDENT)
       : '';
     sections.push(
       setupBody ? `void setup() {\n${setupBody}\n}` : 'void setup() {\n}',
