@@ -19,7 +19,7 @@ export const appLabDarkTheme = Blockly.Theme.defineTheme('appLabDark', {
     workspaceBackgroundColour: '#171E21',
     toolboxBackgroundColour: '#090F11',
     toolboxForegroundColour: '#C9D2D2',
-    flyoutBackgroundColour: '#101618',
+    flyoutBackgroundColour: '#090F11',
     flyoutForegroundColour: '#C9D2D2',
     flyoutOpacity: 1,
     scrollbarColour: '#5D6A6B',

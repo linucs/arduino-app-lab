@@ -5,7 +5,7 @@ implementations:
     blocks:
       - blockly:
           type: custom_code
-          message0: "Custom code %1"
+          message0: "custom code %1"
           args0:
             - type: field_code
               name: CODE
@@ -22,7 +22,7 @@ implementations:
     blocks:
       - blockly:
           type: custom_code
-          message0: "Custom code %1"
+          message0: "custom code %1"
           args0:
             - type: field_code
               name: CODE

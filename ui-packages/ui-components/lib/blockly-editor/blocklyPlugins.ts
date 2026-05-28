@@ -15,6 +15,9 @@ import * as Blockly from 'blockly';
 import '@blockly/block-plus-minus';
 // toolbox-search: registers the 'search' toolbox category kind.
 import '@blockly/toolbox-search';
+// Custom fields (self-register via Blockly.fieldRegistry.register).
+import './custom-fields/FieldParamInput';
+import './custom-fields/FieldTypedParamInput';
 
 // @blockly/block-plus-minus v9 calls the v12-deprecated
 // workspace.getVariableUsesById(id). Patch the prototype once so it forwards
@@ -249,3 +252,4 @@ export function initWorkspacePlugins(
     workspaceSearch.dispose();
   };
 }
+

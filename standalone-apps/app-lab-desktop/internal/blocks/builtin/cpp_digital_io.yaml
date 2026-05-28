@@ -26,7 +26,7 @@ implementations:
           previousStatement: null
           nextStatement: null
           tooltip: "Configure a digital pin as INPUT, OUTPUT, or INPUT_PULLUP."
-          helpUrl: "https://www.arduino.cc/reference/en/language/functions/digital-io/pinmode/"
+          helpUrl: "https://docs.arduino.cc/language-reference/en/functions/digital-io/pinMode/"
         codegen:
           setup:
             - "pinMode({{PIN}}, {{MODE}});"
@@ -49,7 +49,7 @@ implementations:
           previousStatement: null
           nextStatement: null
           tooltip: "Write HIGH or LOW to a digital pin."
-          helpUrl: "https://www.arduino.cc/reference/en/language/functions/digital-io/digitalwrite/"
+          helpUrl: "https://docs.arduino.cc/language-reference/en/functions/digital-io/digitalwrite/"
         codegen:
           body:
             - "digitalWrite({{PIN}}, {{VALUE}});"
@@ -66,7 +66,7 @@ implementations:
               check: ["Number", "int", "unsigned int", "long", "unsigned long", "byte", "word", "uint8_t", "uint16_t", "uint32_t", "int8_t", "int16_t", "int32_t"]
           output: Number
           tooltip: "Read the value from a digital pin (HIGH or LOW)."
-          helpUrl: "https://www.arduino.cc/reference/en/language/functions/digital-io/digitalread/"
+          helpUrl: "https://docs.arduino.cc/language-reference/en/functions/digital-io/digitalread/"
         codegen:
           body:
             - "digitalRead({{PIN}})"

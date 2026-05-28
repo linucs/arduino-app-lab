@@ -1,6 +1,8 @@
 import * as Blockly from 'blockly';
 
 import { BlockCodegen, CodegenSections } from '@cloud-editor-mono/domain/src/services/block-catalog-service';
+import { FieldParamInput } from '../custom-fields/FieldParamInput';
+import { FieldTypedParamInput } from '../custom-fields/FieldTypedParamInput';
 
 // Order.NONE for value inputs — lets the generator wrap with parens when needed.
 const ORDER_NONE = 99;
@@ -18,6 +20,11 @@ const ORDER_NONE = 99;
 //   3. If a statement input named `name` exists → statementToCode.
 //   4. Falls back to empty string with a console.warn.
 //
+// Composite fields (FieldTypedParamInput) accept a dotted subfield:
+//   {{NAME.type}} → field.getParamType()
+//   {{NAME.name}} → field.getParamName() (variable name resolved via nameDB_)
+//   {{NAME}}      → same as {{NAME.name}}
+//
 // Indentation: statementToCode already returns code indented by one level
 // (generator.INDENT). The template is responsible for surrounding structure
 // (e.g. `if True:\n{{DO}}`). No additional indentation is added here.
@@ -26,14 +33,11 @@ export function resolveTemplate(
   block: Blockly.Block,
   generator: Blockly.CodeGenerator,
 ): string {
-  return template.replace(/\{\{(\w+)\}\}/g, (_match, name: string) => {
+  return template.replace(/\{\{(\w+(?:\.\w+)?)\}\}/g, (_match, raw: string) => {
+    const [name, sub] = raw.split('.');
     const field = block.getField(name);
     if (field !== null) {
-      if (field instanceof Blockly.FieldVariable) {
-        const varId = block.getFieldValue(name) ?? '';
-        return varId ? generator.getVariableName(varId) : '';
-      }
-      return String(block.getFieldValue(name) ?? '');
+      return resolveFieldPlaceholder(field, name, sub, block, generator);
     }
 
     const input = block.getInput(name);
@@ -48,9 +52,35 @@ export function resolveTemplate(
       }
     }
 
-    console.warn(`[templateEngine] unknown placeholder "{{${name}}}" on block type "${block.type}"`);
+    console.warn(`[templateEngine] unknown placeholder "{{${raw}}}" on block type "${block.type}"`);
     return '';
   });
+}
+
+// Shared field placeholder resolver for {{NAME}} and {{NAME.sub}}.
+// Both resolveTemplate and resolveTemplateWithDefaults delegate to this.
+function resolveFieldPlaceholder(
+  field: Blockly.Field,
+  name: string,
+  sub: string | undefined,
+  block: Blockly.Block,
+  generator: Blockly.CodeGenerator,
+): string {
+  if (field instanceof FieldTypedParamInput) {
+    if (sub === 'type') return field.getParamType();
+    // {{NAME}} and {{NAME.name}} both resolve to the variable reference.
+    const varId = field.getVarId();
+    return varId ? generator.getVariableName(varId) : field.getParamName();
+  }
+  if (field instanceof FieldParamInput) {
+    const varId = field.getVarId();
+    return varId ? generator.getVariableName(varId) : String(block.getFieldValue(name) ?? '');
+  }
+  if (field instanceof Blockly.FieldVariable) {
+    const varId = block.getFieldValue(name) ?? '';
+    return varId ? generator.getVariableName(varId) : '';
+  }
+  return String(block.getFieldValue(name) ?? '');
 }
 
 // Write implementation-level CodegenSections into generator.definitions_.
@@ -155,14 +185,11 @@ function resolveTemplateWithDefaults(
   generator: Blockly.CodeGenerator,
   defaults: { [name: string]: unknown },
 ): string {
-  return template.replace(/\{\{(\w+)\}\}/g, (_match, name: string) => {
+  return template.replace(/\{\{(\w+(?:\.\w+)?)\}\}/g, (_match, raw: string) => {
+    const [name, sub] = raw.split('.');
     const field = block.getField(name);
     if (field !== null) {
-      if (field instanceof Blockly.FieldVariable) {
-        const varId = block.getFieldValue(name) ?? '';
-        return varId ? generator.getVariableName(varId) : '';
-      }
-      return String(block.getFieldValue(name) ?? '');
+      return resolveFieldPlaceholder(field, name, sub, block, generator);
     }
 
     const input = block.getInput(name);
@@ -178,7 +205,7 @@ function resolveTemplateWithDefaults(
       }
     }
 
-    console.warn(`[templateEngine] unknown placeholder "{{${name}}}" on block type "${block.type}"`);
+    console.warn(`[templateEngine] unknown placeholder "{{${raw}}}" on block type "${block.type}"`);
     return '';
   });
 }

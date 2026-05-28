@@ -16,6 +16,9 @@ import './custom-blocks/cppFunctionBlock';
 import './custom-blocks/cppFunctionCallBlock';
 import './custom-blocks/switchCaseBlock';
 import './custom-fields/FieldCode';
+import './custom-fields/FieldCombobox';
+import { FieldParamInput } from './custom-fields/FieldParamInput';
+import { FieldTypedParamInput } from './custom-fields/FieldTypedParamInput';
 import { setFieldCodeLanguage } from './custom-fields/FieldCode';
 import styles from './BlocklyEditor.module.scss';
 import {
@@ -134,6 +137,36 @@ const parseSidecar = (raw: string | undefined): ParseResult => {
   return { blocksState: undefined, unsupportedVersion: false };
 };
 
+/**
+ * Remove workspace variables that no block references.
+ * Blockly persists every variable ever created in the sidecar JSON — deleting
+ * a block does not clean up its variables. This runs after workspace.load()
+ * to garbage-collect the leftovers.
+ */
+function pruneOrphanedVariables(workspace: Blockly.Workspace): void {
+  const usedVarIds = new Set(
+    workspace
+      .getAllBlocks(false)
+      .flatMap((b) => b.getVarModels().map((v) => v.getId())),
+  );
+  for (const block of workspace.getAllBlocks(false)) {
+    for (const input of block.inputList) {
+      for (const field of input.fieldRow) {
+        if (field instanceof FieldParamInput || field instanceof FieldTypedParamInput) {
+          const varId = field.getVarId();
+          if (varId) usedVarIds.add(varId);
+        }
+      }
+    }
+  }
+  const varMap = workspace.getVariableMap();
+  for (const v of varMap.getAllVariables()) {
+    if (!usedVarIds.has(v.getId())) {
+      varMap.deleteVariable(v);
+    }
+  }
+}
+
 interface BlocklyEditorProps {
   blocklyEditorLogic: BlocklyEditorLogic;
   classes?: { container?: string };
@@ -246,6 +279,7 @@ const BlocklyEditor: React.FC<BlocklyEditorProps> = (
       if (blocksState) {
         Blockly.serialization.workspaces.load(blocksState, workspace);
       }
+      pruneOrphanedVariables(workspace);
     } catch (error) {
       loadFailed = true;
       console.warn('BlocklyEditor: some blocks could not be restored (unregistered types?)', error);

@@ -1,11 +1,7 @@
 import { BlocklyLanguage, Runtime } from '../blocklyEditor.type';
 import { arduinoCppAdapter } from './arduinoCppAdapter';
 import { arduinoPythonAdapter } from './arduinoPythonAdapter';
-import { RuntimeAdapter } from './runtimeAdapter.type';
-
-export { arduinoCppAdapter } from './arduinoCppAdapter';
-export { arduinoPythonAdapter } from './arduinoPythonAdapter';
-export type { RuntimeAdapter } from './runtimeAdapter.type';
+import type { RuntimeAdapter } from './runtimeAdapter.type';
 
 export const adapterFor = (runtime: Runtime): RuntimeAdapter =>
   runtime === 'arduino:python' ? arduinoPythonAdapter : arduinoCppAdapter;
