@@ -2,7 +2,7 @@ import * as Blockly from 'blockly';
 
 type Preset = [string, string];
 
-class FieldCombobox extends Blockly.Field<string> {
+export class FieldCombobox extends Blockly.Field<string> {
   override SERIALIZABLE = true;
   override EDITABLE = true;
 

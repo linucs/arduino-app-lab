@@ -76,12 +76,7 @@ export const cppToolbox = {
       kind: 'category',
       name: 'Functions',
       colour: PALETTE.Functions,
-      contents: [
-        { kind: 'block', type: 'cpp_function_def' },
-        { kind: 'block', type: 'cpp_function_call' },
-        { kind: 'block', type: 'cpp_function_call_expr' },
-        { kind: 'block', type: 'cpp_return' },
-      ],
+      custom: 'CPP_PROCEDURE',
     },
   ],
 };

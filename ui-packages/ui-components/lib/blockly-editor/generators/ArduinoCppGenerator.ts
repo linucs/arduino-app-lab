@@ -306,57 +306,49 @@ export class ArduinoCppGenerator extends Blockly.CodeGenerator {
     this.forBlock['procedures_defreturn'] = (block, generator): null =>
       buildDefinition(block, generator as ArduinoCppGenerator, 'int');
 
-    // ---- cpp_function_def / cpp_function_call / cpp_return ----
-    // These replace the generic Blockly procedure blocks for C++.
+    // ---- Typed C++ procedures (cpp_procedures_def*) ----
 
-    this.forBlock['cpp_function_def'] = (block, generator): null => {
-      const gen = generator as ArduinoCppGenerator;
-      const name = gen.getProcedureName(block.getFieldValue('NAME') || 'myFunction');
-      const returnType = block.getFieldValue('RETURN_TYPE') || 'void';
-
+    const buildCppDefinition = (
+      block: Blockly.Block,
+      generator: ArduinoCppGenerator,
+      returnType: string,
+    ): null => {
+      const name = generator.getProcedureName(block.getFieldValue('NAME'));
       const params: string[] = [];
-      for (let i = 0; block.getInput(`PARAM_${i}`); i++) {
-        const type = block.getFieldValue(`TYPE_${i}`) || 'int';
-        const paramName = block.getFieldValue(`NAME_${i}`) || `param${i + 1}`;
-        params.push(`${type} ${paramName}`);
+      for (const input of block.inputList) {
+        for (const field of input.fieldRow) {
+          if (field instanceof FieldTypedParamInput) {
+            const varId = field.getVarId();
+            const paramName = varId
+              ? generator.getVariableName(varId)
+              : field.getParamName();
+            params.push(`${field.getParamType()} ${paramName}`);
+          }
+        }
       }
-
+      const paramList = params.join(', ');
       const body = generator.statementToCode(block, 'STACK') || '';
-      const returnLine =
-        returnType !== 'void' ? `${generator.INDENT}return 0;\n` : '';
-
-      gen.definitions_[`func_${name}`] =
-        `${returnType} ${name}(${params.join(', ')}) {\n${body}${returnLine}}\n`;
+      const isVoid = returnType === 'void';
+      const returnValue = isVoid
+        ? ''
+        : generator.valueToCode(block, 'RETURN', CppOrder.NONE) || '0';
+      const returnLine = isVoid
+        ? ''
+        : `${generator.INDENT}return ${returnValue};\n`;
+      generator.definitions_[`func_${name}`] =
+        `${returnType} ${name}(${paramList}) {\n${body}${returnLine}}\n`;
       return null;
     };
 
-    this.forBlock['cpp_function_call'] = (block, generator): string => {
-      const name = block.getFieldValue('FUNC_NAME') || '';
-      if (!name || name === '__none__') return '';
-      const args: string[] = [];
-      for (let i = 0; block.getInput(`ARG_${i}`); i++) {
-        args.push(generator.valueToCode(block, `ARG_${i}`, CppOrder.NONE) || '0');
-      }
-      return `${name}(${args.join(', ')});\n`;
-    };
+    this.forBlock['cpp_procedures_defnoreturn'] = (block, generator): null =>
+      buildCppDefinition(block, generator as ArduinoCppGenerator, 'void');
 
-    this.forBlock['cpp_function_call_expr'] = (
-      block,
-      generator,
-    ): [string, CppOrder] => {
-      const name = block.getFieldValue('FUNC_NAME') || '';
-      if (!name || name === '__none__') return ['/* no function selected */', CppOrder.ATOMIC];
-      const args: string[] = [];
-      for (let i = 0; block.getInput(`ARG_${i}`); i++) {
-        args.push(generator.valueToCode(block, `ARG_${i}`, CppOrder.NONE) || '0');
-      }
-      return [`${name}(${args.join(', ')})`, CppOrder.FUNCTION_CALL];
-    };
-
-    this.forBlock['cpp_return'] = (block, generator): string => {
-      const value = generator.valueToCode(block, 'VALUE', CppOrder.NONE);
-      return value ? `return ${value};\n` : 'return;\n';
-    };
+    this.forBlock['cpp_procedures_defreturn'] = (block, generator): null =>
+      buildCppDefinition(
+        block,
+        generator as ArduinoCppGenerator,
+        block.getFieldValue('RETURN_TYPE') || 'int',
+      );
 
     // Logic
     this.forBlock['logic_ternary'] = (block, generator): [string, CppOrder] => {
@@ -522,6 +514,25 @@ export class ArduinoCppGenerator extends Blockly.CodeGenerator {
         : '';
       return `if (${cond}) {\n${generator.INDENT}return${value ? ` ${value}` : ''};\n}\n`;
     };
+
+    // Typed C++ caller and ifreturn handlers.
+    this.forBlock['cpp_procedures_callnoreturn'] = (block, generator): string => {
+      const gen = generator as ArduinoCppGenerator;
+      const name = gen.getProcedureName(block.getFieldValue('NAME'));
+      return `${name}(${buildCallArgs(block, gen)});\n`;
+    };
+
+    this.forBlock['cpp_procedures_callreturn'] = (
+      block,
+      generator,
+    ): [string, CppOrder] => {
+      const gen = generator as ArduinoCppGenerator;
+      const name = gen.getProcedureName(block.getFieldValue('NAME'));
+      return [`${name}(${buildCallArgs(block, gen)})`, CppOrder.FUNCTION_CALL];
+    };
+
+    this.forBlock['cpp_procedures_ifreturn'] =
+      this.forBlock['procedures_ifreturn'];
 
   }
 

@@ -42,15 +42,14 @@ export function createPlusField(): Blockly.FieldImage {
   });
 }
 
-// Creates a FieldImage that on click: calls block.minus(idx), fires BlockChange mutation event.
-// Use for per-item minus buttons (like cppFunctionBlock param rows) where idx matters.
-export function createMinusFieldWithIndex(idx: number): Blockly.FieldImage {
+// Creates a FieldImage that on click: calls block.minus(), fires BlockChange mutation event.
+export function createMinusField(): Blockly.FieldImage {
   return new Blockly.FieldImage(MINUS_SVG, 15, 15, undefined, (field) => {
     const block = field.getSourceBlock();
     if (!block || block.isInFlyout) return;
     Blockly.Events.setGroup(true);
     const before = getMutationState(block);
-    (block as unknown as { minus(idx: number): void }).minus(idx);
+    (block as unknown as { minus(): void }).minus();
     const after = getMutationState(block);
     if (before !== after) {
       Blockly.Events.fire(
@@ -59,9 +58,4 @@ export function createMinusFieldWithIndex(idx: number): Blockly.FieldImage {
     }
     Blockly.Events.setGroup(false);
   });
-}
-
-// Convenience: createMinusFieldWithIndex(0). For blocks where minus() ignores idx.
-export function createMinusField(): Blockly.FieldImage {
-  return createMinusFieldWithIndex(0);
 }

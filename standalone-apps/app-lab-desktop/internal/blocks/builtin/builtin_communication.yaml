@@ -1,3 +1,4 @@
+
 id: builtin_communication
 category: "Messaging"
 docs:
@@ -85,7 +86,7 @@ implementations:
           helpUrl: "https://docs.arduino.cc/software/app-lab/bridge/bridge-api/"
         codegen:
           declarations:
-            - "String _bridgeHandler_{{NAME}}({{PARAM.type}} {{PARAM.name}}) {\n{{BODY}}\n  return \"\";\n}"
+            - "void _bridgeHandler_{{NAME}}({{PARAM.type}} {{PARAM.name}}) {\n{{BODY}}\n}"
           setup:
             - "Bridge.begin();"
             - "Bridge.provide(\"{{NAME}}\", _bridgeHandler_{{NAME}});"

@@ -12,8 +12,7 @@ import { snackbar } from '../snackbar';
 import { adapterFor, languageToRuntime } from './adapters';
 import { CodeFactory } from './code-factory';
 import './code-factory/sectionContainerGenerators';
-import './custom-blocks/cppFunctionBlock';
-import './custom-blocks/cppFunctionCallBlock';
+import './custom-blocks/cppProcedureBlocks';
 import './custom-blocks/switchCaseBlock';
 import './custom-fields/FieldCode';
 import './custom-fields/FieldCombobox';
@@ -31,6 +30,7 @@ import {
   initTypedVariableModal,
   initWorkspacePlugins,
 } from './blocklyPlugins';
+import { initCppProcedureFlyout } from './custom-blocks/cppProcedureBlocks';
 import { installAppLabContextMenuStyling } from './contextMenuStyling';
 import { messages } from './messages';
 import { appLabDarkTheme } from './themes/appLabDarkTheme';
@@ -338,6 +338,11 @@ const BlocklyEditor: React.FC<BlocklyEditorProps> = (
       !isReadOnly && language === 'cpp'
         ? initTypedVariableModal(workspace, CPP_VARIABLE_TYPES, onCreateTypedVariable)
         : null;
+
+    // Typed procedure flyout: C++ only.
+    if (!isReadOnly && language === 'cpp') {
+      initCppProcedureFlyout(workspace);
+    }
 
     let disposed = false;
     const factory = new CodeFactory(adapter);

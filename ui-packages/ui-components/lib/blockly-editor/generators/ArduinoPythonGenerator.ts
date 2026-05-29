@@ -15,6 +15,7 @@ export class ArduinoPythonGenerator extends PythonGenerator {
   // Widened from protected — handler modules under custom-blocks/ write
   // import_* / decl_* entries through this map (codegen.md §5).
   public declare definitions_: { [key: string]: string };
+  private paramVarIds_: Set<string> = new Set();
 
   constructor() {
     super('ArduinoPython');
@@ -81,6 +82,8 @@ export class ArduinoPythonGenerator extends PythonGenerator {
       this.getVariableName(varId);
     }
 
+    this.paramVarIds_ = paramVarIds;
+
     if (paramVarIds.size === 0) return;
 
     const nonParamVars = Blockly.Variables.allUsedVarModels(workspace).filter(
@@ -143,6 +146,25 @@ export class ArduinoPythonGenerator extends PythonGenerator {
       return match[1] + `${this.INDENT}global ${used.join(', ')}\n` + fnBody;
     };
 
+    // The built-in PythonGenerator procedure handlers emit `global` lines
+    // that include ALL workspace variables — including FieldParamInput-owned
+    // variables from other blocks (e.g. `args` from a Bridge.provide handler).
+    // Strip those names so only true module-level variables remain.
+    const paramVarNames = new Set<string>();
+    for (const varId of this.paramVarIds_) {
+      paramVarNames.add(this.getVariableName(varId));
+    }
+    const cleanGlobals = (helper: string): string => {
+      if (!paramVarNames.size) return helper;
+      return helper.replace(
+        /^( +global )(.+)$/m,
+        (line, prefix: string, vars: string) => {
+          const cleaned = vars.split(', ').filter((v) => !paramVarNames.has(v));
+          return cleaned.length ? prefix + cleaned.join(', ') : '';
+        },
+      );
+    };
+
     const body = code
       ? globalLine + this.prefixLines(code.replace(/\n+$/, ''), this.INDENT)
       : this.INDENT + this.PASS;
@@ -151,7 +173,7 @@ export class ArduinoPythonGenerator extends PythonGenerator {
     sections.push('# --- Imports ---\n' + imports.join('\n'));
     if (varsDef) sections.push('# --- Variables ---\n' + varsDef);
     if (decls.length) sections.push('# --- Declarations ---\n' + decls.map(injectGlobals).join('\n\n'));
-    if (helpers.length) sections.push('# --- Helper functions ---\n' + helpers.join('\n\n'));
+    if (helpers.length) sections.push('# --- Helper functions ---\n' + helpers.map(cleanGlobals).join('\n\n'));
     if (setupLines.length) sections.push('# --- Setup ---\n' + setupLines.join('\n\n'));
     sections.push(`def loop():\n${body}`);
     sections.push('App.run(user_loop=loop)');
@@ -159,6 +181,7 @@ export class ArduinoPythonGenerator extends PythonGenerator {
     // Reset state per Blockly's generator contract: subsequent
     // workspaceToCode invocations must start from a clean slate.
     this.definitions_ = Object.create(null);
+    this.paramVarIds_ = new Set();
     this.nameDB_?.reset();
 
     return sections.join('\n\n') + '\n';

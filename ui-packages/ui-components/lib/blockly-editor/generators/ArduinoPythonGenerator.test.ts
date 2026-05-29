@@ -208,6 +208,55 @@ describe('ArduinoPythonGenerator', () => {
     });
   });
 
+  describe('finish() — cleanGlobals strips param vars from helper functions', () => {
+    it('removes FieldParamInput-owned names from procedure global lines', () => {
+      const ws = makeWorkspace();
+
+      // Simulate a FieldParamInput-owned variable (e.g. `args` from a
+      // Bridge.provide handler) by making a procedure block own it.
+      const paramVar = ws.getVariableMap().createVariable('args', '');
+      const procBlock = ws.newBlock('procedures_defnoreturn');
+      procBlock.getVarModels = () => [paramVar];
+
+      // A real module-level variable.
+      addUsedVar(ws, 'counter');
+
+      const gen = new ArduinoPythonGenerator();
+      gen.init(ws);
+
+      // Mimic what the built-in procedure handler emits: a helper with a
+      // global line that incorrectly includes the param variable name.
+      gen.definitions_['%doSomething'] =
+        'def doSomething(x):\n  global counter, args\n  counter = counter + 1';
+
+      const out = gen.finish('');
+      // `args` should be stripped from the global line
+      expect(out).toMatch(/global counter\n/);
+      expect(out).not.toMatch(/global.*args/);
+      ws.dispose();
+    });
+
+    it('removes the entire global line when all vars are param-owned', () => {
+      const ws = makeWorkspace();
+
+      const paramVar = ws.getVariableMap().createVariable('args', '');
+      const procBlock = ws.newBlock('procedures_defnoreturn');
+      procBlock.getVarModels = () => [paramVar];
+
+      const gen = new ArduinoPythonGenerator();
+      gen.init(ws);
+
+      gen.definitions_['%handler'] =
+        'def handler():\n  global args\n  print(args)';
+
+      const out = gen.finish('');
+      // The entire global line should be removed
+      expect(out).toContain('def handler():');
+      expect(out).not.toContain('global');
+      ws.dispose();
+    });
+  });
+
   describe('finish() — reset between calls', () => {
     it('produces clean output on a second workspaceToCode call', () => {
       const ws = makeWorkspace();

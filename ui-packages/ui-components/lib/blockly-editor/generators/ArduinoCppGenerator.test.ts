@@ -1,6 +1,7 @@
 import * as Blockly from 'blockly';
 import { describe, expect, it } from 'vitest';
 
+import { FieldTypedParamInput } from '../custom-fields/FieldTypedParamInput';
 import { ArduinoCppGenerator } from './ArduinoCppGenerator';
 
 function makeWorkspace() {
@@ -206,6 +207,154 @@ describe('ArduinoCppGenerator', () => {
       const out = gen.finish('');
       expect(out).not.toContain('int param1 = 0;');
       expect(out).toContain('int globalCounter = 0;');
+      ws.dispose();
+    });
+  });
+
+  describe('cpp_procedures — typed C++ function blocks', () => {
+    it('cpp_procedures_defnoreturn generates void function with typed params', () => {
+      const ws = makeWorkspace();
+
+      // Register the block definition so newBlock works.
+      // The side-effect import in cppProcedureBlocks.ts registers these.
+      // In tests we import the generator which doesn't auto-import the blocks,
+      // so we register a minimal stub.
+      if (!Blockly.Blocks['cpp_procedures_defnoreturn']) {
+        Blockly.Blocks['cpp_procedures_defnoreturn'] = {
+          init(this: Blockly.Block) {
+            this.appendDummyInput('TOP')
+              .appendField(new Blockly.FieldTextInput('myFunc'), 'NAME');
+            this.appendStatementInput('STACK');
+          },
+        };
+      }
+
+      const defBlock = ws.newBlock('cpp_procedures_defnoreturn');
+      defBlock.setFieldValue('myFunc', 'NAME');
+
+      // Simulate FieldTypedParamInput fields by creating typed variables
+      // and adding the field manually.
+      const paramField1 = new FieldTypedParamInput(
+        [['float', 'float'], ['int', 'int']],
+        'float|temperature',
+      );
+      const paramField2 = new FieldTypedParamInput(
+        [['String', 'String'], ['int', 'int']],
+        'String|label',
+      );
+
+      const input1 = defBlock.appendDummyInput('arg1');
+      input1.appendField(paramField1, 'PARAM_arg1');
+      const input2 = defBlock.appendDummyInput('arg2');
+      input2.appendField(paramField2, 'PARAM_arg2');
+
+      const gen = new ArduinoCppGenerator();
+      gen.init(ws);
+      gen.forBlock['cpp_procedures_defnoreturn'](defBlock, gen);
+
+      const out = gen.finish('');
+      expect(out).toContain('void myFunc(float temperature, String label)');
+      ws.dispose();
+    });
+
+    it('cpp_procedures_defreturn generates typed return function', () => {
+      const ws = makeWorkspace();
+
+      if (!Blockly.Blocks['cpp_procedures_defreturn']) {
+        Blockly.Blocks['cpp_procedures_defreturn'] = {
+          init(this: Blockly.Block) {
+            this.appendDummyInput('TOP')
+              .appendField(new Blockly.FieldTextInput('compute'), 'NAME')
+              .appendField(new Blockly.FieldDropdown([['bool', 'bool'], ['int', 'int']]), 'RETURN_TYPE');
+            this.appendStatementInput('STACK');
+            this.appendValueInput('RETURN')
+              .appendField('return');
+          },
+        };
+      }
+
+      const defBlock = ws.newBlock('cpp_procedures_defreturn');
+      defBlock.setFieldValue('compute', 'NAME');
+      defBlock.setFieldValue('bool', 'RETURN_TYPE');
+
+      const gen = new ArduinoCppGenerator();
+      gen.init(ws);
+      gen.forBlock['cpp_procedures_defreturn'](defBlock, gen);
+
+      const out = gen.finish('');
+      expect(out).toContain('bool compute()');
+      expect(out).toContain('return 0;');
+      ws.dispose();
+    });
+
+    it('cpp_procedures param vars are excluded from global declarations', () => {
+      const ws = makeWorkspace();
+
+      if (!Blockly.Blocks['cpp_procedures_defnoreturn']) {
+        Blockly.Blocks['cpp_procedures_defnoreturn'] = {
+          init(this: Blockly.Block) {
+            this.appendDummyInput('TOP')
+              .appendField(new Blockly.FieldTextInput('fn'), 'NAME');
+            this.appendStatementInput('STACK');
+          },
+        };
+      }
+
+      const defBlock = ws.newBlock('cpp_procedures_defnoreturn');
+      defBlock.setFieldValue('fn', 'NAME');
+
+      const paramField = new FieldTypedParamInput(
+        [['int', 'int']],
+        'int|count',
+      );
+      const input = defBlock.appendDummyInput('arg0');
+      input.appendField(paramField, 'PARAM_arg0');
+
+      // Trigger initModel so the field creates a variable
+      paramField.initModel();
+      const varId = paramField.getVarId();
+
+      const gen = new ArduinoCppGenerator();
+      gen.init(ws);
+
+      // Use the param variable in a get block
+      if (varId) {
+        const getBlock = ws.newBlock('variables_get_dynamic');
+        getBlock.getField('VAR')!.setValue(varId);
+        gen.forBlock['variables_get_dynamic'](getBlock, gen);
+      }
+
+      gen.forBlock['cpp_procedures_defnoreturn'](defBlock, gen);
+
+      const out = gen.finish('');
+      // Param should appear in function signature, not as global
+      expect(out).toContain('void fn(int count)');
+      expect(out).not.toMatch(/^int count = 0;/m);
+      ws.dispose();
+    });
+
+    it('cpp_procedures_callnoreturn generates call with args', () => {
+      const ws = makeWorkspace();
+
+      if (!Blockly.Blocks['cpp_procedures_callnoreturn']) {
+        Blockly.Blocks['cpp_procedures_callnoreturn'] = {
+          init(this: Blockly.Block) {
+            this.appendDummyInput('TOPROW')
+              .appendField('', 'NAME');
+          },
+        };
+      }
+
+      const callBlock = ws.newBlock('cpp_procedures_callnoreturn');
+      callBlock.setFieldValue('doWork', 'NAME');
+      // Simulate getVars returning empty (no args)
+      callBlock.getVars = () => [];
+
+      const gen = new ArduinoCppGenerator();
+      gen.init(ws);
+      const code = gen.forBlock['cpp_procedures_callnoreturn'](callBlock, gen) as string;
+
+      expect(code).toBe('doWork();\n');
       ws.dispose();
     });
   });
