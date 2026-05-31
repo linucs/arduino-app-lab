@@ -5,7 +5,7 @@ docs:
 implementations:
   - runtime: "arduino:cpp"
     blocks:
-      # --- Serial.begin (setup-only) ---
+      # --- Serial.begin (place inside Setup container) ---
       - blockly:
           type: cpp_serial_begin
           message0: "Serial.begin %1 baud"
@@ -20,10 +20,10 @@ implementations:
                 - ["230400", "230400"]
           previousStatement: null
           nextStatement: null
-          tooltip: "Initialize Serial communication at the given baud rate. Place in setup."
+          tooltip: "Initialize Serial communication at the given baud rate. Place inside the Setup container."
           helpUrl: "https://www.arduino.cc/reference/en/language/functions/communication/serial/begin/"
         codegen:
-          setup:
+          body:
             - "Serial.begin({{BAUD}});"
 
       # --- Serial.println ---
@@ -164,7 +164,7 @@ implementations:
           inputDefaults:
             TARGET: '""'
 
-      # --- Serial.setTimeout (setup-recommended) ---
+      # --- Serial.setTimeout (place inside Setup container) ---
       - blockly:
           type: cpp_serial_set_timeout
           message0: "Serial.setTimeout %1 ms"
@@ -174,11 +174,11 @@ implementations:
               check: ["Number", "int", "unsigned int", "long", "unsigned long", "byte", "word", "uint8_t", "uint16_t", "uint32_t", "int8_t", "int16_t", "int32_t"]
           previousStatement: null
           nextStatement: null
-          tooltip: "Set the timeout for Serial read operations in milliseconds."
+          tooltip: "Set the timeout for Serial read operations. Place inside the Setup container."
           helpUrl: "https://www.arduino.cc/reference/en/language/functions/communication/serial/settimeout/"
           inputsInline: true
         codegen:
-          setup:
+          body:
             - "Serial.setTimeout({{MS}});"
           inputDefaults:
             MS: "1000"

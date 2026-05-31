@@ -8,17 +8,17 @@ implementations:
       imports:
         - "#include <SPI.h>"
     blocks:
-      # --- SPI.begin (setup-only) ---
+      # --- SPI.begin (place inside Setup container) ---
       - blockly:
           type: cpp_spi_begin
           message0: "SPI.begin"
           args0: []
           previousStatement: null
           nextStatement: null
-          tooltip: "Initialize the SPI bus. Place in setup."
+          tooltip: "Initialize the SPI bus. Place inside the Setup container."
           helpUrl: "https://www.arduino.cc/reference/en/language/functions/communication/spi/begin/"
         codegen:
-          setup:
+          body:
             - "SPI.begin();"
 
       # --- SPI.beginTransaction ---

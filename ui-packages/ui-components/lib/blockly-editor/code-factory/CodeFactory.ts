@@ -43,8 +43,9 @@ interface CategoryNode {
 
 export class CodeFactory {
   private readonly adapter: RuntimeAdapter;
-  private readonly collectedDeps: Dependency[] = [];
   private readonly categoryTree = new Map<string, CategoryNode>();
+  private readonly implByBlockType = new Map<string, Implementation>();
+  private seenThisLoad = new Set<string>();
 
   constructor(adapter: RuntimeAdapter) {
     this.adapter = adapter;
@@ -54,6 +55,7 @@ export class CodeFactory {
     entries: CatalogEntry[],
     categoryColours: Record<string, string> = {},
   ): void {
+    this.seenThisLoad.clear();
     let registered = 0;
     let skippedRuntime = 0;
     const refused: string[] = [];
@@ -67,14 +69,13 @@ export class CodeFactory {
         continue;
       }
 
-      this.collectDependencies(impl);
-
       const topCategory = entry.category.split('::')[0];
       const fallbackColour = categoryColours[topCategory];
 
       for (const blockDef of impl.blocks) {
         if (this.registerBlock(blockDef, impl, fallbackColour)) {
           this.addToCategory(entry.category, blockDef.blockly.type);
+          this.implByBlockType.set(blockDef.blockly.type, impl);
           registered++;
         } else {
           refused.push(blockDef.blockly.type ?? '(no type)');
@@ -99,8 +100,20 @@ export class CodeFactory {
     return this.adapter.generator.workspaceToCode(workspace);
   }
 
-  getCollectedDependencies(): readonly Dependency[] {
-    return this.collectedDeps;
+  getUsedDependencies(workspace: Blockly.Workspace): readonly Dependency[] {
+    const seen = new Set<string>();
+    const deps: Dependency[] = [];
+    for (const block of workspace.getAllBlocks(false)) {
+      const impl = this.implByBlockType.get(block.type);
+      if (!impl?.dependencies) continue;
+      for (const dep of impl.dependencies) {
+        const key = `${dep.type}:${dep.name}`;
+        if (seen.has(key)) continue;
+        seen.add(key);
+        deps.push(dep);
+      }
+    }
+    return deps;
   }
 
   getCatalogToolboxCategories(): Blockly.utils.toolbox.ToolboxItemInfo[] {
@@ -119,6 +132,21 @@ export class CodeFactory {
     fallbackColour?: string,
   ): boolean {
     const blockType = blockDef.blockly.type;
+
+    if (!registeredBlockTypes.has(blockType) && blockType in Blockly.Blocks) {
+      console.warn(
+        `[CodeFactory] catalog block "${blockType}" collides with a built-in — skipping`,
+      );
+      return false;
+    }
+
+    if (this.seenThisLoad.has(blockType)) {
+      console.warn(
+        `[CodeFactory] duplicate catalog block "${blockType}" — skipping`,
+      );
+      return false;
+    }
+    this.seenThisLoad.add(blockType);
 
     this.lintDropdownBooleans(blockDef);
 
@@ -211,16 +239,6 @@ export class CodeFactory {
     Blockly.common.defineBlocksWithJsonArray([def]);
   }
 
-  private collectDependencies(impl: Implementation): void {
-    if (!impl.dependencies) return;
-    for (const dep of impl.dependencies) {
-      const exists = this.collectedDeps.some(
-        (d) => d.type === dep.type && d.name === dep.name,
-      );
-      if (!exists) this.collectedDeps.push(dep);
-    }
-  }
-
   // Insert a block type into the category tree. Categories with '::'
   // separators produce nested nodes (e.g. 'I/O::Digital' → I/O > Digital).
   private addToCategory(category: string, blockType: string): void {
@@ -246,7 +264,9 @@ export class CodeFactory {
   private buildCategory(
     name: string,
     node: CategoryNode,
+    parentColour?: string,
   ): Blockly.utils.toolbox.StaticCategoryInfo {
+    const colour = parentColour ?? CATALOG_CATEGORY_COLOUR;
     const contents: Blockly.utils.toolbox.ToolboxItemInfo[] = [];
 
     for (const blockType of node.blocks) {
@@ -254,14 +274,14 @@ export class CodeFactory {
     }
 
     for (const [childName, childNode] of node.children) {
-      contents.push(this.buildCategory(childName, childNode));
+      contents.push(this.buildCategory(childName, childNode, colour));
     }
 
     return {
       kind: 'category',
       name,
       contents,
-      colour: CATALOG_CATEGORY_COLOUR,
+      colour,
       id: undefined,
       categorystyle: undefined,
       cssconfig: undefined,

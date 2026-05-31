@@ -2,6 +2,7 @@ import * as Blockly from 'blockly';
 import { PythonGenerator, pythonGenerator } from 'blockly/python';
 
 import { FieldParamInput } from '../custom-fields/FieldParamInput';
+import { assembleScript } from './assembleScript';
 
 // `App` is always emitted by finish() — reserve it so a user variable
 // named "App" doesn't shadow the import.
@@ -99,91 +100,27 @@ export class ArduinoPythonGenerator extends PythonGenerator {
     }
   }
 
-  // Wraps the body in `def loop():` + `App.run(user_loop=loop)` and prepends
-  // import_* / decl_* / setup_* entries from definitions_ (codegen-iteration-3.md).
-  // Bypasses PythonGenerator.finish() to keep ordering deterministic
-  // (insertion order) and to keep `App.run` after the body, not inside it.
   override finish(code: string): string {
-    const imports: string[] = [];
-    const decls: string[] = [];
-    const helpers: string[] = [];
-    const setupLines: string[] = [];
-    for (const key of Object.keys(this.definitions_)) {
-      const value = this.definitions_[key];
-      if (key === 'variables') continue;
-      if (key.startsWith('import_')) imports.push(value);
-      else if (key.startsWith('decl_')) decls.push(value);
-      else if (key.startsWith('func_') || key.startsWith('%')) helpers.push(value);
-      else if (key.startsWith('setup_')) setupLines.push(value);
-      // Catch-all: standard Blockly Python handlers add imports under
-      // unprefixed keys (e.g. 'from_numbers_import_Number'). Heuristic:
-      // if the value looks like an import statement, treat it as one;
-      // otherwise place it in declarations.
-      else if (/^(?:import |from )/.test(value)) imports.push(value);
-      else decls.push(value);
-    }
-    imports.push('from arduino.app_utils import App');
-
-    const varsDef = this.definitions_['variables'];
-    const varNames = varsDef
-      ? varsDef.split('\n').map((l) => l.split(' = ')[0].trim()).filter(Boolean)
-      : [];
-    const globalLine = varNames.length
-      ? `${this.INDENT}global ${varNames.join(', ')}\n`
-      : '';
-
-    // Inject `global` declarations into decl_* function definitions that
-    // reference module-level variables. Without this, Python treats any
-    // assigned variable as function-local, causing UnboundLocalError at
-    // runtime (e.g. `led_status = not led_status` inside a Bridge handler).
-    const injectGlobals = (decl: string): string => {
-      if (!varNames.length) return decl;
-      const match = decl.match(/^(def\s+\w+\([^)]*\):\s*\n)/);
-      if (!match) return decl;
-      const fnBody = decl.slice(match[1].length);
-      const used = varNames.filter((v) => fnBody.includes(v));
-      if (!used.length) return decl;
-      return match[1] + `${this.INDENT}global ${used.join(', ')}\n` + fnBody;
-    };
-
-    // The built-in PythonGenerator procedure handlers emit `global` lines
-    // that include ALL workspace variables — including FieldParamInput-owned
-    // variables from other blocks (e.g. `args` from a Bridge.provide handler).
-    // Strip those names so only true module-level variables remain.
     const paramVarNames = new Set<string>();
     for (const varId of this.paramVarIds_) {
       paramVarNames.add(this.getVariableName(varId));
     }
-    const cleanGlobals = (helper: string): string => {
-      if (!paramVarNames.size) return helper;
-      return helper.replace(
-        /^( +global )(.+)$/m,
-        (line, prefix: string, vars: string) => {
-          const cleaned = vars.split(', ').filter((v) => !paramVarNames.has(v));
-          return cleaned.length ? prefix + cleaned.join(', ') : '';
-        },
-      );
-    };
 
-    const body = code
-      ? globalLine + this.prefixLines(code.replace(/\n+$/, ''), this.INDENT)
-      : this.INDENT + this.PASS;
+    const loopBody = code
+      ? this.prefixLines(code.replace(/\n+$/, ''), this.INDENT)
+      : '';
+    const result = assembleScript(
+      this.definitions_,
+      loopBody,
+      this.INDENT,
+      this.PASS,
+      paramVarNames,
+    );
 
-    const sections: string[] = [];
-    sections.push('# --- Imports ---\n' + imports.join('\n'));
-    if (varsDef) sections.push('# --- Variables ---\n' + varsDef);
-    if (decls.length) sections.push('# --- Declarations ---\n' + decls.map(injectGlobals).join('\n\n'));
-    if (helpers.length) sections.push('# --- Helper functions ---\n' + helpers.map(cleanGlobals).join('\n\n'));
-    if (setupLines.length) sections.push('# --- Setup ---\n' + setupLines.join('\n\n'));
-    sections.push(`def loop():\n${body}`);
-    sections.push('App.run(user_loop=loop)');
-
-    // Reset state per Blockly's generator contract: subsequent
-    // workspaceToCode invocations must start from a clean slate.
     this.definitions_ = Object.create(null);
     this.paramVarIds_ = new Set();
     this.nameDB_?.reset();
 
-    return sections.join('\n\n') + '\n';
+    return result;
   }
 }

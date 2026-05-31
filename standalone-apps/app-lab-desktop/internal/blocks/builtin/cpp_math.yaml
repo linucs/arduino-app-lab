@@ -107,7 +107,7 @@ implementations:
             MIN: "0"
             MAX: "100"
 
-      # --- randomSeed (setup-only) ---
+      # --- randomSeed (place inside Setup container) ---
       - blockly:
           type: cpp_random_seed
           message0: "randomSeed %1"
@@ -117,11 +117,11 @@ implementations:
               check: ["Number", "int", "unsigned int", "long", "unsigned long", "byte", "word", "uint8_t", "uint16_t", "uint32_t", "int8_t", "int16_t", "int32_t"]
           previousStatement: null
           nextStatement: null
-          tooltip: "Initialize the random number generator. Place in setup. Use analogRead(A0) for noise-based seeding."
+          tooltip: "Initialize the random number generator. Place inside the Setup container. Use analogRead(A0) for noise-based seeding."
           helpUrl: "https://www.arduino.cc/reference/en/language/functions/random-numbers/randomseed/"
           inputsInline: true
         codegen:
-          setup:
+          body:
             - "randomSeed({{SEED}});"
           inputDefaults:
             SEED: "analogRead(A0)"

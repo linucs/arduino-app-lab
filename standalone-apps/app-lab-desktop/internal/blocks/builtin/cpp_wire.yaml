@@ -8,17 +8,17 @@ implementations:
       imports:
         - "#include <Wire.h>"
     blocks:
-      # --- Wire.begin (setup-only) ---
+      # --- Wire.begin (place inside Setup container) ---
       - blockly:
           type: cpp_wire_begin
           message0: "Wire.begin"
           args0: []
           previousStatement: null
           nextStatement: null
-          tooltip: "Initialize the I2C bus as a controller. Place in setup."
+          tooltip: "Initialize the I2C bus as a controller. Place inside the Setup container."
           helpUrl: "https://www.arduino.cc/reference/en/language/functions/communication/wire/begin/"
         codegen:
-          setup:
+          body:
             - "Wire.begin();"
 
       # --- Wire.requestFrom ---

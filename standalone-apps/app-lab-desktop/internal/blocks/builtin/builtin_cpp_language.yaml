@@ -1,0 +1,78 @@
+# L1 math/bitwise blocks for arduino:cpp — type casting and bitwise ops.
+
+id: builtin_cpp_language
+category: "Mathematics"
+implementations:
+  - runtime: "arduino:cpp"
+    blocks:
+      # --- type_cast: explicit C++ cast ---
+      - blockly:
+          type: type_cast
+          message0: "(%1) %2"
+          args0:
+            - type: field_dropdown
+              name: TYPE
+              options:
+                - ["int", "int"]
+                - ["long", "long"]
+                - ["float", "float"]
+                - ["double", "double"]
+                - ["char", "char"]
+                - ["byte", "byte"]
+                - ["bool", "bool"]
+                - ["unsigned int", "unsigned int"]
+                - ["unsigned long", "unsigned long"]
+                - ["uint8_t", "uint8_t"]
+                - ["uint16_t", "uint16_t"]
+                - ["uint32_t", "uint32_t"]
+            - type: input_value
+              name: VALUE
+          inputsInline: true
+          output: null
+          colour: "#6BA35C"
+          tooltip: "Explicit C++ type cast."
+        codegen:
+          body:
+            - "({{TYPE}})({{VALUE}})"
+          precedence: UNARY_PREFIX
+
+      # --- bitwise operation ---
+      - blockly:
+          type: bitwise_operation
+          message0: "%1 %2 %3"
+          args0:
+            - type: input_value
+              name: A
+            - type: field_dropdown
+              name: OP
+              options:
+                - ["&", "&"]
+                - ["|", "|"]
+                - ["^", "^"]
+                - ["<<", "<<"]
+                - [">>", ">>"]
+            - type: input_value
+              name: B
+          inputsInline: true
+          output: null
+          colour: "#6BA35C"
+          tooltip: "Bitwise operation between two integers."
+        codegen:
+          body:
+            - "{{A}} {{OP}} {{B}}"
+          precedence: ADDITION
+
+      # --- bitwise NOT ---
+      - blockly:
+          type: bitwise_not
+          message0: "~ %1"
+          args0:
+            - type: input_value
+              name: VALUE
+          output: null
+          colour: "#6BA35C"
+          tooltip: "Bitwise NOT (ones complement)."
+        codegen:
+          body:
+            - "~{{VALUE}}"
+          precedence: UNARY_PREFIX

@@ -25,10 +25,10 @@ implementations:
                 - ["INPUT_PULLUP", "INPUT_PULLUP"]
           previousStatement: null
           nextStatement: null
-          tooltip: "Configure a digital pin as INPUT, OUTPUT, or INPUT_PULLUP."
+          tooltip: "Configure a digital pin as INPUT, OUTPUT, or INPUT_PULLUP. Place inside the Setup container."
           helpUrl: "https://docs.arduino.cc/language-reference/en/functions/digital-io/pinMode/"
         codegen:
-          setup:
+          body:
             - "pinMode({{PIN}}, {{MODE}});"
           inputDefaults:
             PIN: "13"

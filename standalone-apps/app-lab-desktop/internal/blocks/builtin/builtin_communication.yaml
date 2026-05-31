@@ -13,7 +13,7 @@ implementations:
       # --- Monitor.println (cpp_print — iteration 3 name preserved) ---
       - blockly:
           type: cpp_print
-          message0: "Monitor.println %1"
+          message0: "print %1 to Monitor"
           args0:
             - type: input_value
               name: VALUE
@@ -33,7 +33,7 @@ implementations:
       # --- Bridge.notify (declarative) ---
       - blockly:
           type: cpp_bridge_notify
-          message0: "Bridge.notify %1 data %2"
+          message0: "notify %1 of %2 through bridge"
           args0:
             - type: field_input
               name: NAME
@@ -58,7 +58,7 @@ implementations:
       # NAME values produce separate handler functions.
       - blockly:
           type: cpp_bridge_provide
-          message0: "Bridge.provide %1 param %2"
+          message0: "listen to bridge for %1 data %2"
           args0:
             - type: field_input
               name: NAME
@@ -94,7 +94,7 @@ implementations:
       # --- Bridge.call (declarative) ---
       - blockly:
           type: cpp_bridge_call
-          message0: "Bridge.call %1 args %2 into %3"
+          message0: "call %1 through bridge with data %2 - results into %3"
           args0:
             - type: field_input
               name: NAME
@@ -124,7 +124,7 @@ implementations:
       # --- Bridge.notify (Python, declarative) ---
       - blockly:
           type: python_bridge_notify
-          message0: "Bridge.notify %1 data %2"
+          message0: "notify %1 of %2 through bridge"
           args0:
             - type: field_input
               name: NAME
@@ -147,7 +147,7 @@ implementations:
       # NAME values produce separate handler functions.
       - blockly:
           type: python_bridge_provide
-          message0: "Bridge.provide %1 param %2"
+          message0: "listen to bridge for %1 data %2"
           args0:
             - type: field_input
               name: NAME
@@ -173,7 +173,7 @@ implementations:
       # --- Bridge.call (Python, declarative — value block) ---
       - blockly:
           type: python_bridge_call
-          message0: "Bridge.call %1 args %2"
+          message0: "call %1 through bridge with data %2"
           args0:
             - type: field_input
               name: NAME

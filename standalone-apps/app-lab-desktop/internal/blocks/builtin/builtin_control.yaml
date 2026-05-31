@@ -1,0 +1,159 @@
+# Structural and escape-hatch blocks (both runtimes).
+# Section containers route nested blocks to specific file sections.
+# custom_code / code_expression / value_symbol let users drop to raw text.
+
+id: builtin_control
+category: "Control"
+implementations:
+  - runtime: "arduino:cpp"
+    blocks:
+      # ── Section containers ────────────────────────────────────────────
+
+      - blockly:
+          type: section_includes
+          message0: "Includes %1"
+          args0:
+            - type: input_statement
+              name: BODY
+          previousStatement: null
+          nextStatement: null
+          tooltip: "C++: code goes to the #include zone (before global declarations)."
+        generator: SectionIncludesGenerator
+
+      - blockly:
+          type: section_declarations
+          message0: "Globals %1"
+          args0:
+            - type: input_statement
+              name: BODY
+          previousStatement: null
+          nextStatement: null
+          tooltip: "C++: code at global scope (after includes, before setup)."
+        generator: SectionDeclarationsGenerator
+
+      - blockly:
+          type: section_setup
+          message0: "Setup %1"
+          args0:
+            - type: input_statement
+              name: BODY
+          previousStatement: null
+          nextStatement: null
+          tooltip: "C++: code runs inside void setup()."
+        generator: SectionSetupGenerator
+
+      # ── Escape hatches ────────────────────────────────────────────────
+
+      - blockly:
+          type: custom_code
+          message0: "custom code %1"
+          args0:
+            - type: field_code
+              name: CODE
+              text: "// your code here"
+          previousStatement: null
+          nextStatement: null
+          colour: "#5C81A6"
+          tooltip: "Insert custom C++ code. Place inside a section container to target includes, global declarations, or setup."
+        codegen:
+          body:
+            - "{{CODE}}"
+
+      - blockly:
+          type: code_expression
+          message0: "⟨ %1 ⟩"
+          args0:
+            - type: field_input
+              name: CODE
+              text: "expression"
+          output: null
+          colour: "#5C81A6"
+          tooltip: "Raw C++ expression inserted as-is as a value."
+        codegen:
+          body:
+            - "{{CODE}}"
+          precedence: ATOMIC
+
+      - blockly:
+          type: value_symbol
+          message0: "symbol %1"
+          args0:
+            - type: field_input
+              name: SYMBOL
+              text: "A0"
+          output: null
+          colour: "#5C81A6"
+          tooltip: "Emit a raw C++ symbol verbatim (a pin constant like A0/A1, a macro like LED_BUILTIN, or any identifier). Not quoted — use for symbols, not text."
+        codegen:
+          body:
+            - "{{SYMBOL}}"
+          precedence: ATOMIC
+
+  - runtime: "arduino:python"
+    blocks:
+      # ── Section containers ────────────────────────────────────────────
+
+      - blockly:
+          type: section_includes
+          message0: "Includes %1"
+          args0:
+            - type: input_statement
+              name: BODY
+          previousStatement: null
+          nextStatement: null
+          tooltip: "Python: code that imports packages used in the program (before global declarations)."
+        generator: SectionIncludesGenerator
+
+      - blockly:
+          type: section_declarations
+          message0: "Globals %1"
+          args0:
+            - type: input_statement
+              name: BODY
+          previousStatement: null
+          nextStatement: null
+          tooltip: "Python: module-level code after imports."
+        generator: SectionDeclarationsGenerator
+
+      - blockly:
+          type: section_setup
+          message0: "Setup %1"
+          args0:
+            - type: input_statement
+              name: BODY
+          previousStatement: null
+          nextStatement: null
+          tooltip: "Python: code runs at module level before def loop()."
+        generator: SectionSetupGenerator
+
+      # ── Escape hatches ────────────────────────────────────────────────
+
+      - blockly:
+          type: custom_code
+          message0: "custom code %1"
+          args0:
+            - type: field_code
+              name: CODE
+              text: "# your code here"
+          previousStatement: null
+          nextStatement: null
+          colour: "#5C81A6"
+          tooltip: "Insert Python custom code. Place inside a section container to target imports, global declarations, or setup."
+        codegen:
+          body:
+            - "{{CODE}}"
+
+      - blockly:
+          type: value_symbol
+          message0: "symbol %1"
+          args0:
+            - type: field_input
+              name: SYMBOL
+              text: "value"
+          output: null
+          colour: "#5C81A6"
+          tooltip: "Emit a raw Python symbol verbatim (an identifier, constant, or attribute access). Not quoted — use for symbols, not text."
+        codegen:
+          body:
+            - "{{SYMBOL}}"
+          precedence: ATOMIC

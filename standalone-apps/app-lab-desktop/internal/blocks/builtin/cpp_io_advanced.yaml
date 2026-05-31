@@ -1,0 +1,409 @@
+# Advanced I/O, bit/byte manipulation, and interrupts (C++ only).
+# Consolidated from cpp_advanced_io, cpp_bits_bytes, cpp_interrupts.
+
+id: builtin_io_advanced
+category: "Input / Output::Advanced"
+implementations:
+  - runtime: "arduino:cpp"
+    blocks:
+      # ── Advanced I/O ─────────────────────────────────────────────────
+      # --- tone ---
+      - blockly:
+          type: cpp_tone
+          message0: "tone pin %1 frequency %2 duration %3"
+          args0:
+            - type: input_value
+              name: PIN
+              check: ["Number", "int", "unsigned int", "long", "unsigned long", "byte", "word", "uint8_t", "uint16_t", "uint32_t", "int8_t", "int16_t", "int32_t"]
+            - type: input_value
+              name: FREQUENCY
+              check: ["Number", "int", "unsigned int", "long", "unsigned long", "byte", "word", "uint8_t", "uint16_t", "uint32_t", "int8_t", "int16_t", "int32_t"]
+            - type: input_value
+              name: DURATION
+              check: ["Number", "int", "unsigned int", "long", "unsigned long", "byte", "word", "uint8_t", "uint16_t", "uint32_t", "int8_t", "int16_t", "int32_t"]
+          previousStatement: null
+          nextStatement: null
+          tooltip: "Generate a square wave of the specified frequency on a pin."
+          helpUrl: "https://www.arduino.cc/reference/en/language/functions/advanced-io/tone/"
+          inputsInline: true
+        codegen:
+          body:
+            - "tone({{PIN}}, {{FREQUENCY}}, {{DURATION}});"
+          inputDefaults:
+            PIN: "8"
+            FREQUENCY: "440"
+            DURATION: "500"
+
+      # --- noTone ---
+      - blockly:
+          type: cpp_no_tone
+          message0: "noTone pin %1"
+          args0:
+            - type: input_value
+              name: PIN
+              check: ["Number", "int", "unsigned int", "long", "unsigned long", "byte", "word", "uint8_t", "uint16_t", "uint32_t", "int8_t", "int16_t", "int32_t"]
+          previousStatement: null
+          nextStatement: null
+          tooltip: "Stop generating a square wave on a pin."
+          helpUrl: "https://www.arduino.cc/reference/en/language/functions/advanced-io/notone/"
+          inputsInline: true
+        codegen:
+          body:
+            - "noTone({{PIN}});"
+          inputDefaults:
+            PIN: "8"
+
+      # --- pulseIn ---
+      - blockly:
+          type: cpp_pulse_in
+          message0: "pulseIn pin %1 %2 timeout %3 µs"
+          args0:
+            - type: input_value
+              name: PIN
+              check: ["Number", "int", "unsigned int", "long", "unsigned long", "byte", "word", "uint8_t", "uint16_t", "uint32_t", "int8_t", "int16_t", "int32_t"]
+            - type: field_dropdown
+              name: VALUE
+              options:
+                - ["HIGH", "HIGH"]
+                - ["LOW", "LOW"]
+            - type: input_value
+              name: TIMEOUT
+              check: ["Number", "int", "unsigned int", "long", "unsigned long", "byte", "word", "uint8_t", "uint16_t", "uint32_t", "int8_t", "int16_t", "int32_t"]
+          output: Number
+          tooltip: "Measure the duration of a pulse on a pin in microseconds."
+          helpUrl: "https://www.arduino.cc/reference/en/language/functions/advanced-io/pulsein/"
+          inputsInline: true
+        codegen:
+          body:
+            - "pulseIn({{PIN}}, {{VALUE}}, {{TIMEOUT}})"
+          precedence: ATOMIC
+          inputDefaults:
+            PIN: "2"
+            TIMEOUT: "1000000"
+
+      # --- pulseInLong ---
+      - blockly:
+          type: cpp_pulse_in_long
+          message0: "pulseInLong pin %1 %2 timeout %3 µs"
+          args0:
+            - type: input_value
+              name: PIN
+              check: ["Number", "int", "unsigned int", "long", "unsigned long", "byte", "word", "uint8_t", "uint16_t", "uint32_t", "int8_t", "int16_t", "int32_t"]
+            - type: field_dropdown
+              name: VALUE
+              options:
+                - ["HIGH", "HIGH"]
+                - ["LOW", "LOW"]
+            - type: input_value
+              name: TIMEOUT
+              check: ["Number", "int", "unsigned int", "long", "unsigned long", "byte", "word", "uint8_t", "uint16_t", "uint32_t", "int8_t", "int16_t", "int32_t"]
+          output: Number
+          tooltip: "Like pulseIn but uses micros() internally — better for longer pulses."
+          helpUrl: "https://www.arduino.cc/reference/en/language/functions/advanced-io/pulseinlong/"
+          inputsInline: true
+        codegen:
+          body:
+            - "pulseInLong({{PIN}}, {{VALUE}}, {{TIMEOUT}})"
+          precedence: ATOMIC
+          inputDefaults:
+            PIN: "2"
+            TIMEOUT: "1000000"
+
+      # --- shiftOut ---
+      - blockly:
+          type: cpp_shift_out
+          message0: "shiftOut data %1 clock %2 %3 value %4"
+          args0:
+            - type: input_value
+              name: DATA_PIN
+              check: ["Number", "int", "unsigned int", "long", "unsigned long", "byte", "word", "uint8_t", "uint16_t", "uint32_t", "int8_t", "int16_t", "int32_t"]
+            - type: input_value
+              name: CLOCK_PIN
+              check: ["Number", "int", "unsigned int", "long", "unsigned long", "byte", "word", "uint8_t", "uint16_t", "uint32_t", "int8_t", "int16_t", "int32_t"]
+            - type: field_dropdown
+              name: BIT_ORDER
+              options:
+                - ["MSBFIRST", "MSBFIRST"]
+                - ["LSBFIRST", "LSBFIRST"]
+            - type: input_value
+              name: VALUE
+              check: ["Number", "int", "unsigned int", "long", "unsigned long", "byte", "word", "uint8_t", "uint16_t", "uint32_t", "int8_t", "int16_t", "int32_t"]
+          previousStatement: null
+          nextStatement: null
+          tooltip: "Shift out a byte of data bit by bit."
+          helpUrl: "https://www.arduino.cc/reference/en/language/functions/advanced-io/shiftout/"
+          inputsInline: true
+        codegen:
+          body:
+            - "shiftOut({{DATA_PIN}}, {{CLOCK_PIN}}, {{BIT_ORDER}}, {{VALUE}});"
+          inputDefaults:
+            DATA_PIN: "11"
+            CLOCK_PIN: "13"
+            VALUE: "0"
+
+      # --- shiftIn ---
+      - blockly:
+          type: cpp_shift_in
+          message0: "shiftIn data %1 clock %2 %3"
+          args0:
+            - type: input_value
+              name: DATA_PIN
+              check: ["Number", "int", "unsigned int", "long", "unsigned long", "byte", "word", "uint8_t", "uint16_t", "uint32_t", "int8_t", "int16_t", "int32_t"]
+            - type: input_value
+              name: CLOCK_PIN
+              check: ["Number", "int", "unsigned int", "long", "unsigned long", "byte", "word", "uint8_t", "uint16_t", "uint32_t", "int8_t", "int16_t", "int32_t"]
+            - type: field_dropdown
+              name: BIT_ORDER
+              options:
+                - ["MSBFIRST", "MSBFIRST"]
+                - ["LSBFIRST", "LSBFIRST"]
+          output: Number
+          tooltip: "Shift in a byte of data bit by bit."
+          helpUrl: "https://www.arduino.cc/reference/en/language/functions/advanced-io/shiftin/"
+          inputsInline: true
+        codegen:
+          body:
+            - "shiftIn({{DATA_PIN}}, {{CLOCK_PIN}}, {{BIT_ORDER}})"
+          precedence: ATOMIC
+          inputDefaults:
+            DATA_PIN: "11"
+            CLOCK_PIN: "13"
+
+      # ── Bit & Byte manipulation ──────────────────────────────────────
+      # --- bitRead ---
+      - blockly:
+          type: cpp_bit_read
+          message0: "bitRead %1 bit %2"
+          args0:
+            - type: input_value
+              name: VALUE
+              check: ["Number", "int", "unsigned int", "long", "unsigned long", "byte", "word", "uint8_t", "uint16_t", "uint32_t", "int8_t", "int16_t", "int32_t"]
+            - type: input_value
+              name: BIT
+              check: ["Number", "int", "unsigned int", "long", "unsigned long", "byte", "word", "uint8_t", "uint16_t", "uint32_t", "int8_t", "int16_t", "int32_t"]
+          output: Number
+          tooltip: "Read a specific bit of a number. Returns 0 or 1."
+          helpUrl: "https://www.arduino.cc/reference/en/language/functions/bits-and-bytes/bitread/"
+          inputsInline: true
+        codegen:
+          body:
+            - "bitRead({{VALUE}}, {{BIT}})"
+          precedence: ATOMIC
+          inputDefaults:
+            VALUE: "0"
+            BIT: "0"
+
+      # --- bitWrite ---
+      - blockly:
+          type: cpp_bit_write
+          message0: "bitWrite %1 bit %2 = %3"
+          args0:
+            - type: input_value
+              name: VALUE
+              check: ["Number", "int", "unsigned int", "long", "unsigned long", "byte", "word", "uint8_t", "uint16_t", "uint32_t", "int8_t", "int16_t", "int32_t"]
+            - type: input_value
+              name: BIT
+              check: ["Number", "int", "unsigned int", "long", "unsigned long", "byte", "word", "uint8_t", "uint16_t", "uint32_t", "int8_t", "int16_t", "int32_t"]
+            - type: input_value
+              name: BIT_VALUE
+              check: ["Number", "int", "unsigned int", "long", "unsigned long", "byte", "word", "uint8_t", "uint16_t", "uint32_t", "int8_t", "int16_t", "int32_t"]
+          previousStatement: null
+          nextStatement: null
+          tooltip: "Write a 0 or 1 to a specific bit of a variable."
+          helpUrl: "https://www.arduino.cc/reference/en/language/functions/bits-and-bytes/bitwrite/"
+          inputsInline: true
+        codegen:
+          body:
+            - "bitWrite({{VALUE}}, {{BIT}}, {{BIT_VALUE}});"
+          inputDefaults:
+            VALUE: "0"
+            BIT: "0"
+            BIT_VALUE: "1"
+
+      # --- bitSet ---
+      - blockly:
+          type: cpp_bit_set
+          message0: "bitSet %1 bit %2"
+          args0:
+            - type: input_value
+              name: VALUE
+              check: ["Number", "int", "unsigned int", "long", "unsigned long", "byte", "word", "uint8_t", "uint16_t", "uint32_t", "int8_t", "int16_t", "int32_t"]
+            - type: input_value
+              name: BIT
+              check: ["Number", "int", "unsigned int", "long", "unsigned long", "byte", "word", "uint8_t", "uint16_t", "uint32_t", "int8_t", "int16_t", "int32_t"]
+          previousStatement: null
+          nextStatement: null
+          tooltip: "Set a specific bit of a variable to 1."
+          helpUrl: "https://www.arduino.cc/reference/en/language/functions/bits-and-bytes/bitset/"
+          inputsInline: true
+        codegen:
+          body:
+            - "bitSet({{VALUE}}, {{BIT}});"
+          inputDefaults:
+            VALUE: "0"
+            BIT: "0"
+
+      # --- bitClear ---
+      - blockly:
+          type: cpp_bit_clear
+          message0: "bitClear %1 bit %2"
+          args0:
+            - type: input_value
+              name: VALUE
+              check: ["Number", "int", "unsigned int", "long", "unsigned long", "byte", "word", "uint8_t", "uint16_t", "uint32_t", "int8_t", "int16_t", "int32_t"]
+            - type: input_value
+              name: BIT
+              check: ["Number", "int", "unsigned int", "long", "unsigned long", "byte", "word", "uint8_t", "uint16_t", "uint32_t", "int8_t", "int16_t", "int32_t"]
+          previousStatement: null
+          nextStatement: null
+          tooltip: "Clear a specific bit of a variable to 0."
+          helpUrl: "https://www.arduino.cc/reference/en/language/functions/bits-and-bytes/bitclear/"
+          inputsInline: true
+        codegen:
+          body:
+            - "bitClear({{VALUE}}, {{BIT}});"
+          inputDefaults:
+            VALUE: "0"
+            BIT: "0"
+
+      # --- bit ---
+      - blockly:
+          type: cpp_bit
+          message0: "bit %1"
+          args0:
+            - type: input_value
+              name: N
+              check: ["Number", "int", "unsigned int", "long", "unsigned long", "byte", "word", "uint8_t", "uint16_t", "uint32_t", "int8_t", "int16_t", "int32_t"]
+          output: Number
+          tooltip: "Compute the value of 2^n (a bitmask with bit n set)."
+          helpUrl: "https://www.arduino.cc/reference/en/language/functions/bits-and-bytes/bit/"
+          inputsInline: true
+        codegen:
+          body:
+            - "bit({{N}})"
+          precedence: ATOMIC
+          inputDefaults:
+            N: "0"
+
+      # --- highByte ---
+      - blockly:
+          type: cpp_high_byte
+          message0: "highByte %1"
+          args0:
+            - type: input_value
+              name: VALUE
+              check: ["Number", "int", "unsigned int", "long", "unsigned long", "byte", "word", "uint8_t", "uint16_t", "uint32_t", "int8_t", "int16_t", "int32_t"]
+          output: Number
+          tooltip: "Extract the high byte (bits 8–15) of a 16-bit value."
+          helpUrl: "https://www.arduino.cc/reference/en/language/functions/bits-and-bytes/highbyte/"
+          inputsInline: true
+        codegen:
+          body:
+            - "highByte({{VALUE}})"
+          precedence: ATOMIC
+          inputDefaults:
+            VALUE: "0"
+
+      # --- lowByte ---
+      - blockly:
+          type: cpp_low_byte
+          message0: "lowByte %1"
+          args0:
+            - type: input_value
+              name: VALUE
+              check: ["Number", "int", "unsigned int", "long", "unsigned long", "byte", "word", "uint8_t", "uint16_t", "uint32_t", "int8_t", "int16_t", "int32_t"]
+          output: Number
+          tooltip: "Extract the low byte (bits 0–7) of a value."
+          helpUrl: "https://www.arduino.cc/reference/en/language/functions/bits-and-bytes/lowbyte/"
+          inputsInline: true
+        codegen:
+          body:
+            - "lowByte({{VALUE}})"
+          precedence: ATOMIC
+          inputDefaults:
+            VALUE: "0"
+
+      # ── Interrupts ────────────────────────────────────────────────────
+      # --- interrupts (enable global interrupts) ---
+      - blockly:
+          type: cpp_interrupts_enable
+          message0: "interrupts (enable)"
+          args0: []
+          previousStatement: null
+          nextStatement: null
+          tooltip: "Re-enable interrupts after noInterrupts(). Use to close a critical section."
+          helpUrl: "https://www.arduino.cc/reference/en/language/functions/interrupts/interrupts/"
+        codegen:
+          body:
+            - "interrupts();"
+
+      # --- noInterrupts (disable global interrupts) ---
+      - blockly:
+          type: cpp_interrupts_disable
+          message0: "noInterrupts (disable)"
+          args0: []
+          previousStatement: null
+          nextStatement: null
+          tooltip: "Disable interrupts. Use at the start of a critical section."
+          helpUrl: "https://www.arduino.cc/reference/en/language/functions/interrupts/nointerrupts/"
+        codegen:
+          body:
+            - "noInterrupts();"
+
+      # --- attachInterrupt hat (declarative ISR + flag polling pattern) ---
+      # declarations are content-hashed: two hat blocks on different pins
+      # produce separate _isr_flag_N declarations and _isr_pinN functions.
+      - blockly:
+          type: cpp_attach_interrupt
+          message0: "when pin %1 %2"
+          args0:
+            - type: field_number
+              name: PIN
+              value: 2
+              min: 0
+              max: 53
+            - type: field_dropdown
+              name: MODE
+              options:
+                - ["RISING", "RISING"]
+                - ["FALLING", "FALLING"]
+                - ["CHANGE", "CHANGE"]
+          message1: "do %1"
+          args1:
+            - type: input_statement
+              name: BODY
+          nextStatement: null
+          extensions:
+            - hat_event_style
+          tooltip: "Run the attached code whenever the pin changes to the selected state."
+          helpUrl: "https://www.arduino.cc/reference/en/language/functions/external-interrupts/attachinterrupt/"
+        codegen:
+          declarations:
+            - "volatile bool _isr_flag_{{PIN}} = false;"
+            - "void _isr_pin{{PIN}}() {\n  _isr_flag_{{PIN}} = true;\n}"
+          setup:
+            - "attachInterrupt(digitalPinToInterrupt({{PIN}}), _isr_pin{{PIN}}, {{MODE}});"
+          body:
+            - "if (_isr_flag_{{PIN}}) {"
+            - "  _isr_flag_{{PIN}} = false;"
+            - "{{BODY}}"
+            - "}"
+
+      # --- detachInterrupt ---
+      - blockly:
+          type: cpp_detach_interrupt
+          message0: "detachInterrupt pin %1"
+          args0:
+            - type: field_number
+              name: PIN
+              value: 2
+              min: 0
+              max: 53
+          previousStatement: null
+          nextStatement: null
+          tooltip: "Turn off the interrupt on the given pin."
+          helpUrl: "https://www.arduino.cc/reference/en/language/functions/external-interrupts/detachinterrupt/"
+        codegen:
+          body:
+            - "detachInterrupt(digitalPinToInterrupt({{PIN}}));"
+

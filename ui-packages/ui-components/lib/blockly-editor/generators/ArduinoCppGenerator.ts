@@ -1,6 +1,7 @@
 import * as Blockly from 'blockly';
 
 import { FieldTypedParamInput } from '../custom-fields/FieldTypedParamInput';
+import { assembleSketch } from './assembleSketch';
 
 // C++ standard language keywords reserved in nameDB_ (codegen-iteration-3.md
 // step 1). Deliberately excludes Arduino identifiers (setup, loop, pinMode,
@@ -55,6 +56,22 @@ const LOGIC_OP: Record<string, { op: string; order: CppOrder }> = {
   AND: { op: '&&', order: CppOrder.LOGICAL_AND },
   OR: { op: '||', order: CppOrder.LOGICAL_OR },
 };
+
+// Define do-while block if not already present (same pattern as switchCaseBlock.ts).
+if (!Blockly.Blocks['controls_doWhile']) {
+  Blockly.common.defineBlocksWithJsonArray([{
+    type: 'controls_doWhile',
+    message0: 'do %1 while %2',
+    args0: [
+      { type: 'input_statement', name: 'DO' },
+      { type: 'input_value', name: 'BOOL', check: 'Boolean' },
+    ],
+    previousStatement: null,
+    nextStatement: null,
+    style: 'loop_blocks',
+    tooltip: 'Execute the body first, then repeat while the condition is true.',
+  }]);
+}
 
 export class ArduinoCppGenerator extends Blockly.CodeGenerator {
   // Widened from protected — handler modules under custom-blocks/ write
@@ -372,6 +389,12 @@ export class ArduinoCppGenerator extends Blockly.CodeGenerator {
       return block.getFieldValue('FLOW') === 'BREAK' ? 'break;\n' : 'continue;\n';
     };
 
+    this.forBlock['controls_doWhile'] = (block, generator): string => {
+      const cond = generator.valueToCode(block, 'BOOL', CppOrder.NONE) || 'false';
+      const body = generator.statementToCode(block, 'DO');
+      return `do {\n${body}} while (${cond});\n`;
+    };
+
     // Math
     this.forBlock['math_single'] = (block, generator): [string, CppOrder] => {
       const op  = block.getFieldValue('OP');
@@ -534,6 +557,99 @@ export class ArduinoCppGenerator extends Blockly.CodeGenerator {
     this.forBlock['cpp_procedures_ifreturn'] =
       this.forBlock['procedures_ifreturn'];
 
+    // ---- Text operations (C++ String) ----
+
+    this.forBlock['text_join'] = (block, generator): [string, CppOrder] => {
+      const itemCount = (block as Blockly.Block & { itemCount_?: number }).itemCount_ ?? 0;
+      if (itemCount === 0) return ['""', CppOrder.ATOMIC];
+      if (itemCount === 1) {
+        const item = generator.valueToCode(block, 'ADD0', CppOrder.NONE) || '""';
+        return [`String(${item})`, CppOrder.FUNCTION_CALL];
+      }
+      const parts: string[] = [];
+      for (let i = 0; i < itemCount; i++) {
+        const item = generator.valueToCode(block, 'ADD' + i, CppOrder.NONE);
+        parts.push(item ? `String(${item})` : '""');
+      }
+      return [parts.join(' + '), CppOrder.ADDITIVE];
+    };
+
+    this.forBlock['text_append'] = (block, generator): string => {
+      const varId = block.getFieldValue('VAR');
+      const name = generator.getVariableName(varId);
+      const text = generator.valueToCode(block, 'TEXT', CppOrder.NONE) || '""';
+      this.definitions_[`decl_var_${name}`] = `String ${name} = "";`;
+      return `${name} += String(${text});\n`;
+    };
+
+    this.forBlock['text_length'] = (block, generator): [string, CppOrder] => {
+      const text = generator.valueToCode(block, 'VALUE', CppOrder.NONE) || '""';
+      return [`String(${text}).length()`, CppOrder.FUNCTION_CALL];
+    };
+
+    this.forBlock['text_isEmpty'] = (block, generator): [string, CppOrder] => {
+      const text = generator.valueToCode(block, 'VALUE', CppOrder.NONE) || '""';
+      return [`(String(${text}).length() == 0)`, CppOrder.EQUALITY];
+    };
+
+    this.forBlock['text_indexOf'] = (block, generator): [string, CppOrder] => {
+      const op = block.getFieldValue('END') === 'FIRST' ? 'indexOf' : 'lastIndexOf';
+      const substring = generator.valueToCode(block, 'FIND', CppOrder.NONE) || '""';
+      const text = generator.valueToCode(block, 'VALUE', CppOrder.NONE) || '""';
+      return [`String(${text}).${op}(${substring})`, CppOrder.FUNCTION_CALL];
+    };
+
+    this.forBlock['text_charAt'] = (block, generator): [string, CppOrder] => {
+      const where = block.getFieldValue('WHERE') || 'FROM_START';
+      const text = generator.valueToCode(block, 'VALUE', CppOrder.NONE) || '""';
+      switch (where) {
+        case 'FIRST':
+          return [`String(${text}).charAt(0)`, CppOrder.FUNCTION_CALL];
+        case 'LAST':
+          return [`String(${text}).charAt(String(${text}).length() - 1)`, CppOrder.FUNCTION_CALL];
+        case 'FROM_END': {
+          const at = generator.valueToCode(block, 'AT', CppOrder.NONE) || '0';
+          return [`String(${text}).charAt(String(${text}).length() - 1 - ${at})`, CppOrder.FUNCTION_CALL];
+        }
+        default: {
+          const at = generator.valueToCode(block, 'AT', CppOrder.NONE) || '0';
+          return [`String(${text}).charAt(${at})`, CppOrder.FUNCTION_CALL];
+        }
+      }
+    };
+
+    this.forBlock['text_getSubstring'] = (block, generator): [string, CppOrder] => {
+      const text = generator.valueToCode(block, 'STRING', CppOrder.NONE) || '""';
+      const where1 = block.getFieldValue('WHERE1') || 'FROM_START';
+      const where2 = block.getFieldValue('WHERE2') || 'FROM_START';
+      let from: string;
+      switch (where1) {
+        case 'FIRST':      from = '0'; break;
+        case 'FROM_END':   from = `String(${text}).length() - 1 - ${generator.valueToCode(block, 'AT1', CppOrder.NONE) || '0'}`; break;
+        default:           from = generator.valueToCode(block, 'AT1', CppOrder.NONE) || '0';
+      }
+      let to: string;
+      switch (where2) {
+        case 'LAST':       to = `String(${text}).length()`; break;
+        case 'FROM_END':   to = `String(${text}).length() - ${generator.valueToCode(block, 'AT2', CppOrder.NONE) || '0'}`; break;
+        default:           to = `${generator.valueToCode(block, 'AT2', CppOrder.NONE) || '0'} + 1`;
+      }
+      return [`String(${text}).substring(${from}, ${to})`, CppOrder.FUNCTION_CALL];
+    };
+
+    this.forBlock['text_changeCase'] = (block, generator): [string, CppOrder] => {
+      const op = block.getFieldValue('CASE');
+      const text = generator.valueToCode(block, 'TEXT', CppOrder.NONE) || '""';
+      if (op === 'UPPERCASE') return [`String(${text}).toUpperCase()`, CppOrder.FUNCTION_CALL];
+      if (op === 'LOWERCASE') return [`String(${text}).toLowerCase()`, CppOrder.FUNCTION_CALL];
+      return [`String(${text})`, CppOrder.FUNCTION_CALL];
+    };
+
+    this.forBlock['text_trim'] = (block, generator): [string, CppOrder] => {
+      const text = generator.valueToCode(block, 'TEXT', CppOrder.NONE) || '""';
+      return [`String(${text}).trim()`, CppOrder.FUNCTION_CALL];
+    };
+
   }
 
   // Required because Blockly.CodeGenerator's base init() doesn't create
@@ -598,52 +714,16 @@ export class ArduinoCppGenerator extends Blockly.CodeGenerator {
     return code;
   }
 
-  // Categorize definitions_ by key prefix and wrap in setup()/loop().
-  // Per codegen.md §5, this is the single source of truth — no parallel
-  // collection mechanism. Arduino.h is auto-included for .ino files, so
-  // iteration-3 blocks emit no include_* entries.
   override finish(code: string): string {
-    const includes: string[] = [];
-    const decls: string[] = [];
-    const funcs: string[] = [];
-    const setupLines: string[] = [];
-
-    // Insertion order preserves the order in which handlers ran during
-    // workspaceToCode — keeps the generated file stable as the user edits.
-    for (const key of Object.keys(this.definitions_)) {
-      const value = this.definitions_[key];
-      if (key.startsWith('include_') || key.startsWith('import_')) includes.push(value);
-      else if (key.startsWith('decl_')) decls.push(value);
-      else if (key.startsWith('func_')) funcs.push(value);
-      else if (key.startsWith('setup_')) setupLines.push(value);
-    }
-
-    const sections: string[] = [];
-    if (includes.length) sections.push('// --- Includes ---\n' + includes.join('\n'));
-    if (decls.length) sections.push('// --- Declarations ---\n' + decls.join('\n'));
-    if (funcs.length) sections.push('// --- Helper functions ---\n' + funcs.join('\n\n'));
-
-    // Separate setup lines with blank lines so each init action stands out.
-    const setupBody = setupLines.length
-      ? this.prefixLines(setupLines.join('\n\n'), this.INDENT)
-      : '';
-    sections.push(
-      setupBody ? `void setup() {\n${setupBody}\n}` : 'void setup() {\n}',
-    );
-
     const loopBody = code
       ? this.prefixLines(code.replace(/\n+$/, ''), this.INDENT)
       : '';
-    sections.push(
-      loopBody ? `void loop() {\n${loopBody}\n}` : 'void loop() {\n}',
-    );
+    const result = assembleSketch(this.definitions_, loopBody, this.INDENT);
 
-    // Reset state per Blockly's generator contract: subsequent
-    // workspaceToCode invocations must start from a clean slate.
     this.definitions_ = Object.create(null);
     this.paramVarIds_ = new Set();
     this.nameDB_?.reset();
 
-    return sections.join('\n\n') + '\n';
+    return result;
   }
 }

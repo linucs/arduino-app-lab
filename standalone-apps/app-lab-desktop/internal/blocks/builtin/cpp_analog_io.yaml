@@ -60,13 +60,13 @@ implementations:
                 - ["EXTERNAL", "EXTERNAL"]
           previousStatement: null
           nextStatement: null
-          tooltip: "Configure the reference voltage for analogRead."
+          tooltip: "Configure the reference voltage for analogRead. Place inside the Setup container."
           helpUrl: "https://www.arduino.cc/reference/en/language/functions/analog-io/analogreference/"
         codegen:
-          setup:
+          body:
             - "analogReference({{TYPE}});"
 
-      # --- analogReadResolution (setup-only) ---
+      # --- analogReadResolution (place inside Setup container) ---
       - blockly:
           type: cpp_analog_read_resolution
           message0: "analogReadResolution %1 bits"
@@ -79,13 +79,13 @@ implementations:
                 - ["14 bits", "14"]
           previousStatement: null
           nextStatement: null
-          tooltip: "Set the ADC resolution for analogRead (10/12/14 bits). Place in setup."
+          tooltip: "Set the ADC resolution for analogRead (10/12/14 bits). Place inside the Setup container."
           helpUrl: "https://www.arduino.cc/reference/en/language/functions/zero-due-mkr-family/analogreadresolution/"
         codegen:
-          setup:
+          body:
             - "analogReadResolution({{BITS}});"
 
-      # --- analogWriteResolution (setup-only) ---
+      # --- analogWriteResolution (place inside Setup container) ---
       - blockly:
           type: cpp_analog_write_resolution
           message0: "analogWriteResolution %1 bits"
@@ -98,8 +98,8 @@ implementations:
                 - ["12 bits", "12"]
           previousStatement: null
           nextStatement: null
-          tooltip: "Set the PWM resolution for analogWrite (8/10/12 bits). Place in setup."
+          tooltip: "Set the PWM resolution for analogWrite (8/10/12 bits). Place inside the Setup container."
           helpUrl: "https://www.arduino.cc/reference/en/language/functions/zero-due-mkr-family/analogwriteresolution/"
         codegen:
-          setup:
+          body:
             - "analogWriteResolution({{BITS}});"
